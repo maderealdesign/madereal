@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started | MadeReal Websites</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: { brand: { black: '#000000', teal: '#00D2A0', gray: '#F5F5F7', } },
+                    boxShadow: { 'soft': '0 10px 40px -10px rgba(0,0,0,0.08)', },
+                    backgroundImage: { 'gradient-teal': 'linear-gradient(180deg, #a7f3d0 0%, #00D2A0 100%)', }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-brand-gray text-brand-black min-h-screen flex flex-col">
+
+    <nav class="w-full bg-white/80 backdrop-blur-lg border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-1">
+                <span class="text-2xl font-black tracking-tight">made<span class="text-brand-teal">real</span></span>
+            </a>
+            <a href="/" class="text-sm font-bold text-gray-500 hover:text-brand-black transition-colors">
+                &larr; Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <section class="pt-16 pb-20 px-6">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[1.05] mb-6 text-slate-900">
+                    Your website goes live in <span class="text-brand-teal">48 hours.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto leading-relaxed">
+                    Free preview. <span class="text-slate-900 font-bold bg-white px-2 py-0.5 rounded shadow-sm">£197 one-off.</span> Zero monthly fees. You walk away owning everything.
+                </p>
+            </div>
+
+            <div id="capture-container" class="bg-white p-6 md:p-8 rounded-[32px] shadow-soft border border-gray-100 max-w-2xl mx-auto text-left relative overflow-hidden mb-24">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
+            
+                <div id="step-1-search">
+                    <h3 class="text-2xl font-black text-slate-900 mb-1 tracking-tight">Find your business.</h3>
+                    <p class="text-sm text-gray-500 font-medium mb-6">We'll pull your Google listing and build your free preview today.</p>
+            
+                    <div class="relative mb-3">
+                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10"></i>
+                        <input type="text" id="google-places-input" placeholder="e.g. Entwistle Paving Colne" class="w-full bg-brand-gray border border-gray-200 rounded-2xl py-4 pl-12 pr-4 text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal focus:bg-white transition-all">
+                    </div>
+                    
+                    <button id="btn-manual-entry" class="text-sm font-bold text-brand-teal hover:text-slate-900 transition-colors flex items-center gap-1">
+                        Can't find your business? Enter details manually &rarr;
+                    </button>
+                </div>
+            
+                <div id="step-2-form" class="hidden">
+                    <h3 class="text-2xl font-black text-slate-900 mb-1 tracking-tight" id="form-heading">Let's get started.</h3>
+                    <p class="text-sm text-gray-500 font-medium mb-6">Where should we send your free preview?</p>
+            
+                    <form name="free-preview-request" method="POST" data-netlify="true" action="/success.html" class="space-y-4">
+                        <input type="hidden" name="Google_Address_Found" id="hidden-biz-address" value="Not listed on Google Maps">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Business Name</label>
+                            <input type="text" name="Business_Name" id="visible-biz-name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl py-3 px-4 text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal focus:bg-white">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Your Name</label>
+                                <input type="text" name="Name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl py-3 px-4 text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal focus:bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Mobile Number</label>
+                                <input type="tel" name="Mobile" required class="w-full bg-brand-gray border border-gray-200 rounded-xl py-3 px-4 text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal focus:bg-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Email Address</label>
+                            <input type="email" name="Email" required class="w-full bg-brand-gray border border-gray-200 rounded-xl py-3 px-4 text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal focus:bg-white">
+                        </div>
+                        <button type="submit" class="w-full bg-brand-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-md mt-2">
+                            Send My Free Preview &rarr;
+                        </button>
+                    </form>
+                    
+                    <button id="btn-back" class="text-xs text-gray-400 font-bold uppercase mt-4 hover:text-brand-teal transition-colors flex items-center gap-1">
+                        <i class="fas fa-arrow-left"></i> Go back
+                    </button>
+                </div>
+            </div>
+            </section>
+
+        <section class="py-20 px-6 bg-white border-t border-gray-200">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-black text-center mb-16 tracking-tight text-slate-900">How it works.</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-6 rounded-[24px] border border-gray-100 bg-brand-gray">
+                        <div class="text-3xl font-black text-brand-teal mb-4">01</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">Find your business.</h3>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Search by name and town. We pull your Google listing in seconds. Or, enter your details manually.</p>
+                    </div>
+                    <div class="p-6 rounded-[24px] border border-gray-100 bg-brand-gray">
+                        <div class="text-3xl font-black text-brand-teal mb-4">02</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">We build the draft.</h3>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Reviews, photos, phone numbers—already done. We pull everything together overnight.</p>
+                    </div>
+                    <div class="p-6 rounded-[24px] border border-gray-100 bg-brand-gray">
+                        <div class="text-3xl font-black text-brand-teal mb-4">03</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">You wake up to a site.</h3>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">We send you a temporary link. Have a look on your phone. Show your business partner. Ensure it's perfect.</p>
+                    </div>
+                    <div class="p-6 rounded-[24px] border-2 border-brand-teal bg-white shadow-sm">
+                        <div class="text-3xl font-black text-brand-teal mb-4">04</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-2">Like it? £197 to go live.</h3>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Don't like it? Walk away. No invoice, no chasing emails. If you love it, you pay once and own it forever.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-10 text-center bg-white border-t border-gray-100 mt-auto">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-gray-500 font-medium mb-2">&copy; 2026 MadeReal Design Ltd. Built in Lancashire.</p>
+        </div>
+    </footer>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places&callback=initAutocomplete"></script>
+    <script>
+        function initAutocomplete() {
+            const input = document.getElementById('google-places-input');
+            const options = { componentRestrictions: { country: "uk" }, fields: ["name", "formatted_address"] };
+            const autocomplete = new google.maps.places.Autocomplete(input, options);
+    
+            autocomplete.addListener('place_changed', function() {
+                const place = autocomplete.getPlace();
+                if (!place.name) return; 
+    
+                const nameInput = document.getElementById('visible-biz-name');
+                nameInput.value = place.name;
+                nameInput.readOnly = true;
+                nameInput.classList.add('opacity-70', 'cursor-not-allowed');
+    
+                document.getElementById('hidden-biz-address').value = place.formatted_address;
+                document.getElementById('form-heading').innerHTML = `That's you! <i class="fas fa-check-circle text-brand-teal"></i>`;
+                
+                document.getElementById('step-1-search').classList.add('hidden');
+                document.getElementById('step-2-form').classList.remove('hidden');
+            });
+        }
+    
+        document.getElementById('btn-manual-entry').addEventListener('click', function(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('visible-biz-name');
+            nameInput.value = '';
+            nameInput.readOnly = false;
+            nameInput.classList.remove('opacity-70', 'cursor-not-allowed');
+            
+            document.getElementById('hidden-biz-address').value = 'Not listed on Google Maps';
+            document.getElementById('form-heading').innerHTML = `Let's get started.`;
+    
+            document.getElementById('step-1-search').classList.add('hidden');
+            document.getElementById('step-2-form').classList.remove('hidden');
+        });
+    
+        document.getElementById('btn-back').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('step-2-form').classList.add('hidden');
+            document.getElementById('step-1-search').classList.remove('hidden');
+            document.getElementById('google-places-input').value = '';
+        });
+    </script>
+</body>
+</html>
