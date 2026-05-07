@@ -68,7 +68,7 @@
                     <h3 class="text-2xl font-black text-slate-900 mb-1 tracking-tight" id="form-heading">Let's get started.</h3>
                     <p class="text-sm text-gray-500 font-medium mb-6">Where should we send your free preview?</p>
             
-                    <form name="free-preview-request" method="POST" data-netlify="true" action="/success.html" class="space-y-4">
+                    <form name="free-preview-request" method="POST" data-netlify="true" class="space-y-4">
                         <input type="hidden" name="Google_Address_Found" id="hidden-biz-address" value="Not listed on Google Maps">
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Business Name</label>
@@ -92,6 +92,14 @@
                             Send My Free Preview &rarr;
                         </button>
                     </form>
+
+                        <div id="success-message" class="hidden mt-6 p-6 bg-brand-teal bg-opacity-10 rounded-2xl border border-brand-teal border-opacity-20 text-center">
+                            <i class="fas fa-check-circle text-3xl text-brand-teal mb-3"></i>
+                            <p class="text-lg font-bold text-slate-900 leading-relaxed" id="success-text">
+                                We're on it, <span id="success-business-name" class="text-brand-teal"></span>. A real person will text you within the hour. Your draft site lands by tomorrow.
+                            </p>
+                        </div>
+
                     
                     <button id="btn-back" class="text-xs text-gray-400 font-bold uppercase mt-4 hover:text-brand-teal transition-colors flex items-center gap-1">
                         <i class="fas fa-arrow-left"></i> Go back
@@ -136,7 +144,7 @@
         </div>
     </footer>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places&callback=initAutocomplete"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU&libraries=places&callback=initAutocomplete"></script>
     <script>
         function initAutocomplete() {
             const input = document.getElementById('google-places-input');
@@ -181,5 +189,31 @@
             document.getElementById('google-places-input').value = '';
         });
     </script>
+
+    <script>
+        const form = document.querySelector('form[name="free-preview-request"]');
+        const successMessage = document.getElementById('success-message');
+        const successBusinessName = document.getElementById('success-business-name');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const businessName = document.getElementById('business-name-input')?.value || 'your business';
+                
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                }).then(() => {
+                    form.style.display = 'none';
+                    successMessage.classList.remove('hidden');
+                    successBusinessName.textContent = businessName;
+                }).catch((error) => alert('Error submitting form: ' + error));
+            });
+        }
+    </script>
 </body>
+
 </html>
