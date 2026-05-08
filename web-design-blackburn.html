@@ -16,7 +16,6 @@
             <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
             <button id="menu-btn" class="md:hidden text-2xl text-teal-500" aria-label="Menu">MENU</button>
             <div class="hidden md:flex gap-8 font-semibold text-sm">
-                <a href="/blog.html">Blog</a>
                 <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full">Get Preview</a>
             </div>
         </div>
@@ -33,6 +32,45 @@
     </script>
     
     <main class="pt-24 min-h-screen">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Force menu button to be always on top */
+        #menu-btn { z-index: 1000 !important; cursor: pointer; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <nav class="fixed w-full z-[100] top-0 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
+            <button id="menu-btn" class="md:hidden text-2xl text-teal-500" aria-label="Menu">MENU</button>
+            <div class="hidden md:flex gap-8 font-semibold text-sm">
+                <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full">Get Preview</a>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t border-gray-100 flex flex-col gap-4">
+            <a href="/" class="font-block">Home</a>
+            <a href="/blog.html" class="font-block">Blog</a>
+            <a href="/about.html" class="font-block">About</a>
+        </div>
+    </nav>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+    
+    <main class="pt-24 min-h-screen">
+        
+    <main class="max-w-7xl mx-auto py-20 px-6">
+        <h1 class="text-6xl font-black mb-8 uppercase tracking-tight">Web Design in Blackburn</h1>
+        <p class="text-xl text-gray-700 leading-relaxed">High-converting, mobile-first websites tailored for Blackburn businesses.</p>
+        
         <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,17 +106,78 @@
     </script>
     
     <main class="pt-24 min-h-screen">
-        
-    <main class="max-w-7xl mx-auto py-20 px-6">
-        <h1 class="text-6xl font-black mb-8 uppercase tracking-tight">Web Design in Blackburn</h1>
-        <p class="text-xl text-gray-700 leading-relaxed">High-converting, mobile-first websites tailored for Blackburn businesses.</p>
-        
         <div class="bg-teal-50 border-2 border-teal-200 p-8 rounded-3xl mt-12 mb-12">
     <div class="text-teal-600 text-3xl mb-4"><i class="fas fa-quote-left"></i></div>
     <p class="text-xl font-medium text-gray-800 italic mb-4">"MadeReal built our site in 48 hours. Zero monthly fees, high Google ranking, and the process was effortless. My phone hasn't stopped ringing."</p>
     <div class="font-black">Local Business Owner — Lancashire</div>
 </div>
+<div class="bg-teal-50 border-2 border-teal-200 p-8 rounded-3xl mt-12 mb-12">
+    <div class="text-teal-600 text-3xl mb-4"><i class="fas fa-quote-left"></i></div>
+    <p class="text-xl font-medium text-gray-800 italic mb-4">"MadeReal built our site in 48 hours. Zero monthly fees, high Google ranking, and the process was effortless. My phone hasn't stopped ringing."</p>
+    <div class="font-black">Local Business Owner — Lancashire</div>
+</div>
+<div class="bg-gray-900 text-white p-10 rounded-3xl mt-12 mb-12 shadow-2xl">
+    <h3 class="text-3xl font-black mb-4">Start your local site today</h3>
+    <p class="mb-8 text-gray-400">Get a free, custom-built business web preview delivered to your phone in just 24 hours.</p>
+    <a href="/get-started.html" class="inline-block bg-teal-500 text-black font-black px-8 py-4 rounded-xl hover:bg-white transition-colors">
+        Find Your Business &rarr;
+    </a>
+</div>
+<div class="grid md:grid-cols-2 gap-8 my-16 bg-gray-50 border-2 border-gray-200 p-8 rounded-3xl">
+    <div>
+        <h4 class="font-black text-xl mb-4">Lancashire Owned & Operated</h4>
+        <p class="text-sm">We are a local business. We know the Lancashire market from Colne to Clitheroe, which means your site will resonate with local customers.</p>
+    </div>
+    <div>
+        <h4 class="font-black text-xl mb-4">Google-Ready Foundations</h4>
+        <p class="text-sm">We don't just build sites; we optimize them for local search queries. Fast, secure, and ready to outrank your competitors.</p>
+    </div>
+</div>
 
+    </main>
+
+    <footer class="py-16 bg-white border-t border-gray-200 text-center">
+        <p class="font-black text-xl mb-4">made<span class="text-teal-500">real</span></p>
+        <p class="text-sm text-gray-600">9 Market St, Colne | 07396 710 347</p>
+    </footer>
+</body>
+</html>
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Force menu button to be always on top */
+        #menu-btn { z-index: 1000 !important; cursor: pointer; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <nav class="fixed w-full z-[100] top-0 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
+            <button id="menu-btn" class="md:hidden text-2xl text-teal-500" aria-label="Menu">MENU</button>
+            <div class="hidden md:flex gap-8 font-semibold text-sm">
+                <a href="/blog.html">Blog</a>
+                <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full">Get Preview</a>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t border-gray-100 flex flex-col gap-4">
+            <a href="/" class="font-block">Home</a>
+            <a href="/blog.html" class="font-block">Blog</a>
+            <a href="/about.html" class="font-block">About</a>
+        </div>
+    </nav>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+    
+    <main class="pt-24 min-h-screen">
         <div class="bg-gray-900 text-white p-10 rounded-3xl mt-12 mb-12 shadow-2xl">
     <h3 class="text-3xl font-black mb-4">Start your local site today</h3>
     <p class="mb-8 text-gray-400">Get a free, custom-built business web preview delivered to your phone in just 24 hours.</p>
@@ -86,6 +185,37 @@
         Find Your Business &rarr;
     </a>
 </div>
+<div class="bg-teal-50 border-2 border-teal-200 p-8 rounded-3xl mt-12 mb-12">
+    <div class="text-teal-600 text-3xl mb-4"><i class="fas fa-quote-left"></i></div>
+    <p class="text-xl font-medium text-gray-800 italic mb-4">"MadeReal built our site in 48 hours. Zero monthly fees, high Google ranking, and the process was effortless. My phone hasn't stopped ringing."</p>
+    <div class="font-black">Local Business Owner — Lancashire</div>
+</div>
+<div class="bg-gray-900 text-white p-10 rounded-3xl mt-12 mb-12 shadow-2xl">
+    <h3 class="text-3xl font-black mb-4">Start your local site today</h3>
+    <p class="mb-8 text-gray-400">Get a free, custom-built business web preview delivered to your phone in just 24 hours.</p>
+    <a href="/get-started.html" class="inline-block bg-teal-500 text-black font-black px-8 py-4 rounded-xl hover:bg-white transition-colors">
+        Find Your Business &rarr;
+    </a>
+</div>
+<div class="grid md:grid-cols-2 gap-8 my-16 bg-gray-50 border-2 border-gray-200 p-8 rounded-3xl">
+    <div>
+        <h4 class="font-black text-xl mb-4">Lancashire Owned & Operated</h4>
+        <p class="text-sm">We are a local business. We know the Lancashire market from Colne to Clitheroe, which means your site will resonate with local customers.</p>
+    </div>
+    <div>
+        <h4 class="font-black text-xl mb-4">Google-Ready Foundations</h4>
+        <p class="text-sm">We don't just build sites; we optimize them for local search queries. Fast, secure, and ready to outrank your competitors.</p>
+    </div>
+</div>
+
+    </main>
+
+    <footer class="py-16 bg-white border-t border-gray-200 text-center">
+        <p class="font-black text-xl mb-4">made<span class="text-teal-500">real</span></p>
+        <p class="text-sm text-gray-600">9 Market St, Colne | 07396 710 347</p>
+    </footer>
+</body>
+</html>
 
         
         <h3 class="text-3xl font-black mt-16 mb-6">Why choose local design in Blackburn?</h3>
