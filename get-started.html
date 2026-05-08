@@ -27,6 +27,7 @@
                     },
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'hard': '4px 4px 0px 0px rgba(0,0,0,1)',
                     },
                     backgroundImage: {
                         'gradient-teal': 'linear-gradient(180deg, #a7f3d0 0%, #00D2A0 100%)',
@@ -42,7 +43,7 @@
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         
-        /* Overriding Google's default dropdown styling to match our brand */
+        /* Overriding Google's default dropdown styling */
         .pac-container {
             border-radius: 16px;
             box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
@@ -72,7 +73,7 @@
             font-weight: 500;
         }
         .pac-icon {
-            display: none; /* Hiding the default map pin for a cleaner look */
+            display: none;
         }
     </style>
 </head>
@@ -92,7 +93,7 @@
     <main class="flex-grow pt-32 md:pt-40 pb-20 px-6">
         <div class="max-w-7xl mx-auto">
             
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+            <div id="state-search" class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 transition-opacity duration-500">
                 
                 <div class="order-2 lg:order-1">
                     <span class="inline-block bg-brand-black text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">No Upfront Cost</span>
@@ -105,118 +106,164 @@
                 </div>
 
                 <div class="order-1 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
-                    
-                    <div id="step-search" class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative">
+                    <div class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 relative">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal rounded-t-[32px]"></div>
                         <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Find your business.</h2>
                         <p class="text-gray-500 font-medium mb-8">We'll pull your Google listing to start building your preview.</p>
                         
                         <div class="mb-2">
                             <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
-                            
                             <div class="relative w-full bg-brand-gray border border-gray-200 rounded-2xl focus-within:ring-2 focus-within:ring-brand-teal transition-all flex items-center overflow-hidden">
                                 <i class="fas fa-search text-gray-400 ml-5"></i>
                                 <input id="business-search" type="text" class="w-full bg-transparent border-none p-4 pl-3 font-medium focus:outline-none text-slate-900 placeholder-gray-400" placeholder="e.g. Dave's Garage Burnley" autocomplete="off">
                             </div>
-
                         </div>
                         <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-3">
-                            <i class="far fa-star"></i> Powered by Google Places • UK Businesses
+                            <i class="far fa-star"></i> Powered by Google Places
                         </p>
                     </div>
+                </div>
+            </div>
 
-                    <div id="step-form" class="hidden bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
+            <div id="state-build" class="hidden transition-opacity duration-500 animate-fade-in">
+                
+                <div class="mb-10 text-center md:text-left">
+                    <span class="inline-block bg-brand-teal text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Step 2 of 2</span>
+                    <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 uppercase">Here's what we'll build you.</h1>
+                    <p class="text-lg text-gray-500 font-medium mt-2">We've pulled everything we need. Drop your details to the right to get your preview.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative">
+                    
+                    <div class="lg:col-span-8 space-y-6">
                         
-                        <div class="mb-8 rounded-2xl border border-gray-200 shadow-sm overflow-hidden bg-white">
-                            <div id="display-biz-photo" class="w-full h-48 bg-gray-200 bg-cover bg-center hidden"></div>
-                            <div class="p-5">
-                                <div class="flex justify-between items-start gap-4 mb-2">
+                        <div class="bg-white rounded-[32px] overflow-hidden shadow-soft border border-gray-100">
+                            <div id="brief-cover" class="w-full h-64 bg-gray-200 bg-cover bg-center"></div>
+                            <div class="p-8 md:p-10">
+                                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
                                     <div>
-                                        <h2 id="display-biz-name" class="text-xl font-black text-slate-900 tracking-tight leading-tight"></h2>
-                                        <p id="display-biz-address" class="text-xs text-gray-500 font-medium mt-1 truncate"></p>
+                                        <span class="text-xs font-bold text-brand-teal uppercase tracking-widest mb-2 block"><i class="fas fa-magic mr-1"></i> Auto-Drafted Brief</span>
+                                        <h2 id="brief-name" class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-2"></h2>
+                                        <p id="brief-address" class="text-gray-500 font-medium"></p>
                                     </div>
-                                    <div id="display-rating-box" class="hidden bg-[#008f5d] text-white px-3 py-1.5 rounded-lg text-center flex-shrink-0 shadow-sm">
-                                        <div class="font-black text-lg leading-none" id="display-biz-rating"></div>
-                                        <div class="text-[9px] font-bold uppercase opacity-90 tracking-wider"><span id="display-biz-reviews"></span> Reviews</div>
+                                    <div id="brief-rating-box" class="bg-[#008f5d] text-white px-5 py-3 rounded-2xl text-center flex-shrink-0 shadow-sm hidden">
+                                        <div class="font-black text-3xl leading-none" id="brief-rating"></div>
+                                        <div class="text-[10px] font-bold uppercase opacity-90 tracking-wider mt-1"><span id="brief-reviews-count"></span> Reviews</div>
+                                    </div>
+                                </div>
+                                <div class="mt-8 pt-8 border-t border-gray-100">
+                                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-3">Project Strategy</h3>
+                                    <p class="text-gray-600 font-medium leading-relaxed">
+                                        We will build a high-converting, mobile-first landing page utilizing your existing Google reviews and imagery to establish immediate trust. The layout will be optimized for local SEO, driving direct phone calls and inquiries from customers in your area.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100">
+                                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Contact & Links</h3>
+                                <div class="space-y-4">
+                                    <div id="brief-phone-container" class="flex items-center gap-4 hidden">
+                                        <div class="w-10 h-10 rounded-full bg-brand-gray flex items-center justify-center text-brand-teal"><i class="fas fa-phone"></i></div>
+                                        <div class="font-medium text-slate-900" id="brief-phone"></div>
+                                    </div>
+                                    <div id="brief-website-container" class="flex items-center gap-4 hidden">
+                                        <div class="w-10 h-10 rounded-full bg-brand-gray flex items-center justify-center text-brand-teal"><i class="fas fa-globe"></i></div>
+                                        <div class="font-medium text-slate-900 truncate" id="brief-website"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-gray-50 px-5 py-3 border-t border-gray-100 flex items-center gap-2">
-                                <i class="fas fa-magic text-brand-teal"></i>
-                                <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">Listing Found — Ready To Build.</span>
+
+                            <div id="brief-hours-container" class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100 hidden">
+                                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Operating Hours</h3>
+                                <ul id="brief-hours" class="space-y-2">
+                                    </ul>
                             </div>
                         </div>
 
-                        <h3 class="text-2xl font-black text-slate-900 mb-2 tracking-tight">Where should we send it?</h3>
-                        <p class="text-gray-500 font-medium mb-6 text-sm">Drop your details below and we'll send the free preview to your phone.</p>
+                        <div id="brief-gallery-container" class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100 hidden">
+                            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Location Media</h3>
+                            <div id="brief-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                </div>
+                        </div>
 
-                        <form id="onboarding-form" action="https://formsubmit.co/contact@madereal.uk" method="POST" class="space-y-4">
-                            <input type="hidden" name="_subject" id="form-subject" value="New Website Draft Request!">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="box">
-                            
-                            <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
-                            <input type="hidden" name="Google_Address" id="hidden-biz-address">
-                            <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
-                            <input type="hidden" name="Google_Reviews" id="hidden-biz-reviews">
-                            <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
-                            <input type="hidden" name="Google_Website" id="hidden-biz-website">
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
-                                <input type="text" name="Client_Name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="e.g. Dave">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
-                                <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="07...">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
-                                <input type="email" name="Client_Email" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="dave@business.co.uk">
-                            </div>
-                            
-                            <button type="submit" id="submit-btn" class="w-full bg-brand-black text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-gray-800 transition-colors shadow-lg mt-4 flex justify-center items-center">
-                                <span>Get My Preview &rarr;</span>
-                            </button>
-                            <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
-                                A real person will review your request within the hour.
-                            </p>
-                        </form>
+                        <div id="brief-reviews-container" class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100 hidden">
+                            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Trust & Social Proof</h3>
+                            <div id="brief-reviews" class="space-y-4">
+                                </div>
+                        </div>
+
                     </div>
 
-                    <div id="step-success" class="hidden text-center bg-white p-10 md:p-16 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
-                        <div class="w-20 h-20 bg-brand-teal/20 text-brand-teal rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
-                            <i class="fas fa-check"></i>
+                    <div class="lg:col-span-4 relative">
+                        <div class="sticky top-28 bg-brand-black p-8 md:p-10 rounded-[32px] shadow-xl text-white">
+                            <h3 class="text-2xl font-black mb-2 tracking-tight uppercase">That's Me — Build It.</h3>
+                            <p class="text-gray-400 font-medium mb-8 text-sm">Drop your details below. We'll text your preview link within 24 hours.</p>
+
+                            <form id="onboarding-form" action="https://formsubmit.co/contact@madereal.uk" method="POST" class="space-y-5">
+                                <input type="hidden" name="_subject" id="form-subject" value="New Website Draft Request!">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="box">
+                                
+                                <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
+                                <input type="hidden" name="Google_Address" id="hidden-biz-address">
+                                <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
+                                <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
+                                <input type="hidden" name="Google_Website" id="hidden-biz-website">
+                                
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Your Name</label>
+                                    <input type="text" name="Client_Name" required class="w-full bg-white/10 border border-white/20 text-white rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all placeholder-gray-500" placeholder="e.g. Dave">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Mobile Number</label>
+                                    <input type="tel" name="Client_Mobile" required class="w-full bg-white/10 border border-white/20 text-white rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all placeholder-gray-500" placeholder="07...">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Email Address</label>
+                                    <input type="email" name="Client_Email" required class="w-full bg-white/10 border border-white/20 text-white rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all placeholder-gray-500" placeholder="dave@business.co.uk">
+                                </div>
+                                
+                                <button type="submit" id="submit-btn" class="w-full bg-brand-teal text-slate-900 font-black text-lg px-8 py-4 rounded-xl hover:bg-white transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
+                                    <span>Get My Preview &rarr;</span>
+                                </button>
+                                <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
+                                    A real person reviews your request.
+                                </p>
+                            </form>
                         </div>
-                        <h2 class="text-3xl font-black text-slate-900 mb-4 tracking-tight">Got it!</h2>
-                        <p class="text-lg text-gray-600 font-medium leading-relaxed">
-                            We will get in touch with you within the next hour, and your site preview will be ready within 24 hours.
-                        </p>
-                        <a href="/" class="inline-block mt-8 text-brand-teal font-bold hover:text-slate-900 transition-colors">
-                            &larr; Return to Homepage
-                        </a>
                     </div>
 
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-20">
+            <div id="state-success" class="hidden text-center bg-white p-10 md:p-16 rounded-[32px] shadow-soft border border-gray-100 max-w-2xl mx-auto mt-20">
+                <div class="w-24 h-24 bg-brand-teal/20 text-brand-teal rounded-full flex items-center justify-center text-5xl mx-auto mb-6">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tight">Got it!</h2>
+                <p class="text-xl text-gray-600 font-medium leading-relaxed">
+                    We've received your business data. We will get in touch within the next hour, and your site preview will be ready within 24 hours.
+                </p>
+                <a href="/" class="inline-block mt-10 bg-brand-black text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition-colors">
+                    &larr; Return to Homepage
+                </a>
+            </div>
+
+            <div class="border-t border-gray-200 pt-20 mt-24">
                 <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-12">How it works.</h2>
-                
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
                         <div class="text-3xl font-black text-brand-teal mb-4">01</div>
                         <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">The Search.</h3>
                         <p class="text-gray-600 font-medium text-sm leading-relaxed">Search for your business name. We automatically pull your Google Maps details, existing reviews, and contact info so you don't have to lift a finger.</p>
                     </div>
-                    
                     <div class="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
                         <div class="text-3xl font-black text-brand-teal mb-4">02</div>
                         <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">The Preview.</h3>
                         <p class="text-gray-600 font-medium text-sm leading-relaxed">Within 24 hours, we build a custom, mobile-first homepage mockup based on your data. We send it directly to your phone for a free review.</p>
                     </div>
-                    
                     <div class="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
                         <div class="text-3xl font-black text-brand-teal mb-4">03</div>
                         <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">The Handover.</h3>
@@ -228,7 +275,7 @@
         </div>
     </main>
 
-    <footer class="py-8 text-center bg-white border-t border-gray-100 mt-12">
+    <footer class="py-8 text-center bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-xl font-black tracking-tight">made<span class="text-brand-teal">real</span></div>
             <div class="text-sm text-gray-400 font-medium">
@@ -240,72 +287,124 @@
     <script>
         (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
             key: "AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU",
-            v: "weekly" // Using weekly to ensure classic autocomplete works perfectly
+            v: "weekly" 
         });
 
         async function initPlacesSearch() {
-            // Import the classic Places library
             const { Autocomplete } = await google.maps.importLibrary("places");
-            
             const input = document.getElementById('business-search');
             
-            // Configure to ONLY show businesses (establishments) in the UK
             const options = {
                 componentRestrictions: { country: 'gb' },
                 types: ['establishment'], 
-                fields: ['name', 'formatted_address', 'rating', 'user_ratings_total', 'photos', 'formatted_phone_number', 'website']
+                // Added reviews and opening_hours to the data pull!
+                fields: ['name', 'formatted_address', 'rating', 'user_ratings_total', 'photos', 'formatted_phone_number', 'website', 'reviews', 'opening_hours']
             };
 
             const autocomplete = new Autocomplete(input, options);
 
             autocomplete.addListener('place_changed', () => {
                 const place = autocomplete.getPlace();
-                
-                // If the user hits enter without selecting from the dropdown, stop here to prevent breaking
                 if (!place.name) return;
 
-                // Update Visual Card Text
-                document.getElementById('display-biz-name').textContent = place.name;
-                document.getElementById('display-biz-address').textContent = place.formatted_address || 'Address not available';
+                // 1. Core Info
+                document.getElementById('brief-name').textContent = place.name;
+                document.getElementById('brief-address').textContent = place.formatted_address || '';
 
-                // Reset optional visual elements
-                document.getElementById('display-rating-box').classList.add('hidden');
-                document.getElementById('display-biz-photo').classList.add('hidden');
-                document.getElementById('display-biz-photo').style.backgroundImage = '';
-
-                // Handle Google Rating UI Safely
+                // 2. Rating
                 if (place.rating && place.user_ratings_total) {
-                    document.getElementById('display-rating-box').classList.remove('hidden');
-                    document.getElementById('display-biz-rating').textContent = place.rating;
-                    document.getElementById('display-biz-reviews').textContent = place.user_ratings_total;
+                    document.getElementById('brief-rating-box').classList.remove('hidden');
+                    document.getElementById('brief-rating').textContent = place.rating;
+                    document.getElementById('brief-reviews-count').textContent = place.user_ratings_total;
                     
                     document.getElementById('hidden-biz-rating').value = place.rating;
-                    document.getElementById('hidden-biz-reviews').value = place.user_ratings_total;
-                } else {
-                    document.getElementById('hidden-biz-rating').value = 'No Rating';
-                    document.getElementById('hidden-biz-reviews').value = '0';
                 }
 
-                // Handle Google Photos UI Safely
+                // 3. Contact Info
+                if (place.formatted_phone_number) {
+                    document.getElementById('brief-phone-container').classList.remove('hidden');
+                    document.getElementById('brief-phone').textContent = place.formatted_phone_number;
+                    document.getElementById('hidden-biz-phone').value = place.formatted_phone_number;
+                }
+                if (place.website) {
+                    document.getElementById('brief-website-container').classList.remove('hidden');
+                    document.getElementById('brief-website').textContent = place.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
+                    document.getElementById('hidden-biz-website').value = place.website;
+                }
+
+                // 4. Photos (Cover + Gallery)
                 if (place.photos && place.photos.length > 0) {
-                    const photoUrl = place.photos[0].getUrl({maxWidth: 800});
-                    const photoElement = document.getElementById('display-biz-photo');
-                    photoElement.classList.remove('hidden');
-                    photoElement.style.backgroundImage = `url('${photoUrl}')`;
+                    // Set Cover
+                    const coverUrl = place.photos[0].getUrl({maxWidth: 1200});
+                    document.getElementById('brief-cover').style.backgroundImage = `url('${coverUrl}')`;
+                    
+                    // Set Gallery (if more than 1 photo exists)
+                    if (place.photos.length > 1) {
+                        const galleryContainer = document.getElementById('brief-gallery');
+                        galleryContainer.innerHTML = ''; // clear previous
+                        const maxGallery = Math.min(place.photos.length, 5); // 1 cover + 4 gallery max
+                        
+                        for(let i=1; i < maxGallery; i++) {
+                            const imgUrl = place.photos[i].getUrl({maxWidth: 400});
+                            const div = document.createElement('div');
+                            div.className = "aspect-square rounded-2xl bg-gray-200 bg-cover bg-center shadow-sm border border-gray-100";
+                            div.style.backgroundImage = `url('${imgUrl}')`;
+                            galleryContainer.appendChild(div);
+                        }
+                        document.getElementById('brief-gallery-container').classList.remove('hidden');
+                    }
                 }
 
-                // Populate Hidden Data for the Email
+                // 5. Opening Hours
+                if (place.opening_hours && place.opening_hours.weekday_text) {
+                    const hoursList = document.getElementById('brief-hours');
+                    hoursList.innerHTML = ''; // clear previous
+                    place.opening_hours.weekday_text.forEach(dayText => {
+                        const li = document.createElement('li');
+                        li.className = "text-sm text-gray-600 font-medium py-2 border-b border-gray-100 last:border-0";
+                        li.textContent = dayText;
+                        hoursList.appendChild(li);
+                    });
+                    document.getElementById('brief-hours-container').classList.remove('hidden');
+                }
+
+                // 6. Reviews
+                if (place.reviews && place.reviews.length > 0) {
+                    const reviewsList = document.getElementById('brief-reviews');
+                    reviewsList.innerHTML = ''; // clear previous
+                    const maxReviews = Math.min(place.reviews.length, 3);
+                    
+                    for(let i=0; i < maxReviews; i++) {
+                        const rev = place.reviews[i];
+                        const div = document.createElement('div');
+                        div.className = "bg-brand-gray p-4 rounded-2xl border border-gray-200";
+                        
+                        // Create stars snippet
+                        let starsHtml = '<div class="text-[#008f5d] text-xs mb-2">';
+                        for(let s=0; s < rev.rating; s++) { starsHtml += '<i class="fas fa-star"></i>'; }
+                        starsHtml += '</div>';
+
+                        div.innerHTML = `
+                            ${starsHtml}
+                            <p class="text-sm text-gray-700 font-medium mb-2 italic">"${rev.text.substring(0, 150)}${rev.text.length > 150 ? '...' : ''}"</p>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">${rev.author_name}</p>
+                        `;
+                        reviewsList.appendChild(div);
+                    }
+                    document.getElementById('brief-reviews-container').classList.remove('hidden');
+                }
+
+                // Populate Hidden Email Data
                 document.getElementById('hidden-biz-name').value = place.name || 'N/A';
                 document.getElementById('hidden-biz-address').value = place.formatted_address || 'N/A';
-                document.getElementById('hidden-biz-phone').value = place.formatted_phone_number || 'N/A';
-                document.getElementById('hidden-biz-website').value = place.website || 'N/A';
-                
-                // Dynamically update the email subject line
-                document.getElementById('form-subject').value = "New Website Request: " + (place.name || 'A Business');
+                document.getElementById('form-subject').value = "Website Request: " + (place.name || 'Business');
 
-                // Transition UI States smoothly
-                document.getElementById('step-search').classList.add('hidden');
-                document.getElementById('step-form').classList.remove('hidden');
+                // Transition UI States
+                document.getElementById('state-search').classList.add('hidden');
+                document.getElementById('state-build').classList.remove('hidden');
+                
+                // Scroll to top of the build section
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
 
@@ -316,7 +415,7 @@
             e.preventDefault();
             
             const submitBtn = document.getElementById('submit-btn');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> SENDING...';
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
@@ -324,19 +423,24 @@
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             })
             .then(response => {
-                document.getElementById('step-form').classList.add('hidden');
-                document.getElementById('step-success').classList.remove('hidden');
+                document.getElementById('state-build').classList.add('hidden');
+                document.getElementById('state-success').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             })
             .catch(error => {
-                document.getElementById('step-form').classList.add('hidden');
-                document.getElementById('step-success').classList.remove('hidden');
+                document.getElementById('state-build').classList.add('hidden');
+                document.getElementById('state-success').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
+    
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    </style>
 </body>
 </html>
