@@ -5,24 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Force menu button to be always on top */
+        #menu-btn { z-index: 1000 !important; cursor: pointer; }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
-    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+    <nav class="fixed w-full z-[100] top-0 bg-white border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
-            <button id="menu-btn" class="md:hidden text-2xl text-teal-500"><i class="fas fa-bars"></i></button>
+            <button id="menu-btn" class="md:hidden text-2xl text-teal-500" aria-label="Menu"><i class="fas fa-bars"></i></button>
             <div class="hidden md:flex gap-8 font-semibold text-sm">
                 <a href="/blog.html">Blog</a>
                 <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full">Get Preview</a>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t border-gray-100 flex flex-col gap-4">
-            <a href="/" class="font-bold">Home</a>
-            <a href="/blog.html" class="font-bold">Blog</a>
-            <a href="/about.html" class="font-bold">About</a>
+            <a href="/" class="font-block">Home</a>
+            <a href="/blog.html" class="font-block">Blog</a>
+            <a href="/about.html" class="font-block">About</a>
         </div>
     </nav>
-    <script>document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');</script>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
     
     <main class="pt-24 min-h-screen">
         <!-- CONTENT_REPLACE -->
