@@ -200,10 +200,8 @@
                             <h3 class="text-2xl font-black mb-2 tracking-tight uppercase">That's Me — Build It.</h3>
                             <p class="text-gray-500 font-medium mb-8 text-sm">Drop your details below. We'll text your preview link within 24 hours.</p>
 
-                            <form id="onboarding-form" action="https://formsubmit.co/contact@madereal.uk" method="POST" class="space-y-5">
-                                <input type="hidden" name="_subject" id="form-subject" value="New Website Draft Request!">
-                                <input type="hidden" name="_captcha" value="false">
-                                <input type="hidden" name="_template" value="box">
+                            <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-5">
+                                <input type="hidden" name="form-name" value="Website Request">
                                 
                                 <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
                                 <input type="hidden" name="Google_Address" id="hidden-biz-address">
@@ -410,7 +408,6 @@
                 // Populate Hidden Email Data
                 document.getElementById('hidden-biz-name').value = place.name || 'N/A';
                 document.getElementById('hidden-biz-address').value = place.formatted_address || 'N/A';
-                document.getElementById('form-subject').value = "Website Request: " + (place.name || 'Business');
 
                 // Transition UI States
                 document.getElementById('state-search').classList.add('hidden');
@@ -423,6 +420,7 @@
 
         initPlacesSearch();
 
+        // NETLIFY AJAX FORM SUBMISSION
         const form = document.getElementById('onboarding-form');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -433,20 +431,20 @@
 
             const formData = new FormData(form);
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
             })
-            .then(response => {
+            .then(() => {
                 document.getElementById('state-build').classList.add('hidden');
                 document.getElementById('state-success').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             })
-            .catch(error => {
-                document.getElementById('state-build').classList.add('hidden');
-                document.getElementById('state-success').classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            .catch((error) => {
+                alert("Something went wrong. Please try again.");
+                submitBtn.innerHTML = '<span>Get My Preview &rarr;</span>';
+                submitBtn.disabled = false;
             });
         });
     </script>
