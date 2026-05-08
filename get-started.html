@@ -41,6 +41,39 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        /* Overriding Google's default dropdown styling to match our brand */
+        .pac-container {
+            border-radius: 16px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            font-family: 'Inter', sans-serif;
+            margin-top: 8px;
+            padding: 8px 0;
+        }
+        .pac-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-top: none;
+            transition: background-color 0.2s;
+        }
+        .pac-item:hover {
+            background-color: #F5F5F7;
+        }
+        .pac-item-query {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0f172a;
+            padding-right: 4px;
+        }
+        .pac-secondary {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        .pac-icon {
+            display: none; /* Hiding the default map pin for a cleaner look */
+        }
     </style>
 </head>
 <body class="bg-brand-gray text-brand-black min-h-screen flex flex-col">
@@ -80,8 +113,12 @@
                         
                         <div class="mb-2">
                             <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
-                            <div id="google-places-container" class="relative w-full bg-brand-gray border border-gray-200 rounded-2xl focus-within:ring-2 focus-within:ring-brand-teal transition-all min-h-[56px] flex items-center">
+                            
+                            <div class="relative w-full bg-brand-gray border border-gray-200 rounded-2xl focus-within:ring-2 focus-within:ring-brand-teal transition-all flex items-center overflow-hidden">
+                                <i class="fas fa-search text-gray-400 ml-5"></i>
+                                <input id="business-search" type="text" class="w-full bg-transparent border-none p-4 pl-3 font-medium focus:outline-none text-slate-900 placeholder-gray-400" placeholder="e.g. Dave's Garage Burnley" autocomplete="off">
                             </div>
+
                         </div>
                         <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-3">
                             <i class="far fa-star"></i> Powered by Google Places • UK Businesses
@@ -203,63 +240,70 @@
     <script>
         (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
             key: "AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU",
-            v: "beta"
+            v: "weekly" // Using weekly to ensure classic autocomplete works perfectly
         });
 
         async function initPlacesSearch() {
-            const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
-            const autocomplete = new PlaceAutocompleteElement();
+            // Import the classic Places library
+            const { Autocomplete } = await google.maps.importLibrary("places");
             
-            autocomplete.componentRestrictions = { country: ['GB'] };
+            const input = document.getElementById('business-search');
             
-            autocomplete.style.cssText = `
-                width: 100%;
-                --gmp-input-font-family: 'Inter', sans-serif;
-                --gmp-input-font-size: 16px;
-                --gmp-input-background-color: transparent;
-                --gmp-input-border: none;
-                --gmp-input-padding: 16px;
-                box-shadow: none;
-            `;
+            // Configure to ONLY show businesses (establishments) in the UK
+            const options = {
+                componentRestrictions: { country: 'gb' },
+                types: ['establishment'], 
+                fields: ['name', 'formatted_address', 'rating', 'user_ratings_total', 'photos', 'formatted_phone_number', 'website']
+            };
 
-            document.getElementById('google-places-container').appendChild(autocomplete);
+            const autocomplete = new Autocomplete(input, options);
 
-            autocomplete.addEventListener('gmp-placeselect', async (e) => {
-                const place = e.place;
-                if (!place) return;
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                
+                // If the user hits enter without selecting from the dropdown, stop here to prevent breaking
+                if (!place.name) return;
 
-                await place.fetchFields({ fields: ['displayName', 'formattedAddress', 'rating', 'userRatingCount', 'photos', 'formattedPhoneNumber', 'websiteUri'] });
+                // Update Visual Card Text
+                document.getElementById('display-biz-name').textContent = place.name;
+                document.getElementById('display-biz-address').textContent = place.formatted_address || 'Address not available';
 
-                // Update Visual Card
-                document.getElementById('display-biz-name').textContent = place.displayName;
-                document.getElementById('display-biz-address').textContent = place.formattedAddress;
+                // Reset optional visual elements
+                document.getElementById('display-rating-box').classList.add('hidden');
+                document.getElementById('display-biz-photo').classList.add('hidden');
+                document.getElementById('display-biz-photo').style.backgroundImage = '';
 
-                if (place.rating && place.userRatingCount) {
+                // Handle Google Rating UI Safely
+                if (place.rating && place.user_ratings_total) {
                     document.getElementById('display-rating-box').classList.remove('hidden');
                     document.getElementById('display-biz-rating').textContent = place.rating;
-                    document.getElementById('display-biz-reviews').textContent = place.userRatingCount;
+                    document.getElementById('display-biz-reviews').textContent = place.user_ratings_total;
                     
                     document.getElementById('hidden-biz-rating').value = place.rating;
-                    document.getElementById('hidden-biz-reviews').value = place.userRatingCount;
+                    document.getElementById('hidden-biz-reviews').value = place.user_ratings_total;
+                } else {
+                    document.getElementById('hidden-biz-rating').value = 'No Rating';
+                    document.getElementById('hidden-biz-reviews').value = '0';
                 }
 
+                // Handle Google Photos UI Safely
                 if (place.photos && place.photos.length > 0) {
-                    const photoUrl = place.photos[0].getURI({maxWidth: 800});
+                    const photoUrl = place.photos[0].getUrl({maxWidth: 800});
                     const photoElement = document.getElementById('display-biz-photo');
                     photoElement.classList.remove('hidden');
                     photoElement.style.backgroundImage = `url('${photoUrl}')`;
                 }
 
                 // Populate Hidden Data for the Email
-                document.getElementById('hidden-biz-name').value = place.displayName || 'N/A';
-                document.getElementById('hidden-biz-address').value = place.formattedAddress || 'N/A';
-                document.getElementById('hidden-biz-phone').value = place.formattedPhoneNumber || 'N/A';
-                document.getElementById('hidden-biz-website').value = place.websiteUri || 'N/A';
+                document.getElementById('hidden-biz-name').value = place.name || 'N/A';
+                document.getElementById('hidden-biz-address').value = place.formatted_address || 'N/A';
+                document.getElementById('hidden-biz-phone').value = place.formatted_phone_number || 'N/A';
+                document.getElementById('hidden-biz-website').value = place.website || 'N/A';
                 
                 // Dynamically update the email subject line
-                document.getElementById('form-subject').value = "New Website Request: " + (place.displayName || 'A Business');
+                document.getElementById('form-subject').value = "New Website Request: " + (place.name || 'A Business');
 
-                // Transition UI
+                // Transition UI States smoothly
                 document.getElementById('step-search').classList.add('hidden');
                 document.getElementById('step-form').classList.remove('hidden');
             });
