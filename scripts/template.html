@@ -11,14 +11,13 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
             <div class="flex items-center gap-6">
-                <!-- Desktop Menu: hidden on mobile, flex on md+ -->
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex gap-6 text-sm font-bold uppercase">
-                    <a href="/" class="hover:text-teal-500">Home</a>
                     <a href="/about.html" class="hover:text-teal-500">About</a>
                     <a href="/blog.html" class="hover:text-teal-500">Blog</a>
                 </div>
                 <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold">Get Preview</a>
-                <!-- Mobile Burger: always visible on mobile, hidden on md+ -->
+                <!-- Mobile Burger: Right-aligned -->
                 <button id="menu-btn" class="md:hidden text-lg font-black uppercase text-teal-500">MENU</button>
             </div>
         </div>
@@ -41,11 +40,9 @@
     <script>
         document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
     </script>
-    
     <main class="pt-24 min-h-screen">
         <!-- CONTENT_REPLACE -->
     </main>
-
     <footer class="py-16 bg-white border-t border-gray-200 text-center">
         <p class="font-black text-xl mb-4">made<span class="text-teal-500">real</span></p>
     </footer>
