@@ -56,74 +56,143 @@
         </div>
     </nav>
 
-    <main class="flex-grow pt-32 pb-20 px-6 flex items-center justify-center">
-        <div class="w-full max-w-xl">
+    <main class="flex-grow pt-32 md:pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
             
-            <div id="step-search" class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
-                <h1 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Find your business.</h1>
-                <p class="text-gray-500 font-medium mb-8">Search for your Google listing below and we'll pull your details to build your preview.</p>
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
                 
-                <div id="google-places-container" class="relative mb-4 w-full bg-brand-gray border border-gray-200 rounded-2xl overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal transition-all min-h-[56px] flex items-center">
+                <div class="order-2 lg:order-1">
+                    <span class="inline-block bg-brand-black text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">No Upfront Cost</span>
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[1.05] mb-6 text-slate-900">
+                        SEE YOUR NEW SITE. <span class="bg-brand-teal/20 text-brand-teal px-2 rounded-lg">ZERO RISK.</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 font-medium leading-relaxed max-w-lg">
+                        Get a custom, mobile-first preview of your new website sent straight to your phone. £197 one-off if you want to go live. Zero monthly fees. No retainers.
+                    </p>
+                </div>
+
+                <div class="order-1 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
+                    
+                    <div id="step-search" class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
+                        <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Find your business.</h2>
+                        <p class="text-gray-500 font-medium mb-8">We'll pull your Google listing to start building your preview.</p>
+                        
+                        <div class="mb-2">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
+                            <div id="google-places-container" class="relative w-full bg-brand-gray border border-gray-200 rounded-2xl overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal transition-all min-h-[56px] flex items-center">
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-3">
+                            <i class="far fa-star"></i> Powered by Google Places • UK Businesses
+                        </p>
+                    </div>
+
+                    <div id="step-form" class="hidden bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
+                        
+                        <div class="mb-8 rounded-2xl border border-gray-200 shadow-sm overflow-hidden bg-white">
+                            <div id="display-biz-photo" class="w-full h-48 bg-gray-200 bg-cover bg-center hidden"></div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-start gap-4 mb-2">
+                                    <div>
+                                        <h2 id="display-biz-name" class="text-xl font-black text-slate-900 tracking-tight leading-tight"></h2>
+                                        <p id="display-biz-address" class="text-xs text-gray-500 font-medium mt-1 truncate"></p>
+                                    </div>
+                                    <div id="display-rating-box" class="hidden bg-[#008f5d] text-white px-3 py-1.5 rounded-lg text-center flex-shrink-0 shadow-sm">
+                                        <div class="font-black text-lg leading-none" id="display-biz-rating"></div>
+                                        <div class="text-[9px] font-bold uppercase opacity-90 tracking-wider"><span id="display-biz-reviews"></span> Reviews</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-5 py-3 border-t border-gray-100 flex items-center gap-2">
+                                <i class="fas fa-magic text-brand-teal"></i>
+                                <span class="text-xs font-bold text-slate-900 uppercase tracking-widest">Listing Found — Ready To Build.</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-black text-slate-900 mb-2 tracking-tight">Where should we send it?</h3>
+                        <p class="text-gray-500 font-medium mb-6 text-sm">Drop your details below and we'll send the free preview to your phone.</p>
+
+                        <form id="onboarding-form" action="https://formsubmit.co/maderealdesign@gmail.com" method="POST" class="space-y-4">
+                            <input type="hidden" name="_subject" value="New Draft Request!">
+                            <input type="hidden" name="_captcha" value="false">
+                            
+                            <input type="hidden" name="Business_Name" id="hidden-biz-name">
+                            <input type="hidden" name="Google_Address" id="hidden-biz-address">
+                            <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
+                            <input type="hidden" name="Google_Reviews" id="hidden-biz-reviews">
+                            <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
+                            <input type="hidden" name="Google_Website" id="hidden-biz-website">
+                            
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
+                                <input type="text" name="Name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="e.g. Dave">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
+                                <input type="tel" name="Mobile" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="07...">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
+                                <input type="email" name="Email" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="dave@business.co.uk">
+                            </div>
+                            
+                            <button type="submit" id="submit-btn" class="w-full bg-brand-black text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-gray-800 transition-colors shadow-lg mt-4 flex justify-center items-center">
+                                <span>Get My Preview &rarr;</span>
+                            </button>
+                            <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
+                                A real person will review your request within the hour.
+                            </p>
+                        </form>
+                    </div>
+
+                    <div id="step-success" class="hidden text-center bg-white p-10 md:p-16 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
+                        <div class="w-20 h-20 bg-brand-teal/20 text-brand-teal rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h2 class="text-3xl font-black text-slate-900 mb-4 tracking-tight">Got it!</h2>
+                        <p class="text-lg text-gray-600 font-medium leading-relaxed">
+                            We will get in touch with you within the next hour, and your site preview will be ready within 24 hours.
+                        </p>
+                        <a href="/" class="inline-block mt-8 text-brand-teal font-bold hover:text-slate-900 transition-colors">
+                            &larr; Return to Homepage
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
-            <div id="step-form" class="hidden bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
+            <div class="border-t border-gray-200 pt-20">
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-12">How it works.</h2>
                 
-                <div class="mb-8 p-4 bg-brand-teal/10 border border-brand-teal/20 rounded-2xl">
-                    <p class="text-xs font-bold text-brand-teal uppercase tracking-widest mb-1">Business Found</p>
-                    <h2 id="display-biz-name" class="text-xl font-black text-slate-900 tracking-tight leading-tight"></h2>
-                    <p id="display-biz-address" class="text-sm text-gray-600 font-medium mt-1 truncate"></p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
+                        <div class="text-3xl font-black text-brand-teal mb-4">01</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">The Search.</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed">Search for your business name. We automatically pull your Google Maps details, existing reviews, and contact info so you don't have to lift a finger.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
+                        <div class="text-3xl font-black text-brand-teal mb-4">02</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">The Preview.</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed">Within 24 hours, we build a custom, mobile-first homepage mockup based on your data. We send it directly to your phone for a free review.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-[32px] border border-gray-100 shadow-sm">
+                        <div class="text-3xl font-black text-brand-teal mb-4">03</div>
+                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">The Handover.</h3>
+                        <p class="text-gray-600 font-medium text-sm leading-relaxed">If you love it, pay the one-off £197. We finish the site, connect your domain name, set up your local SEO, and hand you the keys.</p>
+                    </div>
                 </div>
-
-                <h3 class="text-2xl font-black text-slate-900 mb-2 tracking-tight">Where should we send it?</h3>
-                <p class="text-gray-500 font-medium mb-6 text-sm">Drop your details below and we'll send the free preview to your phone.</p>
-
-                <form id="onboarding-form" action="https://formsubmit.co/maderealdesign@gmail.com" method="POST" class="space-y-4">
-                    <input type="hidden" name="_subject" value="New Draft Request!">
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <input type="hidden" name="Business_Name" id="hidden-biz-name">
-                    <input type="hidden" name="Google_Address" id="hidden-biz-address">
-                    
-                    <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
-                        <input type="text" name="Name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
-                        <input type="tel" name="Mobile" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
-                        <input type="email" name="Email" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all">
-                    </div>
-                    
-                    <button type="submit" id="submit-btn" class="w-full bg-brand-black text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-gray-800 transition-colors shadow-lg mt-4 flex justify-center items-center">
-                        <span>Get My Preview &rarr;</span>
-                    </button>
-                </form>
-            </div>
-
-            <div id="step-success" class="hidden text-center bg-white p-10 md:p-16 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
-                <div class="w-20 h-20 bg-brand-teal/20 text-brand-teal rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
-                    <i class="fas fa-check"></i>
-                </div>
-                <h2 class="text-3xl font-black text-slate-900 mb-4 tracking-tight">Got it!</h2>
-                <p class="text-lg text-gray-600 font-medium leading-relaxed">
-                    We will get in touch with you within the next hour and your site will be live tomorrow.
-                </p>
-                <a href="/" class="inline-block mt-8 text-brand-teal font-bold hover:text-slate-900 transition-colors">
-                    &larr; Return to Homepage
-                </a>
             </div>
 
         </div>
     </main>
 
-    <footer class="py-8 text-center bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
+    <footer class="py-8 text-center bg-white border-t border-gray-100 mt-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-xl font-black tracking-tight">made<span class="text-brand-teal">real</span></div>
             <div class="text-sm text-gray-400 font-medium">
                 <span>&copy; 2026 MadeReal Design Ltd.</span>
             </div>
@@ -132,8 +201,8 @@
 
     <script>
         (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-            key: "AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU", // Ensure your restricted key is here
-            v: "beta" // Using Beta to support the GB array syntax
+            key: "AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU",
+            v: "beta"
         });
 
         async function initPlacesSearch() {
@@ -158,17 +227,32 @@
                 const place = e.place;
                 if (!place) return;
 
-                await place.fetchFields({ fields: ['displayName', 'formattedAddress'] });
+                await place.fetchFields({ fields: ['displayName', 'formattedAddress', 'rating', 'userRatingCount', 'photos', 'formattedPhoneNumber', 'websiteUri'] });
 
-                // Update UI visually
                 document.getElementById('display-biz-name').textContent = place.displayName;
                 document.getElementById('display-biz-address').textContent = place.formattedAddress;
 
-                // Populate hidden form inputs
-                document.getElementById('hidden-biz-name').value = place.displayName;
-                document.getElementById('hidden-biz-address').value = place.formattedAddress;
+                if (place.rating && place.userRatingCount) {
+                    document.getElementById('display-rating-box').classList.remove('hidden');
+                    document.getElementById('display-biz-rating').textContent = place.rating;
+                    document.getElementById('display-biz-reviews').textContent = place.userRatingCount;
+                    
+                    document.getElementById('hidden-biz-rating').value = place.rating;
+                    document.getElementById('hidden-biz-reviews').value = place.userRatingCount;
+                }
 
-                // Transition UI States
+                if (place.photos && place.photos.length > 0) {
+                    const photoUrl = place.photos[0].getURI({maxWidth: 800});
+                    const photoElement = document.getElementById('display-biz-photo');
+                    photoElement.classList.remove('hidden');
+                    photoElement.style.backgroundImage = `url('${photoUrl}')`;
+                }
+
+                document.getElementById('hidden-biz-name').value = place.displayName || 'N/A';
+                document.getElementById('hidden-biz-address').value = place.formattedAddress || 'N/A';
+                document.getElementById('hidden-biz-phone').value = place.formattedPhoneNumber || 'N/A';
+                document.getElementById('hidden-biz-website').value = place.websiteUri || 'N/A';
+
                 document.getElementById('step-search').classList.add('hidden');
                 document.getElementById('step-form').classList.remove('hidden');
             });
@@ -176,7 +260,6 @@
 
         initPlacesSearch();
 
-        // Handle AJAX Form Submission so user isn't redirected away
         const form = document.getElementById('onboarding-form');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -195,12 +278,10 @@
                 }
             })
             .then(response => {
-                // Show success screen regardless of JSON response to ensure smooth UX
                 document.getElementById('step-form').classList.add('hidden');
                 document.getElementById('step-success').classList.remove('hidden');
             })
             .catch(error => {
-                // Fallback: Show success screen even if network slightly hiccups
                 document.getElementById('step-form').classList.add('hidden');
                 document.getElementById('step-success').classList.remove('hidden');
             });
