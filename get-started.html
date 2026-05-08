@@ -73,14 +73,14 @@
 
                 <div class="order-1 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
                     
-                    <div id="step-search" class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative overflow-hidden">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal"></div>
+                    <div id="step-search" class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 transform transition-all relative">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-teal rounded-t-[32px]"></div>
                         <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Find your business.</h2>
                         <p class="text-gray-500 font-medium mb-8">We'll pull your Google listing to start building your preview.</p>
                         
                         <div class="mb-2">
                             <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
-                            <div id="google-places-container" class="relative w-full bg-brand-gray border border-gray-200 rounded-2xl overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal transition-all min-h-[56px] flex items-center">
+                            <div id="google-places-container" class="relative w-full bg-brand-gray border border-gray-200 rounded-2xl focus-within:ring-2 focus-within:ring-brand-teal transition-all min-h-[56px] flex items-center">
                             </div>
                         </div>
                         <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-3">
@@ -114,11 +114,12 @@
                         <h3 class="text-2xl font-black text-slate-900 mb-2 tracking-tight">Where should we send it?</h3>
                         <p class="text-gray-500 font-medium mb-6 text-sm">Drop your details below and we'll send the free preview to your phone.</p>
 
-                        <form id="onboarding-form" action="https://formsubmit.co/maderealdesign@gmail.com" method="POST" class="space-y-4">
-                            <input type="hidden" name="_subject" value="New Draft Request!">
+                        <form id="onboarding-form" action="https://formsubmit.co/contact@madereal.uk" method="POST" class="space-y-4">
+                            <input type="hidden" name="_subject" id="form-subject" value="New Website Draft Request!">
                             <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="box">
                             
-                            <input type="hidden" name="Business_Name" id="hidden-biz-name">
+                            <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
                             <input type="hidden" name="Google_Address" id="hidden-biz-address">
                             <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
                             <input type="hidden" name="Google_Reviews" id="hidden-biz-reviews">
@@ -127,15 +128,15 @@
                             
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
-                                <input type="text" name="Name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="e.g. Dave">
+                                <input type="text" name="Client_Name" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="e.g. Dave">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
-                                <input type="tel" name="Mobile" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="07...">
+                                <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="07...">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
-                                <input type="email" name="Email" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="dave@business.co.uk">
+                                <input type="email" name="Client_Email" required class="w-full bg-brand-gray border border-gray-200 rounded-xl p-4 font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all" placeholder="dave@business.co.uk">
                             </div>
                             
                             <button type="submit" id="submit-btn" class="w-full bg-brand-black text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-gray-800 transition-colors shadow-lg mt-4 flex justify-center items-center">
@@ -229,6 +230,7 @@
 
                 await place.fetchFields({ fields: ['displayName', 'formattedAddress', 'rating', 'userRatingCount', 'photos', 'formattedPhoneNumber', 'websiteUri'] });
 
+                // Update Visual Card
                 document.getElementById('display-biz-name').textContent = place.displayName;
                 document.getElementById('display-biz-address').textContent = place.formattedAddress;
 
@@ -248,11 +250,16 @@
                     photoElement.style.backgroundImage = `url('${photoUrl}')`;
                 }
 
+                // Populate Hidden Data for the Email
                 document.getElementById('hidden-biz-name').value = place.displayName || 'N/A';
                 document.getElementById('hidden-biz-address').value = place.formattedAddress || 'N/A';
                 document.getElementById('hidden-biz-phone').value = place.formattedPhoneNumber || 'N/A';
                 document.getElementById('hidden-biz-website').value = place.websiteUri || 'N/A';
+                
+                // Dynamically update the email subject line
+                document.getElementById('form-subject').value = "New Website Request: " + (place.displayName || 'A Business');
 
+                // Transition UI
                 document.getElementById('step-search').classList.add('hidden');
                 document.getElementById('step-form').classList.remove('hidden');
             });
