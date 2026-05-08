@@ -94,7 +94,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="flex items-center gap-1">
                 <span class="text-2xl font-black tracking-tight">made<span class="text-brand-teal">real</span></span>
-            </a>
+            </a><button id="menu-btn" class="md:hidden text-2xl text-teal-500" aria-label="Menu"><i class="fas fa-bars"></i></button>
             
             <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-600">
                 <a href="#problem" class="hover:text-brand-teal transition-colors">The Problem</a>
@@ -108,7 +108,7 @@
                 Get Your Preview
             </a>
         </div>
-    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t border-gray-100 flex flex-col gap-4"><a href="/" class="font-bold">Home</a><a href="/blog.html" class="font-bold">Blog</a><a href="/about.html" class="font-bold">About</a></div></nav>
 
     <header class="pt-32 md:pt-48 pb-16 md:pb-20 px-6 border-b-4 border-slate-900 bg-brand-gray overflow-hidden">
         <div class="max-w-7xl mx-auto">
@@ -421,5 +421,5 @@
         window.addEventListener("scroll", reveal);
         document.addEventListener("DOMContentLoaded", function() { reveal(); });
     </script>
-</body>
+<script>document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');</script></body>
 </html>
