@@ -1,16 +1,25 @@
 <nav class="fixed w-full z-[100] top-0 bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
         <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
-        <div class="flex items-center gap-4">
-            <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full text-xs font-bold uppercase">Get Preview</a>
-            <button id="menu-btn" class="text-xs font-black uppercase text-teal-500 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">MENU</button>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex gap-8 font-semibold text-sm uppercase">
+            <a href="/about.html" class="hover:text-teal-500">About</a>
+            <a href="/blog.html" class="hover:text-teal-500">Blog</a>
+            <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full">Get Preview</a>
         </div>
+        
+        <!-- Mobile Burger (Now on Far Right) -->
+        <button id="menu-btn" class="md:hidden text-xs font-black uppercase text-teal-500 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">MENU</button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t font-bold text-sm uppercase">
-        <a href="/" class="block py-2">Home</a>
-        <a href="/about.html" class="block py-2">About</a>
-        <a href="/blog.html" class="block py-2">Blog</a>
-        <div class="grid grid-cols-2 gap-2 mt-4 text-[10px] border-t pt-4">
+    
+    <!-- Mobile Menu Container -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t font-bold text-sm uppercase grid grid-cols-1 gap-4">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Blog</a>
+        <div class="grid grid-cols-2 gap-2 border-t pt-4 text-[10px]">
             <a href="/web-design-colne.html">Colne</a>
             <a href="/web-design-burnley.html">Burnley</a>
             <a href="/web-design-nelson.html">Nelson</a>
@@ -21,4 +30,6 @@
         </div>
     </div>
 </nav>
-<script>document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');</script>
+<script>
+    document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
+</script>
