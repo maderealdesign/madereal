@@ -1,15 +1,19 @@
-<!DOCTYPE html><html lang='en'><head><script src='https://cdn.tailwindcss.com'></script></head><body class='bg-gray-50 text-gray-900'>    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-lg border-b border-gray-200/50">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-lg border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-1">
-                <span class="text-2xl font-black tracking-tight">made<span class="text-teal-500">real</span></span>
-            </a>
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-teal-500 text-2xl"><i class="fas fa-bars"></i></button>
-            </div>
-            <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-600">
-                <a href="/blog.html" class="hover:text-teal-500">Blog</a>
-                <a href="/index.html#work" class="hover:text-teal-500">Work</a>
-                <a href="/get-started.html" class="bg-black text-white px-5 py-2.5 rounded-full">Get Preview</a>
+            <a href="/" class="text-2xl font-black">made<span class="text-teal-500">real</span></a>
+            <button id="menu-btn" class="md:hidden text-2xl text-teal-500"><i class="fas fa-bars"></i></button>
+            <div class="hidden md:flex gap-8 font-semibold text-sm">
+                <a href="/blog.html">Blog</a>
+                <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full">Get Preview</a>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white p-6 border-t border-gray-100 flex flex-col gap-4">
@@ -19,29 +23,14 @@
         </div>
     </nav>
     <script>document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');</script>
-<section class="max-w-7xl mx-auto py-20 px-6">
-    <div class="text-center mb-16">
-        <h1 class="text-6xl font-black mb-6 text-slate-900">Burnley's Top Web Developers</h1>
-        <p class="text-xl">Serving Lancashire's industrial hub.</p>
-    </div>
-    <div class="bg-white border-2 border-slate-900 p-12 rounded-3xl shadow-hard">
-        <p class="text-lg">Whether you are near Turf Moor or the town centre, we provide robust, high-speed websites. Burnley businesses need platforms that scale with their growth.</p>
-    </div>
-</section>
+    
+    <main class="pt-24 min-h-screen">
+        <main class="max-w-7xl mx-auto py-20 px-6"><h1 class="text-5xl font-black mb-8">Web Design in Burnley</h1><p>Burnley’s top web agency for industrial growth.</p></main>
+    </main>
 
-    <footer class="py-16 bg-white border-t-4 border-slate-900 border-x-2 border-slate-900">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div><h4 class="font-black mb-4">SERVICES</h4><ul class="text-sm space-y-2">
-                <li><a href="/web-design-colne.html">Colne</a></li>
-                <li><a href="/web-design-burnley.html">Burnley</a></li>
-                <li><a href="/web-design-nelson.html">Nelson</a></li>
-            </ul></div>
-            <div><h4 class="font-black mb-4">COMPANY</h4><ul class="text-sm space-y-2">
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/graphic-design.html">Graphic Design</a></li>
-                <li><a href="/printing.html">Printing</a></li>
-            </ul></div>
-        </div>
+    <footer class="py-16 bg-white border-t border-gray-200 text-center">
+        <p class="font-black text-xl mb-4">made<span class="text-teal-500">real</span></p>
+        <p class="text-sm text-gray-600">9 Market St, Colne | 07396 710 347</p>
     </footer>
-</body></html>
+</body>
+</html>
