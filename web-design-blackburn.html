@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Blackburn | MadeReal</title>
+    <meta name="description" content="Professional £197 one-off websites for local businesses in Blackburn. Zero monthly fees. No retainers.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            teal: '#00D2A0',
+                            gray: '#F5F5F7',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'hard': '8px 8px 0px 0px rgba(15,23,42,1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      gtag("config", "G-HN0VXM5YSL");
+    </script>
+</head>
+<body class="bg-brand-gray text-brand-black flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-[100] top-0 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-1">
+                <span class="text-2xl font-black tracking-tight text-slate-900">made<span class="text-brand-teal">real</span></span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-bold text-sm text-slate-900 uppercase tracking-wide">
+                <a href="/about.html" class="hover:text-brand-teal transition-colors">About Us</a>
+                <a href="/blog.html" class="hover:text-brand-teal transition-colors">Blog</a>
+                <a href="/contact.html" class="hover:text-brand-teal transition-colors">Contact</a>
+                
+                <div class="relative group">
+                    <button class="hover:text-brand-teal transition-colors flex items-center gap-1 uppercase tracking-wide">
+                        Locations <i class="fas fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white border-2 border-slate-900 shadow-hard rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all flex flex-col py-2 z-50">
+                        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t-2 border-l-2 border-slate-900 rotate-45"></div>
+                        <div class="relative z-10 bg-white grid grid-cols-2 gap-1 px-2">
+                            <a href="/web-design-colne.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Colne</a>
+                            <a href="/web-design-burnley.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Burnley</a>
+                            <a href="/web-design-nelson.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Nelson</a>
+                            <a href="/web-design-pendle.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Pendle</a>
+                            <a href="/web-design-skipton.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Skipton</a>
+                            <a href="/web-design-blackburn.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Blackburn</a>
+                            <a href="/web-design-clitheroe.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Clitheroe</a>
+                            <a href="/web-design-barnoldswick.html" class="px-3 py-2 hover:bg-brand-teal/10 hover:text-brand-teal rounded-lg transition-colors text-xs text-center">Barnoldswick</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="/get-started.html" class="hidden md:inline-block bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-brand-teal hover:text-slate-900 transition-colors shadow-sm uppercase tracking-wide border-2 border-transparent hover:border-slate-900">
+                    Get Preview
+                </a>
+                <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-xl text-slate-900 bg-gray-100 rounded-full hover:bg-brand-teal hover:text-white transition-colors" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b-4 border-slate-900 shadow-2xl overflow-y-auto max-h-[calc(100vh-80px)] z-[99]">
+            <div class="p-6 flex flex-col gap-6 font-black text-xl uppercase tracking-tight">
+                <a href="/" class="hover:text-brand-teal transition-colors flex items-center justify-between group">
+                    Home <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-brand-teal"></i>
+                </a>
+                <a href="/about.html" class="hover:text-brand-teal transition-colors flex items-center justify-between group">
+                    About Us <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-brand-teal"></i>
+                </a>
+                <a href="/blog.html" class="hover:text-brand-teal transition-colors flex items-center justify-between group">
+                    Blog <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-brand-teal"></i>
+                </a>
+                <a href="/contact.html" class="hover:text-brand-teal transition-colors flex items-center justify-between group">
+                    Contact <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-brand-teal"></i>
+                </a>
+                
+                <div class="border-t-2 border-gray-100 pt-6 mt-2">
+                    <div class="text-sm text-gray-400 mb-4 tracking-widest font-bold">LOCATIONS</div>
+                    <div class="grid grid-cols-2 gap-4 text-base text-gray-600 font-bold">
+                        <a href="/web-design-colne.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Colne</a>
+                        <a href="/web-design-burnley.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Burnley</a>
+                        <a href="/web-design-nelson.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Nelson</a>
+                        <a href="/web-design-pendle.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Pendle</a>
+                        <a href="/web-design-skipton.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Skipton</a>
+                        <a href="/web-design-blackburn.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Blackburn</a>
+                        <a href="/web-design-clitheroe.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Clitheroe</a>
+                        <a href="/web-design-barnoldswick.html" class="hover:text-brand-teal flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-teal text-xs"></i> Barnoldswick</a>
+                    </div>
+                </div>
+                
+                <a href="/get-started.html" class="bg-brand-teal text-slate-900 text-center px-5 py-4 rounded-2xl font-black hover:bg-slate-900 hover:text-white transition-colors border-2 border-slate-900 mt-4 shadow-hard">
+                    GET YOUR PREVIEW
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 md:pt-48 pb-16 md:pb-24 px-6 animate-fade-in">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8 text-slate-900 uppercase">
+                Web Design in <br>
+                <span class="text-brand-teal">Blackburn.</span>
+            </h1>
+            <p class="text-xl text-gray-600 font-medium leading-relaxed mb-12">
+                We build £197 websites with zero monthly fees for plumbers, electricians, and local businesses in Blackburn.
+            </p>
+            <a href="/get-started.html" class="inline-block bg-slate-900 text-white px-8 py-5 rounded-xl font-black text-lg hover:bg-brand-teal hover:text-slate-900 transition-colors uppercase tracking-wide border-2 border-slate-900 shadow-hard">
+                Get Your Free Preview
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-16 text-center bg-white border-t-4 border-slate-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 text-left">
+                <div class="col-span-2 md:col-span-2">
+                    <h4 class="font-black mb-4 uppercase">Service Areas</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <ul class="space-y-2 text-gray-600 font-medium text-sm">
+                            <li><a href="/web-design-colne.html" class="hover:text-brand-teal transition-colors">Web Design Colne</a></li>
+                            <li><a href="/web-design-burnley.html" class="hover:text-brand-teal transition-colors">Web Design Burnley</a></li>
+                            <li><a href="/web-design-nelson.html" class="hover:text-brand-teal transition-colors">Web Design Nelson</a></li>
+                            <li><a href="/web-design-pendle.html" class="hover:text-brand-teal transition-colors">Web Design Pendle</a></li>
+                        </ul>
+                        <ul class="space-y-2 text-gray-600 font-medium text-sm">
+                            <li><a href="/web-design-skipton.html" class="hover:text-brand-teal transition-colors">Web Design Skipton</a></li>
+                            <li><a href="/web-design-blackburn.html" class="hover:text-brand-teal transition-colors">Web Design Blackburn</a></li>
+                            <li><a href="/web-design-clitheroe.html" class="hover:text-brand-teal transition-colors">Web Design Clitheroe</a></li>
+                            <li><a href="/web-design-barnoldswick.html" class="hover:text-brand-teal transition-colors">Web Design Barnoldswick</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-black mb-4 uppercase">Company</h4>
+                    <ul class="space-y-2 text-gray-600 font-medium text-sm">
+                        <li><a href="/about.html" class="hover:text-brand-teal transition-colors">About Us</a></li>
+                        <li><a href="/blog.html" class="hover:text-brand-teal transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/" class="text-3xl font-black tracking-tight inline-block mb-6">made<span class="text-brand-teal">real</span></a>
+            <address class="not-italic text-slate-900 font-bold mb-2">9 Market St, Colne, BB8 0HY | Lancashire</address>
+            <p class="text-gray-500 font-medium mb-8"><a href="tel:07396710347" class="hover:text-brand-teal">07396 710 347</a> | <a href="mailto:info@made-real.co.uk" class="hover:text-brand-teal hover:underline transition-all">info@made-real.co.uk</a></p>
+            <div class="text-xs text-gray-400 font-black uppercase tracking-widest border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-center gap-4">
+                <span>&copy; 2026 MadeReal Design Ltd.</span>
+                <span class="hidden md:inline text-gray-300">•</span>
+                <span>£197 One-Off Build</span>
+                <span class="hidden md:inline text-gray-300">•</span>
+                <span>Lancashire Web Design</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = menuBtn.querySelector('i');
+
+        if(menuBtn && mobileMenu && menuIcon) {
+            menuBtn.onclick = () => {
+                mobileMenu.classList.toggle('hidden');
+                if(mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                }
+            };
+        }
+    </script>
+</body>
+</html>
