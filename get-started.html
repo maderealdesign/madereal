@@ -133,49 +133,51 @@
                     <p class="text-lg text-gray-500 font-medium mt-2">We've pulled everything we need. Drop your details to the right to get your preview.</p>
                 </div>
 
-                <div class="max-w-2xl mx-auto space-y-12 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative">
                     
-                    <div class="bg-white p-8 md:p-10 rounded-[32px] border-4 border-slate-900 shadow-hard text-slate-900 transition-all">
-                        <h3 id="form-heading" class="text-2xl font-black mb-2 tracking-tight uppercase">That's Me — Build It.</h3>
-                        <p id="form-subheading" class="text-gray-500 font-medium mb-8 text-sm">Drop your details below. We'll text your preview link within 24 hours.</p>
+                    <div id="form-wrapper" class="lg:col-span-5 xl:col-span-4 order-1 lg:order-2 relative">
+                        <div class="sticky top-28 bg-white p-8 md:p-10 rounded-[32px] border-4 border-slate-900 shadow-hard text-slate-900 transition-all">
+                            <h3 id="form-heading" class="text-2xl font-black mb-2 tracking-tight uppercase">That's Me — Build It.</h3>
+                            <p id="form-subheading" class="text-gray-500 font-medium mb-8 text-sm">Drop your details below. We'll text your preview link within 24 hours.</p>
 
-                        <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-5">
-                            <input type="hidden" name="form-name" value="Website Request">
-                            
-                            <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
-                            <input type="hidden" name="Google_Address" id="hidden-biz-address">
-                            <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
-                            <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
-                            <input type="hidden" name="Google_Website" id="hidden-biz-website">
-                            
-                            <div id="manual-biz-name-container" class="hidden">
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Business Name</label>
-                                <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
-                            </div>
+                            <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-5">
+                                <input type="hidden" name="form-name" value="Website Request">
+                                
+                                <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
+                                <input type="hidden" name="Google_Address" id="hidden-biz-address">
+                                <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
+                                <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
+                                <input type="hidden" name="Google_Website" id="hidden-biz-website">
+                                
+                                <div id="manual-biz-name-container" class="hidden">
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Business Name</label>
+                                    <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
+                                </div>
 
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
-                                <input type="text" name="Client_Name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
-                                <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="07...">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
-                                <input type="email" name="Client_Email" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="dave@business.co.uk">
-                            </div>
-                            
-                            <button type="submit" id="submit-btn" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
-                                <span>Get My Preview &rarr;</span>
-                            </button>
-                            <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
-                                A real person reviews your request.
-                            </p>
-                        </form>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
+                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
+                                    <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="07...">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
+                                    <input type="email" name="Client_Email" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="dave@business.co.uk">
+                                </div>
+                                
+                                <button type="submit" id="submit-btn" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
+                                    <span>Get My Preview &rarr;</span>
+                                </button>
+                                <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
+                                    A real person reviews your request.
+                                </p>
+                            </form>
+                        </div>
                     </div>
 
-                    <div id="google-data-container" class="space-y-6">
+                    <div id="google-data-container" class="lg:col-span-7 xl:col-span-8 order-2 lg:order-1 space-y-6">
                         <div class="flex items-center gap-2 mb-2">
                             <i class="fas fa-arrow-down text-brand-teal animate-bounce"></i>
                             <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">We'll use this data</span>
@@ -448,6 +450,10 @@
 
                 // Hide Google Data panel completely
                 document.getElementById('google-data-container').classList.add('hidden');
+                
+                // Make form container center/full width for manual entry
+                const formWrapper = document.getElementById('form-wrapper');
+                formWrapper.className = 'lg:col-span-12 max-w-2xl mx-auto w-full order-1';
                 
                 // Show Business Name input
                 document.getElementById('manual-biz-name-container').classList.remove('hidden');
