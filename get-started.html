@@ -120,7 +120,7 @@
                         <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-3">
                             <i class="far fa-star"></i> Powered by Google Places
                         </p>
-                        <button type="button" id="manual-entry-btn" class="text-xs text-brand-teal font-bold hover:underline uppercase tracking-widest block w-full text-left mt-8">Can't find your business? Enter manually &rarr;</button>
+                        <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="text-xs text-brand-teal font-bold hover:underline uppercase tracking-widest block w-full text-left mt-8">Can't find your business? Enter manually &rarr;</button>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                                     <input type="email" name="Client_Email" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="dave@business.co.uk">
                                 </div>
                                 
-                                <button type="submit" id="submit-btn" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
+                                <button type="submit" id="submit-btn" data-track="submit_preview_request" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
                                     <span>Get My Preview &rarr;</span>
                                 </button>
                                 <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
@@ -535,5 +535,7 @@
         </div>
     </footer>
 
+    <script src="/mobile-menu.js"></script>
+    <script src="/analytics.js"></script>
 </body>
 </html>
