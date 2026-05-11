@@ -6,45 +6,59 @@
             <button id="menu-btn" class="text-xs font-black uppercase text-teal-500 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">MENU</button>
         </div>
     </div>
-    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-xl p-6 grid grid-cols-1 gap-3 font-bold text-sm uppercase">
+    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-html p-6 grid grid-cols-1 gap-3 font-bold text-sm uppercase">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
         <a href="/blog.html">Blog</a>
         
         <div class="border-t pt-3 mt-2"><div class="text-[10px] text-gray-500 mb-2">Services</div>
-            <a href="/graphic-design.html">Graphic Design</a>
-            <a href="/printing.html">Printing</a>
-            <a href="/services/tradesman-websites.html">Tradesman Websites</a>
-            <a href="/services/small-business-websites.html">Small Business</a>
-            <a href="/services/hospitality-websites.html">Hospitality</a>
-            <a href="/services/professional-services.html">Professional Services</a>
-            <a href="/services/ecommerce-websites.html">E-commerce</a>
-            <a href="/services/tradesman-roofing.html">Roofing</a>
-            <a href="/services/tradesman-electricians.html">Electricians</a>
+            <div class="flex flex-col gap-1">
+                <a href="/graphic-design.html">Graphic Design</a>
+                <a href="/printing.html">Printing</a>
+                <a href="/services/tradesman-websites.html">Tradesman Websites</a>
+                <a href="/services/small-business-websites.html">Small Business</a>
+                <a href="/services/hospitality-websites.html">Hospitality</a>
+                <a href="/services/professional-services.html">Professional Services</a>
+                <a href="/services/ecommerce-websites.html">E-commerce</a>
+                <a href="/services/tradesman-roofing.html">Roofing</a>
+                <a href="/services/tradesman-electricians.html">Electricians</a>
+            </div>
         </div>
 
         <div class="border-t pt-3 mt-2"><div class="text-[10px] text-gray-500 mb-2">Locations</div>
             <div class="grid grid-cols-2 gap-2 text-[10px]">
-                <a href="/web-design-skipton.html">Skipton</a><a href="/web-design-barnoldswick.html">Barnoldswick</a><a href="/web-design-pendle.html">Pendle</a><a href="/web-design-blackburn.html">Blackburn</a><a href="/web-design-clitheroe.html">Clitheroe</a><a href="/web-design-nelson.html">Nelson</a><a href="/web-design-colne.html">Colne</a><a href="/web-design-burnley.html">Burnley</a>
+<a href="/web-design-skipton.html">Skipton\</a>
+<a href="/web-design-barnoldswick.html">Barnoldswick\</a>
+<a href="/web-design-pendle.html">Pendle\</a>
+<a href="/web-design-blackburn.html">Blackburn\</a>
+<a href="/web-design-clitheroe.html">Clitheroe\</a>
+<a href="/web-design-nelson.html">Nelson\</a>
+<a href="/web-design-colne.html">Colne\</a>
+<a href="/web-design-burnley.html">Burnley\</a>
             </div>
         </div>
 
-        <div class="border-t pt-3 mt-2"><div class="text-[10px] text-gray-500 mb-2">Recent Posts</div>
+        <div class="border-t pt\s*3 mt-2"><div class="text-[10px] text-gray-500 mb-2">Recent Posts</div>
             <div class="flex flex-col gap-1">
-                <a href="/web-design-mistakes.html">Web Design Mistakes</a><a href="/zero-monthly-fee-explained.html">Zero Monthly Fee Explained</a><a href="/speed-and-rankings.html">Speed And Rankings</a><a href="/why-local-seo-matters.html">Why Local Seo Matters</a><a href="/mobile-first-lancashire.html">Mobile First Lancashire</a><a href="/avoid-monthly-fees.html">Avoid Monthly Fees</a><a href="/local-seo-lancashire.html">Local Seo Lancashire</a>
+<a href="/web-design-mistakes.html">Web Design Mistakes\</a>
+<a href="/zero-monthly-fee-explained.html">Zero Monthly Fee Explained\</a>
+<a href="/speed-and-rankings.html">Speed And Rankings\</a>
+<a href="/why-local-seo-matters.html">Why Local Seo Matters\</a>
+<a href="/mobile-first-lancashire.html">Mobile First Lancashire\</a>
+<a href="/avoid-monthly-fees.html">Avoid Monthly Fees\</a>
+<a href="/local-seo-lancashire.html">Local Seo Lancashire\</a>
             </div>
         </div>
     </div>
 </nav>
 <script>
-    document.getElementById('menu-html-btn')?.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
     });
-    // Fallback for the actual ID in the HTML
-    const btn = document.getElementById('menu-btn');
-    if(btn) {
-        btn.addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-    }
 </script>
