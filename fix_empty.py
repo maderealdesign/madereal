@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+import os
+import glob
+from pathlib import Path
+
+html_files = glob.glob('**/*.html', recursive=True)
+template = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,4 +39,16 @@
         document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
     </script>
 </body>
-</html>
+</html>"""
+
+for file in html_files:
+    if "components" in file or "blog/posts" in file:
+        continue
+    with open(file, 'r') as f:
+        content = f.read()
+    
+    if content.count('<!DOCTYPE html>') > 1:
+        with open(file, 'w') as f:
+            f.write(template)
+        print(f"Reset {file}")
+
