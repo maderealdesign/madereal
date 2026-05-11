@@ -95,17 +95,17 @@
             
             <div id="state-search" class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 transition-opacity duration-500">
                 
-                <div class="order-2 lg:order-1">
+                <div class="order-1 lg:order-1 text-center lg:text-left">
                     <span class="inline-block bg-brand-black text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">No Upfront Cost</span>
                     <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[1.05] mb-6 text-slate-900">
                         SEE YOUR NEW SITE. <span class="bg-brand-teal/20 text-brand-teal px-2 rounded-lg">ZERO RISK.</span>
                     </h1>
-                    <p class="text-xl text-gray-600 font-medium leading-relaxed max-w-lg">
+                    <p class="text-xl text-gray-600 font-medium leading-relaxed max-w-lg mx-auto lg:mx-0">
                         Get a custom, mobile-first preview of your new website sent straight to your phone. £197 one-off if you want to go live. Zero monthly fees. No retainers.
                     </p>
                 </div>
 
-                <div class="order-1 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
+                <div class="order-2 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
                     <div class="bg-white p-8 md:p-12 rounded-[32px] shadow-soft border border-gray-100 relative">
                         <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Find your business.</h2>
                         <p class="text-gray-500 font-medium mb-8">We'll pull your Google listing to start building your preview.</p>
@@ -210,12 +210,22 @@
                                 <input type="hidden" name="Google_Website" id="hidden-biz-website">
                                 
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
-                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Business Name</label>
+                                    <input type="text" name="Business_Name" id="form-biz-name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
-                                    <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="07...">
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Main Services (e.g. MOTs, Servicing)</label>
+                                    <input type="text" name="Business_Services" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="What do you do?">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
+                                        <input type="text" name="Client_Name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile</label>
+                                        <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="07...">
+                                    </div>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
@@ -405,9 +415,11 @@
                     document.getElementById('brief-reviews-container').classList.remove('hidden');
                 }
 
-                // Populate Hidden Email Data
+                // Populate Hidden Email Data & Visible Form Field
                 document.getElementById('hidden-biz-name').value = place.name || 'N/A';
                 document.getElementById('hidden-biz-address').value = place.formatted_address || 'N/A';
+                const formBizName = document.getElementById('form-biz-name');
+                if (formBizName) formBizName.value = place.name || '';
 
                 // Transition UI States
                 document.getElementById('state-search').classList.add('hidden');
