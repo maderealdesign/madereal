@@ -1,0 +1,89 @@
+{
+    "locations": [
+        {
+            "title": "Skipton",
+            "etc": "",
+            "slug": "web-design-skipton.html",
+            "type": "location"
+        },
+        {
+            "title": "Barnoldswick",
+            "etc": "",
+            "slug": "web-design-barnoldswick.html",
+            "type": "location"
+        },
+        {
+            "title": "Pendle",
+            "etc": "",
+            "slug": "web-design-pendle.html",
+            "type": "location"
+        },
+        {
+            "title": "Blackburn",
+            "etc": "",
+            "slug": "web-design-blackburn.html",
+            "type": "location"
+        },
+        {
+            "title": "Clitheroe",
+            "etc": "",
+            "slug": "web-design-clitheroe.html",
+            "type": "location"
+        },
+        {
+            "title": "Nelson",
+            "etc": "",
+            "slug": "web-design-nelson.html",
+            "type": "location"
+        },
+        {
+            "title": "Colne",
+            "etc": "",
+            "slug": "web-design-colne.html",
+            "type": "location"
+        },
+        {
+            "title": "Burnley",
+            "etc": "",
+            "slug": "web-design-burnley.html",
+            "type": "location"
+        }
+    ],
+    "posts": [
+        {
+            "title": "Web Design Mistakes",
+            "slug": "blog/posts/web-design-mistakes.html",
+            "type": "blog"
+        },
+        {
+            "title": "Zero Monthly Fee Explained",
+            "slug": "blog/posts/zero-monthly-fee-explained.html",
+            "type": "blog"
+        },
+        {
+            "title": "Speed And Rankings",
+            "slug": "blog/posts/speed-and-rankings.html",
+            "type": "blog"
+        },
+        {
+            "title": "Why Local Seo Matters",
+            "slug": "blog/posts/why-local-seo-matters.html",
+            "type": "blog"
+        },
+        {
+            "title": "Mobile First Lancashire",
+            "slug": "blog/posts/mobile-first-lancashire.html",
+            "type": "blog"
+        },
+        {
+            "title": "Avoid Monthly Fees",
+            "slug": "blog/posts/avoid-monthly-fees.html",
+            "type": "blog"
+        },
+        {
+            "title": "Local Seo Lancashire",
+            "slug": "blog/posts/local-seo-lancashire.html",
+            "type": "blog"
+        }
+    ]
+}
