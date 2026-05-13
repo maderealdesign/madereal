@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading Preview...</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+        // Your exact Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyAxmpbvmgyb831MMi2HA7Nd7c18wCb1m1c",
+            authDomain: "maderealwebsites.firebaseapp.com",
+            projectId: "maderealwebsites",
+            storageBucket: "maderealwebsites.firebasestorage.app",
+            messagingSenderId: "179002605066",
+            appId: "1:179002605066:web:8fd2218624a3d41064a9f3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function loadPreview() {
+            // Get the slug from the URL (e.g., "/emporia" -> "emporia")
+            let slug = window.location.pathname.replace(/^\/+/g, '').replace(/\/$/g, '');
+            
+            if (!slug) {
+                window.location.href = "/"; // Go home if empty
+                return;
+            }
+
+            try {
+                // Look up the slug in your Firebase database
+                const docRef = doc(db, "previews", slug);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    // MAGIC: Rewrite the entire browser window with the client's HTML
+                    document.open();
+                    document.write(docSnap.data().html);
+                    document.close();
+                } else {
+                    // Show our custom 404 if it doesn't exist in the database
+                    document.body.innerHTML = `
+                        <div style="font-family: sans-serif; text-align: center; padding: 50px; background: white;">
+                            <h1 style="font-weight: 900; font-size: 2rem; margin-bottom: 10px;">404 - Preview Not Found</h1>
+                            <p style="color: #666;">The site preview for <strong>/${slug}</strong> does not exist.</p>
+                            <a href="/" style="display: inline-block; margin-top: 20px; color: #00D2A0; font-weight: bold; text-decoration: none;">&larr; Return to MadeReal</a>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                document.body.innerHTML = `<p style="text-align:center; margin-top:50px;">Error loading preview: ${error.message}</p>`;
+            }
+        }
+
+        loadPreview();
+    </script>
+</head>
+<body style="background: #F5F5F7; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    <div style="font-family: sans-serif; color: #666;">Loading site preview...</div>
+</body>
+</html>
