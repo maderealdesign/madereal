@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Web Design in Lancashire | £197 Local Business Websites | MadeReal</title>
-    <meta name="description" content="Stop paying monthly fees for your website. MadeReal builds high-converting, Google-optimized websites for local businesses in Lancashire (Colne, Burnley, Nelson) for a £197 one-off fee.">
+    <title>£197 Website Design in Lancashire | No Monthly Fees | Google Optimized Web Design Colne, Burnley & More</title>
+    <meta name="description" content="£197 complete website design service in Lancashire - ZERO monthly fees! High-converting, Google-optimized websites for local businesses. Serving Colne, Burnley, Nelson, Skipton & more. Fast turnaround, 5-star rated web designers. Get your FREE preview today!" />
+    <meta name="keywords" content="web design Lancashire, £197 website, no monthly fee website, web developer Colne, web design Burnley, small business website builder, Google optimized websites, professional web design UK, affordable web design Lancashire" />>
     <meta name="keywords" content="web design Lancashire, £197 website, no monthly fee website, web developer Colne, web design Burnley, small business website builder">
     
     <meta property="og:title" content="MadeReal | £197 Websites for Lancashire Businesses">
@@ -93,8 +94,15 @@
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="/" class="text-2xl font-black text-slate-900">made<span class="text-teal-500">real</span></a>
         <div class="flex items-center gap-4">
-            <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full text-xs font-bold uppercase whitespace-nowrap">Get Preview</a>
-            <button id="menu-btn" class="text-xs font-black uppercase text-teal-500 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">MENU</button>
+            <a href="/get-started.html" class="bg-black text-white px-5 py-2 rounded-full text-xs font-bold uppercase whitespace-nowrap">Get Your FREE Preview</a>
+            
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:07396710347" class="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-brand-teal transition-colors">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>07396 710347</span>
+                </a>
+            </div>
+    <button id="menu-btn" class="text-xs font-black uppercase text-teal-500 bg-teal-50 px-4 py-2 rounded-full border border-teal-200">MENU</button>
         </div>
     </div>
     <div id="mobile-menu" class="hidden absolute w-full bg-white border-b border-gray-200 shadow-xl p-6 font-bold text-sm uppercase grid grid-cols-1 gap-4 z-[99]">
@@ -450,5 +458,22 @@
         window.addEventListener("scroll", reveal);
         document.addEventListener("DOMContentLoaded", function() { reveal(); });
     </script>
-<script>document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');</script></body>
+<script>document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');</script>
+<script>
+// Add floating contact button for mobile
+function addFloatingCTA() {
+    if (window.innerWidth < 768) {
+        const existing = document.querySelector('.floating-contact-cta');
+        if (!existing) {
+            const btn = document.createElement('div');
+            btn.className = 'fixed bottom-4 right-4 z-[200] floating-contact-cta';
+            btn.innerHTML = '<a href="tel:07396710347" class="bg-brand-teal text-white px-5 py-3 rounded-full shadow-2xl font-bold flex items-center gap-2 animate-bounce"><i class="fas fa-phone-alt"></i><span>Call Now</span></a>';
+            document.body.appendChild(btn);
+        }
+    }
+}
+window.addEventListener('scroll', addFloatingCTA);
+addFloatingCTA();
+</script>
+</body>
 </html>
