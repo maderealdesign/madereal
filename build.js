@@ -1,19 +1,15 @@
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
-const srcDir = __dirname; 
-const distDir = path.join(__dirname, 'dist'); 
-
-if (!fs.existsSync(distDir)) {
-    fs.mkdirSync(distDir);
-}
+const srcDir = __dirname;
+const distDir = path.join(__dirname, 'dist');
+const postsDir = path.join(srcDir, 'content', 'posts');
+const blogOutputDir = path.join(distDir, 'blog');
 
 const headerCode = fs.readFileSync(path.join(srcDir, 'header_template.html'), 'utf8');
-
-let footerCode = '';
-if (fs.existsSync(path.join(srcDir, 'footer_template.html'))) {
-    footerCode = fs.readFileSync(path.join(srcDir, 'footer_template.html'), 'utf8');
-}
+const footerPath = path.join(srcDir, 'footer_template.html');
+const footerCode = fs.existsSync(footerPath) ? fs.readFileSync(footerPath, 'utf8') : '';
 
 function ensureDir(dir) {
     if (!fs.existsSync(dir)) {
@@ -21,12 +17,73 @@ function ensureDir(dir) {
     }
 }
 
+function replaceGlobalPartials(content) {
+    return content
+        .replace('[[[INJECT_HEADER]]]', headerCode)
+        .replace('[[[INJECT_FOOTER]]]', footerCode);
+}
+
+function escapeHtml(value = '') {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function slugify(value = '') {
+    return String(value)
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
+function formatDate(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+
+    return new Intl.DateTimeFormat('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    }).format(date);
+}
+
+function getDateIso(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+    return date.toISOString().slice(0, 10);
+}
+
+function stripLeadingMarkdownH1(markdown) {
+    return markdown.replace(/^#\s+.+(?:\r?\n)+/, '');
+}
+
+function getExcerpt(data, content) {
+    if (data.excerpt) return String(data.excerpt);
+    if (data.meta_description) return String(data.meta_description);
+
+    const firstParagraph = content
+        .split(/\n{2,}/)
+        .find(block => block.trim() && !block.trim().startsWith('#'));
+
+    return firstParagraph ? firstParagraph.replace(/[*_`>#-]/g, '').trim().slice(0, 180) : '';
+}
+
+function getKeywords(data) {
+    if (Array.isArray(data.keywords)) return data.keywords.join(', ');
+    return data.keywords ? String(data.keywords) : '';
+}
+
 function findHtmlFiles(dir, baseDir = dir) {
     return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
         const fullPath = path.join(dir, entry.name);
         const relativePath = path.relative(baseDir, fullPath);
 
-        if (entry.name === 'dist' || entry.name === '.git') {
+        if (['dist', '.git', 'node_modules', 'content'].includes(entry.name)) {
             return [];
         }
 
@@ -42,21 +99,117 @@ function findHtmlFiles(dir, baseDir = dir) {
     });
 }
 
-const files = findHtmlFiles(srcDir);
+function readPosts() {
+    if (!fs.existsSync(postsDir)) return [];
 
-files.forEach(file => {
-    let content = fs.readFileSync(path.join(srcDir, file), 'utf8');
-    
-    // Swap the placeholders for the real code
-    content = content.replace('[[[INJECT_HEADER]]]', headerCode);
-    
-    if (footerCode) {
-        content = content.replace('[[[INJECT_FOOTER]]]', footerCode);
-    }
+    return fs.readdirSync(postsDir)
+        .filter(file => file.endsWith('.md') && file.toLowerCase() !== 'readme.md')
+        .map(file => {
+            const source = fs.readFileSync(path.join(postsDir, file), 'utf8');
+            const parsed = matter(source);
+            const data = parsed.data;
+            const title = data.title || path.basename(file, '.md');
+            const slug = data.slug ? slugify(data.slug) : slugify(title);
+            const date = data.date || new Date().toISOString();
 
-    ensureDir(path.dirname(path.join(distDir, file)));
-    fs.writeFileSync(path.join(distDir, file), content);
-    console.log(`Successfully built: ${file}`);
+            return {
+                sourceFile: file,
+                title: String(title),
+                heading: String(data.h1 || title),
+                metaDescription: String(data.meta_description || getExcerpt(data, parsed.content)),
+                date,
+                dateIso: getDateIso(date),
+                dateDisplay: formatDate(date),
+                slug,
+                author: String(data.author || 'MadeReal'),
+                keywords: getKeywords(data),
+                excerpt: getExcerpt(data, parsed.content),
+                content: parsed.content,
+            };
+        })
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+function renderBlogCard(post) {
+    return `
+                    <article class="group bg-white rounded-[32px] p-6 md:p-8 border-2 border-gray-200 hover:border-slate-900 hover:shadow-hard transition-all duration-300">
+                        <div class="flex items-center justify-between gap-4 mb-8">
+                            <time datetime="${escapeHtml(post.dateIso)}" class="text-xs font-black uppercase tracking-widest text-gray-400">${escapeHtml(post.dateDisplay)}</time>
+                            <span class="w-12 h-12 rounded-2xl bg-brand-gray border-2 border-gray-200 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-slate-900 group-hover:border-slate-900 transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight text-slate-900 uppercase mb-4">
+                            <a href="/blog/${escapeHtml(post.slug)}.html">${escapeHtml(post.title)}</a>
+                        </h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8">${escapeHtml(post.excerpt)}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${post.keywords.split(',').map(keyword => keyword.trim()).filter(Boolean).slice(0, 3).map(keyword => `<span class="bg-brand-gray text-slate-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">${escapeHtml(keyword)}</span>`).join('')}
+                        </div>
+                    </article>`;
+}
+
+async function buildBlog() {
+    const { marked } = await import('marked');
+    const posts = readPosts();
+    const template = fs.readFileSync(path.join(srcDir, 'blog_post_template.html'), 'utf8');
+
+    ensureDir(blogOutputDir);
+
+    marked.setOptions({
+        gfm: true,
+        breaks: false,
+    });
+
+    posts.forEach(post => {
+        const html = marked.parse(stripLeadingMarkdownH1(post.content));
+        const rendered = replaceGlobalPartials(template)
+            .replaceAll('[[[POST_TITLE]]]', escapeHtml(post.title))
+            .replaceAll('[[[POST_META_DESCRIPTION]]]', escapeHtml(post.metaDescription))
+            .replaceAll('[[[POST_KEYWORDS]]]', escapeHtml(post.keywords))
+            .replaceAll('[[[POST_AUTHOR]]]', escapeHtml(post.author))
+            .replaceAll('[[[POST_SLUG]]]', escapeHtml(post.slug))
+            .replaceAll('[[[POST_DATE_ISO]]]', escapeHtml(post.dateIso))
+            .replaceAll('[[[POST_DATE_DISPLAY]]]', escapeHtml(post.dateDisplay))
+            .replaceAll('[[[POST_HEADING]]]', escapeHtml(post.heading))
+            .replaceAll('[[[POST_EXCERPT]]]', escapeHtml(post.excerpt))
+            .replace('[[[POST_CONTENT]]]', html);
+
+        fs.writeFileSync(path.join(blogOutputDir, `${post.slug}.html`), rendered);
+        console.log(`Successfully built blog post: blog/${post.slug}.html`);
+    });
+
+    return posts;
+}
+
+async function main() {
+    fs.rmSync(distDir, { recursive: true, force: true });
+    ensureDir(distDir);
+
+    const posts = await buildBlog();
+    const files = findHtmlFiles(srcDir);
+
+    files.forEach(file => {
+        let content = fs.readFileSync(path.join(srcDir, file), 'utf8');
+
+        if (file === 'blog.html') {
+            const blogCards = posts.length
+                ? posts.map(renderBlogCard).join('\n')
+                : '<p class="md:col-span-2 lg:col-span-3 text-xl font-bold text-gray-500">No blog posts have been published yet.</p>';
+            content = content.replace('[[[BLOG_POSTS]]]', blogCards);
+        }
+
+        content = replaceGlobalPartials(content);
+
+        ensureDir(path.dirname(path.join(distDir, file)));
+        fs.writeFileSync(path.join(distDir, file), content);
+        console.log(`Successfully built: ${file}`);
+    });
+
+    console.log(`✅ Website build complete! ${posts.length} blog post(s) generated. Ready for Netlify.`);
+}
+
+main().catch(error => {
+    console.error('Build failed:', error);
+    process.exit(1);
 });
-
-console.log('✅ Website build complete! Ready for Netlify.');

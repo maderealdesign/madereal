@@ -1,6 +1,6 @@
 [build]
   # This tells Netlify to run our script before publishing
-  command = "node build.js"
+  command = "npm run build"
   
   # This tells Netlify to publish the compiled files from the 'dist' folder
   publish = "dist"
