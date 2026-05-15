@@ -119,6 +119,18 @@ function findBuiltHtmlFiles(dir, baseDir = dir) {
     });
 }
 
+function copyStaticAssets() {
+    ['assets'].forEach(directory => {
+        const source = path.join(srcDir, directory);
+        const destination = path.join(distDir, directory);
+
+        if (!fs.existsSync(source)) return;
+
+        fs.cpSync(source, destination, { recursive: true });
+        console.log(`Successfully copied: ${directory}/`);
+    });
+}
+
 function readPosts() {
     if (!fs.existsSync(postsDir)) return [];
 
@@ -267,6 +279,7 @@ async function main() {
         console.log(`Successfully built: ${file}`);
     });
 
+    copyStaticAssets();
     buildSitemap(posts);
 
     console.log(`✅ Website build complete! ${posts.length} blog post(s) generated. Ready for Netlify.`);
