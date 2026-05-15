@@ -6,6 +6,7 @@ const srcDir = __dirname;
 const distDir = path.join(__dirname, 'dist');
 const postsDir = path.join(srcDir, 'content', 'posts');
 const blogOutputDir = path.join(distDir, 'blog');
+const siteUrl = 'https://madereal.uk';
 
 const headerCode = fs.readFileSync(path.join(srcDir, 'header_template.html'), 'utf8');
 const footerPath = path.join(srcDir, 'footer_template.html');
@@ -99,6 +100,25 @@ function findHtmlFiles(dir, baseDir = dir) {
     });
 }
 
+function findBuiltHtmlFiles(dir, baseDir = dir) {
+    if (!fs.existsSync(dir)) return [];
+
+    return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+        const fullPath = path.join(dir, entry.name);
+        const relativePath = path.relative(baseDir, fullPath);
+
+        if (entry.isDirectory()) {
+            return findBuiltHtmlFiles(fullPath, baseDir);
+        }
+
+        if (entry.isFile() && entry.name.endsWith('.html')) {
+            return [relativePath];
+        }
+
+        return [];
+    });
+}
+
 function readPosts() {
     if (!fs.existsSync(postsDir)) return [];
 
@@ -147,6 +167,47 @@ function renderBlogCard(post) {
                             ${post.keywords.split(',').map(keyword => keyword.trim()).filter(Boolean).slice(0, 3).map(keyword => `<span class="bg-brand-gray text-slate-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">${escapeHtml(keyword)}</span>`).join('')}
                         </div>
                     </article>`;
+}
+
+function getUrlPath(file) {
+    const normalised = file.split(path.sep).join('/');
+    if (normalised === 'index.html') return '/';
+    return `/${normalised}`;
+}
+
+function buildSitemap(posts) {
+    const postDateMap = new Map(posts.map(post => [`blog/${post.slug}.html`, post.dateIso]));
+    const today = new Date().toISOString().slice(0, 10);
+    const urls = findBuiltHtmlFiles(distDir)
+        .sort()
+        .map(file => {
+            const loc = `${siteUrl}${getUrlPath(file)}`;
+            const lastmod = postDateMap.get(file.split(path.sep).join('/')) || today;
+            const priority = file === 'index.html' ? '1.0' : file.startsWith(`blog${path.sep}`) ? '0.7' : '0.8';
+
+            return `  <url>
+    <loc>${escapeHtml(loc)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+        })
+        .join('\n');
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
+
+    fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap);
+    fs.writeFileSync(path.join(distDir, 'robots.txt'), `User-agent: *
+Allow: /
+
+Sitemap: ${siteUrl}/sitemap.xml
+`);
+    console.log('Successfully built: sitemap.xml');
+    console.log('Successfully built: robots.txt');
 }
 
 async function buildBlog() {
@@ -205,6 +266,8 @@ async function main() {
         fs.writeFileSync(path.join(distDir, file), content);
         console.log(`Successfully built: ${file}`);
     });
+
+    buildSitemap(posts);
 
     console.log(`✅ Website build complete! ${posts.length} blog post(s) generated. Ready for Netlify.`);
 }

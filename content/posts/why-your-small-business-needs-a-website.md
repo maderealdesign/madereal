@@ -14,7 +14,7 @@ excerpt: "A practical guide for local businesses that still rely on Facebook pag
 
 # Why Your Small Business Needs a Website in 2026
 
-If your business is still relying on Facebook, Instagram, word of mouth, or an old website that no longer reflects the quality of your work, you are making customers work too hard.
+If your business is still relying on Facebook, Instagram, word of mouth, or an old website that no longer reflects the quality of your work, you are making customers work too hard. If you want the short route, MadeReal builds [small business websites](/services/small-business-websites.html) for a flat [£197 one-off fee](/get-started.html).
 
 People do not just search for businesses anymore. They compare them. They check reviews, opening hours, photos, prices, services, location, and whether the business feels professional enough to trust.
 
@@ -43,6 +43,8 @@ A clean, fast website makes you look established. It gives your reviews, photos,
 
 For trades, restaurants, salons, shops, consultants, clinics, and local services, that trust can be the difference between a phone call and a lost lead.
 
+If you are in a trade, the same idea applies even harder. We have dedicated guides for [tradesman websites](/services/tradesman-websites.html), [roofing websites](/services/tradesman-roofing.html), and [electrician websites](/services/tradesman-electricians.html).
+
 ## Local SEO starts with clarity
 
 Google needs to understand what you do and where you do it. A properly structured website helps by using clear page titles, headings, service descriptions, location signals, fast loading, and mobile-friendly design.
@@ -58,6 +60,8 @@ For example:
 - Graphic design and printing in Lancashire
 
 Clear pages help both customers and search engines.
+
+You can also support local rankings with focused location pages, like [web design in Burnley](/web-design-burnley.html), [web design in Colne](/web-design-colne.html), and [web design in Pendle](/web-design-pendle.html).
 
 ## The mistake: paying monthly rent for a simple website
 
@@ -86,3 +90,5 @@ Anything more should earn its place.
 A good website does not need to be complicated. It needs to be clear, fast, trustworthy, and built around the way customers actually make decisions.
 
 If your current online presence makes people guess, scroll, or message you just to understand the basics, a better website will pay for itself quickly.
+
+Ready to see what yours could look like? [Get a free website preview](/get-started.html) before paying anything.
