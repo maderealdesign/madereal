@@ -68,14 +68,23 @@
                 <p class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
                     A 5+ page website, 8 local landing pages, contact form and Google Business setup. No monthly MadeReal fees. You own the site.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="/get-started.html" data-track="hero_cta_get_started" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 text-white px-9 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-colors shadow-soft">
-                        Get my free preview
-                    </a>
-                    <a href="#included" data-track="hero_cta_whats_included" class="w-full sm:w-auto inline-flex items-center justify-center bg-white text-slate-900 px-9 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors border border-gray-300">
-                        See what you get
-                    </a>
-                </div>
+                <form id="quick-lead-form" name="Quick Preview Lead" method="POST" data-netlify="true" class="max-w-2xl mx-auto">
+                    <input type="hidden" name="form-name" value="Quick Preview Lead">
+                    <input type="hidden" name="Source_Page" value="Homepage hero">
+                    <div class="flex flex-col sm:flex-row items-stretch gap-3 rounded-[28px] bg-white border border-gray-200 p-3 shadow-soft">
+                        <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
+                        <input id="quick-lead-contact" name="Contact_Detail" type="text" required inputmode="email" autocomplete="email tel" class="min-h-[58px] flex-1 rounded-full bg-brand-gray px-6 text-lg font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-100" placeholder="Enter your mobile or email">
+                        <button id="quick-lead-submit" type="submit" data-track="hero_quick_lead" class="min-h-[58px] rounded-full bg-blue-600 px-8 text-white font-bold text-lg hover:bg-blue-700 transition-colors">
+                            Send me a preview
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-500 font-medium mt-4">
+                        We will ask for your business next so we can build a better preview. No payment, no pressure.
+                    </p>
+                </form>
+                <a href="#included" data-track="hero_cta_whats_included" class="inline-flex items-center justify-center text-slate-600 hover:text-blue-600 font-bold mt-8">
+                    See what is included <i class="fas fa-arrow-down ml-2 text-xs"></i>
+                </a>
             </div>
 
             <div class="max-w-4xl mx-auto mt-16 md:mt-20 animate-fade-in" style="animation-delay: 120ms;">
@@ -89,7 +98,7 @@
             </div>
         </section>
 
-        <section class="px-6 py-12 md:py-16 bg-white">
+        <section class="px-6 py-12 md:py-16 bg-white reveal slide-up">
             <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-center">
                 <div>
                     <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5">
@@ -115,7 +124,7 @@
             </div>
         </section>
 
-        <section id="included" class="px-6 py-20 md:py-32 bg-brand-gray">
+        <section id="included" class="px-6 py-20 md:py-32 bg-brand-gray reveal slide-up">
             <div class="max-w-4xl mx-auto text-center mb-16 md:mb-20">
                 <p class="text-sm font-bold text-brand-teal mb-4">What you actually get</p>
                 <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">
@@ -150,7 +159,7 @@
             </div>
         </section>
 
-        <section class="px-6 py-20 md:py-32 bg-white">
+        <section class="px-6 py-20 md:py-32 bg-white reveal slide-up">
             <div class="max-w-6xl mx-auto space-y-20 md:space-y-28">
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div class="order-2 lg:order-1">
@@ -481,8 +490,11 @@
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
                 var elementVisible = 80; 
-                if (elementTop < windowHeight - elementVisible) {
+                var elementBottom = reveals[i].getBoundingClientRect().bottom;
+                if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
                     reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
                 }
             }
         }
@@ -503,6 +515,34 @@
         }
         window.addEventListener('resize', addFloatingCTA);
         window.addEventListener('DOMContentLoaded', addFloatingCTA);
+
+        const quickLeadForm = document.getElementById('quick-lead-form');
+        if (quickLeadForm) {
+            quickLeadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = document.getElementById('quick-lead-contact');
+                const submit = document.getElementById('quick-lead-submit');
+                const lead = input.value.trim();
+
+                if (!lead) return;
+
+                submit.disabled = true;
+                submit.textContent = 'Sending...';
+
+                const formData = new FormData(quickLeadForm);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    window.location.href = `/get-started.html#lead=${encodeURIComponent(lead)}`;
+                })
+                .catch(() => {
+                    window.location.href = `/get-started.html#lead=${encodeURIComponent(lead)}`;
+                });
+            });
+        }
     </script>
 </body>
 </html>

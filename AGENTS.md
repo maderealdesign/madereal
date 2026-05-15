@@ -2,6 +2,8 @@
 
 Read this file before changing the MadeReal website. It explains the site structure, build process, SEO workflow and the safest way to add pages.
 
+Also read `STYLE_GUIDE.md` before redesigning or creating any public-facing page.
+
 ## Project Goal
 
 MadeReal sells high-quality local business websites for a flat one-off fee of 197 GBP. The site should generate enquiries by making the offer feel clear, trustworthy and easy:
@@ -272,4 +274,3 @@ git status --short
 4. Run `npm run build`.
 5. Browser-check important pages when layout changed.
 6. Commit only source files and required assets.
-

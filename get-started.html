@@ -59,14 +59,14 @@
             <div id="state-search" class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 transition-opacity duration-500">
                 
                 <div class="order-1 lg:order-1 text-center lg:text-left">
-                    <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm mb-8">
+                    <span id="get-started-eyebrow" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm mb-8">
                         <span class="w-2.5 h-2.5 rounded-full bg-brand-teal"></span>
                         Free preview. No upfront payment.
                     </span>
-                    <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.98] mb-6 text-slate-950">
+                    <h1 id="get-started-heading" class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.98] mb-6 text-slate-950">
                         Let us build the first version.
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                    <p id="get-started-intro" class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
                         Search your business and we will use your Google details to start a proper website preview: 5+ pages, local landing pages, forms and Google Business setup for £197 if you approve it.
                     </p>
                     <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
@@ -122,6 +122,7 @@
 
                             <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-5">
                                 <input type="hidden" name="form-name" value="Website Request">
+                                <input type="hidden" name="Initial_Lead" id="initial-lead">
                                 
                                 <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
                                 <input type="hidden" name="Google_Address" id="hidden-biz-address">
@@ -139,12 +140,12 @@
                                     <input type="text" name="Client_Name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile Number</label>
-                                    <input type="tel" name="Client_Mobile" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="07...">
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Best Contact</label>
+                                    <input type="text" name="Client_Contact" id="client-contact" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="Mobile or email">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
-                                    <input type="email" name="Client_Email" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="dave@business.co.uk">
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Facebook Page or Website <span class="normal-case tracking-normal text-gray-400">(optional)</span></label>
+                                    <input type="text" name="Facebook_Or_Website" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="Paste a link if you have one">
                                 </div>
                                 
                                 <button type="submit" id="submit-btn" data-track="submit_preview_request" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
@@ -277,6 +278,23 @@
 
 
     <script>
+        const params = new URLSearchParams(window.location.search);
+        const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+        const initialLead = (params.get('lead') || hashParams.get('lead') || '').trim();
+        if (initialLead) {
+            const initialLeadInput = document.getElementById('initial-lead');
+            const contactInput = document.getElementById('client-contact');
+            const eyebrow = document.getElementById('get-started-eyebrow');
+            const heading = document.getElementById('get-started-heading');
+            const intro = document.getElementById('get-started-intro');
+
+            if (initialLeadInput) initialLeadInput.value = initialLead;
+            if (contactInput) contactInput.value = initialLead;
+            if (eyebrow) eyebrow.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-brand-teal"></span> Got it. This next bit is optional.';
+            if (heading) heading.textContent = 'Want a better preview?';
+            if (intro) intro.textContent = 'Search your Google Business Profile, or enter the business manually. This helps us build something closer to what you actually need.';
+        }
+
         // Google Maps API
         (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
             key: "AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU",
