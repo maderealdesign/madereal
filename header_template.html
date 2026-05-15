@@ -1,8 +1,6 @@
-<!-- START HEADER TEMPLATE -->
 <header class="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <!-- Logo -->
             <a href="/" class="group flex items-center gap-2">
                 <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
                     <span class="text-white font-bold text-sm">M</span>
@@ -13,12 +11,10 @@
                 </div>
             </a>
 
-            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="/" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Home</a>
                 <a href="/about.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">About</a>
                 
-                <!-- Services Dropdown -->
                 <div class="relative group">
                     <button class="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors py-2">
                         Services
@@ -43,22 +39,21 @@
                     </div>
                 </div>
 
-                <!-- Locations Dropdown -->
                 <div class="relative group">
                     <button class="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors py-2">
                         Areas
                         <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform group-hover:translate-y-0 translate-y-2">
-                        <div class="p-2">
-                            <a href="/web-design-colne.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Colne</a>
-                            <a href="/web-design-burnley.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Burnley</a>
-                            <a href="/web-design-nelson.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Nelson</a>
-                            <a href="/web-design-pendle.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Pendle</a>
-                            <a href="/web-design-skipton.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Skipton</a>
-                            <a href="/web-design-barnoldswick.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Barnoldswick</a>
-                            <a href="/web-design-blackburn.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Blackburn</a>
-                            <a href="/web-design-clitheroe.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Clitheroe</a>
+                        <div class="p-2 grid grid-cols-2 gap-1">
+                            <a href="/web-design-colne.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Colne</a>
+                            <a href="/web-design-burnley.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Burnley</a>
+                            <a href="/web-design-nelson.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Nelson</a>
+                            <a href="/web-design-pendle.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Pendle</a>
+                            <a href="/web-design-skipton.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Skipton</a>
+                            <a href="/web-design-barnoldswick.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Barnoldswick</a>
+                            <a href="/web-design-blackburn.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Blackburn</a>
+                            <a href="/web-design-clitheroe.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Clitheroe</a>
                         </div>
                     </div>
                 </div>
@@ -67,17 +62,14 @@
                 <a href="/contact.html" class="px-4 py-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all shadow-md hover:shadow-lg">Get FREE Preview</a>
             </nav>
 
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:text-teal-600 focus:outline-none">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[99] hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
     <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] lg:hidden overflow-y-auto">
-        <!-- Mobile Menu Content -->
         <div class="p-6">
             <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
                 <span class="text-lg font-bold text-slate-900">Menu</span>
@@ -86,7 +78,6 @@
                 </button>
             </div>
 
-            <!-- Mobile Navigation Links -->
             <nav class="space-y-2 mb-8">
                 <a href="/" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Home</a>
                 <a href="/about.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">About</a>
@@ -94,7 +85,6 @@
                 <a href="/contact.html" class="block px-4 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold rounded-lg shadow-md">Get FREE Preview</a>
             </nav>
 
-            <!-- Mobile Services Section -->
             <div class="mb-8 border-b border-gray-200 pb-8">
                 <button id="mobile-services-toggle" class="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">
                     <span>Services</span>
@@ -117,7 +107,6 @@
                 </div>
             </div>
 
-            <!-- Mobile Locations Section -->
             <div>
                 <button id="mobile-locations-toggle" class="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">
                     <span>Service Areas</span>
@@ -135,7 +124,6 @@
                 </div>
             </div>
 
-            <!-- Contact Info -->
             <div class="mt-8 pt-6 border-t border-gray-200">
                 <p class="text-xs text-gray-500 mb-2">Need help? Call us:</p>
                 <a href="tel:07396710347" class="block text-lg font-bold text-teal-600 hover:text-teal-700 transition-colors">07396 710347</a>
@@ -145,7 +133,7 @@
 </header>
 
 <script>
-// Mobile Menu Functions
+// Header Mobile Menu Functions
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenuClose = document.getElementById('mobile-menu-close');
 const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
@@ -175,12 +163,10 @@ function closeMobileMenu() {
     }, 300);
 }
 
-// Event Listeners
 if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
 if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
 if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
-// Toggle Services Section
 if (mobileServicesToggle && mobileServicesContent && mobileServicesIcon) {
     mobileServicesToggle.addEventListener('click', () => {
         mobileServicesContent.classList.toggle('hidden');
@@ -188,7 +174,6 @@ if (mobileServicesToggle && mobileServicesContent && mobileServicesIcon) {
     });
 }
 
-// Toggle Locations Section
 if (mobileLocationsToggle && mobileLocationsContent && mobileLocationsIcon) {
     mobileLocationsToggle.addEventListener('click', () => {
         mobileLocationsContent.classList.toggle('hidden');
@@ -196,11 +181,9 @@ if (mobileLocationsToggle && mobileLocationsContent && mobileLocationsIcon) {
     });
 }
 
-// Close menu on Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
         closeMobileMenu();
     }
 });
 </script>
-<!-- END HEADER TEMPLATE -->
