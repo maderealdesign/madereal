@@ -53,40 +53,52 @@
     [[[INJECT_HEADER]]]
 
 
-    <main class="flex-grow pt-32 md:pt-48 pb-16 md:pb-24 px-6 animate-fade-in">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+    <main class="flex-grow pt-28 md:pt-40 pb-16 md:pb-24 px-6 animate-fade-in bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-start">
             <div>
-                <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8 text-slate-900 uppercase">
-                    Let's <br>
-                    <span class="text-brand-teal">talk websites.</span>
+                <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm mb-8">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-teal"></span>
+                    We usually reply the same day
+                </span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.95] mb-8 text-slate-950">
+                    Ask about your £197 website.
                 </h1>
-                <p class="text-xl text-gray-600 font-medium leading-relaxed mb-12">
-                    Have a question about our £197 website package? Need to check if your business qualifies? Reach out below.
+                <p class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed mb-10 max-w-2xl">
+                    Tell us what you need, or go straight to the free preview form. Either way, you are not committing to anything until you see the website.
                 </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                    <a href="/get-started.html" class="inline-flex items-center justify-center bg-slate-950 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-teal hover:text-slate-950 transition-colors">
+                        Get my free preview <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                    <a href="tel:07396710347" class="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors border border-gray-300 whitespace-nowrap">
+                        Call us
+                    </a>
+                </div>
                 
-                <div class="space-y-8 text-lg font-bold text-slate-900">
-                    <div class="flex items-center gap-4 bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-sm">
-                        <div class="w-12 h-12 rounded-full bg-brand-teal text-slate-900 flex items-center justify-center text-xl">
+                <div class="space-y-4 text-lg font-bold text-slate-900">
+                    <div class="flex items-center gap-4 bg-brand-gray p-5 rounded-3xl border border-gray-200">
+                        <div class="w-11 h-11 rounded-full bg-white text-brand-teal flex items-center justify-center text-lg">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
-                            <div class="text-[10px] text-gray-400 tracking-widest uppercase mb-1">Call or Text</div>
+                            <div class="text-[10px] text-gray-400 tracking-widest uppercase mb-1">Call or text</div>
                             <a href="tel:07396710347" class="hover:text-brand-teal transition-colors">07396 710 347</a>
                         </div>
                     </div>
                     
-                    <div class="flex items-center gap-4 bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-sm">
-                        <div class="w-12 h-12 rounded-full bg-brand-teal text-slate-900 flex items-center justify-center text-xl">
+                    <div class="flex items-center gap-4 bg-brand-gray p-5 rounded-3xl border border-gray-200">
+                        <div class="w-11 h-11 rounded-full bg-white text-brand-teal flex items-center justify-center text-lg">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <div class="text-[10px] text-gray-400 tracking-widest uppercase mb-1">Email Us</div>
+                            <div class="text-[10px] text-gray-400 tracking-widest uppercase mb-1">Email</div>
                             <a href="mailto:info@made-real.co.uk" class="hover:text-brand-teal transition-colors">info@made-real.co.uk</a>
                         </div>
                     </div>
                     
-                    <div class="flex items-center gap-4 bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-sm">
-                        <div class="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center text-xl">
+                    <div class="flex items-center gap-4 bg-brand-gray p-5 rounded-3xl border border-gray-200">
+                        <div class="w-11 h-11 rounded-full bg-white text-brand-teal flex items-center justify-center text-lg">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
@@ -97,22 +109,27 @@
                 </div>
             </div>
             
-            <div class="bg-white p-8 md:p-12 rounded-[32px] shadow-hard border-4 border-slate-900">
-                <h3 class="text-3xl font-black tracking-tight text-slate-900 mb-8 uppercase">Send a Message</h3>
-                <form class="space-y-6">
+            <div class="bg-white p-6 md:p-10 rounded-[32px] shadow-soft border border-gray-200">
+                <div class="mb-8">
+                    <p class="text-sm font-black text-brand-teal uppercase tracking-widest mb-3">Quick message</p>
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-950">Send us the basics.</h2>
+                    <p class="text-gray-600 font-medium mt-3">For a preview request, the get started form is faster. For anything else, message us here.</p>
+                </div>
+                <form name="Contact" method="POST" data-netlify="true" class="space-y-5">
+                    <input type="hidden" name="form-name" value="Contact">
                     <div>
                         <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Name</label>
-                        <input type="text" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="Your Name">
+                        <input type="text" name="name" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-2xl p-4 font-medium focus:outline-none focus:border-brand-teal transition-all placeholder-gray-400" placeholder="Your name">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
-                        <input type="email" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="your@email.com">
+                        <input type="email" name="email" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-2xl p-4 font-medium focus:outline-none focus:border-brand-teal transition-all placeholder-gray-400" placeholder="your@email.com">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Message</label>
-                        <textarea rows="4" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="How can we help?"></textarea>
+                        <textarea rows="5" name="message" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-2xl p-4 font-medium focus:outline-none focus:border-brand-teal transition-all placeholder-gray-400" placeholder="How can we help?"></textarea>
                     </div>
-                    <button type="button" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors uppercase tracking-wide border-2 border-transparent hover:border-slate-900">
+                    <button type="submit" class="w-full bg-slate-950 text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-brand-teal hover:text-slate-950 transition-colors">
                         Send Message
                     </button>
                 </form>
@@ -123,60 +140,5 @@
     [[[INJECT_FOOTER]]]
 
 
-    <script>
-        // Header Mobile Menu Functions
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
-        const mobileLocationsToggle = document.getElementById('mobile-locations-toggle');
-        const mobileServicesContent = document.getElementById('mobile-services-content');
-        const mobileLocationsContent = document.getElementById('mobile-locations-content');
-        const mobileServicesIcon = document.getElementById('mobile-services-icon');
-        const mobileLocationsIcon = document.getElementById('mobile-locations-icon');
-
-        function openMobileMenu() {
-            mobileMenu.classList.remove('translate-x-full');
-            setTimeout(() => {
-                mobileMenuOverlay.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenuOverlay.classList.remove('opacity-0');
-                }, 10);
-            }, 10);
-        }
-
-        function closeMobileMenu() {
-            mobileMenuOverlay.classList.add('opacity-0');
-            mobileMenu.classList.add('translate-x-full');
-            setTimeout(() => {
-                mobileMenuOverlay.classList.add('hidden');
-            }, 300);
-        }
-
-        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
-        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
-        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-        if (mobileServicesToggle && mobileServicesContent && mobileServicesIcon) {
-            mobileServicesToggle.addEventListener('click', () => {
-                mobileServicesContent.classList.toggle('hidden');
-                mobileServicesIcon.classList.toggle('rotate-180');
-            });
-        }
-
-        if (mobileLocationsToggle && mobileLocationsContent && mobileLocationsIcon) {
-            mobileLocationsToggle.addEventListener('click', () => {
-                mobileLocationsContent.classList.toggle('hidden');
-                mobileLocationsIcon.classList.toggle('rotate-180');
-            });
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
-                closeMobileMenu();
-            }
-        });
-    </script>
 </body>
 </html>
