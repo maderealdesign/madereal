@@ -1,0 +1,9 @@
+# Redirect all location pages without .html extension
+/web-design-barnoldswick /web-design-barnoldswick.html 200
+/web-design-blackburn /web-design-blackburn.html 200
+/web-design-burnley /web-design-burnley.html 200
+/web-design-clitheroe /web-design-clitheroe.html 200
+/web-design-colne /web-design-colne.html 200
+/web-design-nelson /web-design-nelson.html 200
+/web-design-pendle /web-design-pendle.html 200
+/web-design-skipton /web-design-skipton.html 200
