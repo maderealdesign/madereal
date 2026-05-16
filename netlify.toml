@@ -4,3 +4,8 @@
   
   # This tells Netlify to publish the compiled files from the 'dist' folder
   publish = "dist"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200

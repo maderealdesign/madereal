@@ -38,11 +38,9 @@
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .slide-left { transform: translateX(-50px); }
-        .slide-right { transform: translateX(50px); }
-        .slide-left.active, .slide-right.active { transform: translateX(0); }
+        .reveal { opacity: 1; transform: none; transition: opacity 0.4s ease-out; }
+        .reveal.active { opacity: 1; transform: none; }
+        .slide-left, .slide-right { transform: none; }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
@@ -328,59 +326,6 @@
 
 
     <script>
-        // Header Mobile Menu Functions
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
-        const mobileLocationsToggle = document.getElementById('mobile-locations-toggle');
-        const mobileServicesContent = document.getElementById('mobile-services-content');
-        const mobileLocationsContent = document.getElementById('mobile-locations-content');
-        const mobileServicesIcon = document.getElementById('mobile-services-icon');
-        const mobileLocationsIcon = document.getElementById('mobile-locations-icon');
-
-        function openMobileMenu() {
-            mobileMenu.classList.remove('translate-x-full');
-            setTimeout(() => {
-                mobileMenuOverlay.classList.remove('hidden');
-                setTimeout(() => {
-                    mobileMenuOverlay.classList.remove('opacity-0');
-                }, 10);
-            }, 10);
-        }
-
-        function closeMobileMenu() {
-            mobileMenuOverlay.classList.add('opacity-0');
-            mobileMenu.classList.add('translate-x-full');
-            setTimeout(() => {
-                mobileMenuOverlay.classList.add('hidden');
-            }, 300);
-        }
-
-        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
-        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
-        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-        if (mobileServicesToggle && mobileServicesContent && mobileServicesIcon) {
-            mobileServicesToggle.addEventListener('click', () => {
-                mobileServicesContent.classList.toggle('hidden');
-                mobileServicesIcon.classList.toggle('rotate-180');
-            });
-        }
-
-        if (mobileLocationsToggle && mobileLocationsContent && mobileLocationsIcon) {
-            mobileLocationsToggle.addEventListener('click', () => {
-                mobileLocationsContent.classList.toggle('hidden');
-                mobileLocationsIcon.classList.toggle('rotate-180');
-            });
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
-                closeMobileMenu();
-            }
-        });
 
         // Scroll Animations
         function reveal() {

@@ -68,9 +68,10 @@
             </button>
         </div>
     </div>
+</header>
 
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[99] hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] lg:hidden overflow-y-auto">
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[110] hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
+<div id="mobile-menu" class="fixed inset-y-0 right-0 h-screen w-80 max-w-[calc(100vw-2rem)] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[120] lg:hidden overflow-y-auto">
         <div class="p-6">
             <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
                 <span class="text-lg font-bold text-slate-900">Menu</span>
@@ -132,7 +133,6 @@
             </div>
         </div>
     </div>
-</header>
 
 <script>
 // Header Mobile Menu Functions

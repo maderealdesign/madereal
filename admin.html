@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadeReal | Pro Admin Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { black: '#000000', teal: '#00D2A0', gray: '#F5F5F7' } }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; background-color: #F5F5F7; }
+        .hidden { display: none !important; }
+        textarea { font-family: monospace; }
+        .img-link-row:nth-child(even) { background-color: #f9fafb; }
+    </style>
+</head>
+<body class="text-black h-screen flex flex-col">
+
+    <nav class="w-full bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shrink-0">
+        <div class="text-xl font-black tracking-tight">made<span class="text-brand-teal">real</span> <span class="text-gray-400 font-medium text-sm ml-2">Pro Editor</span></div>
+        <button id="logoutBtn" class="hidden text-sm font-medium text-gray-500 hover:text-black transition"><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</button>
+    </nav>
+
+    <!-- Login View -->
+    <div id="loginView" class="flex-1 flex items-center justify-center p-6">
+        <div class="bg-white p-10 rounded-2xl shadow-xl max-w-md w-full text-center border border-gray-100">
+            <h2 class="text-3xl font-black mb-2">Admin Access</h2>
+            <p class="text-gray-500 mb-8 text-sm">Restricted to maderealdesign@gmail.com</p>
+            <button id="loginBtn" class="w-full bg-black text-white py-3 rounded-full font-bold hover:bg-gray-800 transition shadow-lg flex items-center justify-center gap-3">
+                <i class="fab fa-google"></i> Sign in with Google
+            </button>
+            <p id="loginError" class="text-red-500 text-sm mt-4 font-medium hidden"></p>
+        </div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="dashboardView" class="hidden flex-1 flex flex-col p-6 max-w-5xl mx-auto w-full">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h1 class="text-3xl font-black">Previews</h1>
+                <p class="text-gray-500 text-sm mt-1">Manage client dynamic sites</p>
+            </div>
+            <button id="createNewBtn" class="bg-brand-teal text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-teal-500 transition flex items-center gap-2">
+                <i class="fas fa-plus"></i> New Preview
+            </button>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex-1 flex flex-col">
+            <ul id="previewList" class="divide-y divide-gray-100 overflow-y-auto">
+                <li class="p-8 text-center text-gray-400 font-medium" id="emptyState">Loading previews...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Editor Modal -->
+    <div id="editorModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl flex flex-col max-h-[95vh]">
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+                <h2 class="text-2xl font-black" id="modalTitle">Edit Preview</h2>
+                <div class="flex gap-4">
+                    <button id="scanImagesBtn" class="text-sm font-bold text-brand-teal hover:text-teal-600 bg-teal-50 px-4 py-2 rounded-lg transition"><i class="fas fa-search-plus mr-2"></i>Scan for Images</button>
+                    <button id="closeModalBtn" class="text-gray-400 hover:text-black"><i class="fas fa-times text-xl"></i></button>
+                </div>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+                <!-- Slug Section -->
+                <div>
+                    <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">URL Slug</label>
+                    <div class="flex items-center">
+                        <span class="bg-gray-100 border border-r-0 border-gray-300 px-4 py-3 rounded-l-lg text-gray-500 text-sm font-medium">madereal.uk/</span>
+                        <input type="text" id="slugInput" placeholder="arc-joinery" class="flex-1 border border-gray-300 rounded-r-lg px-4 py-3 focus:outline-none focus:border-brand-teal">
+                    </div>
+                </div>
+
+                <!-- Image Management Section (Hidden until scanned) -->
+                <div id="imageManager" class="hidden border border-brand-teal/20 rounded-xl bg-teal-50/30 overflow-hidden">
+                    <div class="bg-teal-50 p-4 border-b border-brand-teal/10 flex justify-between items-center">
+                        <h3 class="text-sm font-black text-teal-800 uppercase tracking-widest">Image Link Manager</h3>
+                        <span id="imgCount" class="text-xs font-bold bg-brand-teal text-white px-2 py-1 rounded">0 Found</span>
+                    </div>
+                    <div id="imageLinksList" class="max-h-[400px] overflow-y-auto p-2 space-y-2">
+                        <!-- JS will inject image rows here -->
+                    </div>
+                    <div class="p-4 bg-white border-t border-brand-teal/10">
+                        <button id="applyLinksBtn" class="w-full bg-brand-teal text-white py-3 rounded-lg font-bold hover:bg-teal-500 transition shadow-md">Apply New Links to Code</button>
+                    </div>
+                </div>
+
+                <!-- HTML Code Section -->
+                <div class="flex flex-col h-[400px]">
+                    <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">HTML Source Code</label>
+                    <textarea id="htmlInput" class="w-full flex-1 border border-gray-300 rounded-lg p-4 focus:outline-none focus:border-brand-teal text-sm bg-gray-50" placeholder="Paste full HTML code here..."></textarea>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-gray-100 flex justify-end gap-3 bg-gray-50 rounded-b-2xl">
+                <button id="cancelBtn" class="px-6 py-2.5 rounded-full font-bold text-gray-600 hover:bg-gray-200 transition">Cancel</button>
+                <button id="saveBtn" class="px-6 py-2.5 rounded-full font-bold bg-black text-white hover:bg-gray-800 transition shadow-lg flex items-center gap-2">
+                    <i class="fas fa-save"></i> Save & Publish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, getDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAxmpbvmgyb831MMi2HA7Nd7c18wCb1m1c",
+            authDomain: "maderealwebsites.firebaseapp.com",
+            projectId: "maderealwebsites",
+            storageBucket: "maderealwebsites.firebasestorage.app",
+            messagingSenderId: "179002605066",
+            appId: "1:179002605066:web:8fd2218624a3d41064a9f3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+        const ALLOWED_EMAIL = "maderealdesign@gmail.com";
+
+        const loginView = document.getElementById('loginView');
+        const dashboardView = document.getElementById('dashboardView');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const previewList = document.getElementById('previewList');
+        const editorModal = document.getElementById('editorModal');
+        const slugInput = document.getElementById('slugInput');
+        const htmlInput = document.getElementById('htmlInput');
+        const imageManager = document.getElementById('imageManager');
+        const imageLinksList = document.getElementById('imageLinksList');
+        const saveBtn = document.getElementById('saveBtn');
+
+        let isEditing = false;
+        let originalSlug = "";
+        const RESERVED_SLUGS = new Set([
+            "admin",
+            "about",
+            "blog",
+            "contact",
+            "faq",
+            "get-started",
+            "graphic-design",
+            "printing",
+            "privacy",
+            "terms",
+            "web-design-barnoldswick",
+            "web-design-blackburn",
+            "web-design-burnley",
+            "web-design-clitheroe",
+            "web-design-colne",
+            "web-design-nelson",
+            "web-design-pendle",
+            "web-design-skipton"
+        ]);
+
+        // AUTH
+        onAuthStateChanged(auth, (user) => {
+            if (user && user.email === ALLOWED_EMAIL) {
+                loginView.classList.add('hidden');
+                dashboardView.classList.remove('hidden');
+                logoutBtn.classList.remove('hidden');
+                loadPreviews();
+            } else if (user) {
+                signOut(auth);
+                alert("Unauthorized Access");
+            } else {
+                loginView.classList.remove('hidden');
+                dashboardView.classList.add('hidden');
+                logoutBtn.classList.add('hidden');
+            }
+        });
+
+        loginBtn.addEventListener('click', () => signInWithPopup(auth, provider));
+        logoutBtn.addEventListener('click', () => signOut(auth));
+
+        // LOAD LIST
+        async function loadPreviews() {
+            previewList.innerHTML = '<li class="p-8 text-center text-gray-400">Loading...</li>';
+            const q = query(collection(db, "previews"), orderBy("createdAt", "desc"));
+            const snap = await getDocs(q);
+            previewList.innerHTML = '';
+            if (snap.empty) {
+                previewList.innerHTML = '<li class="p-8 text-center text-gray-400 font-medium">No previews yet. Create one to get started.</li>';
+                return;
+            }
+            snap.forEach(d => {
+                const li = document.createElement('li');
+                li.className = "p-6 flex justify-between items-center hover:bg-gray-50";
+                li.innerHTML = `<div><h3 class="font-bold text-lg">${d.id}</h3><a href="/${d.id}" target="_blank" class="text-sm text-blue-500">madereal.uk/${d.id}</a></div>
+                <div class="flex gap-2"><button onclick="window.editPreview('${d.id}')" class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-bold">Edit</button>
+                <button onclick="window.deletePreview('${d.id}')" class="px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-bold">Delete</button></div>`;
+                previewList.appendChild(li);
+            });
+        }
+
+        // IMAGE SCANNER LOGIC
+        document.getElementById('scanImagesBtn').addEventListener('click', () => {
+            const html = htmlInput.value;
+            // This Regex finds all src="..." values in the HTML
+            const regex = /<img[^>]+src="([^">]+)"/g;
+            let match;
+            const images = [];
+            while ((match = regex.exec(html)) !== null) {
+                images.push(match[1]);
+            }
+
+            if (images.length === 0) return alert("No images found in the code.");
+
+            imageLinksList.innerHTML = '';
+            document.getElementById('imgCount').textContent = `${images.length} Found`;
+            
+            images.forEach((src, index) => {
+                const row = document.createElement('div');
+                row.className = "img-link-row p-4 rounded flex gap-4 border border-gray-200 bg-white items-center shadow-sm";
+                
+                // Construct the full image path if it's a relative path (so the preview thumbnail works)
+                let previewSrc = src;
+                if(src.startsWith('images/') || src.startsWith('/images/')) {
+                    previewSrc = window.location.origin + '/' + src.replace(/^\//, '');
+                }
+
+                row.innerHTML = `
+                    <div class="w-16 h-16 shrink-0 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200 overflow-hidden relative">
+                        <img src="${previewSrc}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                        <i class="fas fa-image text-gray-300 text-xl hidden absolute"></i>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-1.5">
+                        <span class="text-[10px] font-black text-gray-400 uppercase tracking-wider">Image #${index + 1}</span>
+                        <input type="text" data-original="${src}" value="${src}" class="image-update-input w-full px-3 py-2 border border-gray-300 rounded focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none text-sm text-gray-700 bg-gray-50 hover:bg-white transition" placeholder="Paste image URL here...">
+                    </div>
+                `;
+                imageLinksList.appendChild(row);
+            });
+
+            imageManager.classList.remove('hidden');
+        });
+
+        document.getElementById('applyLinksBtn').addEventListener('click', () => {
+            let html = htmlInput.value;
+            const inputs = document.querySelectorAll('.image-update-input');
+            let count = 0;
+
+            inputs.forEach(input => {
+                const newVal = input.value.trim();
+                const oldVal = input.dataset.original;
+                // Only replace if the user actually changed the value in the input box
+                if (newVal && newVal !== oldVal) {
+                    html = html.split(`src="${oldVal}"`).join(`src="${newVal}"`);
+                    count++;
+                }
+            });
+
+            htmlInput.value = html;
+            alert(`Updated ${count} image link(s) in the code!`);
+            imageManager.classList.add('hidden');
+        });
+
+        // SAVE LOGIC
+        saveBtn.addEventListener('click', async () => {
+            const slug = slugInput.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-');
+            const html = htmlInput.value;
+            if (!slug || !html) return alert("Slug and HTML are required.");
+            if (RESERVED_SLUGS.has(slug) || slug.includes(".")) {
+                return alert("That URL slug is reserved for the main website. Please choose a client-specific slug.");
+            }
+
+            saveBtn.disabled = true;
+            if (isEditing && slug !== originalSlug) await deleteDoc(doc(db, "previews", originalSlug));
+            await setDoc(doc(db, "previews", slug), { slug, html, createdAt: serverTimestamp() });
+            
+            editorModal.classList.add('hidden');
+            saveBtn.disabled = false;
+            loadPreviews();
+        });
+
+        window.editPreview = async (slug) => {
+            const s = await getDoc(doc(db, "previews", slug));
+            isEditing = true;
+            originalSlug = slug;
+            slugInput.value = slug;
+            htmlInput.value = s.data().html;
+            imageManager.classList.add('hidden');
+            editorModal.classList.remove('hidden');
+        };
+
+        window.deletePreview = async (slug) => {
+            if (confirm("Delete this preview?")) {
+                await deleteDoc(doc(db, "previews", slug));
+                loadPreviews();
+            }
+        };
+
+        document.getElementById('createNewBtn').addEventListener('click', () => {
+            isEditing = false;
+            slugInput.value = '';
+            htmlInput.value = '';
+            imageManager.classList.add('hidden');
+            editorModal.classList.remove('hidden');
+        });
+
+        document.getElementById('closeModalBtn').addEventListener('click', () => editorModal.classList.add('hidden'));
+        document.getElementById('cancelBtn').addEventListener('click', () => editorModal.classList.add('hidden'));
+
+    </script>
+</body>
+</html>
