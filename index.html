@@ -129,6 +129,7 @@
     }
     </script>
     
+    <link rel="preload" as="image" href="/assets/work/madereal-responsive-preview.webp" type="image/webp" fetchpriority="high">
     <link rel="preload" href="/assets/css/home.css" as="style">
     <link rel="stylesheet" href="/assets/css/home.css">
     
@@ -155,12 +156,20 @@
         .group:hover .drift-effect { transform: translateY(-6px); }
     </style>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "G-HN0VXM5YSL");
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var gtagScript = document.createElement('script');
+          gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL";
+          gtagScript.async = true;
+          document.head.appendChild(gtagScript);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HN0VXM5YSL');
+        }, 100);
+      });
     </script>
 </head>
 <body class="bg-brand-gray text-slate-900 flex flex-col min-h-screen">
