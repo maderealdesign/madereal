@@ -4,7 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MadeReal | £197 Professional Web Design in Lancashire</title>
-    <meta name="description" content="Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Just results.">
+    <meta name="description" content="Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Just results. We build your 5+ page local website with no upfront cost.">
+    
+    <link rel="canonical" href="https://madereal.uk/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://madereal.uk/">
+    <meta property="og:title" content="MadeReal | £197 Professional Web Design in Lancashire">
+    <meta property="og:description" content="Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Preview your site before you pay.">
+    <meta property="og:image" content="https://madereal.uk/assets/work/pendle-pods.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MadeReal | £197 Professional Web Design in Lancashire">
+    <meta name="twitter:description" content="Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers.">
+    <meta name="twitter:image" content="https://madereal.uk/assets/work/pendle-pods.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "name": "MadeReal Design Ltd",
+          "url": "https://madereal.uk",
+          "logo": "https://madereal.uk/assets/logo.png",
+          "image": "https://madereal.uk/assets/work/pendle-pods.jpg",
+          "description": "Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Full local SEO setup.",
+          "telephone": "+447396710347",
+          "email": "info@madereal.uk",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "9 Market St",
+            "addressLocality": "Colne",
+            "addressRegion": "Lancashire",
+            "postalCode": "BB8 0HY",
+            "addressCountry": "UK"
+          },
+          "areaServed": [
+            "Colne", "Burnley", "Nelson", "Pendle", "Skipton", "Barnoldswick", "Blackburn", "Clitheroe", "Lancashire"
+          ],
+          "priceRange": "£197",
+          "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Local Business Website Package",
+              "description": "A complete 5+ page website, 8 optimized local landing pages, contact form, and Google Business setup. No monthly fees."
+            },
+            "price": "197.00",
+            "priceCurrency": "GBP"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Are there really no monthly fees?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We charge a strict £197 one-off build fee. You own the code and the design. While you are responsible for your own basic domain and hosting costs (usually around £20/year via standard providers), MadeReal will never charge you a monthly retainer to keep your site online."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you do local SEO for Lancashire businesses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Every £197 website we build includes foundational Local SEO. We structure your site to perform well on Google Maps and local search queries specifically for towns like Colne, Burnley, Nelson, and Blackburn."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What if I don't like the free preview?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Then you walk away. We build the draft and send it to your phone within 24 hours entirely for free. If it's not exactly what your business needs, there is no invoice, no hassle, and no obligation to buy."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,6 +105,7 @@
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
                         'hard': '8px 8px 0px 0px rgba(15,23,42,1)',
+                        'glow': '0 0 0 4px rgba(37, 99, 235, 0.15)',
                     }
                 }
             }
@@ -32,17 +113,29 @@
     </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .slide-left { transform: translateX(-50px); }
-        .slide-right { transform: translateX(50px); }
-        .slide-left.active, .slide-right.active { transform: translateX(0); }
+        
+        /* Premium Subtle Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        .reveal { opacity: 0; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
+        .slide-up { transform: translateY(40px); }
+        .slide-left { transform: translateX(-40px); }
+        .slide-right { transform: translateX(40px); }
+        
+        /* Fully directional activation/reversal tracking */
+        .reveal.active { opacity: 1; transform: translate(0, 0); }
+        
+        /* Focus state aura ring */
+        .input-glow-focus:focus { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); border-color: #2563eb; }
+        
+        /* Floating Screenshot Drift Interaction */
+        .drift-effect { transform: translateY(0); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .group:hover .drift-effect { transform: translateY(-6px); }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
@@ -55,150 +148,495 @@
 </head>
 <body class="bg-brand-gray text-slate-900 flex flex-col min-h-screen">
 
-    [[[INJECT_HEADER]]]
+    <header class="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="/" class="group flex items-center gap-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                    <span class="text-white font-bold text-sm">M</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-black tracking-tight text-slate-900 leading-none">made<span class="text-teal-500">real</span></span>
+                    <span class="text-[10px] font-medium text-gray-500 tracking-wider uppercase">Design Ltd</span>
+                </div>
+            </a>
 
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="/" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Home</a>
+                <a href="/about.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">About</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors py-2">
+                        Services
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform group-hover:translate-y-0 translate-y-2">
+                        <div class="p-2">
+                            <a href="/graphic-design.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Graphic Design</a>
+                            <a href="/printing.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Printing</a>
+                            <div class="my-1 border-t border-gray-100"></div>
+                            <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tradesman Websites</span>
+                            <a href="/services/tradesman-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">General Trades</a>
+                            <a href="/services/tradesman-roofing.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Roofing Specialists</a>
+                            <a href="/services/tradesman-electricians.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Electricians</a>
+                            <div class="my-1 border-t border-gray-100"></div>
+                            <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Business Websites</span>
+                            <a href="/services/small-business-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Small Business</a>
+                            <a href="/services/hospitality-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Hospitality</a>
+                            <a href="/services/professional-services.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Professional Services</a>
+                            <a href="/services/ecommerce-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">E-commerce</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors py-2">
+                        Areas
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform group-hover:translate-y-0 translate-y-2">
+                        <div class="p-2 grid grid-cols-2 gap-1">
+                            <a href="/web-design-colne.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Colne</a>
+                            <a href="/web-design-burnley.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Burnley</a>
+                            <a href="/web-design-nelson.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Nelson</a>
+                            <a href="/web-design-pendle.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Pendle</a>
+                            <a href="/web-design-skipton.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Skipton</a>
+                            <a href="/web-design-barnoldswick.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Barnoldswick</a>
+                            <a href="/web-design-blackburn.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Blackburn</a>
+                            <a href="/web-design-clitheroe.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Clitheroe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/blog.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Blog</a>
+                <a href="/contact.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Contact</a>
+                <a href="/get-started.html" class="px-4 py-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all shadow-md hover:shadow-lg">Get FREE Preview</a>
+            </nav>
+
+            <button id="mobile-menu-btn" aria-label="Open mobile menu" class="lg:hidden p-2 text-slate-700 hover:text-teal-600 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[99] hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] lg:hidden overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
+                <span class="text-lg font-bold text-slate-900">Menu</span>
+                <button id="mobile-menu-close" aria-label="Close mobile menu" class="p-2 text-slate-500 hover:text-teal-600 transition-colors">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <nav class="space-y-2 mb-8">
+                <a href="/" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Home</a>
+                <a href="/about.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">About</a>
+                <a href="/blog.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Blog</a>
+                <a href="/contact.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Contact</a>
+                <a href="/get-started.html" class="block px-4 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold rounded-lg shadow-md">Get FREE Preview</a>
+            </nav>
+
+            <div class="mb-8 border-b border-gray-200 pb-8">
+                <button id="mobile-services-toggle" class="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">
+                    <span>Services</span>
+                    <i id="mobile-services-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div id="mobile-services-content" class="hidden space-y-1 pl-4 border-l-2 border-teal-500 ml-3">
+                    <a href="/graphic-design.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Graphic Design</a>
+                    <a href="/printing.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Printing</a>
+                    <div class="my-1 border-t border-gray-100"></div>
+                    <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tradesman Websites</span>
+                    <a href="/services/tradesman-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">General Trades</a>
+                    <a href="/services/tradesman-roofing.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Roofing Specialists</a>
+                    <a href="/services/tradesman-electricians.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Electricians</a>
+                    <div class="my-1 border-t border-gray-100"></div>
+                    <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Business Websites</span>
+                    <a href="/services/small-business-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Small Business</a>
+                    <a href="/services/hospitality-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Hospitality</a>
+                    <a href="/services/professional-services.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Professional Services</a>
+                    <a href="/services/ecommerce-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">E-commerce</a>
+                </div>
+            </div>
+
+            <div>
+                <button id="mobile-locations-toggle" class="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">
+                    <span>Service Areas</span>
+                    <i id="mobile-locations-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div id="mobile-locations-content" class="hidden space-y-1 pl-4 border-l-2 border-teal-500 ml-3">
+                    <a href="/web-design-colne.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Colne</a>
+                    <a href="/web-design-burnley.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Burnley</a>
+                    <a href="/web-design-nelson.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Nelson</a>
+                    <a href="/web-design-pendle.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Pendle</a>
+                    <a href="/web-design-skipton.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Skipton</a>
+                    <a href="/web-design-barnoldswick.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Barnoldswick</a>
+                    <a href="/web-design-blackburn.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Blackburn</a>
+                    <a href="/web-design-clitheroe.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Clitheroe</a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-xs text-gray-500 mb-2">Need help? Call us:</p>
+                <a href="tel:07396710347" class="block text-lg font-bold text-teal-600 hover:text-teal-700 transition-colors">07396 710347</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+const mobileLocationsToggle = document.getElementById('mobile-locations-toggle');
+const mobileServicesContent = document.getElementById('mobile-services-content');
+const mobileLocationsContent = document.getElementById('mobile-locations-content');
+const mobileServicesIcon = document.getElementById('mobile-services-icon');
+const mobileLocationsIcon = document.getElementById('mobile-locations-icon');
+
+function openMobileMenu() {
+    mobileMenu.classList.remove('translate-x-full');
+    setTimeout(() => {
+        mobileMenuOverlay.classList.remove('hidden');
+        setTimeout(() => {
+            mobileMenuOverlay.classList.remove('opacity-0');
+        }, 10);
+    }, 10);
+}
+
+function closeMobileMenu() {
+    mobileMenuOverlay.classList.add('opacity-0');
+    mobileMenu.classList.add('translate-x-full');
+    setTimeout(() => {
+        mobileMenuOverlay.classList.add('hidden');
+    }, 300);
+}
+
+if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+if (mobileServicesToggle && mobileServicesContent && mobileServicesIcon) {
+    mobileServicesToggle.addEventListener('click', () => {
+        mobileServicesContent.classList.toggle('hidden');
+        mobileServicesIcon.classList.toggle('rotate-180');
+    });
+}
+
+if (mobileLocationsToggle && mobileLocationsContent && mobileLocationsIcon) {
+    mobileLocationsToggle.addEventListener('click', () => {
+        mobileLocationsContent.classList.toggle('hidden');
+        mobileLocationsIcon.classList.toggle('rotate-180');
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+        closeMobileMenu();
+    }
+});
+</script>
 
     <main class="flex-grow pt-16 bg-white">
+        
         <section class="px-6 pt-24 md:pt-32 pb-20 md:pb-28 bg-white overflow-hidden">
             <div class="max-w-5xl mx-auto text-center animate-fade-in">
-                <p class="text-sm font-bold text-brand-teal mb-4">Websites for local businesses</p>
+                <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Websites for local businesses</p>
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-slate-950 mb-7">
-                    Get a proper business website for £197.
+                    Your business could have a proper website by tomorrow.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-3xl mx-auto mb-10">
-                    A 5+ page website, 8 local landing pages, contact form and Google Business setup. No monthly MadeReal fees. You own the site.
+                    A complete 5+ page website, 8 optimized local landing pages, contact form, and Google Business setup. No monthly MadeReal fees. You own the code completely.
                 </p>
+                
                 <form id="quick-lead-form" name="Quick Preview Lead" method="POST" data-netlify="true" class="max-w-2xl mx-auto">
                     <input type="hidden" name="form-name" value="Quick Preview Lead">
                     <input type="hidden" name="Source_Page" value="Homepage hero">
-                    <div class="flex flex-col sm:flex-row items-stretch gap-3 rounded-[28px] bg-white border border-gray-200 p-3 shadow-soft">
+                    <div class="flex flex-col sm:flex-row items-stretch gap-3 rounded-[28px] bg-white border border-gray-200 p-3 shadow-soft transition-all duration-300">
                         <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
-                        <input id="quick-lead-contact" name="Contact_Detail" type="text" required inputmode="email" autocomplete="email tel" class="min-h-[58px] flex-1 rounded-full bg-brand-gray px-6 text-lg font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-100" placeholder="Enter your mobile or email">
-                        <button id="quick-lead-submit" type="submit" data-track="hero_quick_lead" class="min-h-[58px] rounded-full bg-blue-600 px-8 text-white font-bold text-lg hover:bg-blue-700 transition-colors">
+                        <input id="quick-lead-contact" name="Contact_Detail" type="text" required inputmode="email" autocomplete="email tel" class="min-h-[58px] flex-1 rounded-full bg-brand-gray px-6 text-lg font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none border border-transparent transition-all duration-300 input-glow-focus" placeholder="Enter your mobile or email">
+                        <button id="quick-lead-submit" type="submit" data-track="hero_quick_lead" class="min-h-[58px] rounded-full bg-blue-600 px-8 text-white font-bold text-lg hover:bg-blue-700 transition-all active:scale-[0.98]">
                             Send me a preview
                         </button>
                     </div>
                     <p class="text-sm text-gray-500 font-medium mt-4">
-                        We will ask for your business next so we can build a better preview. No payment, no pressure.
+                        We will ask for your business details next so we can build a better mock layout. No payment, no pressure.
                     </p>
                 </form>
-                <a href="#included" data-track="hero_cta_whats_included" class="inline-flex items-center justify-center text-slate-600 hover:text-blue-600 font-bold mt-8">
+                <a href="#included" data-track="hero_cta_whats_included" class="inline-flex items-center justify-center text-slate-600 hover:text-blue-600 font-bold mt-8 transition-colors">
                     See what is included <i class="fas fa-arrow-down ml-2 text-xs"></i>
                 </a>
             </div>
 
             <div class="max-w-4xl mx-auto mt-16 md:mt-20 animate-fade-in" style="animation-delay: 120ms;">
-                <div class="mx-auto max-w-[360px] md:max-w-[430px] rounded-[36px] bg-white border border-gray-200 shadow-soft p-4">
+                <div class="mx-auto max-w-[360px] md:max-w-[430px] rounded-[36px] bg-white border border-gray-200 shadow-soft p-4 group">
                     <div class="rounded-[28px] bg-brand-gray p-4">
-                        <div class="rounded-[24px] bg-white border border-gray-200 overflow-hidden">
-                            <img src="/assets/work/pendle-pods.jpg" alt="Example website preview built by MadeReal" class="w-full aspect-[4/5] object-cover object-top">
+                        <div class="rounded-[24px] bg-white border border-gray-200 overflow-hidden shadow-sm relative">
+                            <img src="/assets/work/pendle-pods.jpg" alt="Pendle Pods glamping website layout built by MadeReal" class="w-full aspect-[4/5] object-cover object-top drift-effect">
+                            
+                            <div class="absolute bottom-3 left-3 right-3 bg-slate-950/90 backdrop-blur-md p-3 rounded-xl border border-white/10 text-left">
+                                <p class="text-[10px] uppercase font-bold tracking-wider text-brand-teal mb-0.5">Live Interface Preview Mode</p>
+                                <p class="text-xs text-white font-medium">Clean, fully responsive layout built dynamically for your trade.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="px-6 py-12 md:py-16 bg-white reveal slide-up">
-            <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-center">
-                <div>
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5">
-                        <i class="fas fa-sterling-sign"></i>
+        <section class="border-y border-gray-200 bg-white py-10 reveal slide-up">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+                    <div>
+                        <h2 class="text-2xl font-black text-slate-950 tracking-tight">Real £197 builds running in Lancashire.</h2>
+                        <p class="text-sm font-medium text-gray-500 mt-1">Zero monthly retainer fees. No contract trap. Just search results.</p>
                     </div>
-                    <h2 class="text-xl font-black text-slate-950 mb-2">Free preview</h2>
-                    <p class="text-gray-600 font-medium leading-relaxed">See the first version before paying anything.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-12">
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-extrabold text-slate-900">£197</span>
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Flat Setup Fee</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-extrabold text-slate-900">24 Hours</span>
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Average Draft Delivery</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-extrabold text-slate-900">8 Towns</span>
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Local Area Target Pages</span>
+                        </div>
+                        <div class="flex flex-col items-center lg:items-start">
+                            <span class="text-2xl font-extrabold text-slate-900">100% Own</span>
+                            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">You Keep the Code</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5">
+            </div>
+        </section>
+
+        <section id="work" class="py-20 md:py-32 px-6 bg-brand-gray reveal slide-up">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-4xl mx-auto text-center mb-14 md:mb-20">
+                    <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Credibility Showcase</p>
+                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">See the kind of sites we build.</h2>
+                    <p class="text-xl text-gray-600 font-medium leading-relaxed">
+                        These are real local business websites running on our flat-fee setup system. Different trades, different styles, same goal: build trust immediately and transform casual nearby visitors into direct customer enquiries.
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-12 gap-6 md:gap-8">
+                    <a href="https://pendlepods.co.uk" target="_blank" rel="noopener" class="group lg:col-span-7 bg-white rounded-[32px] p-4 md:p-5 shadow-soft hover:shadow-lg transition-all duration-300 border border-gray-200 flex flex-col justify-between">
+                        <div class="rounded-3xl overflow-hidden aspect-[16/10] relative mb-5 bg-gray-100">
+                            <img src="/assets/work/pendle-pods.jpg" alt="Pendle Pods glamping site website design by MadeReal" class="w-full h-full object-cover object-top drift-effect">
+                        </div>
+                        <div class="grid md:grid-cols-[1fr_auto] gap-4 items-end px-2 pb-1">
+                            <div>
+                                <p class="text-sm font-bold text-blue-600 mb-2">Hospitality</p>
+                                <h3 class="text-3xl md:text-4xl font-black text-slate-950 tracking-tight">Pendle Pods</h3>
+                                <p class="text-gray-600 font-medium mt-2">A booking-focused glamping site with an instant first impression and strong visual trust elements.</p>
+                            </div>
+                            <span class="text-sm font-bold text-slate-500 group-hover:text-teal-600 transition-colors flex items-center gap-1">View site <i class="fas fa-chevron-right text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <div class="lg:col-span-5 grid gap-6">
+                        <a href="https://entwistlepaving.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[32px] p-4 md:p-5 shadow-soft hover:shadow-lg transition-all duration-300 border border-gray-200">
+                            <div class="grid sm:grid-cols-[1.15fr_0.85fr] gap-5 items-center">
+                                <div>
+                                    <p class="text-sm font-bold text-blue-600 mb-3">Paving</p>
+                                    <h3 class="text-2xl md:text-3xl font-black tracking-tight text-slate-950">Entwistle Paving</h3>
+                                    <p class="text-sm text-gray-600 font-medium mt-3 leading-relaxed">A bold trade website built explicitly to make driveway quotations feel immediate.</p>
+                                </div>
+                                <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-brand-gray relative">
+                                    <img src="/assets/work/entwistle-paving.jpg" alt="Entwistle Paving driveway business website by MadeReal" class="w-full h-full object-cover object-top drift-effect">
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="https://tcjoinerbuilder.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[32px] p-4 md:p-5 shadow-soft hover:shadow-lg transition-all duration-300 border border-gray-200">
+                            <div class="grid sm:grid-cols-[0.85fr_1.15fr] gap-5 items-center">
+                                <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-brand-gray relative">
+                                    <img src="/assets/work/tc-joiner-builder.jpg" alt="TC Joiner Builder construction website by MadeReal" class="w-full h-full object-cover object-top drift-effect">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-blue-600 mb-3">Joinery</p>
+                                    <h3 class="text-2xl md:text-3xl font-black tracking-tight text-slate-950">TC Joiner Builder</h3>
+                                    <p class="text-sm text-gray-600 font-medium mt-3 leading-relaxed">Straightforward credibility mechanics built for local extensions, construction projects, and targeted keyword lookups.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lg:col-span-12 grid sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-2">
+                        <a href="https://hynelectrical.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:shadow-soft transition-all flex flex-col justify-between">
+                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 mb-4">
+                                <img src="/assets/work/hyn-electrical.jpg" alt="Hyn Electrical electrician website design" class="w-full h-full object-cover object-top drift-effect">
+                            </div>
+                            <div class="flex items-start justify-between gap-4 px-1">
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Hyn Electrical</h3>
+                                    <p class="text-sm text-gray-500 font-medium mt-1">Electrician website</p>
+                                </div>
+                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1 text-sm"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://trustedroofrepairs.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:shadow-soft transition-all flex flex-col justify-between">
+                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 mb-4">
+                                <img src="/assets/work/trusted-roof-repairs.jpg" alt="Trusted Roof Repairs lead generation website" class="w-full h-full object-cover object-top drift-effect">
+                            </div>
+                            <div class="flex items-start justify-between gap-4 px-1">
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Trusted Roof Repairs</h3>
+                                    <p class="text-sm text-gray-500 font-medium mt-1">Roofing lead page</p>
+                                </div>
+                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1 text-sm"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://sprayrite.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:shadow-soft transition-all flex flex-col justify-between">
+                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 mb-4">
+                                <img src="/assets/work/sprayrite.jpg" alt="Sprayrite upvc spraying service website" class="w-full h-full object-cover object-top drift-effect">
+                            </div>
+                            <div class="flex items-start justify-between gap-4 px-1">
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Sprayrite</h3>
+                                    <p class="text-sm text-gray-500 font-medium mt-1">Spraying service site</p>
+                                </div>
+                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1 text-sm"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://dust-be-gone.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:shadow-soft transition-all flex flex-col justify-between">
+                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-brand-gray mb-4">
+                                <img src="/assets/work/dust-be-gone.jpg" alt="Dust-Be-Gone commercial cleaning website" class="w-full h-full object-cover object-top drift-effect">
+                            </div>
+                            <div class="flex items-start justify-between gap-4 px-1">
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Dust-Be-Gone</h3>
+                                    <p class="text-sm text-gray-500 font-medium mt-1">Cleaning business site</p>
+                                </div>
+                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1 text-sm"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-20 md:py-32 bg-white reveal slide-up">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Risk-Free Security Guarantee</p>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">
+                    Preview first. Pay only if you want it.
+                </h2>
+                <p class="text-xl text-gray-600 font-medium leading-relaxed max-w-2xl mx-auto mb-12">
+                    We eliminate the typical upfront down-payments standard agencies demand. You review a full live layout made explicitly for your business before spending a single penny.
+                </p>
+            </div>
+            <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-center">
+                <div class="group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-star-of-life"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-950 mb-2">Free Live Preview</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">See the design foundations and structural framework working on your phone ahead of time.</p>
+                </div>
+                <div class="group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h2 class="text-xl font-black text-slate-950 mb-2">Easy to start</h2>
-                    <p class="text-gray-600 font-medium leading-relaxed">Search your business and we use your Google details.</p>
+                    <h3 class="text-xl font-black text-slate-950 mb-2">Zero Complications</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Provide your basic profile details and let us safely compile your setup layout maps.</p>
                 </div>
-                <div>
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5">
-                        <i class="fas fa-user-check"></i>
+                <div class="group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-halved"></i>
                     </div>
-                    <h2 class="text-xl font-black text-slate-950 mb-2">Yours to own</h2>
-                    <p class="text-gray-600 font-medium leading-relaxed">One payment if you approve it. No MadeReal retainer.</p>
+                    <h3 class="text-xl font-black text-slate-950 mb-2">Absolute Ownership</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">One direct invoice if you completely approve. No hidden monthly retainers forced later.</p>
                 </div>
             </div>
         </section>
 
         <section id="included" class="px-6 py-20 md:py-32 bg-brand-gray reveal slide-up">
             <div class="max-w-4xl mx-auto text-center mb-16 md:mb-20">
-                <p class="text-sm font-bold text-brand-teal mb-4">What you actually get</p>
+                <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">What you actually get</p>
                 <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">
                     A complete local website package.
                 </h2>
                 <p class="text-xl text-gray-600 font-medium leading-relaxed">
-                    The £197 is not just a homepage. It is a starter system for trust, local search and enquiries.
+                    The £197 offer isn't a stripped-back landing page hook. It is a full starter system optimized for customer trust, regional lookup rankings, and incoming lead acquisition.
                 </p>
             </div>
 
             <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2">
-                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200">
+                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <i class="fas fa-sitemap text-blue-600 text-3xl mb-8"></i>
                     <h3 class="text-3xl font-black text-slate-950 tracking-tight mb-4">5+ page website</h3>
-                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Home, about, services, contact and conversion pages written around your business.</p>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Home, about your operation, full services index, contact portals, and custom call-to-action systems tailored to your target audience.</p>
                 </div>
-                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200">
+                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <i class="fas fa-map-location-dot text-blue-600 text-3xl mb-8"></i>
                     <h3 class="text-3xl font-black text-slate-950 tracking-tight mb-4">8 location pages</h3>
-                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Local landing pages for nearby towns so customers can find the service they searched for.</p>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Targeted service sub-pages matching queries perfectly across adjacent towns so prospects find you easily.</p>
                 </div>
-                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200">
+                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <i class="fas fa-calendar-check text-blue-600 text-3xl mb-8"></i>
                     <h3 class="text-3xl font-black text-slate-950 tracking-tight mb-4">Contact or booking form</h3>
-                    <p class="text-lg text-gray-600 font-medium leading-relaxed">A clear enquiry route that can send leads straight to your inbox or booking flow.</p>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Clean validation data routing systems forwarding job inquiries directly straight to your mobile inbox instantly.</p>
                 </div>
-                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200">
+                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <i class="fab fa-google text-blue-600 text-3xl mb-8"></i>
                     <h3 class="text-3xl font-black text-slate-950 tracking-tight mb-4">Google Business setup</h3>
-                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Help connecting the website with your Google Business Profile so your online presence feels joined up.</p>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">Complete profile calibration alignment tying maps directly together into your local page framework perfectly.</p>
                 </div>
             </div>
         </section>
 
         <section class="px-6 py-20 md:py-32 bg-white reveal slide-up">
             <div class="max-w-6xl mx-auto space-y-20 md:space-y-28">
+                
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div class="order-2 lg:order-1">
-                        <div class="rounded-[32px] bg-blue-50 p-6 md:p-10">
-                            <div class="rounded-[28px] bg-white border border-blue-100 p-5 shadow-soft">
-                                <div class="rounded-2xl overflow-hidden mb-5">
-                                    <img src="/assets/work/hyn-electrical.jpg" alt="Local business website preview showing a service page" class="w-full aspect-[16/10] object-cover object-top">
+                        <div class="rounded-[32px] bg-blue-50 p-6 md:p-10 relative overflow-hidden group">
+                            <div class="rounded-[28px] bg-white border border-blue-100 p-5 shadow-soft transition-transform duration-500 hover:scale-[1.02]">
+                                <div class="rounded-2xl overflow-hidden mb-5 bg-slate-100 relative aspect-[16/10]">
+                                    <img src="/assets/work/hyn-electrical.jpg" alt="Local business website preview showing a service page" class="w-full h-full object-cover object-top">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
                                 </div>
                                 <div class="grid grid-cols-3 gap-3">
-                                    <div class="h-16 rounded-2xl bg-brand-gray"></div>
-                                    <div class="h-16 rounded-2xl bg-brand-gray"></div>
-                                    <div class="h-16 rounded-2xl bg-brand-gray"></div>
+                                    <div class="h-16 rounded-2xl bg-brand-gray border border-gray-100 flex items-center justify-center text-xs font-bold text-gray-400">Page 1</div>
+                                    <div class="h-16 rounded-2xl bg-brand-gray border border-gray-100 flex items-center justify-center text-xs font-bold text-gray-400">Page 2</div>
+                                    <div class="h-16 rounded-2xl bg-brand-gray border border-gray-100 flex items-center justify-center text-xs font-bold text-gray-400">Page 3</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <p class="text-sm font-bold text-brand-teal mb-4">Show what you offer</p>
+                        <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Show what you offer</p>
                         <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">Separate pages for your services.</h2>
-                        <p class="text-xl text-gray-600 font-medium leading-relaxed">Each important service gets room to breathe, with simple copy, clear calls to action and the words local customers actually search for.</p>
+                        <p class="text-xl text-gray-600 font-medium leading-relaxed">Each primary option receives isolated room to breath. Complete with focused customer intent copy structures, simple clear calls to action, and search phrases actual local people utilize.</p>
                     </div>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div>
-                        <p class="text-sm font-bold text-brand-teal mb-4">Be found nearby</p>
+                        <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Be found nearby</p>
                         <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">8 location pages included.</h2>
-                        <p class="text-xl text-gray-600 font-medium leading-relaxed">We build useful local pages for nearby towns, helping your site connect your services with the areas you want enquiries from.</p>
+                        <p class="text-xl text-gray-600 font-medium leading-relaxed">We engineer localized utility pages covering neighboring hubs, ensuring your system naturally routes prospective town search phrases down into active service inquiries.</p>
                     </div>
                     <div>
                         <div class="rounded-[32px] bg-emerald-50 p-6 md:p-10">
                             <div class="rounded-[28px] bg-white border border-emerald-100 p-6 shadow-soft">
                                 <div class="grid grid-cols-2 gap-4">
-                                    <a href="/web-design-colne.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950">Colne</a>
-                                    <a href="/web-design-burnley.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950">Burnley</a>
-                                    <a href="/web-design-nelson.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950">Nelson</a>
-                                    <a href="/web-design-pendle.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950">Pendle</a>
-                                    <a href="/web-design-skipton.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950">Skipton</a>
-                                    <a href="/web-design-blackburn.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950">Blackburn</a>
+                                    <a href="/web-design-colne.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950 border border-gray-200/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all text-center block">Colne</a>
+                                    <a href="/web-design-burnley.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950 border border-gray-200/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all text-center block">Burnley</a>
+                                    <a href="/web-design-nelson.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950 border border-gray-200/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all text-center block">Nelson</a>
+                                    <a href="/web-design-pendle.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950 border border-gray-200/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all text-center block">Pendle</a>
+                                    <a href="/web-design-skipton.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950 border border-gray-200/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all text-center block">Skipton</a>
+                                    <a href="/web-design-blackburn.html" class="rounded-2xl bg-brand-gray p-5 font-black text-slate-950 border border-gray-200/60 hover:bg-white hover:border-emerald-500 hover:shadow-sm transition-all text-center block">Blackburn</a>
                                 </div>
                             </div>
                         </div>
@@ -211,41 +649,41 @@
                             <div class="rounded-[28px] bg-white border border-amber-100 p-6 shadow-soft">
                                 <div class="flex items-center justify-between mb-6">
                                     <div>
-                                        <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">New enquiry</p>
-                                        <h3 class="text-2xl font-black text-slate-950">Website lead</h3>
+                                        <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">New lead alert</p>
+                                        <h3 class="text-2xl font-black text-slate-950">Customer Request</h3>
                                     </div>
                                     <div class="w-12 h-12 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center">
-                                        <i class="fas fa-envelope"></i>
+                                        <i class="fas fa-envelope text-sm"></i>
                                     </div>
                                 </div>
                                 <div class="space-y-3">
-                                    <div class="h-12 rounded-2xl bg-brand-gray"></div>
-                                    <div class="h-12 rounded-2xl bg-brand-gray"></div>
-                                    <div class="h-28 rounded-2xl bg-brand-gray"></div>
-                                    <div class="h-12 rounded-full bg-blue-600"></div>
+                                    <div class="h-12 rounded-2xl bg-brand-gray border border-gray-100 px-4 flex items-center text-xs font-semibold text-gray-400">Name: John Doe</div>
+                                    <div class="h-12 rounded-2xl bg-brand-gray border border-gray-100 px-4 flex items-center text-xs font-semibold text-gray-400">Phone: 07123...</div>
+                                    <div class="h-28 rounded-2xl bg-brand-gray border border-gray-100 p-4 text-xs font-semibold text-gray-400">Job Scope Details...</div>
+                                    <div class="h-12 rounded-full bg-blue-600 shadow-md flex items-center justify-center text-white font-bold text-sm">Route Directly to Email</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <p class="text-sm font-bold text-brand-teal mb-4">Connect with customers</p>
+                        <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Connect with customers</p>
                         <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">Contact forms that make enquiries easy.</h2>
-                        <p class="text-xl text-gray-600 font-medium leading-relaxed">Your site can include a contact form or booking-style form, so visitors know exactly how to take the next step.</p>
+                        <p class="text-xl text-gray-600 font-medium leading-relaxed">Your site contains integrated capture form workflows designed to remove booking friction so nearby prospects know how to easily start engagement.</p>
                     </div>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div>
-                        <p class="text-sm font-bold text-brand-teal mb-4">No retainer trap</p>
+                        <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">No retainer trap</p>
                         <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">One payment. No MadeReal monthly fee.</h2>
-                        <p class="text-xl text-gray-600 font-medium leading-relaxed">If you approve the preview, the build is £197. You own the finished site and you are not locked into a MadeReal maintenance contract.</p>
+                        <p class="text-xl text-gray-600 font-medium leading-relaxed">If you choose to accept the preview, the complete final setup is flat billed at exactly £197. You own the code structure lock, stock, and barrel without monthly platform lock-ins.</p>
                     </div>
                     <div>
                         <div class="rounded-[32px] bg-blue-50 p-6 md:p-10 text-center">
                             <div class="rounded-[28px] bg-white border border-blue-100 p-8 shadow-soft">
-                                <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Approved build</p>
+                                <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Approved build price</p>
                                 <div class="text-7xl font-black text-blue-600 tracking-tighter mb-3">£197</div>
-                                <p class="text-gray-600 font-medium">One-off payment if you want the website.</p>
+                                <p class="text-gray-600 font-medium">One-off layout deployment fee. Only payable upon satisfaction.</p>
                             </div>
                         </div>
                     </div>
@@ -253,122 +691,17 @@
             </div>
         </section>
 
-        <section id="work" class="py-20 md:py-32 px-6 bg-brand-gray reveal slide-up">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-4xl mx-auto text-center mb-14 md:mb-20">
-                    <p class="text-sm font-bold text-brand-teal mb-4">Real £197 builds</p>
-                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-[1] text-slate-950 mb-6">See the kind of sites we build.</h2>
-                    <p class="text-xl text-gray-600 font-medium leading-relaxed">
-                        These are real local business websites built around the same flat-fee offer. Different trades, different styles, same job: make the business look trustworthy fast and turn visitors into enquiries.
-                    </p>
-                </div>
-                
-                <div class="grid lg:grid-cols-12 gap-6 md:gap-8">
-                    <a href="https://pendlepods.co.uk" target="_blank" rel="noopener" class="group lg:col-span-7 bg-white rounded-[32px] p-4 md:p-5 shadow-soft hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                        <div class="rounded-3xl overflow-hidden aspect-[16/10] relative mb-5 bg-gray-100">
-                            <img src="/assets/work/pendle-pods.jpg" alt="Pendle Pods website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500">
-                        </div>
-                        <div class="grid md:grid-cols-[1fr_auto] gap-4 items-end px-2 pb-1">
-                            <div>
-                                <p class="text-sm font-bold text-blue-600 mb-2">Hospitality</p>
-                                <h3 class="text-3xl md:text-4xl font-black text-slate-950 tracking-tight">Pendle Pods</h3>
-                                <p class="text-gray-600 font-medium mt-2">A booking-focused glamping site with an instant first impression and strong visual trust.</p>
-                            </div>
-                            <span class="text-sm font-bold text-slate-500">View site</span>
-                        </div>
-                    </a>
-
-                    <div class="lg:col-span-5 grid gap-6">
-                        <a href="https://entwistlepaving.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[32px] p-4 md:p-5 shadow-soft hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                            <div class="grid sm:grid-cols-[1.15fr_0.85fr] gap-5 items-center">
-                                <div>
-                                    <p class="text-sm font-bold text-blue-600 mb-3">Paving</p>
-                                    <h3 class="text-2xl md:text-3xl font-black tracking-tight text-slate-950">Entwistle Paving</h3>
-                                    <p class="text-sm text-gray-600 font-medium mt-3 leading-relaxed">A bold trade website built to make driveway enquiries feel immediate.</p>
-                                </div>
-                                <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-brand-gray">
-                                    <img src="/assets/work/entwistle-paving.jpg" alt="Entwistle Paving website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500">
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="https://tcjoinerbuilder.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[32px] p-4 md:p-5 shadow-soft hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                            <div class="grid sm:grid-cols-[0.85fr_1.15fr] gap-5 items-center">
-                                <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-brand-gray">
-                                    <img src="/assets/work/tc-joiner-builder.jpg" alt="TC Joiner Builder website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500">
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-blue-600 mb-3">Joinery</p>
-                                    <h3 class="text-2xl md:text-3xl font-black tracking-tight text-slate-950">TC Joiner Builder</h3>
-                                    <p class="text-sm text-gray-600 font-medium mt-3 leading-relaxed">Straightforward credibility for building work, projects and local service searches.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="lg:col-span-12 grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-                        <a href="https://hynelectrical.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:-translate-y-1 hover:shadow-soft transition-all">
-                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 mb-4">
-                                <img src="/assets/work/hyn-electrical.jpg" alt="Hyn Electrical website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                            </div>
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Hyn Electrical</h3>
-                                    <p class="text-sm text-gray-500 font-medium mt-1">Electrician website</p>
-                                </div>
-                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://trustedroofrepairs.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:-translate-y-1 hover:shadow-soft transition-all">
-                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 mb-4">
-                                <img src="/assets/work/trusted-roof-repairs.jpg" alt="Trusted Roof Repairs website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                            </div>
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Trusted Roof Repairs</h3>
-                                    <p class="text-sm text-gray-500 font-medium mt-1">Roofing lead page</p>
-                                </div>
-                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://sprayrite.co.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:-translate-y-1 hover:shadow-soft transition-all">
-                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 mb-4">
-                                <img src="/assets/work/sprayrite.jpg" alt="Sprayrite website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                            </div>
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Sprayrite</h3>
-                                    <p class="text-sm text-gray-500 font-medium mt-1">Spraying service site</p>
-                                </div>
-                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://dust-be-gone.uk" target="_blank" rel="noopener" class="group bg-white rounded-[28px] p-4 border border-gray-200 hover:-translate-y-1 hover:shadow-soft transition-all">
-                            <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-brand-gray mb-4">
-                                <img src="/assets/work/dust-be-gone.jpg" alt="Dust-Be-Gone website hero section thumbnail" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-                            </div>
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-black text-slate-950 tracking-tight">Dust-Be-Gone</h3>
-                                    <p class="text-sm text-gray-500 font-medium mt-1">Cleaning business site</p>
-                                </div>
-                                <i class="fas fa-arrow-up-right-from-square text-blue-600 mt-1"></i>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="lg:col-span-12 bg-white border border-gray-200 rounded-[32px] p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                        <div>
-                            <h3 class="text-2xl md:text-4xl font-black text-slate-950 tracking-tight">Want yours in this line-up?</h3>
-                            <p class="text-gray-600 font-medium mt-2">We build the preview first. You only pay the £197 if it feels right.</p>
-                        </div>
-                        <a href="/get-started.html" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-blue-700 transition-all whitespace-nowrap">
-                            Get my free preview
-                        </a>
-                    </div>
+        <section class="py-20 bg-slate-950 text-white border-y border-slate-800 reveal slide-up">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <span class="bg-blue-600/20 text-blue-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-6">Current Launch Notice</span>
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-6">Why is the development cost fixed at £197?</h2>
+                <p class="text-lg text-slate-400 font-medium max-w-3xl mx-auto leading-relaxed mb-8">
+                    We maintain the flat £197 rate <strong class="text-white font-bold">exclusively while we are assembling live local business case studies</strong> across Lancashire towns. Because we build completely customized preliminary versions manually from scratch, we only process a small number of draft preview requests each business week. Most complete mock layout links are compiled and routed directly over within 24 hours.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm font-bold text-slate-300">
+                    <span class="flex items-center gap-2 text-brand-teal"><i class="fas fa-check-circle"></i> No arbitrary timers</span>
+                    <span class="flex items-center gap-2 text-brand-teal"><i class="fas fa-check-circle"></i> No fake tracking counters</span>
+                    <span class="flex items-center gap-2 text-brand-teal"><i class="fas fa-check-circle"></i> True capacity limited manually</span>
                 </div>
             </div>
         </section>
@@ -376,41 +709,41 @@
         <section id="towns" class="py-20 md:py-28 px-6 bg-white reveal slide-up">
             <div class="max-w-6xl mx-auto">
                 <div class="max-w-3xl mx-auto text-center mb-12">
-                    <p class="text-sm font-bold text-brand-teal mb-4">Local landing pages</p>
+                    <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest">Local landing pages</p>
                     <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-[1] text-slate-950 mb-5">Built for the areas you serve.</h2>
-                    <p class="text-lg text-gray-600 font-medium leading-relaxed">These pages help connect your services with nearby customers searching in specific towns.</p>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">These localized framework page systems help link your primary trades directly with target local prospects searching inside regional hubs.</p>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="/web-design-colne.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Colne">
+                    <a href="/web-design-colne.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Colne">
                         <span class="font-black text-lg tracking-tight text-slate-950">Colne</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-burnley.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Burnley">
+                    <a href="/web-design-burnley.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Burnley">
                         <span class="font-black text-lg tracking-tight text-slate-950">Burnley</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-nelson.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Nelson">
+                    <a href="/web-design-nelson.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Nelson">
                         <span class="font-black text-lg tracking-tight text-slate-950">Nelson</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-pendle.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Pendle">
+                    <a href="/web-design-pendle.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Pendle">
                         <span class="font-black text-lg tracking-tight text-slate-950">Pendle</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-skipton.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Skipton">
+                    <a href="/web-design-skipton.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Skipton">
                         <span class="font-black text-lg tracking-tight text-slate-950">Skipton</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-barnoldswick.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Barnoldswick">
+                    <a href="/web-design-barnoldswick.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Barnoldswick">
                         <span class="font-black text-lg tracking-tight text-slate-950">Barnoldswick</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-blackburn.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Blackburn">
+                    <a href="/web-design-blackburn.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Blackburn">
                         <span class="font-black text-lg tracking-tight text-slate-950">Blackburn</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
-                    <a href="/web-design-clitheroe.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft transition-all group" aria-label="Web Design in Clitheroe">
+                    <a href="/web-design-clitheroe.html" class="flex items-center justify-between p-5 border border-gray-200 rounded-2xl bg-white hover:shadow-soft hover:border-blue-600 transition-all group" aria-label="Web Design in Clitheroe">
                         <span class="font-black text-lg tracking-tight text-slate-950">Clitheroe</span>
                         <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-blue-600"></i>
                     </a>
@@ -420,14 +753,14 @@
 
         <section class="py-20 md:py-28 px-6 bg-brand-gray reveal slide-up">
             <div class="max-w-4xl mx-auto">
-                <p class="text-sm font-bold text-brand-teal mb-4 text-center">Questions, answered</p>
+                <p class="text-sm font-bold text-brand-teal mb-4 text-center uppercase tracking-widest">Questions, answered</p>
                 <h2 class="text-3xl md:text-5xl font-black tracking-tight text-slate-950 mb-12 text-center">Before you start.</h2>
                 
                 <div class="space-y-6">
-                    <details class="group bg-white p-6 rounded-2xl border border-gray-200 cursor-pointer hover:shadow-soft transition-colors">
-                        <summary class="font-black text-xl text-slate-950 flex justify-between items-center list-none">
+                    <details class="group bg-white p-6 rounded-2xl border border-gray-200 cursor-pointer hover:shadow-soft transition-all duration-300">
+                        <summary class="font-black text-xl text-slate-950 flex justify-between items-center list-none outline-none">
                             Are there really no monthly fees?
-                            <span class="transition group-open:rotate-180">
+                            <span class="transition duration-300 group-open:rotate-180">
                                 <i class="fas fa-chevron-down text-blue-600"></i>
                             </span>
                         </summary>
@@ -436,10 +769,10 @@
                         </p>
                     </details>
                     
-                    <details class="group bg-white p-6 rounded-2xl border border-gray-200 cursor-pointer hover:shadow-soft transition-colors">
-                        <summary class="font-black text-xl text-slate-950 flex justify-between items-center list-none">
+                    <details class="group bg-white p-6 rounded-2xl border border-gray-200 cursor-pointer hover:shadow-soft transition-all duration-300">
+                        <summary class="font-black text-xl text-slate-950 flex justify-between items-center list-none outline-none">
                             Do you do local SEO for Lancashire businesses?
-                            <span class="transition group-open:rotate-180">
+                            <span class="transition duration-300 group-open:rotate-180">
                                 <i class="fas fa-chevron-down text-blue-600"></i>
                             </span>
                         </summary>
@@ -448,10 +781,10 @@
                         </p>
                     </details>
 
-                    <details class="group bg-white p-6 rounded-2xl border border-gray-200 cursor-pointer hover:shadow-soft transition-colors">
-                        <summary class="font-black text-xl text-slate-950 flex justify-between items-center list-none">
+                    <details class="group bg-white p-6 rounded-2xl border border-gray-200 cursor-pointer hover:shadow-soft transition-all duration-300">
+                        <summary class="font-black text-xl text-slate-950 flex justify-between items-center list-none outline-none">
                             What if I don't like the free preview?
-                            <span class="transition group-open:rotate-180">
+                            <span class="transition duration-300 group-open:rotate-180">
                                 <i class="fas fa-chevron-down text-blue-600"></i>
                             </span>
                         </summary>
@@ -465,25 +798,116 @@
 
         <section class="px-6 py-20 md:py-28 bg-white reveal slide-up">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="rounded-[40px] p-10 md:p-16 bg-blue-50 border border-blue-100">
-                    <p class="text-sm font-bold text-blue-600 mb-4">Start with a free preview</p>
+                <div class="rounded-[40px] p-10 md:p-16 bg-blue-50 border border-blue-100 shadow-sm">
+                    <p class="text-sm font-bold text-blue-600 mb-4 uppercase tracking-widest">Start with a free preview</p>
                     <h2 class="text-4xl md:text-6xl font-black mb-6 text-slate-950 tracking-tighter leading-[1]">See the website before you pay.</h2>
                     <p class="text-xl text-gray-600 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
                         We build the first version and send it over. If it feels right, the full build is £197.
                     </p>
-                    <a href="/get-started.html" data-track="bottom_cta_get_started" class="inline-flex items-center justify-center bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-colors shadow-soft">
-                        Get my free preview
-                    </a>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="/get-started.html" data-track="bottom_cta_get_started" class="inline-flex items-center justify-center bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-soft hover:shadow-md active:scale-[0.98]">
+                            Get my free preview
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    [[[INJECT_FOOTER]]]
+    <footer class="bg-slate-900 text-white border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div>
+                <a href="/" class="flex items-center gap-2 mb-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform hover:scale-105 transition-transform">
+                        <span class="text-white font-bold text-lg">M</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight">made<span class="text-teal-400">real</span></span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Design Ltd</span>
+                    </div>
+                </a>
+                <p class="text-sm text-gray-400 mb-4 leading-relaxed">
+                    Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Just results.
+                </p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-500 transition-colors" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-xs"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-500 transition-colors" aria-label="Twitter">
+                        <i class="fa-brands fa-twitter text-xs"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-500 transition-colors" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                </div>
+            </div>
 
+            <div>
+                <h3 class="font-bold text-lg mb-4">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="/graphic-design.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Graphic Design</a></li>
+                    <li><a href="/printing.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Printing Services</a></li>
+                    <li><a href="/services/tradesman-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Tradesman Websites</a></li>
+                    <li><a href="/services/small-business-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Small Business Sites</a></li>
+                    <li><a href="/services/hospitality-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hospitality Websites</a></li>
+                    <li><a href="/services/professional-services.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Professional Services</a></li>
+                    <li><a href="/services/ecommerce-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">E-commerce Solutions</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-4">Service Areas</h3>
+                <ul class="space-y-2">
+                    <li><a href="/web-design-colne.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Colne Web Design</a></li>
+                    <li><a href="/web-design-burnley.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Burnley Web Design</a></li>
+                    <li><a href="/web-design-nelson.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Nelson Web Design</a></li>
+                    <li><a href="/web-design-pendle.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Pendle Web Design</a></li>
+                    <li><a href="/web-design-skipton.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Skipton Web Design</a></li>
+                    <li><a href="/web-design-blackburn.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Blackburn Web Design</a></li>
+                    <li><a href="/web-design-clitheroe.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Clitheroe Web Design</a></li>
+                    <li><a href="/web-design-barnoldswick.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Barnoldswick Web Design</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-phone text-teal-400 mt-1"></i>
+                        <a href="tel:07396710347" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">07396 710347</a>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-envelope text-teal-400 mt-1"></i>
+                        <a href="mailto:info@madereal.uk" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">info@madereal.uk</a>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-teal-400 mt-1"></i>
+                        <span class="text-sm text-gray-400">9 Market St, Colne<br>BB8 0HY, Lancashire</span>
+                    </li>
+                </ul>
+                <a href="/get-started.html" class="inline-block mt-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-lg transition-all">
+                    Get FREE Preview
+                </a>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-gray-500">
+                &copy; 2026 MadeReal Design Ltd. All rights reserved. Registered in England & Wales.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="/privacy.html" class="text-gray-500 hover:text-teal-400 transition-colors">Privacy Policy</a>
+                <a href="/terms.html" class="text-gray-500 hover:text-teal-400 transition-colors">Terms of Service</a>
+                <a href="/blog.html" class="text-gray-500 hover:text-teal-400 transition-colors">Blog</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script>
-        // Scroll Animations
+        // High Performance Scroll Reversal Directional Animations
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -491,6 +915,8 @@
                 var elementTop = reveals[i].getBoundingClientRect().top;
                 var elementVisible = 80; 
                 var elementBottom = reveals[i].getBoundingClientRect().bottom;
+                
+                // Add class when within viewport context, remove when completely outside range
                 if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
                     reveals[i].classList.add("active");
                 } else {
@@ -501,16 +927,19 @@
         window.addEventListener("scroll", reveal);
         document.addEventListener("DOMContentLoaded", function() { reveal(); });
 
-        // Floating Contact CTA
+        // Floating Contact CTA Action Framework
         function addFloatingCTA() {
             if (window.innerWidth < 768) {
                 const existing = document.querySelector('.floating-contact-cta');
                 if (!existing) {
                     const btn = document.createElement('div');
-                    btn.className = 'fixed bottom-4 right-4 z-[90] floating-contact-cta';
-                    btn.innerHTML = '<a href="tel:07396710347" class="bg-brand-teal text-slate-900 px-5 py-3 rounded-full shadow-2xl font-black flex items-center gap-2 border-2 border-slate-900"><i class="fas fa-phone-alt"></i><span>Call Now</span></a>';
+                    btn.className = 'fixed bottom-4 right-4 z-[90] floating-contact-cta animate-fade-in';
+                    btn.innerHTML = '<a href="tel:07396710347" class="bg-brand-teal text-slate-900 px-5 py-3 rounded-full shadow-2xl font-black flex items-center gap-2 border-2 border-slate-900 active:scale-95 transition-transform"><i class="fas fa-phone-alt"></i><span>Call Now</span></a>';
                     document.body.appendChild(btn);
                 }
+            } else {
+                const existing = document.querySelector('.floating-contact-cta');
+                if (existing) existing.remove();
             }
         }
         window.addEventListener('resize', addFloatingCTA);

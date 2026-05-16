@@ -25,6 +25,7 @@
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
                         'hard': '8px 8px 0px 0px rgba(15,23,42,1)',
+                        'glow': '0 0 0 4px rgba(37, 99, 235, 0.15)',
                     }
                 }
             }
@@ -32,12 +33,33 @@
     </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* Focus state aura ring */
+        .input-glow-focus:focus { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); border-color: #2563eb; }
+        
+        /* Ensure Google Maps dropdown matches styling */
+        .pac-container {
+            border-radius: 16px !important;
+            border: 1px solid #e5e7eb !important;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08) !important;
+            padding: 8px !important;
+            font-family: 'Inter', sans-serif !important;
+            margin-top: 8px !important;
+        }
+        .pac-item {
+            padding: 10px !important;
+            border-top: none !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+        }
+        .pac-item:hover { background-color: #f3f4f6 !important; }
+        .pac-item-query { font-size: 16px !important; font-weight: 700 !important; color: #0f172a !important; }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
@@ -50,37 +72,219 @@
 </head>
 <body class="bg-brand-gray text-slate-900 flex flex-col min-h-screen">
 
-    [[[INJECT_HEADER]]]
+    <header class="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="group flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <span class="text-white font-bold text-sm">M</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-tight text-slate-900 leading-none">made<span class="text-teal-500">real</span></span>
+                        <span class="text-[10px] font-medium text-gray-500 tracking-wider uppercase">Design Ltd</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="/" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Home</a>
+                    <a href="/about.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">About</a>
+                    
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors py-2">
+                            Services
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform group-hover:translate-y-0 translate-y-2">
+                            <div class="p-2">
+                                <a href="/graphic-design.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Graphic Design</a>
+                                <a href="/printing.html" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Printing</a>
+                                <div class="my-1 border-t border-gray-100"></div>
+                                <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tradesman Websites</span>
+                                <a href="/services/tradesman-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">General Trades</a>
+                                <a href="/services/tradesman-roofing.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Roofing Specialists</a>
+                                <a href="/services/tradesman-electricians.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Electricians</a>
+                                <div class="my-1 border-t border-gray-100"></div>
+                                <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Business Websites</span>
+                                <a href="/services/small-business-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Small Business</a>
+                                <a href="/services/hospitality-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Hospitality</a>
+                                <a href="/services/professional-services.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Professional Services</a>
+                                <a href="/services/ecommerce-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">E-commerce</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors py-2">
+                            Areas
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform group-hover:translate-y-0 translate-y-2">
+                            <div class="p-2 grid grid-cols-2 gap-1">
+                                <a href="/web-design-colne.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Colne</a>
+                                <a href="/web-design-burnley.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Burnley</a>
+                                <a href="/web-design-nelson.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Nelson</a>
+                                <a href="/web-design-pendle.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Pendle</a>
+                                <a href="/web-design-skipton.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Skipton</a>
+                                <a href="/web-design-barnoldswick.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Barnoldswick</a>
+                                <a href="/web-design-blackburn.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Blackburn</a>
+                                <a href="/web-design-clitheroe.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">Clitheroe</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/blog.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Blog</a>
+                    <a href="/contact.html" class="text-sm font-semibold text-slate-700 hover:text-teal-600 transition-colors">Contact</a>
+                    <a href="/get-started.html" class="px-4 py-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold rounded-lg shadow-md">Get FREE Preview</a>
+                </nav>
+
+                <button id="mobile-menu-btn" aria-label="Open mobile menu" class="lg:hidden p-2 text-slate-700 hover:text-teal-600 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[99] hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[100] lg:hidden overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
+                    <span class="text-lg font-bold text-slate-900">Menu</span>
+                    <button id="mobile-menu-close" aria-label="Close mobile menu" class="p-2 text-slate-500 hover:text-teal-600 transition-colors">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <nav class="space-y-2 mb-8">
+                    <a href="/" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Home</a>
+                    <a href="/about.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">About</a>
+                    <a href="/blog.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Blog</a>
+                    <a href="/contact.html" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">Contact</a>
+                    <a href="/get-started.html" class="block px-4 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold rounded-lg shadow-md">Get FREE Preview</a>
+                </nav>
+
+                <div class="mb-8 border-b border-gray-200 pb-8">
+                    <button id="mobile-services-toggle" class="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span>Services</span>
+                        <i id="mobile-services-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobile-services-content" class="hidden space-y-1 pl-4 border-l-2 border-teal-500 ml-3">
+                        <a href="/graphic-design.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Graphic Design</a>
+                        <a href="/printing.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Printing</a>
+                        <div class="my-1 border-t border-gray-100"></div>
+                        <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Tradesman Websites</span>
+                        <a href="/services/tradesman-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">General Trades</a>
+                        <a href="/services/tradesman-roofing.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Roofing Specialists</a>
+                        <a href="/services/tradesman-electricians.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Electricians</a>
+                        <div class="my-1 border-t border-gray-100"></div>
+                        <span class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Business Websites</span>
+                        <a href="/services/small-business-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Small Business</a>
+                        <a href="/services/hospitality-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Hospitality</a>
+                        <a href="/services/professional-services.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Professional Services</a>
+                        <a href="/services/ecommerce-websites.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">E-commerce</a>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="mobile-locations-toggle" class="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 rounded-lg transition-colors">
+                        <span>Service Areas</span>
+                        <i id="mobile-locations-icon" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobile-locations-content" class="hidden space-y-1 pl-4 border-l-2 border-teal-500 ml-3">
+                        <a href="/web-design-colne.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Colne</a>
+                        <a href="/web-design-burnley.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Burnley</a>
+                        <a href="/web-design-nelson.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Nelson</a>
+                        <a href="/web-design-pendle.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Pendle</a>
+                        <a href="/web-design-skipton.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Skipton</a>
+                        <a href="/web-design-barnoldswick.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Barnoldswick</a>
+                        <a href="/web-design-blackburn.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Blackburn</a>
+                        <a href="/web-design-clitheroe.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-teal-600 transition-colors">Clitheroe</a>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <p class="text-xs text-gray-500 mb-2">Need help? Call us:</p>
+                    <a href="tel:07396710347" class="block text-lg font-bold text-teal-600 hover:text-teal-700 transition-colors">07396 710347</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+        const mobileLocationsToggle = document.getElementById('mobile-locations-toggle');
+        const mobileServicesContent = document.getElementById('mobile-services-content');
+        const mobileLocationsContent = document.getElementById('mobile-locations-content');
+        const mobileServicesIcon = document.getElementById('mobile-services-icon');
+        const mobileLocationsIcon = document.getElementById('mobile-locations-icon');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenuOverlay.classList.remove('opacity-0');
+                }, 10);
+            }, 10);
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.add('opacity-0');
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        if (mobileServicesToggle && mobileServicesContent && mobileServicesIcon) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesContent.classList.toggle('hidden');
+                mobileServicesIcon.classList.toggle('rotate-180');
+            });
+        }
+
+        if (mobileLocationsToggle && mobileLocationsContent && mobileLocationsIcon) {
+            mobileLocationsToggle.addEventListener('click', () => {
+                mobileLocationsContent.classList.toggle('hidden');
+                mobileLocationsIcon.classList.toggle('rotate-180');
+            });
+        }
+    </script>
 
 
     <main class="flex-grow pt-28 md:pt-36 pb-20 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             
-            <div id="state-search" class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 transition-opacity duration-500">
+            <div id="state-search" class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 transition-opacity duration-500 animate-fade-in">
                 
                 <div class="order-1 lg:order-1 text-center lg:text-left">
-                    <span id="get-started-eyebrow" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm mb-8">
-                        <span class="w-2.5 h-2.5 rounded-full bg-brand-teal"></span>
+                    <span id="get-started-eyebrow" class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest inline-block">
                         Free preview. No upfront payment.
                     </span>
-                    <h1 id="get-started-heading" class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.98] mb-6 text-slate-950">
+                    <h1 id="get-started-heading" class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] mb-6 text-slate-950">
                         Let us build the first version.
                     </h1>
-                    <p id="get-started-intro" class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                    <p id="get-started-intro" class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10">
                         Search your business and we will use your Google details to start a proper website preview: 5+ pages, local landing pages, forms and Google Business setup for £197 if you approve it.
                     </p>
                     <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
-                        <div class="rounded-2xl bg-brand-gray p-4">
-                            <div class="text-2xl font-black text-slate-950">24h</div>
-                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Preview aim</div>
+                        <div class="rounded-2xl bg-blue-50 p-4 border border-blue-100">
+                            <div class="text-2xl md:text-3xl font-black text-blue-600">24h</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Preview aim</div>
                         </div>
-                        <div class="rounded-2xl bg-brand-gray p-4">
-                            <div class="text-2xl font-black text-slate-950">£197</div>
-                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">If approved</div>
+                        <div class="rounded-2xl bg-blue-50 p-4 border border-blue-100">
+                            <div class="text-2xl md:text-3xl font-black text-blue-600">£197</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">If approved</div>
                         </div>
-                        <div class="rounded-2xl bg-brand-gray p-4">
-                            <div class="text-2xl font-black text-slate-950">£0</div>
-                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Monthly fee</div>
+                        <div class="rounded-2xl bg-blue-50 p-4 border border-blue-100">
+                            <div class="text-2xl md:text-3xl font-black text-blue-600">£0</div>
+                            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Monthly fee</div>
                         </div>
                     </div>
                 </div>
@@ -92,15 +296,15 @@
                         
                         <div class="mb-2">
                             <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
-                            <div class="relative w-full bg-white border border-gray-200 rounded-full focus-within:border-brand-teal focus-within:ring-4 focus-within:ring-brand-teal/10 transition-all flex items-center overflow-hidden">
-                                <i class="fas fa-search text-gray-400 ml-5"></i>
-                                <input id="business-search" type="text" class="w-full bg-transparent border-none p-4 pl-3 font-medium focus:outline-none text-slate-900 placeholder-gray-400" placeholder="e.g. Dave's Garage Burnley" autocomplete="off">
+                            <div class="relative w-full bg-brand-gray border border-transparent rounded-full focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-600/15 transition-all flex items-center overflow-hidden min-h-[58px]">
+                                <i class="fas fa-search text-gray-400 ml-5 text-lg"></i>
+                                <input id="business-search" type="text" class="w-full bg-transparent border-none p-4 pl-3 text-lg font-semibold focus:outline-none text-slate-950 placeholder-gray-400" placeholder="e.g. Dave's Garage Burnley" autocomplete="off">
                             </div>
                         </div>
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-3">
-                            <i class="far fa-star"></i> Powered by Google Places
+                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1 mt-4">
+                            <i class="fab fa-google text-blue-500"></i> Powered by Google Places
                         </p>
-                        <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="text-sm text-slate-900 font-bold hover:text-brand-teal block w-full text-left mt-8">Cannot find your business? Enter it manually &rarr;</button>
+                        <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="text-sm text-blue-600 font-bold hover:text-blue-700 block w-full text-left mt-8 transition-colors">Cannot find your business? Enter it manually &rarr;</button>
                     </div>
                 </div>
             </div>
@@ -108,17 +312,17 @@
             <div id="state-build" class="hidden transition-opacity duration-500 animate-fade-in">
                 
                 <div class="mb-10 text-center md:text-left">
-                    <span class="inline-block bg-brand-teal text-slate-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Step 2 of 2</span>
-                    <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 uppercase">Here's what we'll build you.</h1>
-                    <p class="text-lg text-gray-500 font-medium mt-2">We've pulled everything we need. Drop your details to the right to get your preview.</p>
+                    <span class="text-sm font-bold text-brand-teal mb-2 uppercase tracking-widest block">Step 2 of 2</span>
+                    <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-slate-950 leading-[1]">Here's what we'll build you.</h1>
+                    <p class="text-lg text-gray-600 font-medium mt-3 max-w-2xl">We've pulled everything we need. Drop your details to the right to get your preview.</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative">
                     
                     <div id="form-wrapper" class="lg:col-span-5 xl:col-span-4 order-1 lg:order-2 relative">
-                        <div class="sticky top-28 bg-white p-8 md:p-10 rounded-[32px] border-4 border-slate-900 shadow-hard text-slate-900 transition-all">
-                            <h3 id="form-heading" class="text-2xl font-black mb-2 tracking-tight uppercase">That's Me — Build It.</h3>
-                            <p id="form-subheading" class="text-gray-500 font-medium mb-8 text-sm">Drop your details below. We'll text your preview link within 24 hours.</p>
+                        <div class="sticky top-28 bg-white p-8 md:p-10 rounded-[32px] border border-gray-200 shadow-soft text-slate-900 transition-all">
+                            <h3 id="form-heading" class="text-2xl font-black mb-2 tracking-tight text-slate-950">That's Me — Build It.</h3>
+                            <p id="form-subheading" class="text-gray-500 font-medium mb-8 text-sm leading-relaxed">Drop your details below. We'll text your preview link within 24 hours.</p>
 
                             <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-5">
                                 <input type="hidden" name="form-name" value="Website Request">
@@ -132,27 +336,27 @@
                                 
                                 <div id="manual-biz-name-container" class="hidden">
                                     <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Business Name</label>
-                                    <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
+                                    <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-2xl px-4 min-h-[58px] font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
                                 </div>
 
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your Name</label>
-                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-2xl px-4 min-h-[58px] font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Best Contact</label>
-                                    <input type="text" name="Client_Contact" id="client-contact" required class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="Mobile or email">
+                                    <input type="text" name="Client_Contact" id="client-contact" required class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-2xl px-4 min-h-[58px] font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Mobile or email">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Facebook Page or Website <span class="normal-case tracking-normal text-gray-400">(optional)</span></label>
-                                    <input type="text" name="Facebook_Or_Website" class="w-full bg-brand-gray border-2 border-gray-200 text-slate-900 rounded-xl p-4 font-medium focus:outline-none focus:border-slate-900 transition-all placeholder-gray-400" placeholder="Paste a link if you have one">
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Current Website or Social Link <span class="normal-case tracking-normal text-gray-400">(optional)</span></label>
+                                    <input type="text" name="Facebook_Or_Website" class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-2xl px-4 min-h-[58px] font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Paste a link if you have one">
                                 </div>
                                 
-                                <button type="submit" id="submit-btn" data-track="submit_preview_request" class="w-full bg-slate-900 text-white font-black text-lg px-8 py-4 rounded-xl hover:bg-brand-teal hover:text-slate-900 transition-colors mt-6 flex justify-center items-center uppercase tracking-wide">
+                                <button type="submit" id="submit-btn" data-track="submit_preview_request" class="w-full bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-blue-700 active:scale-[0.98] transition-all mt-6 shadow-soft hover:shadow-md flex justify-center items-center">
                                     <span>Get My Preview &rarr;</span>
                                 </button>
                                 <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">
-                                    A real person reviews your request.
+                                    <i class="fas fa-lock text-brand-teal mr-1"></i> A real person reviews your request.
                                 </p>
                             </form>
                         </div>
@@ -163,18 +367,21 @@
                             <i class="fas fa-arrow-down text-brand-teal animate-bounce"></i>
                             <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">We'll use this data</span>
                         </div>
-                        <div class="bg-white rounded-[32px] overflow-hidden shadow-soft border border-gray-100">
-                            <div id="brief-cover" class="w-full h-64 bg-gray-200 bg-cover bg-center"></div>
+                        <div class="bg-white rounded-[32px] overflow-hidden shadow-sm border border-gray-200">
+                            <div id="brief-cover" class="w-full h-64 bg-gray-100 bg-cover bg-center"></div>
                             <div class="p-8 md:p-10">
                                 <div class="flex flex-col md:flex-row justify-between items-start gap-6">
                                     <div>
                                         <span class="text-xs font-bold text-brand-teal uppercase tracking-widest mb-2 block"><i class="fas fa-magic mr-1"></i> Auto-Drafted Brief</span>
-                                        <h2 id="brief-name" class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-2"></h2>
-                                        <p id="brief-address" class="text-gray-500 font-medium"></p>
+                                        <h2 id="brief-name" class="text-3xl md:text-4xl font-black text-slate-950 tracking-tight leading-tight mb-2"></h2>
+                                        <p id="brief-address" class="text-gray-600 font-medium"></p>
                                     </div>
-                                    <div id="brief-rating-box" class="bg-[#008f5d] text-white px-5 py-3 rounded-2xl text-center flex-shrink-0 shadow-sm hidden">
-                                        <div class="font-black text-3xl leading-none" id="brief-rating"></div>
-                                        <div class="text-[10px] font-bold uppercase opacity-90 tracking-wider mt-1"><span id="brief-reviews-count"></span> Reviews</div>
+                                    <div id="brief-rating-box" class="bg-blue-50 border border-blue-100 text-blue-600 px-6 py-4 rounded-3xl text-center flex-shrink-0 shadow-sm hidden">
+                                        <div class="flex items-center justify-center gap-1 mb-1">
+                                            <i class="fas fa-star text-amber-400 text-sm"></i>
+                                            <div class="font-black text-3xl leading-none tracking-tighter" id="brief-rating"></div>
+                                        </div>
+                                        <div class="text-[10px] font-bold uppercase tracking-widest mt-1 text-slate-500"><span id="brief-reviews-count"></span> Reviews</div>
                                     </div>
                                 </div>
                                 <div class="mt-8 pt-8 border-t border-gray-100">
@@ -187,34 +394,34 @@
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100">
+                            <div class="bg-white p-8 rounded-[32px] shadow-sm border border-gray-200">
                                 <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Contact & Links</h3>
                                 <div class="space-y-4">
                                     <div id="brief-phone-container" class="flex items-center gap-4 hidden">
-                                        <div class="w-10 h-10 rounded-full bg-brand-gray flex items-center justify-center text-brand-teal"><i class="fas fa-phone"></i></div>
-                                        <div class="font-medium text-slate-900" id="brief-phone"></div>
+                                        <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 text-lg"><i class="fas fa-phone"></i></div>
+                                        <div class="font-semibold text-slate-950" id="brief-phone"></div>
                                     </div>
                                     <div id="brief-website-container" class="flex items-center gap-4 hidden">
-                                        <div class="w-10 h-10 rounded-full bg-brand-gray flex items-center justify-center text-brand-teal"><i class="fas fa-globe"></i></div>
-                                        <div class="font-medium text-slate-900 truncate" id="brief-website"></div>
+                                        <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 text-lg"><i class="fas fa-globe"></i></div>
+                                        <div class="font-semibold text-slate-950 truncate" id="brief-website"></div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div id="brief-hours-container" class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100 hidden">
+                            <div id="brief-hours-container" class="bg-white p-8 rounded-[32px] shadow-sm border border-gray-200 hidden">
                                 <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Operating Hours</h3>
                                 <ul id="brief-hours" class="space-y-2">
                                 </ul>
                             </div>
                         </div>
 
-                        <div id="brief-gallery-container" class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100 hidden">
+                        <div id="brief-gallery-container" class="bg-white p-8 rounded-[32px] shadow-sm border border-gray-200 hidden">
                             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Location Media</h3>
                             <div id="brief-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             </div>
                         </div>
 
-                        <div id="brief-reviews-container" class="bg-white p-8 rounded-[32px] shadow-soft border border-gray-100 hidden">
+                        <div id="brief-reviews-container" class="bg-white p-8 rounded-[32px] shadow-sm border border-gray-200 hidden">
                             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-widest mb-6">Trust & Social Proof</h3>
                             <div id="brief-reviews" class="space-y-4">
                             </div>
@@ -225,48 +432,45 @@
             </div>
 
             <div id="state-success" class="hidden w-full animate-fade-in mt-12">
-                
-                <div class="mb-12">
-                    <span class="inline-block bg-slate-900 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">Request Received</span>
-                    <h1 class="text-6xl md:text-8xl font-black uppercase text-slate-900 tracking-tighter leading-none mb-6">
-                        WE'RE <span class="bg-brand-teal/20 text-brand-teal px-2">ON IT.</span>
-                    </h1>
-                </div>
-
-                <div class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-brand-teal border-y-4 border-slate-900 py-16 md:py-24 px-6 text-center shadow-lg">
-                    <div class="max-w-4xl mx-auto">
-                        <span class="text-slate-900 text-sm font-bold tracking-widest uppercase mb-4 block"><i class="fas fa-check-circle mr-1"></i> Data Locked In</span>
-                        <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6">Site preview initiated for <br class="hidden md:block"><span id="success-biz-name" class="border-b-4 border-slate-900 pb-1"></span>.</h2>
-                        <p class="text-xl md:text-2xl text-slate-900 font-medium">A real person will review your details within the hour. Your draft site lands by tomorrow.</p>
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="rounded-[40px] p-10 md:p-16 bg-blue-50 border border-blue-100 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                            <i class="fas fa-check-circle text-9xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600 mb-4 uppercase tracking-widest block relative z-10"><i class="fas fa-check-circle mr-1"></i> Request Received</span>
+                        <h1 class="text-5xl md:text-7xl font-black text-slate-950 tracking-tighter leading-[1] mb-6 relative z-10">
+                            We're on it.
+                        </h1>
+                        <p class="text-xl text-gray-600 font-medium mb-10 max-w-2xl mx-auto leading-relaxed relative z-10">
+                            Site preview initiated for <strong id="success-biz-name" class="text-slate-950 font-black"></strong>. A real person will review your details within the hour. Your draft site lands by tomorrow.
+                        </p>
+                        <div class="flex justify-center relative z-10">
+                            <a href="/" class="inline-flex items-center justify-center bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 active:scale-[0.98] transition-all shadow-soft hover:shadow-md">
+                                &larr; Return to Homepage
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="mt-16 text-center">
-                    <a href="/" class="inline-block bg-slate-900 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-800 transition-colors shadow-lg">
-                        &larr; Return to Homepage
-                    </a>
-                </div>
-
             </div>
 
             <div class="border-t border-gray-200 pt-20 mt-24">
-                <p class="text-sm font-black text-brand-teal uppercase tracking-widest mb-4">What happens next</p>
-                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-950 mb-12">Simple, calm, no sales trap.</h2>
+                <p class="text-sm font-bold text-brand-teal mb-4 uppercase tracking-widest text-center md:text-left">What happens next</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-slate-950 mb-12 text-center md:text-left">Simple, calm, no sales trap.</h2>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-brand-gray p-8 rounded-[32px] border border-gray-200">
-                        <div class="text-3xl font-black text-brand-teal mb-4">01</div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">Send the business.</h3>
-                        <p class="text-gray-600 font-medium text-sm leading-relaxed">We use your Google details, services and local area as the starting point.</p>
+                    <div class="bg-white p-8 rounded-[32px] border border-gray-200 shadow-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl font-black text-blue-600 mb-6">1</div>
+                        <h3 class="text-2xl font-black text-slate-950 mb-3 tracking-tight">Send the business.</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed">We use your Google details, services and local area as the starting point.</p>
                     </div>
-                    <div class="bg-brand-gray p-8 rounded-[32px] border border-gray-200">
-                        <div class="text-3xl font-black text-brand-teal mb-4">02</div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight">Review the preview.</h3>
-                        <p class="text-gray-600 font-medium text-sm leading-relaxed">We send a mobile-first website direction for you to judge before paying.</p>
+                    <div class="bg-white p-8 rounded-[32px] border border-gray-200 shadow-sm">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl font-black text-blue-600 mb-6">2</div>
+                        <h3 class="text-2xl font-black text-slate-950 mb-3 tracking-tight">Review the preview.</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed">We send a mobile-first website direction for you to judge before paying.</p>
                     </div>
-                    <div class="bg-slate-950 p-8 rounded-[32px] text-white">
-                        <div class="text-3xl font-black text-brand-teal mb-4">03</div>
-                        <h3 class="text-xl font-black mb-3 tracking-tight">Go live for £197.</h3>
-                        <p class="text-white/70 font-medium text-sm leading-relaxed">If you like it, we finish the pages, forms, local pages and Google Business setup.</p>
+                    <div class="bg-slate-950 p-8 rounded-[32px] shadow-sm text-white border border-slate-800">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl font-black text-brand-teal mb-6">3</div>
+                        <h3 class="text-2xl font-black mb-3 tracking-tight">Go live for £197.</h3>
+                        <p class="text-slate-400 font-medium leading-relaxed">If you like it, we finish the pages, forms, local pages and Google Business setup.</p>
                     </div>
                 </div>
             </div>
@@ -274,7 +478,97 @@
         </div>
     </main>
 
-    [[[INJECT_FOOTER]]]
+    <footer class="bg-slate-900 text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div>
+                    <a href="/" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform hover:scale-105 transition-transform">
+                            <span class="text-white font-bold text-lg">M</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-black tracking-tight">made<span class="text-teal-400">real</span></span>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-wider">Design Ltd</span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-gray-400 mb-4 leading-relaxed">
+                        Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Just results.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-500 transition-colors" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-500 transition-colors" aria-label="Twitter">
+                            <i class="fa-brands fa-twitter text-xs"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-teal-500 transition-colors" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/graphic-design.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Graphic Design</a></li>
+                        <li><a href="/printing.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Printing Services</a></li>
+                        <li><a href="/services/tradesman-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Tradesman Websites</a></li>
+                        <li><a href="/services/small-business-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Small Business Sites</a></li>
+                        <li><a href="/services/hospitality-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Hospitality Websites</a></li>
+                        <li><a href="/services/professional-services.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Professional Services</a></li>
+                        <li><a href="/services/ecommerce-websites.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">E-commerce Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Service Areas</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/web-design-colne.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Colne Web Design</a></li>
+                        <li><a href="/web-design-burnley.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Burnley Web Design</a></li>
+                        <li><a href="/web-design-nelson.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Nelson Web Design</a></li>
+                        <li><a href="/web-design-pendle.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Pendle Web Design</a></li>
+                        <li><a href="/web-design-skipton.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Skipton Web Design</a></li>
+                        <li><a href="/web-design-blackburn.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Blackburn Web Design</a></li>
+                        <li><a href="/web-design-clitheroe.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Clitheroe Web Design</a></li>
+                        <li><a href="/web-design-barnoldswick.html" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">Barnoldswick Web Design</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-phone text-teal-400 mt-1"></i>
+                            <a href="tel:07396710347" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">07396 710347</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-envelope text-teal-400 mt-1"></i>
+                            <a href="mailto:info@madereal.uk" class="text-sm text-gray-400 hover:text-teal-400 transition-colors">info@madereal.uk</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-teal-400 mt-1"></i>
+                            <span class="text-sm text-gray-400">9 Market St, Colne<br>BB8 0HY, Lancashire</span>
+                        </li>
+                    </ul>
+                    <a href="/get-started.html" class="inline-block mt-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-lg transition-all">
+                        Get FREE Preview
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">
+                    &copy; 2026 MadeReal Design Ltd. All rights reserved. Registered in England & Wales.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <a href="/privacy.html" class="text-gray-500 hover:text-teal-400 transition-colors">Privacy Policy</a>
+                    <a href="/terms.html" class="text-gray-500 hover:text-teal-400 transition-colors">Terms of Service</a>
+                    <a href="/blog.html" class="text-gray-500 hover:text-teal-400 transition-colors">Blog</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script>
@@ -290,7 +584,7 @@
 
             if (initialLeadInput) initialLeadInput.value = initialLead;
             if (contactInput) contactInput.value = initialLead;
-            if (eyebrow) eyebrow.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-brand-teal"></span> Got it. This next bit is optional.';
+            if (eyebrow) eyebrow.innerHTML = 'Got it. This next bit is optional.';
             if (heading) heading.textContent = 'Want a better preview?';
             if (intro) intro.textContent = 'Search your Google Business Profile, or enter the business manually. This helps us build something closer to what you actually need.';
         }
@@ -358,7 +652,7 @@
                         for(let i=1; i < maxGallery; i++) {
                             const imgUrl = place.photos[i].getUrl({maxWidth: 400});
                             const div = document.createElement('div');
-                            div.className = "aspect-square rounded-2xl bg-gray-200 bg-cover bg-center shadow-sm border border-gray-100";
+                            div.className = "aspect-square rounded-2xl bg-gray-100 bg-cover bg-center shadow-sm border border-gray-200";
                             div.style.backgroundImage = `url('${imgUrl}')`;
                             galleryContainer.appendChild(div);
                         }
@@ -372,7 +666,7 @@
                     hoursList.innerHTML = '';
                     place.opening_hours.weekday_text.forEach(dayText => {
                         const li = document.createElement('li');
-                        li.className = "text-sm text-gray-600 font-medium py-2 border-b border-gray-100 last:border-0";
+                        li.className = "text-sm text-gray-600 font-medium py-3 border-b border-gray-100 last:border-0";
                         li.textContent = dayText;
                         hoursList.appendChild(li);
                     });
@@ -388,16 +682,16 @@
                     for(let i=0; i < maxReviews; i++) {
                         const rev = place.reviews[i];
                         const div = document.createElement('div');
-                        div.className = "bg-brand-gray p-4 rounded-2xl border border-gray-200";
+                        div.className = "bg-brand-gray p-5 rounded-2xl border border-gray-200";
                         
-                        let starsHtml = '<div class="text-[#008f5d] text-xs mb-2">';
+                        let starsHtml = '<div class="text-amber-400 text-sm mb-3 flex gap-1">';
                         for(let s=0; s < rev.rating; s++) { starsHtml += '<i class="fas fa-star"></i>'; }
                         starsHtml += '</div>';
 
                         div.innerHTML = `
                             ${starsHtml}
-                            <p class="text-sm text-gray-700 font-medium mb-2 italic">"${rev.text.substring(0, 150)}${rev.text.length > 150 ? '...' : ''}"</p>
-                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">${rev.author_name}</p>
+                            <p class="text-sm text-gray-700 font-medium mb-3 italic">"${rev.text.substring(0, 150)}${rev.text.length > 150 ? '...' : ''}"</p>
+                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">${rev.author_name}</p>
                         `;
                         reviewsList.appendChild(div);
                     }
