@@ -91,7 +91,8 @@
                     <p id="get-started-intro" class="text-base md:text-xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
                         Search your business and we will use your Google details to start a proper website preview: 5+ pages, local landing pages, forms and Google Business setup for £197 if you approve it.
                     </p>
-                    <div class="grid grid-cols-3 gap-2 md:gap-4 max-w-lg mx-auto lg:mx-0 text-left">
+                    
+                    <div class="hidden lg:grid grid-cols-3 gap-2 md:gap-4 max-w-lg mx-auto lg:mx-0 text-left">
                         <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
                             <div class="text-lg md:text-2xl font-black text-blue-600">24h</div>
                             <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Preview aim</div>
@@ -125,6 +126,22 @@
                         <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="text-xs text-blue-600 font-bold hover:text-blue-700 block w-full text-center md:text-left mt-6 transition-colors">Cannot find your business? Enter it manually &rarr;</button>
                     </div>
                 </div>
+
+                <div class="grid lg:hidden order-3 grid-cols-3 gap-2 md:gap-4 w-full max-w-xl mx-auto text-left">
+                    <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
+                        <div class="text-lg md:text-2xl font-black text-blue-600">24h</div>
+                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Preview aim</div>
+                    </div>
+                    <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
+                        <div class="text-lg md:text-2xl font-black text-blue-600">£197</div>
+                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">If approved</div>
+                    </div>
+                    <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
+                        <div class="text-lg md:text-2xl font-black text-blue-600">£0</div>
+                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Monthly fee</div>
+                    </div>
+                </div>
+
             </div>
 
             <div id="state-build" class="hidden transition-opacity duration-500 animate-fade-in max-w-3xl mx-auto">
