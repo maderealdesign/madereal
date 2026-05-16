@@ -6,6 +6,18 @@
   publish = "dist"
 
 [[redirects]]
+  from = "https://www.madereal.uk/*"
+  to = "https://madereal.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/admin"
   to = "/admin.html"
   status = 200

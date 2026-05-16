@@ -187,13 +187,34 @@ function getUrlPath(file) {
     return `/${normalised}`;
 }
 
+function getCanonicalUrl(file) {
+    return `${siteUrl}${getUrlPath(file)}`;
+}
+
+function hasNoindex(content) {
+    return /<meta\s+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(content);
+}
+
+function injectCanonical(content, file) {
+    if (hasNoindex(content) || /<link\s+rel=["']canonical["']/i.test(content)) {
+        return content;
+    }
+
+    const canonical = `    <link rel="canonical" href="${escapeHtml(getCanonicalUrl(file))}">\n`;
+    return content.replace(/(<meta name="description" content="[^"]*">\s*)/i, `$1\n${canonical}`);
+}
+
 function buildSitemap(posts) {
     const postDateMap = new Map(posts.map(post => [`blog/${post.slug}.html`, post.dateIso]));
     const today = new Date().toISOString().slice(0, 10);
     const urls = findBuiltHtmlFiles(distDir)
+        .filter(file => {
+            const content = fs.readFileSync(path.join(distDir, file), 'utf8');
+            return !hasNoindex(content);
+        })
         .sort()
         .map(file => {
-            const loc = `${siteUrl}${getUrlPath(file)}`;
+            const loc = getCanonicalUrl(file);
             const lastmod = postDateMap.get(file.split(path.sep).join('/')) || today;
             const priority = file === 'index.html' ? '1.0' : file.startsWith(`blog${path.sep}`) ? '0.7' : '0.8';
 
@@ -214,6 +235,24 @@ ${urls}
 
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap);
     fs.writeFileSync(path.join(distDir, 'robots.txt'), `User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: ${siteUrl}/sitemap.xml
@@ -273,6 +312,7 @@ async function main() {
         }
 
         content = replaceGlobalPartials(content);
+        content = injectCanonical(content, file);
 
         ensureDir(path.dirname(path.join(distDir, file)));
         fs.writeFileSync(path.join(distDir, file), content);
