@@ -32,7 +32,6 @@
         <button id="logoutBtn" class="hidden text-sm font-medium text-gray-500 hover:text-black transition"><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</button>
     </nav>
 
-    <!-- Login View -->
     <div id="loginView" class="flex-1 flex items-center justify-center p-6">
         <div class="bg-white p-10 rounded-2xl shadow-xl max-w-md w-full text-center border border-gray-100">
             <h2 class="text-3xl font-black mb-2">Admin Access</h2>
@@ -44,7 +43,6 @@
         </div>
     </div>
 
-    <!-- Dashboard View -->
     <div id="dashboardView" class="hidden flex-1 flex flex-col p-6 max-w-5xl mx-auto w-full">
         <div class="flex justify-between items-end mb-8">
             <div>
@@ -63,7 +61,6 @@
         </div>
     </div>
 
-    <!-- Editor Modal -->
     <div id="editorModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl flex flex-col max-h-[95vh]">
             <div class="p-6 border-b border-gray-100 flex justify-between items-center">
@@ -75,7 +72,6 @@
             </div>
             
             <div class="flex-1 overflow-y-auto p-6 space-y-6">
-                <!-- Slug Section -->
                 <div>
                     <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">URL Slug</label>
                     <div class="flex items-center">
@@ -84,21 +80,27 @@
                     </div>
                 </div>
 
-                <!-- Image Management Section (Hidden until scanned) -->
-                <div id="imageManager" class="hidden border border-brand-teal/20 rounded-xl bg-teal-50/30 overflow-hidden">
+                <div id="imageManager" class="hidden border border-brand-teal/20 rounded-xl bg-teal-50/30 overflow-hidden flex flex-col">
                     <div class="bg-teal-50 p-4 border-b border-brand-teal/10 flex justify-between items-center">
                         <h3 class="text-sm font-black text-teal-800 uppercase tracking-widest">Image Link Manager</h3>
                         <span id="imgCount" class="text-xs font-bold bg-brand-teal text-white px-2 py-1 rounded">0 Found</span>
                     </div>
-                    <div id="imageLinksList" class="max-h-[400px] overflow-y-auto p-2 space-y-2">
-                        <!-- JS will inject image rows here -->
+
+                    <div class="p-4 bg-white border-b border-gray-200">
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Bulk Replace (Paste URLs, one per line)</label>
+                        <div class="flex gap-3">
+                            <textarea id="bulkImageInput" class="flex-1 h-20 border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-teal text-sm bg-gray-50 resize-none placeholder-gray-400" placeholder="https://example.com/img1.jpg&#10;https://example.com/img2.jpg"></textarea>
+                            <button id="applyBulkBtn" class="bg-black text-white px-6 rounded-lg font-bold hover:bg-gray-800 transition shadow-sm text-sm whitespace-nowrap">Apply Bulk</button>
+                        </div>
                     </div>
+
+                    <div id="imageLinksList" class="max-h-[350px] overflow-y-auto p-2 space-y-2">
+                        </div>
                     <div class="p-4 bg-white border-t border-brand-teal/10">
-                        <button id="applyLinksBtn" class="w-full bg-brand-teal text-white py-3 rounded-lg font-bold hover:bg-teal-500 transition shadow-md">Apply New Links to Code</button>
+                        <button id="applyLinksBtn" class="w-full bg-brand-teal text-white py-3 rounded-lg font-bold hover:bg-teal-500 transition shadow-md">Apply Individual Links to Code</button>
                     </div>
                 </div>
 
-                <!-- HTML Code Section -->
                 <div class="flex flex-col h-[400px]">
                     <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">HTML Source Code</label>
                     <textarea id="htmlInput" class="w-full flex-1 border border-gray-300 rounded-lg p-4 focus:outline-none focus:border-brand-teal text-sm bg-gray-50" placeholder="Paste full HTML code here..."></textarea>
@@ -149,24 +151,11 @@
         let isEditing = false;
         let originalSlug = "";
         const RESERVED_SLUGS = new Set([
-            "admin",
-            "about",
-            "blog",
-            "contact",
-            "faq",
-            "get-started",
-            "graphic-design",
-            "printing",
-            "privacy",
-            "terms",
-            "web-design-barnoldswick",
-            "web-design-blackburn",
-            "web-design-burnley",
-            "web-design-clitheroe",
-            "web-design-colne",
-            "web-design-nelson",
-            "web-design-pendle",
-            "web-design-skipton"
+            "admin", "about", "blog", "contact", "faq", "get-started", 
+            "graphic-design", "printing", "privacy", "terms", 
+            "web-design-barnoldswick", "web-design-blackburn", "web-design-burnley", 
+            "web-design-clitheroe", "web-design-colne", "web-design-nelson", 
+            "web-design-pendle", "web-design-skipton"
         ]);
 
         // AUTH
@@ -212,7 +201,6 @@
         // IMAGE SCANNER LOGIC
         document.getElementById('scanImagesBtn').addEventListener('click', () => {
             const html = htmlInput.value;
-            // This Regex finds all src="..." values in the HTML
             const regex = /<img[^>]+src="([^">]+)"/g;
             let match;
             const images = [];
@@ -224,12 +212,12 @@
 
             imageLinksList.innerHTML = '';
             document.getElementById('imgCount').textContent = `${images.length} Found`;
+            document.getElementById('bulkImageInput').value = ''; // Reset bulk input
             
             images.forEach((src, index) => {
                 const row = document.createElement('div');
                 row.className = "img-link-row p-4 rounded flex gap-4 border border-gray-200 bg-white items-center shadow-sm";
                 
-                // Construct the full image path if it's a relative path (so the preview thumbnail works)
                 let previewSrc = src;
                 if(src.startsWith('images/') || src.startsWith('/images/')) {
                     previewSrc = window.location.origin + '/' + src.replace(/^\//, '');
@@ -237,7 +225,7 @@
 
                 row.innerHTML = `
                     <div class="w-16 h-16 shrink-0 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200 overflow-hidden relative">
-                        <img src="${previewSrc}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                        <img src="${previewSrc}" class="w-full h-full object-cover preview-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                         <i class="fas fa-image text-gray-300 text-xl hidden absolute"></i>
                     </div>
                     <div class="flex-1 flex flex-col gap-1.5">
@@ -251,6 +239,48 @@
             imageManager.classList.remove('hidden');
         });
 
+        // NEW: BULK APPLY LOGIC
+        document.getElementById('applyBulkBtn').addEventListener('click', () => {
+            const bulkText = document.getElementById('bulkImageInput').value;
+            const newLinks = bulkText.split('\n').map(l => l.trim()).filter(l => l !== '');
+            const inputs = document.querySelectorAll('.image-update-input');
+
+            if (newLinks.length === 0) return alert("Please paste at least one link.");
+            if (inputs.length === 0) return alert("Please scan for images first.");
+
+            let html = htmlInput.value;
+            let count = 0;
+
+            inputs.forEach((input, index) => {
+                if (index < newLinks.length) {
+                    const newVal = newLinks[index];
+                    const oldVal = input.dataset.original;
+                    
+                    // Replace in the actual HTML string
+                    html = html.split(`src="${oldVal}"`).join(`src="${newVal}"`);
+                    
+                    // Update dataset so individual applying still works later if needed
+                    input.dataset.original = newVal;
+                    // Update the visual input box
+                    input.value = newVal;
+                    
+                    // Update the thumbnail preview in the UI instantly
+                    const imgPreview = input.parentElement.previousElementSibling.querySelector('.preview-thumbnail');
+                    if (imgPreview) {
+                        imgPreview.src = newVal;
+                        imgPreview.style.display = 'block';
+                    }
+                    
+                    count++;
+                }
+            });
+
+            htmlInput.value = html;
+            document.getElementById('bulkImageInput').value = ''; // Clear field on success
+            alert(`Boom! Bulk updated ${count} image link(s) in your code.`);
+        });
+
+        // INDIVIDUAL APPLY LOGIC
         document.getElementById('applyLinksBtn').addEventListener('click', () => {
             let html = htmlInput.value;
             const inputs = document.querySelectorAll('.image-update-input');
@@ -259,16 +289,15 @@
             inputs.forEach(input => {
                 const newVal = input.value.trim();
                 const oldVal = input.dataset.original;
-                // Only replace if the user actually changed the value in the input box
                 if (newVal && newVal !== oldVal) {
                     html = html.split(`src="${oldVal}"`).join(`src="${newVal}"`);
+                    input.dataset.original = newVal; // Update state
                     count++;
                 }
             });
 
             htmlInput.value = html;
             alert(`Updated ${count} image link(s) in the code!`);
-            imageManager.classList.add('hidden');
         });
 
         // SAVE LOGIC
