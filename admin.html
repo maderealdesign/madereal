@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MadeReal | Pro Admin Dashboard</title>
     <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,17 +25,17 @@
         .img-link-row:nth-child(even) { background-color: #f9fafb; }
     </style>
 </head>
-<body class="text-black h-screen flex flex-col">
+<body class="text-black h-screen flex flex-col overflow-x-hidden">
 
-    <nav class="w-full bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shrink-0">
-        <div class="text-xl font-black tracking-tight">made<span class="text-brand-teal">real</span> <span class="text-gray-400 font-medium text-sm ml-2">Pro Editor</span></div>
+    <nav class="w-full bg-white border-b border-gray-200 px-4 sm:px-6 py-4 flex justify-between items-center shrink-0">
+        <div class="text-xl font-black tracking-tight">made<span class="text-brand-teal">real</span> <span class="text-gray-400 font-medium text-sm ml-2 hidden sm:inline">Pro Editor</span></div>
         <button id="logoutBtn" class="hidden text-sm font-medium text-gray-500 hover:text-black transition"><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</button>
     </nav>
 
-    <div id="loginView" class="flex-1 flex items-center justify-center p-6">
-        <div class="bg-white p-10 rounded-2xl shadow-xl max-w-md w-full text-center border border-gray-100">
-            <h2 class="text-3xl font-black mb-2">Admin Access</h2>
-            <p class="text-gray-500 mb-8 text-sm">Restricted to maderealdesign@gmail.com</p>
+    <div id="loginView" class="flex-1 flex items-center justify-center p-4 sm:p-6">
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl max-w-md w-full text-center border border-gray-100">
+            <h2 class="text-2xl sm:text-3xl font-black mb-2">Admin Access</h2>
+            <p class="text-gray-500 mb-6 sm:mb-8 text-sm">Restricted to maderealdesign@gmail.com</p>
             <button id="loginBtn" class="w-full bg-black text-white py-3 rounded-full font-bold hover:bg-gray-800 transition shadow-lg flex items-center justify-center gap-3">
                 <i class="fab fa-google"></i> Sign in with Google
             </button>
@@ -43,13 +43,13 @@
         </div>
     </div>
 
-    <div id="dashboardView" class="hidden flex-1 flex flex-col p-6 max-w-5xl mx-auto w-full">
-        <div class="flex justify-between items-end mb-8">
+    <div id="dashboardView" class="hidden flex-1 flex flex-col p-4 sm:p-6 max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-6 sm:mb-8">
             <div>
-                <h1 class="text-3xl font-black">Previews</h1>
+                <h1 class="text-2xl sm:text-3xl font-black">Previews</h1>
                 <p class="text-gray-500 text-sm mt-1">Manage client dynamic sites</p>
             </div>
-            <button id="createNewBtn" class="bg-brand-teal text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-teal-500 transition flex items-center gap-2">
+            <button id="createNewBtn" class="bg-brand-teal text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-teal-500 transition flex items-center justify-center gap-2 w-full sm:w-auto">
                 <i class="fas fa-plus"></i> New Preview
             </button>
         </div>
@@ -61,55 +61,65 @@
         </div>
     </div>
 
-    <div id="editorModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl flex flex-col max-h-[95vh]">
-            <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-                <h2 class="text-2xl font-black" id="modalTitle">Edit Preview</h2>
-                <div class="flex gap-4">
-                    <button id="scanImagesBtn" class="text-sm font-bold text-brand-teal hover:text-teal-600 bg-teal-50 px-4 py-2 rounded-lg transition"><i class="fas fa-search-plus mr-2"></i>Scan for Images</button>
-                    <button id="closeModalBtn" class="text-gray-400 hover:text-black"><i class="fas fa-times text-xl"></i></button>
+    <div id="editorModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-0 sm:p-4">
+        <div class="bg-white rounded-none sm:rounded-2xl shadow-2xl w-full max-w-5xl flex flex-col h-full sm:h-auto max-h-screen sm:max-h-[95vh]">
+            <div class="p-4 sm:p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10">
+                <h2 class="text-xl sm:text-2xl font-black" id="modalTitle">Edit Preview</h2>
+                <div class="flex gap-2 sm:gap-4">
+                    <button id="scanImagesBtn" class="text-xs sm:text-sm font-bold text-brand-teal hover:text-teal-600 bg-teal-50 px-3 py-2 rounded-lg transition"><i class="fas fa-search-plus mr-1 sm:mr-2"></i>Scan</button>
+                    <button id="closeModalBtn" class="text-gray-400 hover:text-black px-2"><i class="fas fa-times text-xl"></i></button>
                 </div>
             </div>
             
-            <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
                 <div>
                     <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">URL Slug</label>
-                    <div class="flex items-center">
-                        <span class="bg-gray-100 border border-r-0 border-gray-300 px-4 py-3 rounded-l-lg text-gray-500 text-sm font-medium">madereal.uk/</span>
-                        <input type="text" id="slugInput" placeholder="arc-joinery" class="flex-1 border border-gray-300 rounded-r-lg px-4 py-3 focus:outline-none focus:border-brand-teal">
+                    <div class="flex flex-col sm:flex-row items-stretch">
+                        <span class="bg-gray-100 border border-b-0 sm:border-b sm:border-r-0 border-gray-300 px-4 py-3 rounded-t-lg sm:rounded-l-lg sm:rounded-t-none text-gray-500 text-sm font-medium">madereal.uk/</span>
+                        <input type="text" id="slugInput" placeholder="arc-joinery" class="flex-1 border border-gray-300 rounded-b-lg sm:rounded-r-lg sm:rounded-b-none px-4 py-3 focus:outline-none focus:border-brand-teal">
                     </div>
                 </div>
 
                 <div id="imageManager" class="hidden border border-brand-teal/20 rounded-xl bg-teal-50/30 overflow-hidden flex flex-col">
                     <div class="bg-teal-50 p-4 border-b border-brand-teal/10 flex justify-between items-center">
-                        <h3 class="text-sm font-black text-teal-800 uppercase tracking-widest">Image Link Manager</h3>
+                        <h3 class="text-sm font-black text-teal-800 uppercase tracking-widest">Image Manager</h3>
                         <span id="imgCount" class="text-xs font-bold bg-brand-teal text-white px-2 py-1 rounded">0 Found</span>
                     </div>
 
                     <div class="p-4 bg-white border-b border-gray-200">
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Upload New Media from Device</label>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="file" id="fileUploadInput" accept="image/*" multiple class="flex-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-brand-teal hover:file:bg-teal-100">
+                            <button id="startUploadBtn" class="bg-teal-500 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-teal-600 transition shadow-sm text-sm whitespace-nowrap">
+                                <i class="fas fa-cloud-upload-alt mr-2"></i>Upload Files
+                            </button>
+                        </div>
+                        <div id="uploadProgress" class="hidden text-xs font-bold mt-2 text-teal-600"></div>
+                    </div>
+
+                    <div class="p-4 bg-white border-b border-gray-200">
                         <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Bulk Replace (Paste URLs, one per line)</label>
-                        <div class="flex gap-3">
+                        <div class="flex flex-col sm:flex-row gap-3">
                             <textarea id="bulkImageInput" class="flex-1 h-20 border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-teal text-sm bg-gray-50 resize-none placeholder-gray-400" placeholder="https://example.com/img1.jpg&#10;https://example.com/img2.jpg"></textarea>
-                            <button id="applyBulkBtn" class="bg-black text-white px-6 rounded-lg font-bold hover:bg-gray-800 transition shadow-sm text-sm whitespace-nowrap">Apply Bulk</button>
+                            <button id="applyBulkBtn" class="bg-black text-white px-6 py-3 sm:py-0 rounded-lg font-bold hover:bg-gray-800 transition shadow-sm text-sm whitespace-nowrap">Apply Bulk</button>
                         </div>
                     </div>
 
-                    <div id="imageLinksList" class="max-h-[350px] overflow-y-auto p-2 space-y-2">
-                        </div>
+                    <div id="imageLinksList" class="max-h-[250px] sm:max-h-[350px] overflow-y-auto p-2 space-y-2"></div>
                     <div class="p-4 bg-white border-t border-brand-teal/10">
                         <button id="applyLinksBtn" class="w-full bg-brand-teal text-white py-3 rounded-lg font-bold hover:bg-teal-500 transition shadow-md">Apply Individual Links to Code</button>
                     </div>
                 </div>
 
-                <div class="flex flex-col h-[400px]">
+                <div class="flex flex-col h-[300px] sm:h-[400px]">
                     <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">HTML Source Code</label>
                     <textarea id="htmlInput" class="w-full flex-1 border border-gray-300 rounded-lg p-4 focus:outline-none focus:border-brand-teal text-sm bg-gray-50" placeholder="Paste full HTML code here..."></textarea>
                 </div>
             </div>
 
-            <div class="p-6 border-t border-gray-100 flex justify-end gap-3 bg-gray-50 rounded-b-2xl">
-                <button id="cancelBtn" class="px-6 py-2.5 rounded-full font-bold text-gray-600 hover:bg-gray-200 transition">Cancel</button>
-                <button id="saveBtn" class="px-6 py-2.5 rounded-full font-bold bg-black text-white hover:bg-gray-800 transition shadow-lg flex items-center gap-2">
+            <div class="p-4 sm:p-6 border-t border-gray-100 flex flex-col sm:flex-row justify-end gap-3 bg-gray-50 rounded-b-none sm:rounded-b-2xl sticky bottom-0 z-10">
+                <button id="cancelBtn" class="w-full sm:w-auto order-2 sm:order-1 px-6 py-3 rounded-full font-bold text-gray-600 hover:bg-gray-200 transition text-center">Cancel</button>
+                <button id="saveBtn" class="w-full sm:w-auto order-1 sm:order-2 px-6 py-3 rounded-full font-bold bg-black text-white hover:bg-gray-800 transition shadow-lg flex items-center justify-center gap-2">
                     <i class="fas fa-save"></i> Save & Publish
                 </button>
             </div>
@@ -120,6 +130,8 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
         import { getFirestore, collection, doc, setDoc, getDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+        // Imported Firebase Storage Core Functionalities
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-storage.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAxmpbvmgyb831MMi2HA7Nd7c18wCb1m1c",
@@ -133,6 +145,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
+        const storage = getStorage(app); // Storage Init
         const provider = new GoogleAuthProvider();
         const ALLOWED_EMAIL = "maderealdesign@gmail.com";
 
@@ -147,6 +160,10 @@
         const imageManager = document.getElementById('imageManager');
         const imageLinksList = document.getElementById('imageLinksList');
         const saveBtn = document.getElementById('saveBtn');
+
+        const fileUploadInput = document.getElementById('fileUploadInput');
+        const startUploadBtn = document.getElementById('startUploadBtn');
+        const uploadProgress = document.getElementById('uploadProgress');
 
         let isEditing = false;
         let originalSlug = "";
@@ -190,13 +207,54 @@
             }
             snap.forEach(d => {
                 const li = document.createElement('li');
-                li.className = "p-6 flex justify-between items-center hover:bg-gray-50";
-                li.innerHTML = `<div><h3 class="font-bold text-lg">${d.id}</h3><a href="/${d.id}" target="_blank" class="text-sm text-blue-500">madereal.uk/${d.id}</a></div>
-                <div class="flex gap-2"><button onclick="window.editPreview('${d.id}')" class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-bold">Edit</button>
-                <button onclick="window.deletePreview('${d.id}')" class="px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-bold">Delete</button></div>`;
+                li.className = "p-4 sm:p-6 flex flex-col sm:flex-row justify-between sm:items-center gap-4 hover:bg-gray-50";
+                li.innerHTML = `<div><h3 class="font-bold text-lg">${d.id}</h3><a href="/${d.id}" target="_blank" class="text-sm text-blue-500 break-all">madereal.uk/${d.id}</a></div>
+                <div class="flex gap-2 w-full sm:w-auto"><button onclick="window.editPreview('${d.id}')" class="flex-1 sm:flex-none px-4 py-2 bg-gray-100 rounded-lg text-sm font-bold text-center">Edit</button>
+                <button onclick="window.deletePreview('${d.id}')" class="flex-1 sm:flex-none px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm font-bold text-center">Delete</button></div>`;
                 previewList.appendChild(li);
             });
         }
+
+        // DEVICE NATIVE STORAGE UPLOAD PROCESSOR
+        startUploadBtn.addEventListener('click', async () => {
+            const files = fileUploadInput.files;
+            if (files.length === 0) return alert("Select at least one image/asset file first.");
+            
+            const currentSlug = slugInput.value.trim().toLowerCase() || "unassigned-preview";
+            uploadProgress.classList.remove('hidden', 'text-red-500');
+            uploadProgress.classList.add('text-teal-600');
+            
+            let collectionUrls = [];
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const fileExtension = file.name.split('.').pop();
+                const processedName = `${Date.now()}_${Math.random().toString(36).substring(2, 7)}.${fileExtension}`;
+                const storageLocationRef = ref(storage, `previews/${currentSlug}/${processedName}`);
+
+                try {
+                    uploadProgress.textContent = `Uploading file ${i + 1} of ${files.length}...`;
+                    const chunkSnapshot = await uploadBytes(storageLocationRef, file);
+                    const fileDownloadUrl = await getDownloadURL(chunkSnapshot.ref);
+                    collectionUrls.push(fileDownloadUrl);
+                } catch (error) {
+                    console.error(error);
+                    uploadProgress.classList.add('text-red-500');
+                    uploadProgress.textContent = "Error uploading asset. Verify Admin privileges.";
+                    return;
+                }
+            }
+
+            uploadProgress.textContent = `Successfully synchronized ${collectionUrls.length} file(s)!`;
+            
+            const bulkTextarea = document.getElementById('bulkImageInput');
+            const structuralSpacer = bulkTextarea.value.trim() ? '\n' : '';
+            bulkTextarea.value = bulkTextarea.value + structuralSpacer + collectionUrls.join('\n');
+            
+            fileUploadInput.value = ''; 
+            imageManager.classList.remove('hidden');
+            alert("Upload completed. URLs have been appended to the Bulk Replace zone below.");
+        });
 
         // IMAGE SCANNER LOGIC
         document.getElementById('scanImagesBtn').addEventListener('click', () => {
@@ -212,11 +270,11 @@
 
             imageLinksList.innerHTML = '';
             document.getElementById('imgCount').textContent = `${images.length} Found`;
-            document.getElementById('bulkImageInput').value = ''; // Reset bulk input
+            document.getElementById('bulkImageInput').value = ''; 
             
             images.forEach((src, index) => {
                 const row = document.createElement('div');
-                row.className = "img-link-row p-4 rounded flex gap-4 border border-gray-200 bg-white items-center shadow-sm";
+                row.className = "img-link-row p-3 sm:p-4 rounded flex flex-col sm:flex-row gap-3 sm:gap-4 border border-gray-200 bg-white items-start sm:items-center shadow-sm";
                 
                 let previewSrc = src;
                 if(src.startsWith('images/') || src.startsWith('/images/')) {
@@ -224,13 +282,13 @@
                 }
 
                 row.innerHTML = `
-                    <div class="w-16 h-16 shrink-0 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200 overflow-hidden relative">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200 overflow-hidden relative">
                         <img src="${previewSrc}" class="w-full h-full object-cover preview-thumbnail" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                         <i class="fas fa-image text-gray-300 text-xl hidden absolute"></i>
                     </div>
-                    <div class="flex-1 flex flex-col gap-1.5">
+                    <div class="flex-1 w-full flex flex-col gap-1.5">
                         <span class="text-[10px] font-black text-gray-400 uppercase tracking-wider">Image #${index + 1}</span>
-                        <input type="text" data-original="${src}" value="${src}" class="image-update-input w-full px-3 py-2 border border-gray-300 rounded focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none text-sm text-gray-700 bg-gray-50 hover:bg-white transition" placeholder="Paste image URL here...">
+                        <input type="text" data-original="${src}" value="${src}" class="image-update-input w-full px-3 py-2 border border-gray-300 rounded focus:border-brand-teal focus:ring-1 focus:ring-brand-teal outline-none text-sm text-gray-700 bg-gray-50 hover:bg-white transition">
                     </div>
                 `;
                 imageLinksList.appendChild(row);
@@ -239,7 +297,7 @@
             imageManager.classList.remove('hidden');
         });
 
-        // NEW: BULK APPLY LOGIC
+        // BULK APPLY LOGIC
         document.getElementById('applyBulkBtn').addEventListener('click', () => {
             const bulkText = document.getElementById('bulkImageInput').value;
             const newLinks = bulkText.split('\n').map(l => l.trim()).filter(l => l !== '');
@@ -256,15 +314,10 @@
                     const newVal = newLinks[index];
                     const oldVal = input.dataset.original;
                     
-                    // Replace in the actual HTML string
                     html = html.split(`src="${oldVal}"`).join(`src="${newVal}"`);
-                    
-                    // Update dataset so individual applying still works later if needed
                     input.dataset.original = newVal;
-                    // Update the visual input box
                     input.value = newVal;
                     
-                    // Update the thumbnail preview in the UI instantly
                     const imgPreview = input.parentElement.previousElementSibling.querySelector('.preview-thumbnail');
                     if (imgPreview) {
                         imgPreview.src = newVal;
@@ -276,8 +329,8 @@
             });
 
             htmlInput.value = html;
-            document.getElementById('bulkImageInput').value = ''; // Clear field on success
-            alert(`Boom! Bulk updated ${count} image link(s) in your code.`);
+            document.getElementById('bulkImageInput').value = ''; 
+            alert(`Bulk updated ${count} image link(s) in your code.`);
         });
 
         // INDIVIDUAL APPLY LOGIC
@@ -291,7 +344,7 @@
                 const oldVal = input.dataset.original;
                 if (newVal && newVal !== oldVal) {
                     html = html.split(`src="${oldVal}"`).join(`src="${newVal}"`);
-                    input.dataset.original = newVal; // Update state
+                    input.dataset.original = newVal; 
                     count++;
                 }
             });
@@ -325,6 +378,7 @@
             slugInput.value = slug;
             htmlInput.value = s.data().html;
             imageManager.classList.add('hidden');
+            uploadProgress.classList.add('hidden');
             editorModal.classList.remove('hidden');
         };
 
@@ -340,6 +394,7 @@
             slugInput.value = '';
             htmlInput.value = '';
             imageManager.classList.add('hidden');
+            uploadProgress.classList.add('hidden');
             editorModal.classList.remove('hidden');
         });
 
