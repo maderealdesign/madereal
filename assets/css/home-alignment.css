@@ -1,0 +1,77 @@
+/* Align non-home pages to the calmer home-page visual system.
+   Applied via build.js by adding `home-aligned` to body. */
+
+.home-aligned {
+  background: #f5f5f7;
+  color: #0f172a;
+}
+
+.home-aligned main {
+  background: transparent;
+}
+
+/* Soften heavy borders and shadows from legacy pages */
+.home-aligned main .shadow-hard {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 10px 24px rgba(15, 23, 42, 0.06) !important;
+}
+
+.home-aligned main .border-4,
+.home-aligned main .border-x-2,
+.home-aligned main .border-y-2,
+.home-aligned main .border-t-4,
+.home-aligned main .border-b-4,
+.home-aligned main .border-2 {
+  border-color: #e5e7eb !important;
+}
+
+.home-aligned main .border-4,
+.home-aligned main .border-x-2,
+.home-aligned main .border-y-2,
+.home-aligned main .border-t-4,
+.home-aligned main .border-b-4 {
+  border-width: 1px !important;
+}
+
+/* Keep cards and sections visually calmer and consistent */
+.home-aligned main .bg-brand-gray {
+  background-color: #f8fafc !important;
+}
+
+.home-aligned main .bg-slate-900 {
+  background-color: #0f172a !important;
+}
+
+.home-aligned main .rounded-\[40px\] {
+  border-radius: 2rem !important;
+}
+
+.home-aligned main .rounded-\[32px\] {
+  border-radius: 1.5rem !important;
+}
+
+.home-aligned main .rounded-\[28px\],
+.home-aligned main .rounded-\[24px\] {
+  border-radius: 1.25rem !important;
+}
+
+/* Homepage-like CTA feel without changing copy */
+.home-aligned main a.bg-slate-900.text-white,
+.home-aligned main a.bg-brand-teal,
+.home-aligned main button.bg-slate-900.text-white,
+.home-aligned main button.bg-brand-teal {
+  border-radius: 9999px !important;
+}
+
+/* Improve readability where older pages force all-caps headings */
+.home-aligned main h1.uppercase,
+.home-aligned main h2.uppercase,
+.home-aligned main h3.uppercase,
+.home-aligned main summary.uppercase,
+.home-aligned main span.uppercase {
+  letter-spacing: 0.02em !important;
+}
+
+/* Keep reveal effects subtle and similar to homepage */
+.home-aligned .reveal {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}

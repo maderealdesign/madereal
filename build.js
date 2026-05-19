@@ -204,6 +204,30 @@ function injectCanonical(content, file) {
     return content.replace(/(<meta name="description" content="[^"]*">\s*)/i, `$1\n${canonical}`);
 }
 
+function injectHomeAlignmentStyles(content, file) {
+    if (file === 'index.html') return content;
+
+    const styleLinks = [
+        '    <link rel="stylesheet" href="/assets/css/home.css">',
+        '    <link rel="stylesheet" href="/assets/css/home-alignment.css">'
+    ].join('\n');
+
+    if (!content.includes('/assets/css/home-alignment.css')) {
+        content = content.replace('</head>', `${styleLinks}\n</head>`);
+    }
+
+    if (/<body[^>]*class="/i.test(content)) {
+        content = content.replace(/<body([^>]*?)class="([^"]*)"/i, (match, prefix, classes) => {
+            if (classes.includes('home-aligned')) return match;
+            return `<body${prefix}class="${classes} home-aligned"`;
+        });
+    } else {
+        content = content.replace(/<body([^>]*)>/i, '<body$1 class="home-aligned">');
+    }
+
+    return content;
+}
+
 function buildSitemap(posts) {
     const postDateMap = new Map(posts.map(post => [`blog/${post.slug}.html`, post.dateIso]));
     const today = new Date().toISOString().slice(0, 10);
@@ -287,7 +311,9 @@ async function buildBlog() {
             .replaceAll('[[[POST_EXCERPT]]]', escapeHtml(post.excerpt))
             .replace('[[[POST_CONTENT]]]', html);
 
-        fs.writeFileSync(path.join(blogOutputDir, `${post.slug}.html`), rendered);
+        const alignedRendered = injectHomeAlignmentStyles(rendered, `blog/${post.slug}.html`);
+
+        fs.writeFileSync(path.join(blogOutputDir, `${post.slug}.html`), alignedRendered);
         console.log(`Successfully built blog post: blog/${post.slug}.html`);
     });
 
@@ -313,6 +339,7 @@ async function main() {
 
         content = replaceGlobalPartials(content);
         content = injectCanonical(content, file);
+        content = injectHomeAlignmentStyles(content, file);
 
         ensureDir(path.dirname(path.join(distDir, file)));
         fs.writeFileSync(path.join(distDir, file), content);
