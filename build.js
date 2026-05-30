@@ -60,7 +60,7 @@ function getDateIso(value) {
 }
 
 function stripLeadingMarkdownH1(markdown) {
-    return markdown.replace(/^#\s+.+(?:\r?\n)+/, '');
+    return markdown.replace(/^\s*#\s+.+(?:\r?\n)+/, '');
 }
 
 function getExcerpt(data, content) {
@@ -128,6 +128,16 @@ function copyStaticAssets() {
 
         fs.cpSync(source, destination, { recursive: true });
         console.log(`Successfully copied: ${directory}/`);
+    });
+
+    ['_redirects'].forEach(file => {
+        const source = path.join(srcDir, file);
+        const destination = path.join(distDir, file);
+
+        if (!fs.existsSync(source)) return;
+
+        fs.copyFileSync(source, destination);
+        console.log(`Successfully copied: ${file}`);
     });
 }
 
