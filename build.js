@@ -129,16 +129,6 @@ function copyStaticAssets() {
         fs.cpSync(source, destination, { recursive: true });
         console.log(`Successfully copied: ${directory}/`);
     });
-
-    ['_redirects'].forEach(file => {
-        const source = path.join(srcDir, file);
-        const destination = path.join(distDir, file);
-
-        if (!fs.existsSync(source)) return;
-
-        fs.copyFileSync(source, destination);
-        console.log(`Successfully copied: ${file}`);
-    });
 }
 
 function readPosts() {
@@ -295,6 +285,34 @@ Sitemap: ${siteUrl}/sitemap.xml
     console.log('Successfully built: robots.txt');
 }
 
+function buildRedirects() {
+    const source = path.join(srcDir, '_redirects');
+    const baseRedirects = fs.existsSync(source) ? fs.readFileSync(source, 'utf8').trim() : '';
+    const canonicalRedirects = findBuiltHtmlFiles(distDir)
+        .filter(file => {
+            if (file === 'index.html') return false;
+
+            const content = fs.readFileSync(path.join(distDir, file), 'utf8');
+            return !hasNoindex(content);
+        })
+        .sort()
+        .map(file => {
+            const urlPath = getUrlPath(file);
+            return `${urlPath.replace(/\.html$/, '')} ${urlPath} 301!`;
+        });
+
+    const redirects = [
+        baseRedirects,
+        '',
+        '# Generated canonical redirects for Netlify pretty URLs.',
+        ...canonicalRedirects,
+        '',
+    ].filter(Boolean).join('\n');
+
+    fs.writeFileSync(path.join(distDir, '_redirects'), redirects);
+    console.log('Successfully built: _redirects');
+}
+
 async function buildBlog() {
     const { marked } = await import('marked');
     const posts = readPosts();
@@ -358,6 +376,7 @@ async function main() {
 
     copyStaticAssets();
     buildSitemap(posts);
+    buildRedirects();
 
     console.log(`✅ Website build complete! ${posts.length} blog post(s) generated. Ready for Netlify.`);
 }

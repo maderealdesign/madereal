@@ -10,6 +10,67 @@
   background: transparent;
 }
 
+.home-aligned main section {
+  border-color: #e5e7eb !important;
+}
+
+.home-aligned main > section {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.home-aligned main > section:first-child {
+  background: #ffffff !important;
+  border-bottom-width: 1px !important;
+  border-bottom-color: #f1f5f9 !important;
+  padding-top: clamp(5rem, 9vw, 8rem) !important;
+  padding-bottom: clamp(4rem, 8vw, 7rem) !important;
+}
+
+.home-aligned main > section:first-child h1 {
+  color: #020617;
+  font-size: clamp(2.45rem, 5.4vw, 4.35rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0 !important;
+  max-width: 58rem;
+  text-transform: none !important;
+}
+
+.home-aligned main > section:first-child p {
+  color: #4b5563 !important;
+  font-size: clamp(1rem, 1.8vw, 1.25rem) !important;
+  line-height: 1.65 !important;
+}
+
+.home-aligned main > section:nth-child(2) {
+  background: #ffffff !important;
+  border-top-width: 1px !important;
+  border-bottom-width: 1px !important;
+  border-color: #e5e7eb !important;
+}
+
+.home-aligned main > section:nth-child(2) [class*="text-4xl"],
+.home-aligned main > section:nth-child(2) [class*="text-5xl"] {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem) !important;
+  line-height: 1.15 !important;
+}
+
+.home-aligned main > section:nth-child(2) [class*="py-8"] {
+  padding-top: 1.35rem !important;
+  padding-bottom: 1.35rem !important;
+}
+
+.home-aligned main > section:first-child .bg-slate-900 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.home-aligned main > section:first-child img {
+  border-width: 1px !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 20px 60px -28px rgba(15, 23, 42, 0.28) !important;
+}
+
 /* Soften heavy borders and shadows from legacy pages */
 .home-aligned main .shadow-hard {
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 10px 24px rgba(15, 23, 42, 0.06) !important;
@@ -32,6 +93,15 @@
   border-width: 1px !important;
 }
 
+.home-aligned main .divide-slate-900 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e5e7eb !important;
+}
+
+.home-aligned main .border-l-4 {
+  border-left-width: 3px !important;
+  border-left-color: #14b8a6 !important;
+}
+
 /* Keep cards and sections visually calmer and consistent */
 .home-aligned main .bg-brand-gray {
   background-color: #f8fafc !important;
@@ -39,6 +109,13 @@
 
 .home-aligned main .bg-slate-900 {
   background-color: #0f172a !important;
+}
+
+.home-aligned main .bg-brand-teal,
+.home-aligned main .bg-brand-teal\/10,
+.home-aligned main .bg-brand-teal\/20 {
+  background-color: #ecfdf5 !important;
+  color: #0f172a !important;
 }
 
 .home-aligned main .rounded-\[40px\] {
@@ -54,21 +131,121 @@
   border-radius: 1.25rem !important;
 }
 
+.home-aligned main .rotate-1,
+.home-aligned main .-rotate-1 {
+  transform: none !important;
+}
+
+.home-aligned main .tracking-tighter {
+  letter-spacing: 0 !important;
+}
+
+.home-aligned main h1,
+.home-aligned main h2,
+.home-aligned main h3 {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.home-aligned main h2 {
+  font-size: clamp(2rem, 4.5vw, 3.75rem) !important;
+  line-height: 1.08 !important;
+}
+
+.home-aligned main h3 {
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem) !important;
+  line-height: 1.18 !important;
+}
+
+.home-aligned main h1.uppercase,
+.home-aligned main h2.uppercase,
+.home-aligned main h3.uppercase,
+.home-aligned main summary.uppercase {
+  text-transform: none !important;
+}
+
+.home-aligned main summary.uppercase {
+  letter-spacing: 0 !important;
+}
+
+.home-aligned main p {
+  line-height: 1.65 !important;
+}
+
+.home-aligned main .bg-white,
+.home-aligned main details,
+.home-aligned main article {
+  border-color: #e5e7eb !important;
+}
+
+.home-aligned main .grid > .bg-white,
+.home-aligned main details,
+.home-aligned main article {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+.home-aligned main article {
+  border-width: 1px !important;
+  border-radius: 1.5rem !important;
+}
+
+.home-aligned main article h3 {
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem) !important;
+  line-height: 1.15 !important;
+}
+
 /* Homepage-like CTA feel without changing copy */
 .home-aligned main a.bg-slate-900.text-white,
 .home-aligned main a.bg-brand-teal,
 .home-aligned main button.bg-slate-900.text-white,
 .home-aligned main button.bg-brand-teal {
   border-radius: 9999px !important;
+  border-width: 0 !important;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18) !important;
+}
+
+.home-aligned main a.bg-slate-900.text-white,
+.home-aligned main button.bg-slate-900.text-white {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.home-aligned main a.bg-brand-teal,
+.home-aligned main button.bg-brand-teal {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.home-aligned main a.bg-white {
+  border-color: #e5e7eb !important;
+  border-radius: 9999px !important;
+  color: #0f172a !important;
+}
+
+.home-aligned main [class*="w-12"][class*="h-12"],
+.home-aligned main [class*="w-14"][class*="h-14"] {
+  border-width: 1px !important;
+  border-color: #e5e7eb !important;
+  box-shadow: none !important;
+  background-color: #f8fafc !important;
+  color: #2563eb !important;
 }
 
 /* Improve readability where older pages force all-caps headings */
-.home-aligned main h1.uppercase,
-.home-aligned main h2.uppercase,
-.home-aligned main h3.uppercase,
-.home-aligned main summary.uppercase,
 .home-aligned main span.uppercase {
   letter-spacing: 0.02em !important;
+}
+
+.home-aligned main section:last-of-type .bg-brand-teal,
+.home-aligned main section:last-of-type > div > .bg-brand-teal {
+  background-color: #ffffff !important;
+  border-width: 1px !important;
+  border-color: #e5e7eb !important;
+  box-shadow: 0 20px 60px -36px rgba(15, 23, 42, 0.35) !important;
+}
+
+.home-aligned main section:last-of-type h2 {
+  font-size: clamp(2rem, 5vw, 3.75rem) !important;
 }
 
 /* Keep reveal effects subtle and similar to homepage */

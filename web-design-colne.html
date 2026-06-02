@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Colne | Local Websites for BB8 & Pendle</title>
-    <meta name="description" content="High-quality, affordable web design for Colne businesses. Just £197 one-off. No monthly fees or hidden retainers. Based on Market Street, Colne.">
+    <title>Web Design Colne | Local BB8 Business Websites for £197</title>
+    <meta name="description" content="Based right here on Market Street, MadeReal builds high-converting websites for Colne, Trawden, and Foulridge businesses. Just £197 one-off. Free preview.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -36,11 +36,21 @@
     
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        .reveal { opacity: 1; transform: none; transition: opacity 0.4s ease-out; }
-        .reveal.active { opacity: 1; transform: none; }
-        .slide-left, .slide-right { transform: none; }
+        
+        /* Premium Subtle Animations ported from Index */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        .reveal { opacity: 0; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity; }
+        .slide-up { transform: translateY(40px); }
+        .reveal.active { opacity: 1; transform: translate(0, 0); }
+        
+        /* Focus state aura ring */
+        .input-glow-focus:focus { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); border-color: #2563eb; }
+        
+        /* Floating Screenshot Drift Interaction */
+        .drift-effect { transform: translateY(0); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .group:hover .drift-effect { transform: translateY(-6px); }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
@@ -55,292 +65,219 @@
 
     [[[INJECT_HEADER]]]
 
-
-    <main class="flex-grow pt-16">
-        <section class="pt-24 md:pt-32 pb-16 md:pb-20 px-6 border-b-4 border-slate-900 bg-brand-gray overflow-hidden">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex items-center gap-2 mb-8 animate-fade-in">
-                    <div class="flex text-[#00b67a] text-xl">
+    <main class="flex-grow pt-16 bg-white">
+        
+        <section class="px-6 pt-24 md:pt-32 pb-16 md:pb-28 bg-white overflow-hidden border-b-4 border-slate-900">
+            <div class="max-w-4xl mx-auto text-center animate-fade-in">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="flex text-[#00b67a] text-lg">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <div class="text-xs font-bold text-gray-600 uppercase tracking-widest">Colne's #1 Rated Web Designers</div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Colne's Local Design Studio</span>
                 </div>
-
-                <h1 class="text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tighter leading-[0.9] mb-12 text-slate-900 uppercase animate-fade-in" style="animation-delay: 100ms;">
-                    Web Design in<br>
-                    <span class="text-brand-teal">Colne.</span><br>
-                    <span class="bg-brand-teal text-slate-900 px-3 md:px-4 pb-1 md:pb-2 mt-2 inline-block rounded-xl whitespace-nowrap text-[5vw] md:text-4xl lg:text-[3rem] align-middle">ZERO MONTHLY FEES.</span>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-slate-950 mb-6 uppercase">
+                    Web Design in <span class="text-brand-teal">Colne.</span><br>
+                    Built on Market Street.
                 </h1>
+                <p class="text-base md:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl mx-auto mb-10 text-balance">
+                    We are your local web team. Get a complete, Google-optimised business website for a flat £197. No monthly retainer traps, just honest local results.
+                </p>
                 
-                <div class="grid lg:grid-cols-12 gap-8 items-end animate-fade-in" style="animation-delay: 200ms;">
-                    <div class="lg:col-span-7">
-                        <h2 class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed max-w-2xl text-balance">
-                            We build fast, Google-ready websites for local businesses right here in Colne and Pendle. £197 one-off. No retainers. You own it forever.
-                        </h2>
+                <form id="quick-lead-form" name="Colne Quick Lead" method="POST" data-netlify="true" class="max-w-xl mx-auto mb-8">
+                    <input type="hidden" name="form-name" value="Colne Quick Lead">
+                    <input type="hidden" name="Source_Page" value="Colne Landing Page">
+                    <div class="flex flex-col sm:flex-row items-stretch gap-2 rounded-[24px] bg-white border-2 border-slate-900 p-2 shadow-hard transition-all duration-300">
+                        <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
+                        <input id="quick-lead-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[50px] flex-1 rounded-full bg-brand-gray px-5 text-base font-semibold text-slate-950 placeholder:text-gray-500 focus:outline-none border border-transparent transition-all duration-300 input-glow-focus" placeholder="Enter your mobile or email">
+                        <button id="quick-lead-submit" type="submit" class="min-h-[50px] rounded-full bg-brand-teal px-8 text-slate-900 font-black uppercase tracking-wide hover:bg-white hover:border-slate-900 border-2 border-transparent transition-all active:scale-[0.98]">
+                            Claim Free Preview
+                        </button>
                     </div>
-                    <div class="lg:col-span-5 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="/get-started.html" class="bg-slate-900 text-white px-8 py-5 rounded-xl font-bold text-lg hover:bg-brand-teal hover:text-slate-900 transition-colors shadow-lg shadow-brand-teal/20 text-center uppercase tracking-wide border-2 border-slate-900 hover:border-brand-teal flex items-center justify-center group">
-                            Get Your Free Preview <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                        <a href="/#work" class="bg-white text-slate-900 px-8 py-5 rounded-xl font-bold text-lg hover:bg-gray-50 transition-colors text-center uppercase tracking-wide border-2 border-slate-900 flex items-center justify-center">
-                            Our Work
-                        </a>
-                    </div>
+                    <p class="text-xs text-gray-500 font-bold mt-4 uppercase tracking-wider">
+                        Review your site before paying a single penny.
+                    </p>
+                </form>
+            </div>
+
+            <div class="max-w-5xl mx-auto mt-8 md:mt-12 animate-fade-in" style="animation-delay: 150ms;">
+                <img src="/assets/work/madereal-responsive-preview.webp" alt="Laptop and mobile preview of a responsive website for a Colne business" class="w-full h-auto object-contain drop-shadow-2xl" width="1080" height="720" fetchpriority="high">
+            </div>
+        </section>
+
+        <section class="bg-slate-900 text-white border-b-4 border-brand-teal">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x border-x border-gray-800 divide-gray-800">
+                <div class="py-8 px-4 text-center">
+                    <div class="text-3xl md:text-4xl font-black mb-1">BB8</div>
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-brand-teal">Local SEO Built-in</div>
+                </div>
+                <div class="py-8 px-4 text-center">
+                    <div class="text-3xl md:text-4xl font-black mb-1">48<span class="text-xl">hr</span></div>
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-brand-teal">Fast Turnaround</div>
+                </div>
+                <div class="py-8 px-4 text-center">
+                    <div class="text-3xl md:text-4xl font-black mb-1">£0</div>
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-brand-teal">Monthly Fees</div>
+                </div>
+                <div class="py-8 px-4 text-center bg-brand-teal text-slate-900">
+                    <div class="text-3xl md:text-4xl font-black mb-1">£197</div>
+                    <div class="text-[10px] font-bold uppercase tracking-widest">One-Off Cost</div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-white border-b-4 border-slate-900">
-            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x-2 divide-y-2 md:divide-y-0 divide-slate-900 border-x-2 border-slate-900">
-                <div class="py-10 px-4 text-center bg-white hover:bg-gray-50 transition-colors">
-                    <div class="text-4xl md:text-5xl font-black text-slate-900 mb-2">100+</div>
-                    <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500">Local Sites Built</div>
-                </div>
-                <div class="py-10 px-4 text-center bg-white hover:bg-gray-50 transition-colors">
-                    <div class="text-4xl md:text-5xl font-black text-slate-900 mb-2">48<span class="text-2xl">hr</span></div>
-                    <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500">Turnaround</div>
-                </div>
-                <div class="py-10 px-4 text-center bg-white hover:bg-gray-50 transition-colors">
-                    <div class="text-4xl md:text-5xl font-black text-slate-900 mb-2">£0</div>
-                    <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500">Monthly Fees</div>
-                </div>
-                <div class="py-10 px-4 text-center bg-brand-teal/20 hover:bg-brand-teal/30 transition-colors">
-                    <div class="text-4xl md:text-5xl font-black text-brand-teal mb-2">£197</div>
-                    <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-900">One-Off Cost</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="problem" class="py-20 md:py-32 px-6 bg-brand-gray overflow-hidden">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-                <div class="lg:w-1/2 reveal slide-left">
-                    <span class="inline-block px-3 py-1 rounded-full bg-slate-900 text-white mb-6 text-xs font-bold uppercase tracking-widest">The Colne Standard</span>
-                    <h2 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter leading-[0.95] text-slate-900 text-balance uppercase">
-                        Stop paying <span class="text-brand-teal">agencies</span> to rent your site.
-                    </h2>
-                    <div class="space-y-4 text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
-                        <p>If you run a local business in Colne, you don't need a bloated £2,000 website, and you certainly shouldn't be paying £50 to £100 every single month just to keep it online.</p>
-                        <p>Traditional web designers trap you in endless "maintenance" contracts. If you stop paying your monthly retainer, your website vanishes.</p>
-                        <p class="text-slate-900 font-bold">We changed the rules. Based right here on Market Street in Colne, you pay a strict, flat £197 one-off fee. We build an elite, professional website for your trade or service. You own it forever.</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 w-full reveal slide-right">
-                    <div class="mock-browser p-6 md:p-10 bg-white relative border-4 border-slate-900 shadow-hard">
-                        <div class="grid grid-cols-2 gap-4 md:gap-6">
-                            <div class="bg-gray-50 p-6 rounded-2xl border-2 border-gray-200">
-                                <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Standard Agencies</div>
-                                <div class="text-2xl md:text-4xl font-black text-gray-900 mb-1">£60<span class="text-sm text-gray-500 font-medium">/mo</span></div>
-                                <div class="text-sm text-gray-500 mb-6 font-medium">Hidden Retainers</div>
-                                <ul class="text-sm space-y-3 text-gray-600 font-bold">
-                                    <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i> Monthly hostage fees</li>
-                                    <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i> Slow response times</li>
-                                </ul>
-                            </div>
-                            <div class="bg-white p-6 rounded-2xl shadow-xl border-4 border-brand-teal transform md:scale-110 relative z-10">
-                                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-teal text-slate-900 text-[10px] tracking-widest font-black px-4 py-1.5 rounded-full uppercase border-2 border-slate-900">MadeReal Colne</div>
-                                <div class="text-2xl md:text-4xl font-black text-brand-teal mb-1">£197</div>
-                                <div class="text-sm text-slate-900 mb-6 font-bold">One-Off / Zero Fees</div>
-                                <ul class="text-sm space-y-3 text-gray-600 font-bold">
-                                    <li class="flex items-center"><i class="fas fa-check text-brand-teal mr-2 text-lg"></i> You own the site</li>
-                                    <li class="flex items-center"><i class="fas fa-check text-brand-teal mr-2 text-lg"></i> Built for BB8 Local SEO</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-20 md:py-32 px-6 bg-white border-y-4 border-slate-900 reveal slide-up">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="inline-block px-3 py-1 rounded-full bg-brand-teal text-slate-900 mb-6 text-xs font-black uppercase tracking-widest border border-slate-900">What's Included</span>
-                    <h2 class="text-4xl md:text-4xl font-black tracking-tighter leading-[0.95] text-slate-900 uppercase max-w-4xl mx-auto">
-                        Everything a Colne business needs to rank.
-                    </h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-brand-gray p-8 rounded-[32px] border-2 border-gray-200 hover:border-slate-900 transition-colors">
-                        <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-xl text-slate-900 mb-6 shadow-hard">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight uppercase">Mobile First Design</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">
-                            Over 70% of local searches happen on a phone. Your new site is engineered to look perfect and load instantly on mobile devices.
-                        </p>
-                    </div>
-
-                    <div class="bg-brand-gray p-8 rounded-[32px] border-2 border-gray-200 hover:border-slate-900 transition-colors">
-                        <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-xl text-slate-900 mb-6 shadow-hard">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight uppercase">Colne Local SEO</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">
-                            We don't just build a site; we structure it to tell Google exactly what you do and where you are, capturing customers specifically in Colne, Trawden, Foulridge, Barrowford, and the wider BB8 postcode.
-                        </p>
-                    </div>
-
-                    <div class="bg-brand-gray p-8 rounded-[32px] border-2 border-gray-200 hover:border-slate-900 transition-colors">
-                        <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-xl text-slate-900 mb-6 shadow-hard">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight uppercase">Rapid 48hr Build</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">
-                            No months of waiting. From the moment you request a preview, we aim to have a fully functional draft sent directly to your phone within 48 hours.
-                        </p>
-                    </div>
-
-                    <div class="bg-brand-gray p-8 rounded-[32px] border-2 border-gray-200 hover:border-slate-900 transition-colors">
-                        <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-xl text-slate-900 mb-6 shadow-hard">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight uppercase">Domain Integration</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">
-                            Have an existing `.co.uk` domain? We map it seamlessly. Need a new one? We guide you on exactly how to grab one without getting ripped off.
-                        </p>
-                    </div>
-
-                    <div class="bg-brand-gray p-8 rounded-[32px] border-2 border-gray-200 hover:border-slate-900 transition-colors">
-                        <div class="w-12 h-12 bg-white border-2 border-slate-900 rounded-xl flex items-center justify-center text-xl text-slate-900 mb-6 shadow-hard">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight uppercase">Google Business Sync</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">
-                            We pull your existing reviews, opening hours, and contact details straight from your Google Business Profile, ensuring everything is perfectly synced.
-                        </p>
-                    </div>
-
-                    <div class="bg-brand-teal/10 p-8 rounded-[32px] border-2 border-brand-teal hover:border-slate-900 transition-colors">
-                        <div class="w-12 h-12 bg-brand-teal border-2 border-slate-900 rounded-xl flex items-center justify-center text-xl text-slate-900 mb-6 shadow-hard">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-3 tracking-tight uppercase">100% Ownership</h3>
-                        <p class="text-slate-900 font-bold leading-relaxed">
-                            The most important feature. When you pay your £197, the website belongs to you. No catches, no mandatory retainers, total freedom.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="process" class="py-20 md:py-32 px-6 bg-brand-gray">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-[0.95] text-slate-900 mb-16 uppercase">Three steps.<br class="md:hidden"> One site.<br class="md:hidden"> 48 hours.</h2>
+        <section class="px-6 py-20 md:py-32 bg-brand-gray reveal slide-up">
+            <div class="max-w-6xl mx-auto space-y-16 md:space-y-28">
                 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-[32px] border-2 border-gray-200 reveal slide-up shadow-sm">
-                        <div class="w-14 h-14 bg-brand-gray border-2 border-gray-200 rounded-2xl flex items-center justify-center text-xl font-black text-brand-teal mb-6">01</div>
-                        <h3 class="text-2xl font-black text-slate-900 mb-3 tracking-tight uppercase">The Search.</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">Provide your Colne business name. We automatically locate your Google Maps details, existing reviews, and contact info so you don't have to lift a finger or fill out massive forms.</p>
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="rounded-[24px] overflow-hidden border-2 border-gray-200 shadow-md">
+                            <img src="/assets/work/home-service-pages-preview.webp" alt="Website pages designed for local Colne trades" class="w-full h-auto">
+                        </div>
                     </div>
-                    <div class="bg-white p-8 rounded-[32px] border-2 border-gray-200 reveal slide-up shadow-sm" style="transition-delay: 100ms;">
-                        <div class="w-14 h-14 bg-brand-gray border-2 border-gray-200 rounded-2xl flex items-center justify-center text-xl font-black text-brand-teal mb-6">02</div>
-                        <h3 class="text-2xl font-black text-slate-900 mb-3 tracking-tight uppercase">The Preview.</h3>
-                        <p class="text-gray-600 font-medium leading-relaxed">Within 48 hours, we design a custom, mobile-ready homepage mockup. We send it directly to your phone via a secure link to review entirely for free.</p>
+                    <div class="order-1 lg:order-2 text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 rounded-full bg-slate-900 text-white mb-4 text-[10px] font-bold uppercase tracking-widest">Stop Renting Your Site</span>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4 uppercase leading-none">Own your digital storefront.</h2>
+                        <p class="text-lg text-gray-600 font-medium leading-relaxed mb-6">
+                            Traditional web agencies trap Colne businesses in expensive monthly "maintenance" contracts. If you stop paying their £60-£100 fee, your website vanishes. 
+                        </p>
+                        <p class="text-lg text-slate-900 font-bold leading-relaxed">
+                            We operate differently. You pay us a strict £197 one-off fee to build your 5-page site. Once it's live, you own the code and the design completely.
+                        </p>
                     </div>
-                    <div class="bg-brand-teal/10 p-8 rounded-[32px] border-2 border-brand-teal reveal slide-up shadow-soft" style="transition-delay: 200ms;">
-                        <div class="w-14 h-14 bg-brand-teal text-slate-900 rounded-2xl flex items-center justify-center text-xl font-black mb-6 border-2 border-slate-900">03</div>
-                        <h3 class="text-2xl font-black text-slate-900 mb-3 tracking-tight uppercase">The Handover.</h3>
-                        <p class="text-slate-900 font-medium leading-relaxed">If you love it, you pay the £197 invoice. We finalise the internal pages, connect your domain name, set up your local BB8 SEO, and hand you the keys.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+                    <div class="text-center lg:text-left">
+                        <span class="inline-block px-3 py-1 rounded-full bg-brand-teal text-slate-900 mb-4 text-[10px] font-bold uppercase tracking-widest border border-slate-900">Dominate Local Search</span>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4 uppercase leading-none">Rank locally in Pendle.</h2>
+                        <p class="text-lg text-gray-600 font-medium leading-relaxed mb-6">
+                            It’s not enough to just have a website; it needs to be found by people locally. We engineer your site from the ground up to rank in BB8.
+                        </p>
+                        <p class="text-lg text-gray-600 font-medium leading-relaxed">
+                            We build up to 8 specific landing pages ensuring you capture Google traffic from **Colne, Trawden, Foulridge, Barrowford**, and the surrounding Pendle villages.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="rounded-[24px] overflow-hidden border-2 border-gray-200 shadow-md p-4 bg-white">
+                            <img src="/assets/work/home-location-pages-map.webp" alt="Map showing Colne and Pendle local SEO coverage" class="w-full h-auto rounded-xl">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 md:py-32 px-6 bg-white border-y-4 border-slate-900 reveal slide-up">
+        <section class="py-20 md:py-32 px-6 bg-white border-t border-gray-200 reveal slide-up">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mb-12 text-center uppercase">Colne Web Design FAQs</h2>
+                <div class="text-center mb-12">
+                    <p class="text-xs font-bold text-brand-teal mb-3 uppercase tracking-widest">Colne specific details</p>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 uppercase">Frequently Asked.</h2>
+                </div>
                 
-                <div class="space-y-6">
-                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-gray-200 cursor-pointer hover:border-slate-900 transition-colors">
-                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none uppercase">
-                            Are there really no monthly fees?
-                            <span class="transition group-open:rotate-180">
+                <div class="space-y-4">
+                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-transparent hover:border-brand-teal cursor-pointer transition-all duration-300">
+                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none outline-none">
+                            Can I visit your office on Market Street?
+                            <span class="transition duration-300 group-open:rotate-180">
                                 <i class="fas fa-chevron-down text-brand-teal"></i>
                             </span>
                         </summary>
                         <p class="text-gray-600 mt-4 font-medium leading-relaxed">
-                            Yes. We charge a strict £197 one-off build fee. You own the code and the design. While you are responsible for your own basic domain and hosting costs (usually around £20-£40/year via standard providers like GoDaddy or Namecheap), MadeReal will never charge you a monthly retainer to keep your site online.
+                            While our registered base is right here in Colne on Market Street, we operate entirely digitally to keep our costs at £197 for you. We gather your info online, build the preview rapidly, and send it straight to your phone. We’re always available for a local phone call, but we don't force you into time-wasting meetings so you can focus on running your business.
                         </p>
                     </details>
                     
-                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-gray-200 cursor-pointer hover:border-slate-900 transition-colors">
-                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none uppercase">
-                            Do you optimise for local Colne searches?
-                            <span class="transition group-open:rotate-180">
+                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-transparent hover:border-brand-teal cursor-pointer transition-all duration-300">
+                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none outline-none">
+                            Are there really no monthly fees?
+                            <span class="transition duration-300 group-open:rotate-180">
                                 <i class="fas fa-chevron-down text-brand-teal"></i>
                             </span>
                         </summary>
                         <p class="text-gray-600 mt-4 font-medium leading-relaxed">
-                            Absolutely. Every £197 website we build includes foundational Local SEO. We structure your headings, metadata, and site speed to perform well on Google Maps and local search queries specifically for Colne, Trawden, Foulridge, Barrowford, and the wider BB8 postcode area.
+                            Correct. We charge a strict £197 one-off build fee. You own the code. While you are responsible for your own basic domain and hosting costs (usually just £20-£40 per year via standard providers like GoDaddy), MadeReal will never invoice you a monthly retainer.
                         </p>
                     </details>
 
-                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-gray-200 cursor-pointer hover:border-slate-900 transition-colors">
-                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none uppercase">
-                            Do I need to visit your office on Market Street?
-                            <span class="transition group-open:rotate-180">
-                                <i class="fas fa-chevron-down text-brand-teal"></i>
-                            </span>
-                        </summary>
-                        <p class="text-gray-600 mt-4 font-medium leading-relaxed">
-                            Even though we are based locally right here in Colne, no. We respect that you're busy running your business. Everything is handled digitally. We gather your info online, build the preview, and text/email it to you. If you need support, we are just an email or a phone call away, but we don't force you into time-wasting meetings.
-                        </p>
-                    </details>
-
-                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-gray-200 cursor-pointer hover:border-slate-900 transition-colors">
-                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none uppercase">
+                    <details class="group bg-brand-gray p-6 rounded-2xl border-2 border-transparent hover:border-brand-teal cursor-pointer transition-all duration-300">
+                        <summary class="font-black text-xl text-slate-900 flex justify-between items-center list-none outline-none">
                             What if I don't like the free preview?
-                            <span class="transition group-open:rotate-180">
+                            <span class="transition duration-300 group-open:rotate-180">
                                 <i class="fas fa-chevron-down text-brand-teal"></i>
                             </span>
                         </summary>
                         <p class="text-gray-600 mt-4 font-medium leading-relaxed">
-                            Then you simply walk away. We build the draft and send it to your phone entirely for free. If it's not exactly what your trade or service business needs, there is no invoice, no hassle, and absolutely no obligation to buy. We take on all the risk.
+                            Then you simply walk away with no hard feelings. We build the draft and send it to your phone entirely for free. If it's not exactly what your Colne business needs, there is no invoice, no hassle, and absolutely no obligation to buy. We take on all the risk.
                         </p>
                     </details>
                 </div>
             </div>
         </section>
 
-        <section class="px-4 py-16 md:py-24 bg-brand-gray reveal slide-up border-t-2 border-gray-200">
-            <div class="max-w-7xl mx-auto">
-                <div class="bg-brand-teal rounded-[40px] p-12 md:p-24 text-center shadow-hard border-4 border-slate-900">
-                    <h2 class="text-5xl md:text-7xl font-black mb-6 text-slate-900 tracking-tighter leading-[0.9] uppercase">Colne Businesses<br> Belong Online.</h2>
-                    <p class="text-xl md:text-2xl text-slate-900 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-                        <span class="bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mr-2 relative -top-1">£197 ONE-OFF</span> 
-                        No monthly fees. Get your local business ranking in Colne today.
+        <section class="px-6 py-16 md:py-24 bg-brand-gray reveal slide-up border-t border-gray-200">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="rounded-[40px] p-10 md:p-20 bg-brand-teal border-4 border-slate-900 shadow-hard relative overflow-hidden">
+                    <h2 class="text-4xl md:text-6xl font-black mb-6 text-slate-900 tracking-tighter uppercase leading-[0.9]">Colne Businesses<br>Belong Online.</h2>
+                    <p class="text-lg md:text-xl text-slate-900 font-bold mb-10 max-w-xl mx-auto">
+                        We build the first version and send it over. If it looks good, the full build is just £197. Get your free preview started today.
                     </p>
-                    <div class="text-center mt-12">
-                        <a href="/get-started.html" class="inline-flex items-center justify-center bg-slate-900 text-white px-10 py-6 rounded-2xl font-black text-xl hover:bg-white hover:text-slate-900 border-2 border-transparent hover:border-slate-900 transition-all shadow-xl uppercase tracking-wider group">
-                            Build My Site Now <i class="fas fa-rocket ml-3 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
+                    <a href="/get-started.html" class="inline-flex items-center justify-center bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-white hover:text-slate-900 border-2 border-transparent hover:border-slate-900 transition-all uppercase tracking-wider group">
+                        Get my free preview <i class="fas fa-rocket ml-3 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
                 </div>
             </div>
         </section>
+
     </main>
 
     [[[INJECT_FOOTER]]]
 
-
     <script>
-
-        // Scroll Animations
+        // High Performance Scroll Animations
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
                 var elementVisible = 80; 
-                if (elementTop < windowHeight - elementVisible) {
+                var elementBottom = reveals[i].getBoundingClientRect().bottom;
+                
+                if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
         document.addEventListener("DOMContentLoaded", function() { reveal(); });
+
+        // Lead form handler
+        const quickLeadForm = document.getElementById('quick-lead-form');
+        if (quickLeadForm) {
+            quickLeadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = document.getElementById('quick-lead-contact');
+                const submit = document.getElementById('quick-lead-submit');
+                const lead = input.value.trim();
+
+                if (!lead) return;
+
+                submit.disabled = true;
+                submit.textContent = 'Sending...';
+
+                const formData = new FormData(quickLeadForm);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    window.location.href = `/get-started.html#lead=${encodeURIComponent(lead)}`;
+                })
+                .catch(() => {
+                    window.location.href = `/get-started.html#lead=${encodeURIComponent(lead)}`;
+                });
+            });
+        }
     </script>
 </body>
 </html>
