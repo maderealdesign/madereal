@@ -18,6 +18,10 @@ More website traffic is nice, but enquiries are the real goal.
 
 If people visit your site and leave without calling, booking, or sending a message, something is getting in the way.
 
+If those people are coming from Google Maps or your profile, the same idea applies. Your website needs to [turn Google Business Profile visitors into enquiries](/blog/turn-google-business-profile-visitors-into-enquiries.html), not just give them another page to look at.
+
+If you already have visitors but the leads are not coming through, use the checklist in [why your website is not getting enquiries](/blog/why-website-not-getting-enquiries.html) first.
+
 ## Make the offer obvious
 
 Your page should say what you do, where you work, and who you help. Do not make people decode it.

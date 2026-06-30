@@ -4,7 +4,9 @@
 
 This document maps all pages on the MadeReal website. The site uses a static HTML build system where source files are in the root directory and built output goes to `dist/`.
 
-**Total Pages to Index:** 38 (5 core + 9 services + 8 locations + 26 blog posts)
+**Current indexed build target:** 63 indexable pages according to `npm run seo:monitor` on June 30, 2026.
+
+This document is a working map. The authoritative crawl list is generated at build time in `dist/sitemap.xml`, and the current quality snapshot lives in `seo/dashboard.md`.
 
 ---
 
@@ -22,7 +24,7 @@ These are the main navigation pages located directly in the project root:
 
 ---
 
-## Service Pages (9 pages)
+## Service Pages (16 indexable service/offer pages)
 
 ### Top-Level Services (2 pages)
 
@@ -33,7 +35,7 @@ Located in root directory:
 | `graphic-design.html` | `/graphic-design` | Graphic design services overview |
 | `printing.html` | `/printing` | Printing services overview |
 
-### Subdirectory Services (7 pages)
+### Subdirectory Services (14 pages)
 
 Located in `services/` subfolder:
 
@@ -45,6 +47,13 @@ Located in `services/` subfolder:
 | `services/small-business-websites.html` | `/services/small-business-websites` | Small business website packages |
 | `services/hospitality-websites.html` | `/services/hospitality-websites` | Hospitality/restaurant website packages |
 | `services/professional-services.html` | `/services/professional-services` | Professional services (lawyers, consultants) websites |
+| `services/accountant-websites-lancashire.html` | `/services/accountant-websites-lancashire` | Accountant, bookkeeper, payroll and tax advisor websites |
+| `services/tradesman-websites-burnley.html` | `/services/tradesman-websites-burnley` | Burnley tradesman website page |
+| `services/tradesman-websites-colne.html` | `/services/tradesman-websites-colne` | Colne tradesman website page |
+| `services/roofer-websites-burnley.html` | `/services/roofer-websites-burnley` | Burnley roofer website page |
+| `services/electrician-websites-burnley.html` | `/services/electrician-websites-burnley` | Burnley electrician website page |
+| `services/cafe-websites-colne.html` | `/services/cafe-websites-colne` | Colne cafe website page |
+| `services/restaurant-websites-skipton.html` | `/services/restaurant-websites-skipton` | Skipton restaurant website page |
 | `services/ecommerce-websites.html` | `/services/ecommerce-websites` | E-commerce online store websites |
 
 ---
@@ -66,7 +75,7 @@ These are dedicated local SEO pages for each target town. Each targets "web desi
 
 ---
 
-## Blog System (dynamic - 24 posts!)
+## Blog System (dynamic - 30 built posts)
 
 Blog posts are written in Markdown and auto-generated during build:
 
@@ -74,7 +83,7 @@ Blog posts are written in Markdown and auto-generated during build:
 **Output Location:** `dist/blog/[slug].html`  
 **Index Page:** `blog.html` → `/blog`
 
-### All Blog Posts (24 total):
+### Built Blog Posts (30 total):
 1. **Cafe & Restaurant Website Guide** - `cafe-restaurant-website-guide.md`
 2. **E-commerce for Small Shops** - `ecommerce-website-small-shops.md`
 3. **Electrician Website Guide** - `electrician-website-guide.md`
@@ -88,19 +97,23 @@ Blog posts are written in Markdown and auto-generated during build:
 11. **Local SEO Checklist Small Business** - `local-seo-checklist-small-business.md`
 12. **Mobile First Web Design** - `mobile-first-web-design.md`
 13. **One-off Fee vs Monthly Retainer** - `one-off-website-fee-vs-monthly-retainer.md`
-14. **Professional Services Website Trust** - `professional-services-website-trust.md`
-15. **Roofing Website Guide** - `roofing-website-guide.md`
-16. **SEO Friendly Blog Posts** - `seo-friendly-blog-posts-small-business.md`
-17. **Service Area Pages Local SEO** - `service-area-pages-local-seo.md`
-18. **Tradesman Website Checklist** - `tradesman-website-checklist.md`
-19. **Web Design for Burnley Businesses** - `web-design-burnley-businesses.md`
-20. **Web Design for Colne Businesses** - `web-design-colne-businesses.md`
-21. **Website Content Checklist** - `website-content-checklist.md`
-22. **Website Mistakes Small Businesses Make** - `website-mistakes-small-businesses-make.md`
-23. **Website vs Facebook Page** - `website-vs-facebook-page.md`
-24. **What Makes a Website Look Professional** - `what-makes-a-website-look-professional.md`
-25. **Why Reviews Matter on Websites** - `why-reviews-matter-on-websites.md`
-26. **Why Your Small Business Needs a Website** - `why-your-small-business-needs-a-website.md`
+14. **New Trades Business Website Burnley & Pendle** - `new-trades-business-website-burnley-pendle.md`
+15. **Professional Services Website Trust** - `professional-services-website-trust.md`
+16. **Roofing Website Guide** - `roofing-website-guide.md`
+17. **SEO Friendly Blog Posts** - `seo-friendly-blog-posts-small-business.md`
+18. **Service Area Pages Local SEO** - `service-area-pages-local-seo.md`
+19. **Tradesman Website Checklist** - `tradesman-website-checklist.md`
+20. **Turn Google Business Profile Visitors Into Enquiries** - `turn-google-business-profile-visitors-into-enquiries.md`
+21. **Web Design for Burnley Businesses** - `web-design-burnley-businesses.md`
+22. **Web Design for Colne Businesses** - `web-design-colne-businesses.md`
+23. **Web Design Prices Lancashire** - `web-design-prices-lancashire.md`
+24. **Website Content Checklist** - `website-content-checklist.md`
+25. **Website Mistakes Small Businesses Make** - `website-mistakes-small-businesses-make.md`
+26. **Website Ownership vs Monthly Rental** - `website-ownership-vs-monthly-rental.md`
+27. **Website vs Facebook Page** - `website-vs-facebook-page.md`
+28. **What Makes a Website Look Professional** - `what-makes-a-website-look-professional.md`
+29. **Why Reviews Matter on Websites** - `why-reviews-matter-on-websites.md`
+30. **Why Your Small Business Needs a Website** - `why-your-small-business-needs-a-website.md`
 
 Each blog post:
 - Auto-generates SEO metadata (title, description)
@@ -179,6 +192,7 @@ dist/
      - Small Business
      - Hospitality
      - Professional Services
+     - Accountants
      - E-commerce
 4. **Areas** (dropdown)
    - Colne, Burnley, Nelson, Pendle, Skipton, Barnoldswick, Blackburn, Clitheroe
@@ -247,5 +261,5 @@ Before deploying changes:
 
 ---
 
-*Last updated: May 16, 2026*  
+*Last updated: June 30, 2026*
 *Sitemap automatically generated from source files*

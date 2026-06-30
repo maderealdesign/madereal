@@ -57,3 +57,5 @@ This helps customers understand you quickly and gives Google clearer context.
 Your site should make it easy to request a quote with name, phone number, job type, town, and a short message.
 
 MadeReal builds [tradesman websites](/services/tradesman-websites.html) around this exact flow for a flat [£197 one-off fee](/get-started.html).
+
+If you are just starting locally, read our guide to the [best website setup for a new trades business in Burnley or Pendle](/blog/new-trades-business-website-burnley-pendle.html).

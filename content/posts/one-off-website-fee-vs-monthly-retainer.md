@@ -1,5 +1,5 @@
 ---
-title: "One-Off Website Fee vs Monthly Retainer: What Should Small Businesses Choose?"
+title: "One-Off Website Fee vs Monthly Retainer for Small Businesses"
 meta_description: "Compare one-off website fees and monthly website retainers so your small business can avoid overpaying for a simple professional website."
 date: "2026-05-13"
 slug: "one-off-website-fee-vs-monthly-retainer"

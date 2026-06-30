@@ -91,8 +91,24 @@
                     <p class="text-xl md:text-2xl text-slate-900 font-medium mb-10 max-w-3xl mx-auto leading-relaxed">
                         MadeReal builds fast, professional, Google-ready websites for a flat £197. No monthly website rent. Free preview first.
                     </p>
-                    <a href="/get-started.html" class="inline-flex items-center justify-center bg-slate-900 text-white px-10 py-6 rounded-2xl font-black text-xl hover:bg-white hover:text-slate-900 border-2 border-transparent hover:border-slate-900 transition-all shadow-xl uppercase tracking-wider group">
-                        Get My Free Preview <i class="fas fa-rocket ml-3 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                    <form id="blog-quick-lead-form" name="Blog Quick Lead" method="POST" data-netlify="true" class="max-w-2xl mx-auto">
+                        <input type="hidden" name="form-name" value="Blog Quick Lead">
+                        <input type="hidden" name="Source_Page" value="Blog: [[[POST_TITLE]]]">
+                        <div class="rounded-[24px] bg-white border-2 border-slate-900 p-2 shadow-hard">
+                            <label class="sr-only" for="blog-quick-lead-contact">Mobile number or email address</label>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input id="blog-quick-lead-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[56px] flex-1 rounded-2xl bg-brand-gray px-5 text-base font-bold text-slate-950 placeholder:text-gray-500 focus:outline-none border-2 border-transparent focus:border-brand-teal transition-all" placeholder="Mobile or email">
+                                <button id="blog-quick-lead-submit" type="submit" data-track="blog_quick_lead_submit" class="min-h-[56px] rounded-2xl bg-slate-900 px-6 text-white font-black uppercase tracking-wide hover:bg-white hover:text-slate-900 border-2 border-slate-900 transition-all active:scale-[0.98]">
+                                    Get my free preview
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-900/70 font-black mt-4 uppercase tracking-wider">
+                            We can text or email it. No call needed.
+                        </p>
+                    </form>
+                    <a href="/get-started.html" data-track="blog_full_preview_cta" class="inline-flex items-center justify-center mt-8 text-slate-900 font-black text-sm md:text-base hover:underline uppercase tracking-wider">
+                        Or fill in the full brief <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
@@ -100,6 +116,36 @@
     </main>
 
     [[[INJECT_FOOTER]]]
+
+    <script>
+        const blogQuickLeadForm = document.getElementById('blog-quick-lead-form');
+        if (blogQuickLeadForm) {
+            blogQuickLeadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = document.getElementById('blog-quick-lead-contact');
+                const submit = document.getElementById('blog-quick-lead-submit');
+                const lead = input.value.trim();
+
+                if (!lead) return;
+
+                submit.disabled = true;
+                submit.textContent = 'Sending...';
+
+                const formData = new FormData(blogQuickLeadForm);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    window.location.href = '/get-started.html#lead=' + encodeURIComponent(lead);
+                })
+                .catch(() => {
+                    window.location.href = '/get-started.html#lead=' + encodeURIComponent(lead);
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>

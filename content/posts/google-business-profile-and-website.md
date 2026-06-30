@@ -53,3 +53,5 @@ Add your website to your Google profile. On your website, use your reviews, open
 This creates a stronger trust loop.
 
 MadeReal can build your website around your existing Google listing. Start with a [free website preview](/get-started.html), then pay the flat £197 only if you want to go live.
+
+For the conversion side, read our guide to [turning Google Business Profile visitors into website enquiries](/blog/turn-google-business-profile-visitors-into-enquiries.html).

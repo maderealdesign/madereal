@@ -5,7 +5,14 @@
   "main": "build.js",
   "scripts": {
     "build": "npm run build:css && node build.js",
-    "build:css": "tailwindcss -c tailwind.config.js -i ./assets/css/home-input.css -o ./assets/css/home.css --minify"
+    "build:css": "tailwindcss -c tailwind.config.js -i ./assets/css/home-input.css -o ./assets/css/home.css --minify",
+    "seo:verify": "node scripts/verify-seo-funnel.mjs",
+    "seo:audit-pages": "node scripts/audit-indexable-page-quality.mjs",
+    "seo:audit-backlinks": "node scripts/audit-backlinks.mjs",
+    "seo:netlify-forms": "node scripts/export-netlify-forms.mjs",
+    "seo:dashboard": "node scripts/generate-seo-dashboard.mjs",
+    "seo:monitor": "npm run build && npm run seo:verify && npm run seo:audit-pages && npm run seo:audit-backlinks && npm run seo:dashboard",
+    "seo:weekly": "npm run seo:monitor && node scripts/generate-weekly-review.mjs --refresh"
   },
   "repository": {
     "type": "git",

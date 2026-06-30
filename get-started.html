@@ -83,14 +83,31 @@
                 <div class="order-1 lg:order-1 text-center lg:text-left">
                     <span id="get-started-eyebrow" class="inline-flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1.5 text-[10px] md:text-xs font-bold text-teal-700 uppercase tracking-widest mb-4 border border-teal-100">
                         <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-teal animate-pulse"></span>
-                        Free preview. No upfront payment.
+                        No-call preview request
                     </span>
                     <h1 id="get-started-heading" class="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] mb-4 text-slate-950">
-                        Let us build the first version.
+                        Start with your mobile or email.
                     </h1>
                     <p id="get-started-intro" class="text-base md:text-xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-                        Search your business and we will use your Google details to start a proper website preview: 5+ pages, local landing pages, forms and Google Business setup for £197 if you approve it.
+                        We can text or email your free website preview. The Google search is optional and just helps us pull your public business details into the brief.
                     </p>
+
+                    <form id="get-started-quick-lead-form" name="Preview Quick Lead" method="POST" data-netlify="true" class="max-w-xl mx-auto lg:mx-0 mb-8">
+                        <input type="hidden" name="form-name" value="Preview Quick Lead">
+                        <input type="hidden" name="Source_Page" value="Get Started top capture">
+                        <div class="rounded-[24px] bg-white border border-gray-200 p-2 shadow-sm">
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <label class="sr-only" for="get-started-quick-contact">Mobile number or email address</label>
+                                <input id="get-started-quick-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[50px] flex-1 rounded-full bg-brand-gray px-5 text-base font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none border border-transparent transition-all duration-300 input-glow-focus" placeholder="Mobile or email">
+                                <button id="get-started-quick-submit" type="submit" data-track="get_started_quick_lead_submit" class="min-h-[50px] rounded-full bg-blue-600 px-6 text-white font-bold text-base hover:bg-blue-700 transition-all active:scale-[0.98]">
+                                    Save my contact
+                                </button>
+                            </div>
+                        </div>
+                        <p id="get-started-quick-help" class="text-xs text-gray-500 font-bold mt-3 uppercase tracking-wider">
+                            You can stop here, or add the business below for a sharper preview.
+                        </p>
+                    </form>
                     
                     <div class="hidden lg:grid grid-cols-3 gap-2 md:gap-4 max-w-lg mx-auto lg:mx-0 text-left">
                         <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
@@ -111,7 +128,7 @@
                 <div class="order-2 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
                     <div class="bg-white p-5 md:p-8 rounded-[24px] shadow-soft border border-gray-200 relative">
                         <h2 class="text-2xl font-black text-slate-950 mb-2 tracking-tight">Find your business.</h2>
-                        <p class="text-sm text-gray-500 font-medium mb-6">We pull your Google listing to reduce the boring admin.</p>
+                        <p class="text-sm text-gray-500 font-medium mb-6">Optional: choose your public Google listing to reduce the boring admin.</p>
                         
                         <div class="mb-2">
                             <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
@@ -298,18 +315,18 @@
                 <div class="grid md:grid-cols-3 gap-5">
                     <div class="bg-white p-6 rounded-[24px] border border-gray-200 shadow-sm text-center md:text-left flex flex-col items-center md:items-start">
                         <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-xl font-black text-blue-600 mb-4">1</div>
-                        <h3 class="text-xl font-black text-slate-950 mb-2 tracking-tight">Send the business.</h3>
-                        <p class="text-sm text-gray-600 font-medium leading-relaxed">We use your Google details, services and local area as the starting point.</p>
+                        <h3 class="text-xl font-black text-slate-950 mb-2 tracking-tight">Leave your contact.</h3>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Your mobile or email is enough for us to follow up without needing a live call.</p>
                     </div>
                     <div class="bg-white p-6 rounded-[24px] border border-gray-200 shadow-sm text-center md:text-left flex flex-col items-center md:items-start">
                         <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-xl font-black text-blue-600 mb-4">2</div>
-                        <h3 class="text-xl font-black text-slate-950 mb-2 tracking-tight">Review the preview.</h3>
-                        <p class="text-sm text-gray-600 font-medium leading-relaxed">We send a mobile-first website direction for you to judge before paying.</p>
+                        <h3 class="text-xl font-black text-slate-950 mb-2 tracking-tight">Add the business.</h3>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Search Google or enter the details manually if you want a more accurate first draft.</p>
                     </div>
                     <div class="bg-slate-950 p-6 rounded-[24px] shadow-sm text-white border border-slate-800 text-center md:text-left flex flex-col items-center md:items-start">
                         <div class="w-12 h-12 rounded-xl bg-brand-teal/20 flex items-center justify-center text-xl font-black text-brand-teal mb-4">3</div>
-                        <h3 class="text-xl font-black mb-2 tracking-tight">Go live for £197.</h3>
-                        <p class="text-sm text-slate-400 font-medium leading-relaxed">If you like it, we finish the pages, forms, local pages and Google Business setup.</p>
+                        <h3 class="text-xl font-black mb-2 tracking-tight">Review the preview.</h3>
+                        <p class="text-sm text-slate-400 font-medium leading-relaxed">If you like it, we finish the pages, forms, local pages and Google Business setup for £197.</p>
                     </div>
                 </div>
             </div>
@@ -327,15 +344,58 @@
         if (initialLead) {
             const initialLeadInput = document.getElementById('initial-lead');
             const contactInput = document.getElementById('client-contact');
+            const quickContactInput = document.getElementById('get-started-quick-contact');
             const eyebrow = document.getElementById('get-started-eyebrow');
             const heading = document.getElementById('get-started-heading');
             const intro = document.getElementById('get-started-intro');
 
             if (initialLeadInput) initialLeadInput.value = initialLead;
             if (contactInput) contactInput.value = initialLead;
+            if (quickContactInput) quickContactInput.value = initialLead;
             if (eyebrow) eyebrow.innerHTML = '<span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-teal animate-pulse"></span> Got it. This next bit is optional.';
             if (heading) heading.textContent = 'Want a better preview?';
             if (intro) intro.textContent = 'Search your Google Business Profile, or enter the business manually. This helps us build something closer to what you actually need.';
+        }
+
+        const quickLeadForm = document.getElementById('get-started-quick-lead-form');
+        if (quickLeadForm) {
+            quickLeadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const quickContactInput = document.getElementById('get-started-quick-contact');
+                const submit = document.getElementById('get-started-quick-submit');
+                const help = document.getElementById('get-started-quick-help');
+                const lead = quickContactInput.value.trim();
+
+                if (!lead) return;
+
+                submit.disabled = true;
+                submit.textContent = 'Saved';
+
+                const initialLeadInput = document.getElementById('initial-lead');
+                const contactInput = document.getElementById('client-contact');
+                const eyebrow = document.getElementById('get-started-eyebrow');
+                const heading = document.getElementById('get-started-heading');
+                const intro = document.getElementById('get-started-intro');
+
+                if (initialLeadInput) initialLeadInput.value = lead;
+                if (contactInput) contactInput.value = lead;
+                if (eyebrow) eyebrow.innerHTML = '<span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-teal animate-pulse"></span> Contact saved. No phone call needed.';
+                if (heading) heading.textContent = 'We can start from here.';
+                if (intro) intro.textContent = 'Your contact detail is saved. Search your Google Business Profile or enter the business manually if you want a more accurate preview.';
+                if (help) help.textContent = 'Saved. You can stop here, or add your business below so we can send a sharper preview.';
+
+                const formData = new FormData(quickLeadForm);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                }).catch(() => {
+                    submit.disabled = false;
+                    submit.textContent = 'Save my contact';
+                    if (help) help.textContent = 'That did not save. Please try again or use WhatsApp.';
+                });
+            });
         }
 
         // Google Maps API

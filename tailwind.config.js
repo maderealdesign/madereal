@@ -1,8 +1,11 @@
 module.exports = {
   content: [
-    './index.html',
+    './*.html',
+    './services/**/*.html',
+    './content/posts/**/*.md',
     './header_template.html',
     './footer_template.html',
+    './build.js',
   ],
   theme: {
     extend: {

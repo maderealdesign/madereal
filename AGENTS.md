@@ -8,8 +8,8 @@ Also read `STYLE_GUIDE.md` before redesigning or creating any public-facing page
 
 MadeReal sells high-quality local business websites for a flat one-off fee of 197 GBP. The site should generate enquiries by making the offer feel clear, trustworthy and easy:
 
-- 5+ page website
-- 8 location landing pages
+- service pages for what the business sells
+- local area pages for towns and service coverage
 - contact form or booking form
 - Google Business Profile setup
 - mobile-first design

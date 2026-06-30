@@ -1,0 +1,54 @@
+cluster,keyword,intent,target_url,priority,notes
+Core local,web design colne,High commercial,/web-design-colne.html,1,Primary home-area term
+Core local,web design burnley,High commercial,/web-design-burnley.html,1,Nearby higher-volume town
+Core local,web design nelson,High commercial,/web-design-nelson.html,1,Nearby Pendle town
+Core local,web design pendle,High commercial,/web-design-pendle.html,1,Borough-level search
+Core local,web design lancashire,High commercial,/,1,Homepage county-level target
+Core local,website designer colne,High commercial,/web-design-colne.html,1,Alternative buyer wording
+Core local,website designer burnley,High commercial,/web-design-burnley.html,1,Alternative buyer wording
+Core local,website design colne,High commercial,/web-design-colne.html,2,Competitor/SERP wording variant
+Core local,website design burnley,High commercial,/web-design-burnley.html,2,Competitor/SERP wording variant
+Core local,website design lancashire,High commercial,/,2,County-level wording variant
+Core local,web designer near me,High commercial,/,1,Track in GBP and Search Console because rank is location-sensitive
+Offer,197 website,Medium commercial,/,2,Ownable offer-led phrase
+Offer,affordable web design lancashire,High commercial,/,1,Matches price-sensitive buyers
+Offer,affordable website design burnley,High commercial,/web-design-burnley.html,2,Affordability-led local buyer phrase
+Offer,pay monthly websites burnley,Research commercial,/blog/one-off-website-fee-vs-monthly-retainer.html,2,Comparison term against monthly website rental
+Offer,small business website cost uk,Research commercial,/blog/how-much-does-a-website-cost-uk.html,2,Top-funnel cost query
+Offer,web design prices lancashire,Research commercial,/blog/web-design-prices-lancashire.html,2,Local cost query for price-aware buyers
+Offer,one off website fee,Research commercial,/blog/one-off-website-fee-vs-monthly-retainer.html,2,Educate against retainers
+Offer,website ownership,Research commercial,/blog/website-ownership-vs-monthly-rental.html,2,Ownership checklist for buyers comparing one-off and rental
+Offer,monthly website rental,Research commercial,/blog/website-ownership-vs-monthly-rental.html,2,Comparison term against pay-monthly website offers
+Offer,who owns my website,Research commercial,/blog/website-ownership-vs-monthly-rental.html,2,Question-led ownership query
+Offer,wordpress web design colne,Research commercial,/web-design-colne.html,2,Intercept WordPress/agency comparison without positioning MadeReal as WordPress-only
+Proof,web design portfolio lancashire,Research commercial,/case-studies.html,2,Proof-led query for buyers comparing providers
+Proof,website examples for small businesses,Research commercial,/case-studies.html,2,Supports trust before enquiry
+GBP,google business profile enquiries,Research commercial,/blog/turn-google-business-profile-visitors-into-enquiries.html,2,GBP-to-website conversion query
+GBP,google maps enquiries,Research commercial,/blog/turn-google-business-profile-visitors-into-enquiries.html,2,Local profile conversion query
+Conversion,why is my website not getting enquiries,Research commercial,/blog/why-website-not-getting-enquiries.html,2,Conversion troubleshooting query for businesses with traffic but weak leads
+Conversion,website not getting enquiries,Research commercial,/blog/why-website-not-getting-enquiries.html,2,Buyer problem query linked to MadeReal preview funnel
+Service,small business websites,High commercial,/services/small-business-websites.html,1,Main service page
+Service,tradesman websites,High commercial,/services/tradesman-websites.html,1,Best niche buyer segment
+Service,tradesman website burnley,High commercial,/services/tradesman-websites-burnley.html,1,Local trades buyer phrase
+Service,tradesman websites burnley,High commercial,/services/tradesman-websites-burnley.html,1,Plural local trades buyer phrase
+Service,tradesman website colne,High commercial,/services/tradesman-websites-colne.html,1,Local trades buyer phrase
+Service,tradesman websites colne,High commercial,/services/tradesman-websites-colne.html,1,Plural local trades buyer phrase
+Service,tradesman website pendle,High commercial,/blog/new-trades-business-website-burnley-pendle.html,2,Local trades buyer phrase
+Service,roofer web design,High commercial,/services/tradesman-roofing.html,1,Niche service term
+Service,roofer websites burnley,High commercial,/services/roofer-websites-burnley.html,1,Local roofing buyer phrase
+Service,roofer web design burnley,High commercial,/services/roofer-websites-burnley.html,1,Local roofing web design phrase
+Service,electrician web design,High commercial,/services/tradesman-electricians.html,1,Niche service term
+Service,electrician websites burnley,High commercial,/services/electrician-websites-burnley.html,1,Local electrician buyer phrase
+Service,electrician web design burnley,High commercial,/services/electrician-websites-burnley.html,1,Local electrician web design phrase
+Service,hospitality websites,Medium commercial,/services/hospitality-websites.html,2,Cafes pubs restaurants
+Service,cafe websites colne,High commercial,/services/cafe-websites-colne.html,2,Local cafe buyer phrase
+Service,cafe web design colne,High commercial,/services/cafe-websites-colne.html,2,Local cafe web design phrase
+Service,restaurant websites skipton,High commercial,/services/restaurant-websites-skipton.html,2,Local restaurant buyer phrase
+Service,restaurant web design skipton,High commercial,/services/restaurant-websites-skipton.html,2,Local restaurant web design phrase
+Service,professional services website,Medium commercial,/services/professional-services.html,2,Consultants clinics firms
+Service,accountant websites lancashire,High commercial,/services/accountant-websites-lancashire.html,2,Accountants bookkeepers payroll and tax advisors
+Service,accountant web design lancashire,High commercial,/services/accountant-websites-lancashire.html,2,Local professional-services buyer phrase
+Expansion,web design skipton,High commercial,/web-design-skipton.html,2,Nearby expansion area
+Expansion,web design barnoldswick,High commercial,/web-design-barnoldswick.html,2,Nearby expansion area
+Expansion,web design blackburn,High commercial,/web-design-blackburn.html,2,Larger nearby market
+Expansion,web design clitheroe,High commercial,/web-design-clitheroe.html,2,Ribble Valley expansion

@@ -18,6 +18,8 @@ Most small business websites do not fail because of one huge problem. They fail 
 
 Here are the mistakes we see most often.
 
+If the site is already getting visitors but very few leads, also read the focused guide on [why your website is not getting enquiries](/blog/why-website-not-getting-enquiries.html).
+
 ## Vague headlines
 
 If your homepage does not immediately explain what you do, customers have to work too hard.

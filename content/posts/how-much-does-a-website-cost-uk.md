@@ -18,6 +18,8 @@ UK website pricing can feel all over the place. One designer says £500. Another
 
 For most small businesses, the important question is not “what can a website cost?” It is “what does my business actually need right now?”
 
+If you are comparing local providers specifically, we also have a Lancashire-focused guide to [web design prices in Lancashire](/blog/web-design-prices-lancashire.html).
+
 ## The common website cost ranges
 
 A simple small business website in the UK often falls into one of these ranges:
