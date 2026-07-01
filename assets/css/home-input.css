@@ -11,15 +11,22 @@
   }
 
   .campaign-hero {
-    min-height: calc(100vh - 4rem);
+    min-height: calc(100svh - 4rem);
     background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: clamp(2rem, 4vh, 3.25rem) !important;
+    padding-bottom: clamp(1.75rem, 3.5vh, 2.75rem) !important;
   }
 
   .campaign-hero-grid {
     display: grid;
     align-items: center;
-    gap: clamp(2rem, 5vw, 5rem);
-    max-width: 82rem;
+    gap: clamp(1.75rem, 4vw, 3.75rem);
+    width: 100%;
+    max-width: 78rem;
     margin: 0 auto;
   }
 
@@ -34,7 +41,7 @@
     padding: 0.48rem 0.65rem 0.48rem 0.48rem;
     box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
     color: #020617;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     font-weight: 900;
     line-height: 1;
     white-space: nowrap;
@@ -43,19 +50,20 @@
   .campaign-kicker strong {
     border-radius: 999px;
     background: #00d2a0;
-    padding: 0.42rem 0.75rem;
+    padding: 0.38rem 0.72rem;
     color: #020617;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 950;
     text-transform: uppercase;
   }
 
   .campaign-title {
-    max-width: 46rem;
+    max-width: 42rem;
     color: #020617;
-    font-size: clamp(3.4rem, 7vw, 6.7rem);
-    font-weight: 950;
-    line-height: 0.92;
+    font-family: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(3.4rem, 6.1vw, 5.7rem);
+    font-weight: 900;
+    line-height: 0.93;
     letter-spacing: 0;
     text-wrap: balance;
   }
@@ -65,15 +73,15 @@
   }
 
   .campaign-copy {
-    max-width: 42rem;
+    max-width: 38rem;
     color: #475467;
-    font-size: clamp(1.2rem, 1.65vw, 1.45rem);
+    font-size: clamp(1.05rem, 1.25vw, 1.2rem);
     font-weight: 650;
-    line-height: 1.42;
+    line-height: 1.38;
   }
 
   .campaign-form {
-    max-width: 42rem;
+    max-width: 38rem;
     border: 1px solid #d8dee8;
     border-radius: 1.65rem;
     background: rgba(255, 255, 255, 0.94);
@@ -88,13 +96,13 @@
   }
 
   .campaign-input {
-    min-height: 4rem;
+    min-height: 3.45rem;
     min-width: 0;
     border-radius: 1.2rem;
     background: #f1f3f6;
     padding: 0 1.25rem;
     color: #020617;
-    font-size: 1.08rem;
+    font-size: 1rem;
     font-weight: 850;
     outline: none;
   }
@@ -104,7 +112,7 @@
   }
 
   .campaign-submit {
-    min-height: 4rem;
+    min-height: 3.45rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -112,7 +120,7 @@
     background: #00d2a0;
     padding: 0 1.65rem;
     color: #020617;
-    font-size: 1.08rem;
+    font-size: 1rem;
     font-weight: 950;
     line-height: 1;
     transition: transform 0.16s ease, background-color 0.16s ease;
@@ -139,7 +147,12 @@
 
   @media (min-width: 1024px) {
     .campaign-hero-grid {
-      grid-template-columns: minmax(0, 0.95fr) minmax(28rem, 1.05fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1fr);
+    }
+
+    .campaign-visual {
+      justify-self: center;
+      max-width: 42rem;
     }
   }
 
@@ -151,6 +164,9 @@
 
     .campaign-hero {
       min-height: auto;
+      display: block;
+      padding-top: clamp(3rem, 8vw, 4.25rem) !important;
+      padding-bottom: clamp(2.75rem, 8vw, 4rem) !important;
     }
 
     .campaign-hero-grid {
@@ -175,7 +191,14 @@
     }
 
     .campaign-title {
-      font-size: clamp(3.1rem, 15vw, 4.75rem);
+      font-size: clamp(2.8rem, 12vw, 4rem);
+      line-height: 0.96;
+    }
+
+    .campaign-copy {
+      max-width: 22rem;
+      font-size: 1rem;
+      line-height: 1.46;
     }
 
     .campaign-form-row {
