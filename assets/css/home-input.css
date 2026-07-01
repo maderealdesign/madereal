@@ -1,3 +1,221 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .brand-header-logo {
+    width: clamp(9rem, 12vw, 13rem) !important;
+    height: auto !important;
+    max-height: 3rem !important;
+    object-fit: contain;
+  }
+
+  .campaign-hero {
+    min-height: calc(100vh - 4rem);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+  }
+
+  .campaign-hero-grid {
+    display: grid;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    max-width: 82rem;
+    margin: 0 auto;
+  }
+
+  .campaign-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 100%;
+    border: 1px solid #d8dee8;
+    border-radius: 999px;
+    background: #ffffff;
+    padding: 0.48rem 0.65rem 0.48rem 0.48rem;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+    color: #020617;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .campaign-kicker strong {
+    border-radius: 999px;
+    background: #00d2a0;
+    padding: 0.42rem 0.75rem;
+    color: #020617;
+    font-size: 0.78rem;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .campaign-title {
+    max-width: 46rem;
+    color: #020617;
+    font-size: clamp(3.4rem, 7vw, 6.7rem);
+    font-weight: 950;
+    line-height: 0.92;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  .campaign-title span {
+    color: #00b98f;
+  }
+
+  .campaign-copy {
+    max-width: 42rem;
+    color: #475467;
+    font-size: clamp(1.2rem, 1.65vw, 1.45rem);
+    font-weight: 650;
+    line-height: 1.42;
+  }
+
+  .campaign-form {
+    max-width: 42rem;
+    border: 1px solid #d8dee8;
+    border-radius: 1.65rem;
+    background: rgba(255, 255, 255, 0.94);
+    padding: 0.55rem;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  }
+
+  .campaign-form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.55rem;
+  }
+
+  .campaign-input {
+    min-height: 4rem;
+    min-width: 0;
+    border-radius: 1.2rem;
+    background: #f1f3f6;
+    padding: 0 1.25rem;
+    color: #020617;
+    font-size: 1.08rem;
+    font-weight: 850;
+    outline: none;
+  }
+
+  .campaign-input::placeholder {
+    color: #98a2b3;
+  }
+
+  .campaign-submit {
+    min-height: 4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.2rem;
+    background: #00d2a0;
+    padding: 0 1.65rem;
+    color: #020617;
+    font-size: 1.08rem;
+    font-weight: 950;
+    line-height: 1;
+    transition: transform 0.16s ease, background-color 0.16s ease;
+  }
+
+  .campaign-submit:hover {
+    background: #0fddb0;
+  }
+
+  .campaign-submit:active {
+    transform: scale(0.985);
+  }
+
+  .campaign-proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .campaign-proof span {
+    border: 1px solid #d8dee8;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    padding: 0.72rem 1rem;
+    color: #344054;
+    font-size: 0.9rem;
+    font-weight: 850;
+  }
+
+  .campaign-visual {
+    position: relative;
+  }
+
+  .campaign-mockup {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (min-width: 1024px) {
+    .campaign-hero-grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(28rem, 1.05fr);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .brand-header-logo {
+      width: clamp(8rem, 36vw, 11rem) !important;
+      max-height: 2.6rem !important;
+    }
+
+    .campaign-hero {
+      min-height: auto;
+    }
+
+    .campaign-hero-grid {
+      max-width: 46rem;
+      text-align: center;
+    }
+
+    .campaign-title,
+    .campaign-copy,
+    .campaign-form {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .campaign-proof {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .campaign-kicker {
+      width: 100%;
+      justify-content: center;
+      white-space: normal;
+    }
+
+    .campaign-title {
+      font-size: clamp(3.1rem, 15vw, 4.75rem);
+    }
+
+    .campaign-form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .campaign-input,
+    .campaign-submit {
+      min-height: 3.55rem;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    .campaign-proof {
+      display: none;
+    }
+
+    .campaign-mockup {
+      margin-left: -0.75rem;
+      margin-right: -0.75rem;
+      width: calc(100% + 1.5rem);
+    }
+  }
+}
