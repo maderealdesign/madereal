@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://madereal.uk/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/logo.svg">
+    <link rel="preload" as="image" href="assets/brand/madereal-logo-full.webp" type="image/webp">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://madereal.uk/">
     <meta property="og:title" content="Web design for Lancashire businesses from £197">
@@ -34,7 +35,7 @@
           "@id": "https://madereal.uk/#business",
           "name": "MadeReal Design Ltd",
           "url": "https://madereal.uk",
-          "logo": "https://madereal.uk/assets/logo.svg",
+          "logo": "https://madereal.uk/assets/brand/madereal-logo-full.png",
           "image": "https://madereal.uk/assets/work/madereal-responsive-preview.jpg",
           "description": "Professional £197 websites for Lancashire businesses. Zero monthly fees. No retainers. Full local SEO setup.",
           "telephone": "+447396710347",
@@ -185,14 +186,8 @@
     <header class="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <a href="/" class="group flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                    <span class="text-white font-bold text-sm">M</span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-black tracking-tight text-slate-900 leading-none">made<span class="text-teal-500">real</span></span>
-                    <span class="text-[10px] font-medium text-gray-500 tracking-wider uppercase">Design Ltd</span>
-                </div>
+            <a href="/" class="group flex items-center">
+                <img src="assets/brand/madereal-logo-full.webp" alt="MadeReal Design and Print" class="h-10 sm:h-11 w-auto transition-transform group-hover:scale-[1.02]" width="900" height="229" decoding="async">
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
@@ -881,14 +876,8 @@ document.addEventListener('keydown', (e) => {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             
             <div class="text-center md:text-left">
-                <a href="/" class="inline-flex items-center gap-2 mb-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center transform hover:scale-105 transition-transform">
-                        <span class="text-white font-bold text-lg">M</span>
-                    </div>
-                    <div class="flex flex-col text-left">
-                        <span class="text-xl font-black tracking-tight">made<span class="text-teal-400">real</span></span>
-                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Design Ltd</span>
-                    </div>
+                <a href="/" class="inline-flex items-center rounded-2xl bg-white px-3 py-2 mb-4">
+                    <img src="assets/brand/madereal-logo-full.webp" alt="MadeReal Design and Print" class="h-12 w-auto" width="900" height="229" loading="lazy" decoding="async">
                 </a>
                 <p class="text-sm text-gray-400 mb-6 leading-relaxed">
                     Professional £197 websites for local businesses. Zero monthly fees. No retainers. Just results.

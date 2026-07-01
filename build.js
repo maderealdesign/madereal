@@ -11,7 +11,7 @@ const siteUrl = 'https://madereal.uk';
 const businessDetails = {
     name: 'MadeReal Design Ltd',
     url: siteUrl,
-    logo: `${siteUrl}/assets/logo.svg`,
+    logo: `${siteUrl}/assets/brand/madereal-logo-full.png`,
     image: `${siteUrl}/assets/work/madereal-responsive-preview.jpg`,
     telephone: '+447396710347',
     email: 'info@madereal.uk',
