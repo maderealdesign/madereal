@@ -375,49 +375,78 @@ document.addEventListener('keydown', (e) => {
 
     <main class="flex-grow pt-16 bg-white">
         
-        <section class="px-5 sm:px-6 pt-16 md:pt-24 pb-10 md:pb-16 bg-white overflow-hidden">
-            <div class="max-w-6xl mx-auto text-center animate-fade-in">
-                <div class="inline-flex flex-wrap items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 shadow-sm mb-8">
-                    <span class="text-sm md:text-base font-black text-slate-950">Free preview first</span>
-                    <span class="text-blue-600 font-black" aria-hidden="true">★★★★★</span>
-                    <span class="text-sm md:text-base font-bold text-slate-600">£197 if approved</span>
-                </div>
-                <h1 class="text-[54px] sm:text-[72px] md:text-[92px] lg:text-[104px] font-black leading-[0.95] text-slate-950 mb-6">
-                    A proper local website for £197.
-                </h1>
-                <p class="text-lg md:text-2xl text-gray-700 font-medium leading-relaxed max-w-3xl mx-auto mb-8">
-                    Service pages, local area pages, contact forms and local SEO foundations. Preview first, then pay once only if you want us to finish it.
-                </p>
+        <section class="home-hero px-5 sm:px-6 pt-8 md:pt-16 pb-12 md:pb-20">
+            <div class="home-hero-inner animate-fade-in">
+                <div class="home-hero-copy">
+                    <div class="home-hero-kicker">
+                        <span>Free preview first</span>
+                        <span class="home-hero-stars" aria-hidden="true">★★★★★</span>
+                        <span class="home-hero-price">£197 if approved</span>
+                    </div>
 
-                <form id="quick-lead-form" name="Quick Preview Lead" method="POST" data-netlify="true" class="max-w-2xl mx-auto mb-5">
-                    <input type="hidden" name="form-name" value="Quick Preview Lead">
-                    <input type="hidden" name="Source_Page" value="Homepage hero">
-                    <div class="rounded-[28px] border border-gray-200 bg-white p-3 shadow-soft">
-                        <div class="flex flex-col sm:flex-row items-stretch gap-2">
-                            <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
-                            <input id="quick-lead-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[58px] flex-1 rounded-2xl bg-brand-gray px-5 text-base font-bold text-slate-950 placeholder:text-gray-400 focus:outline-none border-2 border-transparent transition-all duration-300 input-glow-focus" placeholder="Enter mobile or email">
-                            <button id="quick-lead-submit" type="submit" class="min-h-[58px] rounded-2xl bg-blue-600 px-8 text-white font-black text-base hover:bg-blue-700 transition-all active:scale-[0.98]">
-                                Get free preview
-                            </button>
+                    <h1 class="home-hero-title">
+                        Local websites that look <strong>proper.</strong>
+                    </h1>
+
+                    <p class="home-hero-subtitle">
+                        A complete local business website with service pages, area pages, contact forms and SEO foundations. Preview first. Pay once only if you want it.
+                    </p>
+
+                    <form id="quick-lead-form" name="Quick Preview Lead" method="POST" data-netlify="true" class="home-hero-form">
+                        <input type="hidden" name="form-name" value="Quick Preview Lead">
+                        <input type="hidden" name="Source_Page" value="Homepage hero">
+                        <div class="home-hero-form-shell">
+                            <div class="home-hero-form-row">
+                                <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
+                                <input id="quick-lead-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="home-hero-input input-glow-focus" placeholder="Enter mobile or email">
+                                <button id="quick-lead-submit" type="submit" class="home-hero-submit">
+                                    Get free preview
+                                </button>
+                            </div>
+                        </div>
+                        <p class="home-hero-reassurance">
+                            No payment. No commitment. See the first version before spending a penny.
+                        </p>
+                    </form>
+
+                    <div class="home-hero-actions">
+                        <a href="#work" data-track="hero_examples_click" class="home-hero-button home-hero-button-primary">
+                            See examples
+                        </a>
+                        <a href="/get-started.html" data-track="hero_get_started_click" class="home-hero-button home-hero-button-secondary">
+                            Get started <span class="ml-3" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <div class="home-hero-proof" aria-label="Included with your website">
+                        <div class="home-hero-proof-item">
+                            <strong>5+</strong>
+                            <span>Pages</span>
+                        </div>
+                        <div class="home-hero-proof-item">
+                            <strong>8</strong>
+                            <span>Area pages</span>
+                        </div>
+                        <div class="home-hero-proof-item">
+                            <strong>100%</strong>
+                            <span>Yours</span>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-500 font-bold mt-3">
-                        No payment or commitment required to see your preview.
-                    </p>
-                </form>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-sm md:text-base font-bold text-slate-800">
-                    <a href="#work" data-track="hero_examples_click" class="w-full sm:w-auto inline-flex min-h-[54px] items-center justify-center rounded-2xl bg-blue-600 px-8 text-white hover:bg-blue-700 transition-colors">
-                        See examples
-                    </a>
-                    <a href="/get-started.html" data-track="hero_get_started_click" class="w-full sm:w-auto inline-flex min-h-[54px] items-center justify-center rounded-2xl border-2 border-slate-900 bg-white px-8 text-slate-950 hover:border-blue-600 hover:text-blue-600 transition-colors">
-                        Get started <span class="ml-3" aria-hidden="true">→</span>
-                    </a>
                 </div>
-            </div>
 
-            <div class="max-w-5xl mx-auto mt-10 md:mt-16 animate-fade-in" style="animation-delay: 120ms;">
-                <img src="assets/work/madereal-responsive-preview.webp" alt="Laptop and mobile preview of a responsive local business website built by MadeReal" class="w-full h-auto object-contain" width="1080" height="720" fetchpriority="high" decoding="async">
+                <div class="home-hero-visual animate-fade-in" style="animation-delay: 120ms;">
+                    <div class="home-hero-device">
+                        <img src="assets/work/madereal-responsive-preview.webp" alt="Laptop and mobile preview of a responsive local business website built by MadeReal" width="1080" height="720" fetchpriority="high" decoding="async">
+                    </div>
+                    <div class="home-hero-float home-hero-float-one">
+                        <span class="home-hero-float-dot" aria-hidden="true"></span>
+                        Built for mobile
+                    </div>
+                    <div class="home-hero-float home-hero-float-two">
+                        <span class="home-hero-float-dot" aria-hidden="true"></span>
+                        Local SEO structure
+                    </div>
+                </div>
             </div>
         </section>
 
