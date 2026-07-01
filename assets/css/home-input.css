@@ -12,7 +12,7 @@
 
   .campaign-hero {
     min-height: calc(100vh - 4rem);
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+    background: #ffffff;
   }
 
   .campaign-hero-grid {
@@ -126,22 +126,6 @@
     transform: scale(0.985);
   }
 
-  .campaign-proof {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-  }
-
-  .campaign-proof span {
-    border: 1px solid #d8dee8;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.78);
-    padding: 0.72rem 1rem;
-    color: #344054;
-    font-size: 0.9rem;
-    font-weight: 850;
-  }
-
   .campaign-visual {
     position: relative;
   }
@@ -181,9 +165,6 @@
       margin-right: auto;
     }
 
-    .campaign-proof {
-      justify-content: center;
-    }
   }
 
   @media (max-width: 640px) {
@@ -206,10 +187,6 @@
       min-height: 3.55rem;
       width: 100%;
       font-size: 1rem;
-    }
-
-    .campaign-proof {
-      display: none;
     }
 
     .campaign-mockup {
