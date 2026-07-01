@@ -152,7 +152,7 @@ function findHtmlFiles(dir, baseDir = dir) {
         const fullPath = path.join(dir, entry.name);
         const relativePath = path.relative(baseDir, fullPath);
 
-        if (['dist', '.git', 'node_modules', 'content'].includes(entry.name) || entry.name.startsWith('dist.')) {
+        if (['dist', '.git', 'node_modules', 'content', 'local-preview'].includes(entry.name) || entry.name.startsWith('dist.')) {
             return [];
         }
 

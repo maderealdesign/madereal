@@ -12,7 +12,8 @@
     "seo:netlify-forms": "node scripts/export-netlify-forms.mjs",
     "seo:dashboard": "node scripts/generate-seo-dashboard.mjs",
     "seo:monitor": "npm run build && npm run seo:verify && npm run seo:audit-pages && npm run seo:audit-backlinks && npm run seo:dashboard",
-    "seo:weekly": "npm run seo:monitor && node scripts/generate-weekly-review.mjs --refresh"
+    "seo:weekly": "npm run seo:monitor && node scripts/generate-weekly-review.mjs --refresh",
+    "local:preview": "npm run build && node scripts/create-local-preview.mjs"
   },
   "repository": {
     "type": "git",
