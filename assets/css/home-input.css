@@ -1,6 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  summary {
+    font-family: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+}
 
 @layer components {
   .brand-header-logo {

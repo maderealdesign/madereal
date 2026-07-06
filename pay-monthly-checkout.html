@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Pay Monthly Website | £24/Month Checkout | MadeReal</title>
+    <meta name="description" content="Start a MadeReal pay monthly website subscription for £24/month. Add your business details, then continue to secure Stripe checkout.">
+    <meta name="robots" content="noindex, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            teal: '#00D2A0',
+                            gray: '#F5F5F7',
+                        }
+                    },
+                    boxShadow: {
+                        soft: '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        glow: '0 0 0 4px rgba(37, 99, 235, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .input-glow-focus:focus { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); border-color: #2563eb; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-HN0VXM5YSL");
+    </script>
+</head>
+<body class="bg-brand-gray text-slate-900 flex flex-col min-h-screen">
+
+    [[[INJECT_HEADER]]]
+
+    <main class="flex-grow pt-24 md:pt-32 pb-16 md:pb-24 px-6 bg-white animate-fade-in">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.95fr_0.8fr] gap-8 lg:gap-16 items-start">
+            <section>
+                <p class="text-xs font-bold text-brand-teal mb-3 uppercase tracking-widest">Secure Stripe subscription</p>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.08] text-slate-950 mb-6">
+                    Start your £24/month website.
+                </h1>
+                <p class="text-base md:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl mb-8">
+                    Add the basic details first. We send them to Stripe as checkout metadata so the subscription is tied to the right business.
+                </p>
+
+                <form id="pay-monthly-form" name="Pay Monthly Website Lead" method="POST" data-netlify="true" class="bg-brand-gray border border-gray-200 rounded-[32px] p-5 md:p-8 shadow-sm space-y-5">
+                    <input type="hidden" name="form-name" value="Pay Monthly Website Lead">
+                    <input type="hidden" name="Source_Page" value="Pay Monthly Checkout">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="client-name" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Your name</label>
+                            <input id="client-name" type="text" name="Client_Name" required autocomplete="name" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                        </div>
+                        <div>
+                            <label for="client-email" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Email address</label>
+                            <input id="client-email" type="email" name="Client_Email" required autocomplete="email" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="you@example.co.uk">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="business-name" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Business name</label>
+                        <input id="business-name" type="text" name="Business_Name" required autocomplete="organization" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Your business">
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="business-town" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Town</label>
+                            <input id="business-town" type="text" name="Business_Town" required autocomplete="address-level2" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Colne">
+                        </div>
+                        <div>
+                            <label for="business-phone" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Mobile or phone</label>
+                            <input id="business-phone" type="text" name="Client_Phone" autocomplete="tel" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Optional">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="business-website" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Existing website or Facebook page</label>
+                        <input id="business-website" type="text" name="Existing_Link" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Optional">
+                    </div>
+                    <div>
+                        <label for="business-notes" class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">What does the business do?</label>
+                        <textarea id="business-notes" name="Business_Notes" rows="4" class="w-full bg-white border border-gray-200 text-slate-900 rounded-2xl p-4 font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Plumbing, roofing, cafe, accountant..."></textarea>
+                    </div>
+                    <button id="pay-monthly-submit" type="submit" data-track="pay_monthly_checkout_submit" class="w-full bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-blue-700 transition-colors active:scale-[0.98] shadow-soft">
+                        Continue to secure Stripe checkout
+                    </button>
+                    <p id="pay-monthly-message" class="hidden text-sm font-bold text-center"></p>
+                    <p class="text-center text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                        <i class="fas fa-lock text-brand-teal mr-1"></i> Card details are handled by Stripe, not MadeReal.
+                    </p>
+                </form>
+            </section>
+
+            <aside class="lg:sticky lg:top-24">
+                <div class="bg-slate-950 text-white rounded-[32px] p-6 md:p-8 shadow-soft">
+                    <p class="text-xs font-bold text-brand-teal uppercase tracking-widest mb-3">Your subscription</p>
+                    <div class="flex items-end gap-2 mb-4">
+                        <span class="text-6xl font-black tracking-tight">£24</span>
+                        <span class="text-lg font-bold text-slate-400 mb-3">/month</span>
+                    </div>
+                    <p class="text-slate-300 font-medium leading-relaxed mb-6">
+                        No upfront build payment. Includes the website, hosting, SSL and light support while the subscription is active.
+                    </p>
+                    <ul class="space-y-3 text-sm font-bold text-white mb-8">
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-teal mt-1"></i><span>Hosted Stripe checkout</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-teal mt-1"></i><span>Free preview still comes first</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-teal mt-1"></i><span>Local SEO foundations included</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check text-brand-teal mt-1"></i><span>Light edits while subscribed</span></li>
+                    </ul>
+                    <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                        <p class="text-xs font-bold text-slate-300 leading-relaxed">
+                            Prefer to pay once and own the finished site? Use the <a href="/get-started.html" class="text-brand-teal hover:text-teal-300 underline underline-offset-4">£197 one-off route</a> instead.
+                        </p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    [[[INJECT_FOOTER]]]
+
+    <script>
+        const payMonthlyForm = document.getElementById('pay-monthly-form');
+        const payMonthlySubmit = document.getElementById('pay-monthly-submit');
+        const payMonthlyMessage = document.getElementById('pay-monthly-message');
+
+        function setPayMonthlyMessage(text, isError) {
+            if (!payMonthlyMessage) return;
+            payMonthlyMessage.textContent = text;
+            payMonthlyMessage.classList.remove('hidden', 'text-red-600', 'text-slate-600');
+            payMonthlyMessage.classList.add(isError ? 'text-red-600' : 'text-slate-600');
+        }
+
+        async function savePayMonthlyLead(formData) {
+            try {
+                await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+            } catch (error) {}
+        }
+
+        if (payMonthlyForm) {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('status') === 'cancelled') {
+                setPayMonthlyMessage('Stripe checkout was cancelled. Your details are still here if you want to try again.', true);
+            }
+
+            payMonthlyForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(payMonthlyForm);
+                const payload = Object.fromEntries(formData.entries());
+
+                if (payMonthlySubmit) {
+                    payMonthlySubmit.disabled = true;
+                    payMonthlySubmit.textContent = 'Opening Stripe...';
+                }
+                setPayMonthlyMessage('Saving your details and opening Stripe checkout.', false);
+
+                await savePayMonthlyLead(formData);
+
+                try {
+                    const response = await fetch('/.netlify/functions/create-pay-monthly-checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (!response.ok || !result.url) {
+                        throw new Error(result.error || 'Stripe checkout is not configured yet.');
+                    }
+
+                    window.location.href = result.url;
+                } catch (error) {
+                    if (payMonthlySubmit) {
+                        payMonthlySubmit.disabled = false;
+                        payMonthlySubmit.textContent = 'Continue to secure Stripe checkout';
+                    }
+                    setPayMonthlyMessage(error.message || 'Stripe checkout could not open. Please try again or contact MadeReal.', true);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

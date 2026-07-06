@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Monthly Website Started | MadeReal</title>
+    <meta name="description" content="Your MadeReal pay monthly website subscription has started.">
+    <meta name="robots" content="noindex, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            teal: '#00D2A0',
+                            gray: '#F5F5F7',
+                        }
+                    },
+                    boxShadow: {
+                        soft: '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-HN0VXM5YSL");
+    </script>
+</head>
+<body class="bg-brand-gray text-slate-900 flex flex-col min-h-screen">
+
+    [[[INJECT_HEADER]]]
+
+    <main class="flex-grow pt-24 md:pt-32 pb-16 md:pb-24 px-6 bg-white animate-fade-in">
+        <section class="max-w-4xl mx-auto text-center">
+            <div class="rounded-[32px] md:rounded-[40px] bg-blue-50 border border-blue-100 p-8 md:p-16 shadow-sm">
+                <div class="w-16 h-16 rounded-2xl bg-brand-teal text-slate-950 flex items-center justify-center mx-auto mb-6 text-2xl">
+                    <i class="fas fa-check"></i>
+                </div>
+                <p class="text-xs font-bold text-blue-600 mb-3 uppercase tracking-widest">Subscription started</p>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.08] text-slate-950 mb-6">
+                    Your pay monthly website is underway.
+                </h1>
+                <p class="text-base md:text-xl text-gray-600 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+                    Stripe has taken care of the subscription. MadeReal will review your details, confirm anything missing, then prepare your website preview.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4 text-left mb-8">
+                    <div class="bg-white border border-gray-200 rounded-2xl p-5">
+                        <p class="text-2xl font-black text-blue-600 mb-2">1</p>
+                        <h2 class="text-lg font-black text-slate-950 mb-2">Details checked</h2>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">We match the subscription to your business details.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-2xl p-5">
+                        <p class="text-2xl font-black text-blue-600 mb-2">2</p>
+                        <h2 class="text-lg font-black text-slate-950 mb-2">Preview built</h2>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">You get the first version to review before launch.</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-2xl p-5">
+                        <p class="text-2xl font-black text-blue-600 mb-2">3</p>
+                        <h2 class="text-lg font-black text-slate-950 mb-2">Site goes live</h2>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Hosting, SSL and light support are covered by the subscription.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="/contact.html" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors">
+                        Contact MadeReal
+                    </a>
+                    <a href="/" class="w-full sm:w-auto inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-full font-bold border border-gray-300 hover:bg-gray-50 transition-colors">
+                        Back to homepage
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    [[[INJECT_FOOTER]]]
+
+</body>
+</html>
