@@ -1,18 +1,18 @@
 ---
-title: "Website Ownership vs Monthly Website Rental for Small Businesses"
-meta_description: "A practical guide to website ownership, monthly website rental, contracts and what UK small businesses should check before paying."
+title: "Website Ownership and Managed Website Plans for Small Businesses"
+meta_description: "A practical guide to website ownership, managed website plans, contracts and what UK small businesses should check before paying."
 date: "2026-06-30"
 slug: "website-ownership-vs-monthly-rental"
 author: "MadeReal"
 keywords:
   - website ownership
-  - monthly website rental
+  - managed website plans
   - pay monthly websites
   - small business website
 excerpt: "Before paying for a business website, make sure you know who owns the site, the content, the domain and the route away if you stop paying."
 ---
 
-# Website Ownership vs Monthly Website Rental for Small Businesses
+# Website Ownership and Managed Website Plans for Small Businesses
 
 A cheap monthly website can sound easy.
 
@@ -20,7 +20,7 @@ No big upfront payment. Someone else handles the setup. You get a site online qu
 
 That can be useful for some businesses, but it can also create a quiet problem: you may not actually own the website you rely on for enquiries.
 
-Before you agree to a monthly website package, ask what you own, what you rent and what happens if you want to leave.
+Before you agree to a monthly website package, ask what is included, what belongs to your business and what happens if you want to leave.
 
 ## What website ownership should mean
 
@@ -33,15 +33,15 @@ At a basic level, you should understand:
 - who owns the written copy
 - who owns the design and layout
 - whether you can move the site later
-- whether the website disappears if you stop paying a monthly fee
+- what happens to the website if the managed plan ends
 
 For a local business, this matters because your website is not decoration. It is where people decide whether to call, message, book or ask for a quote.
 
 If the site only exists while you keep paying one supplier, you need to know that before you build your marketing around it.
 
-## When monthly website rental can make sense
+## When a managed website plan can make sense
 
-Monthly website rental is not always bad.
+A monthly website plan can be useful when it includes real ongoing work.
 
 It can make sense if the monthly fee includes real ongoing work, such as:
 
@@ -53,7 +53,7 @@ It can make sense if the monthly fee includes real ongoing work, such as:
 - booking system support
 - reporting and strategy
 
-The issue is not paying monthly. The issue is paying monthly just to keep a simple brochure website alive when very little is being done after launch.
+The issue is not paying monthly. The issue is paying monthly without knowing what work is included after launch.
 
 That is where small businesses can end up overpaying.
 
@@ -93,15 +93,13 @@ If the answers are confusing, slow or evasive, be careful.
 
 ## Why MadeReal keeps the offer simple
 
-MadeReal's core offer is a [£197 one-off website](/get-started.html) if you approve the free preview.
+MadeReal's core offer is a free website build that moves onto [Website Care from £35/month](/pay-monthly-websites.html) if you approve the free preview.
 
-There is no MadeReal monthly website rental.
-
-The aim is simple: give local businesses a proper, mobile-first website with enquiry forms, basic local SEO structure and clear ownership without turning a small site into a long contract.
+The aim is simple: give local businesses a proper, mobile-first website with enquiry forms, basic local SEO structure, hosting, SSL and support without a large upfront build bill.
 
 That includes websites for [small businesses](/services/small-business-websites.html), [tradesmen](/services/tradesman-websites.html), [roofers](/services/tradesman-roofing.html), [electricians](/services/tradesman-electricians.html), hospitality businesses and professional services.
 
-You may still have normal third-party costs such as a domain or hosting. Those are separate from MadeReal's build fee. The important point is that MadeReal does not charge a monthly fee just to keep your website online.
+You may still have normal third-party costs such as a domain name, paid plugins or specialist integrations. The important point is that the Website Care plan is explained before launch, including cancellation and transfer expectations.
 
 ## Ownership also helps local SEO
 
@@ -119,12 +117,12 @@ If you own your site and structure, you can keep improving it over time:
 
 That is why MadeReal builds around useful local pages such as [web design Burnley](/web-design-burnley.html), [web design Colne](/web-design-colne.html), [web design Nelson](/web-design-nelson.html) and [web design Pendle](/web-design-pendle.html).
 
-The website should become an asset, not a rented landing page you are afraid to touch.
+The website should become a working business asset, not a vague package you are afraid to question.
 
 ## The simple rule
 
 If you are paying monthly, make sure the monthly work is real.
 
-If you only need a clear, professional, local business website to start generating enquiries, a one-off build may be enough.
+If you only need a clear, professional, local business website to start generating enquiries, a managed website plan may be enough.
 
-You can [request a free MadeReal preview](/get-started.html) before paying anything. We will send the first version by text or email, and if it feels right, the full build is £197 one-off.
+You can [request a free MadeReal preview](/get-started.html) before paying anything. We will send the first version by text or email, and if it feels right, the site goes live on Website Care from £35/month.

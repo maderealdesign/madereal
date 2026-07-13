@@ -49,4 +49,4 @@ Ask for the essentials: name, phone, location, property type, and job details. D
 
 ## Start with a focused site
 
-MadeReal builds [tradesman websites](/services/tradesman-websites.html), including electrician sites, for a flat [£197 one-off fee](/get-started.html). You get a free preview first, so you can see the direction before committing.
+MadeReal builds [tradesman websites](/services/tradesman-websites.html), including electrician sites, for a [free website build](/free-website-build.html) and £35/month Website Care. You get a free preview first, so you can see the direction before committing.

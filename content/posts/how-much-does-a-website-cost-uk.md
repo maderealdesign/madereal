@@ -1,6 +1,6 @@
 ---
 title: "How Much Does a Website Cost in the UK?"
-meta_description: "A clear guide to UK website costs for small businesses, including setup fees, monthly retainers, hosting, and MadeReal's flat £197 website offer."
+meta_description: "A clear guide to UK website costs for small businesses, including setup fees, monthly retainers, hosting, and MadeReal's free build and £35/month Website Care offer."
 date: "2026-05-14"
 slug: "how-much-does-a-website-cost-uk"
 author: "MadeReal"
@@ -8,7 +8,7 @@ keywords:
   - website cost UK
   - affordable web design
   - small business website cost
-  - £197 website
+  - managed website
 excerpt: "A plain-English breakdown of what small businesses really pay for websites and where the hidden costs usually appear."
 ---
 
@@ -31,13 +31,13 @@ A simple small business website in the UK often falls into one of these ranges:
 
 Those options can all make sense in the right context. The problem is when a local business gets sold an overbuilt website before it has proven the basics: clear offer, mobile layout, local SEO, trust signals, and easy enquiries.
 
-## Watch the monthly retainer
+## Check what the monthly plan includes
 
-The hidden cost is usually not the build. It is the monthly retainer. Paying £50 or £100 every month to keep a simple brochure website online can become expensive quickly.
+The hidden cost is usually not the word "monthly". It is paying every month without knowing what work is included. A useful plan should cover real things such as hosting, SSL, small edits, support, reporting or SEO activity.
 
-At £75 per month, you spend £1,800 over two years before counting any setup fee.
+At £75 per month, you spend £1,800 over two years before counting any setup fee, so the ongoing work should be clear.
 
-That is why MadeReal offers [professional small business websites](/services/small-business-websites.html) for a flat [£197 one-off fee](/get-started.html). You get a proper site without signing up to website rent.
+That is why MadeReal offers [professional small business websites](/services/small-business-websites.html) for a [free website build](/free-website-build.html) and £35/month Website Care. You get a proper site without a large upfront agency invoice.
 
 ## What should be included?
 
@@ -56,4 +56,4 @@ For trades, that might mean a [tradesman website](/services/tradesman-websites.h
 
 If you are a small local business, you do not need to start with a huge website bill. You need a fast, credible page that gets you found, explains your offer, and turns visitors into enquiries.
 
-That is exactly what our [£197 website preview](/get-started.html) is built around.
+That is exactly what our [free website preview](/get-started.html) is built around.

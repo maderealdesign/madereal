@@ -108,9 +108,9 @@ A new trade business should be careful with cash.
 
 You might need tools, insurance, a van, workwear, materials and local advertising before the website has paid for itself. So the first website should prove the basics without turning into a huge bill.
 
-MadeReal's offer is simple: see the preview first, then pay £197 if you want the full build.
+MadeReal's offer is simple: see the preview first, then move onto Website Care from £35/month if you want the site live.
 
-There is no MadeReal monthly website fee.
+Website Care starts from £35/month after approval.
 
 You can read more in our guide to [web design prices in Lancashire](/blog/web-design-prices-lancashire.html).
 

@@ -36,7 +36,7 @@ Ask five questions:
 
 If the answer is no, the page may be leaking enquiries before people even scroll.
 
-For MadeReal, the main page has to say the offer clearly: a proper local business website, free preview first, 197 GBP one-off if approved, no MadeReal monthly fee.
+For MadeReal, the main page has to say the offer clearly: a proper local business website, free preview first, free build, then 35 GBP/month if approved, Website Care from £35/month.
 
 ## The headline might be too vague
 

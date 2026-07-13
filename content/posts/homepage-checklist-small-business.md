@@ -48,4 +48,4 @@ Your homepage must be easy to read and tap on a phone. Big blocks of text, tiny 
 
 Phone, email, form, booking link, or WhatsApp. Make the next step obvious.
 
-MadeReal builds [small business websites](/services/small-business-websites.html) around this structure for a flat £197 one-off fee.
+MadeReal builds [small business websites](/services/small-business-websites.html) around this structure with a free website build and £35/month Website Care.

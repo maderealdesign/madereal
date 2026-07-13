@@ -54,4 +54,4 @@ Do not rely on one tiny contact link in the header.
 
 Start with your homepage or main service page. Make it clearer, faster, and more trustworthy. Then build supporting blog posts and location pages around it.
 
-MadeReal can build that foundation with a [free website preview](/get-started.html) and a flat £197 one-off build fee.
+MadeReal can build that foundation with a [free website preview](/get-started.html) and a free build and £35/month Website Care plan.

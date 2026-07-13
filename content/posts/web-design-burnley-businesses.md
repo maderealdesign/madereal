@@ -1,6 +1,6 @@
 ---
 title: "Web Design for Burnley Businesses: What Local Sites Need"
-meta_description: "A practical guide to web design for Burnley businesses, covering local SEO, mobile design, trust signals, and MadeReal's £197 website offer."
+meta_description: "A practical guide to web design for Burnley businesses, covering local SEO, mobile design, trust signals, and MadeReal's managed website offer."
 date: "2026-04-29"
 slug: "web-design-burnley-businesses"
 author: "MadeReal"
@@ -38,7 +38,7 @@ Burnley customers want to know you are real and reliable. Add Google reviews, ph
 
 If you offer more than one thing, connect the pages. A Burnley roofer should link to roofing services, reviews, and quote forms. A cafe should link to menus and bookings. A consultant should link to services and consultations.
 
-MadeReal creates [small business websites](/services/small-business-websites.html), [hospitality websites](/services/hospitality-websites.html), and [professional services websites](/services/professional-services.html) for a flat [£197 one-off fee](/get-started.html).
+MadeReal creates [small business websites](/services/small-business-websites.html), [hospitality websites](/services/hospitality-websites.html), and [professional services websites](/services/professional-services.html) for a [free website build](/free-website-build.html) and £35/month Website Care.
 
 ## Keep the next step obvious
 

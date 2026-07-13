@@ -15,7 +15,7 @@ const businessDetails = {
     image: `${siteUrl}/assets/work/madereal-responsive-preview.jpg`,
     telephone: '+447396710347',
     email: 'info@madereal.uk',
-    priceRange: '£197',
+    priceRange: '£35-£199/month',
     address: {
         '@type': 'PostalAddress',
         streetAddress: '9 Market St',
@@ -38,6 +38,10 @@ const businessDetails = {
 };
 
 const trackedServicePages = [
+    { name: 'Pay Monthly Websites', path: '/pay-monthly-websites.html', description: 'Free website build for local businesses with hosting, SSL, management and light support from 35 GBP per month.' },
+    { name: 'Free Website Build', path: '/free-website-build.html', description: 'Explains MadeReal\'s no-upfront website build model and the 35 GBP per month managed website plan.' },
+    { name: 'Google Business Profile Management', path: '/google-business-profile-management.html', description: 'Website care plus Google Business Profile tidy-up, monthly activity and review reply support for 55 GBP per month.' },
+    { name: 'Local SEO Packages', path: '/local-seo-packages.html', description: 'Local SEO Growth package with 4 useful content pieces per month, Search Console checks, on-page improvements and reporting for 199 GBP per month.' },
     { name: 'Small Business Websites', path: '/services/small-business-websites.html', description: 'Affordable small business websites for local UK businesses.' },
     { name: 'Tradesman Websites', path: '/services/tradesman-websites.html', description: 'Websites for plumbers, joiners, builders, decorators and local trades.' },
     { name: 'Tradesman Websites Burnley', path: '/services/tradesman-websites-burnley.html', description: 'Trade websites for Burnley builders, joiners, plumbers, plasterers, roofers and local service businesses.' },
@@ -329,15 +333,21 @@ function getBusinessEntityGraph() {
         '@type': 'Offer',
         '@id': `${siteUrl}/get-started.html#free-preview-offer`,
         url: `${siteUrl}/get-started.html`,
-        name: 'Free website preview and 197 GBP local business website',
-        price: '197.00',
+        name: 'Free website preview and managed local business website',
+        price: '35.00',
         priceCurrency: 'GBP',
+        priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: '35.00',
+            priceCurrency: 'GBP',
+            unitText: 'MONTH',
+        },
         availability: 'https://schema.org/InStock',
         itemOffered: {
             '@type': 'Service',
-            name: 'Local business website package',
+            name: 'Managed local business website',
             serviceType: 'Web design',
-            description: 'A proper local business website with service pages, local area pages, enquiry forms, Google Business-friendly structure and local SEO foundations.',
+            description: 'A proper local business website with hosting, SSL, service pages, enquiry forms, Google Business-friendly structure, support and local SEO foundations.',
             areaServed: businessDetails.areaServed,
             provider: {
                 '@id': `${siteUrl}/#business`,
@@ -353,7 +363,7 @@ function getBusinessEntityGraph() {
             url: businessDetails.url,
             logo: businessDetails.logo,
             image: businessDetails.image,
-            description: 'MadeReal Design Ltd builds mobile-first local business websites for a flat 197 GBP one-off fee, with a free preview before payment and no MadeReal monthly retainer.',
+            description: 'MadeReal Design Ltd builds mobile-first local business websites with a free preview first, then managed website plans from 35 GBP/month.',
             telephone: businessDetails.telephone,
             email: businessDetails.email,
             address: businessDetails.address,
@@ -430,7 +440,7 @@ function getLocationPageSchema(file) {
         '@id': `${siteUrl}${location.path}#service`,
         name: `Web design in ${location.town}`,
         serviceType: 'Web design',
-        description: `Local business website design for ${location.town} businesses, including a free preview, 197 GBP one-off build option, local SEO structure and contact forms.`,
+        description: `Managed local business website design for ${location.town} businesses, including a free preview, hosting, support, local SEO structure and contact forms.`,
         url: `${siteUrl}${location.path}`,
         provider: {
             '@id': `${siteUrl}/#business`,
@@ -755,6 +765,7 @@ function renderLocationQuickLead(location) {
                         <form id="quick-lead-form" name="${town} Quick Lead" method="POST" data-netlify="true" class="w-full">
                             <input type="hidden" name="form-name" value="${town} Quick Lead">
                             <input type="hidden" name="Source_Page" value="${town} Location Page">
+                            <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
                             <div class="rounded-2xl bg-white border-2 border-slate-900 p-2 shadow-hard">
                                 <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
                                 <div class="flex flex-col gap-2">
@@ -832,8 +843,17 @@ function getTrackedServiceByFile(file) {
     return trackedServicePages.find(service => service.path === urlPath);
 }
 
+function getLeadPlanForService(service) {
+    if (service.path === '/google-business-profile-management.html') return 'Local Presence 55 GBP per month';
+    if (service.path === '/local-seo-packages.html') return 'Local SEO Growth 199 GBP per month';
+    if (['/graphic-design.html', '/printing.html'].includes(service.path)) return 'General enquiry';
+
+    return 'Website Care 35 GBP per month';
+}
+
 function renderServiceQuickLead(service) {
     const serviceName = escapeHtml(service.name);
+    const plan = escapeHtml(getLeadPlanForService(service));
     const formName = `${serviceName} Quick Lead`;
 
     return `
@@ -847,6 +867,7 @@ function renderServiceQuickLead(service) {
         <form id="quick-lead-form" name="${formName}" method="POST" data-netlify="true" class="w-full lg:w-[420px]">
             <input type="hidden" name="form-name" value="${formName}">
             <input type="hidden" name="Source_Page" value="${serviceName} Service Page">
+            <input type="hidden" name="Plan" value="${plan}">
             <div class="rounded-2xl bg-brand-gray border-2 border-slate-900 p-2 shadow-hard">
                 <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
                 <div class="flex flex-col sm:flex-row lg:flex-col gap-2">
@@ -864,12 +885,14 @@ function renderServiceQuickLead(service) {
 
 function renderServiceHeroQuickLead(service) {
     const serviceName = escapeHtml(service.name);
+    const plan = escapeHtml(getLeadPlanForService(service));
     const formName = `${serviceName} Quick Lead`;
 
     return `<div class="mt-10 max-w-xl">
                 <form id="quick-lead-form" name="${formName}" method="POST" data-netlify="true" class="w-full">
                     <input type="hidden" name="form-name" value="${formName}">
                     <input type="hidden" name="Source_Page" value="${serviceName} Service Page">
+                    <input type="hidden" name="Plan" value="${plan}">
                     <div class="rounded-2xl bg-white border-2 border-slate-900 p-2 shadow-hard">
                         <label class="sr-only" for="quick-lead-contact">Mobile number or email address</label>
                         <div class="flex flex-col sm:flex-row gap-2">
@@ -1083,22 +1106,28 @@ function buildLlmsTxt(posts) {
     const locations = trackedLocationPages.map(location => `- [Web design ${location.town}](${siteUrl}${location.path}): Local web design for ${location.town} and nearby areas including ${location.nearby.join(', ')}.`).join('\n');
     const llms = `# MadeReal
 
-MadeReal Design Ltd is a Colne, Lancashire web design business. MadeReal builds simple, mobile-first websites for UK local businesses for a flat one-off fee of 197 GBP, with a free preview before payment and no MadeReal monthly retainer.
+MadeReal Design Ltd is a Colne, Lancashire web design business. MadeReal builds and manages simple, mobile-first websites for UK local businesses. The primary offer is a free website build with Website Care at 35 GBP per month once live.
 
 ## Core Offer
 
+- Free website build for local businesses
+- 35 GBP/month Website Care: hosting, SSL, management and light support
+- 55 GBP/month Local Presence: Website Care plus Google Business Profile support and review reply help
+- 199 GBP/month Local SEO Growth: 4 useful content pieces per month, Google Business activity, Search Console checks, on-page improvements and reporting
 - Service pages for what the business sells
 - Local area pages for towns and service coverage
 - Contact form, quote form or booking route
 - Google Business Profile setup support
 - Local SEO foundations
-- Free preview first
-- 197 GBP one-off if approved
-- No MadeReal monthly fee
+- Optional secondary buy-out route may be available for businesses that want to own and move the finished site later
 
 ## Key Pages
 
 - [Home](${siteUrl}/)
+- [Pay monthly websites](${siteUrl}/pay-monthly-websites.html)
+- [Free website build](${siteUrl}/free-website-build.html)
+- [Google Business Profile management](${siteUrl}/google-business-profile-management.html)
+- [Local SEO packages](${siteUrl}/local-seo-packages.html)
 - [Get a free preview](${siteUrl}/get-started.html)
 - [Website examples and case studies](${siteUrl}/case-studies.html)
 - [Contact](${siteUrl}/contact.html)
