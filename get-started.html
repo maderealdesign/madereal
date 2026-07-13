@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Started | MadeReal | Free Website Preview</title>
     <meta name="description" content="Get a custom, mobile-first preview of your new website sent straight to your phone. Free build first, then managed from £35/month if you go live.">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,352 +21,954 @@
                             teal: '#00D2A0',
                             gray: '#F5F5F7',
                         }
-                    },
-                    boxShadow: {
-                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
-                        'hard': '8px 8px 0px 0px rgba(15,23,42,1)',
-                        'glow': '0 0 0 4px rgba(37, 99, 235, 0.15)',
                     }
                 }
             }
         }
     </script>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/home-alignment.css">
+
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        
-        /* Focus state aura ring */
-        .input-glow-focus:focus { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); border-color: #2563eb; }
-        
-        /* Ensure Google Maps dropdown matches styling */
+        :root {
+            --preview-ink: #071426;
+            --preview-copy: #536071;
+            --preview-muted: #7c8796;
+            --preview-line: #dfe5ea;
+            --preview-surface: #f4f7f8;
+            --preview-white: #ffffff;
+            --preview-teal: #08bea2;
+            --preview-teal-dark: #07947f;
+            --preview-teal-soft: #e5f8f4;
+            --preview-danger: #c2413b;
+        }
+
+        * { box-sizing: border-box; }
+        html { background: var(--preview-white); }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--preview-ink);
+            background: var(--preview-white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        button, input { font: inherit; }
+        button { cursor: pointer; }
+        .lead-confirmation.hidden,
+        .manual-fields.hidden,
+        .selected-business-card.hidden,
+        .business-rating.hidden { display: none !important; }
+
+        @keyframes previewEnter {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .preview-enter { animation: previewEnter 480ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+        @media (prefers-reduced-motion: reduce) {
+            .preview-enter { animation: none; }
+            * { scroll-behavior: auto !important; }
+        }
+
+        .preview-main {
+            flex: 1;
+            padding-top: 64px;
+            background: var(--preview-white) !important;
+        }
+        .preview-hero {
+            position: relative;
+            min-height: calc(100svh - 104px);
+            overflow: hidden;
+            background: var(--preview-surface);
+            border-bottom: 1px solid var(--preview-line);
+        }
+        .preview-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.58);
+            clip-path: polygon(0 0, 59% 0, 42% 100%, 0 100%);
+            pointer-events: none;
+        }
+        .preview-hero::after {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            right: -5%;
+            width: 31%;
+            height: 100%;
+            background: var(--preview-teal);
+            border-radius: 58% 0 0 58% / 50% 0 0 50%;
+            pointer-events: none;
+        }
+        .preview-container {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 1380px);
+            margin: 0 auto;
+            padding: 48px 64px 54px;
+        }
+        .preview-search-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.04fr) minmax(440px, 0.96fr);
+            grid-template-areas:
+                "intro card"
+                "benefits card";
+            column-gap: 82px;
+            row-gap: 30px;
+            align-items: center;
+            min-height: calc(100svh - 206px);
+        }
+        .preview-intro {
+            grid-area: intro;
+            align-self: end;
+            max-width: 660px;
+        }
+        .preview-eyebrow,
+        .step-label,
+        .proof-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            margin: 0 0 24px;
+            padding: 7px 17px;
+            border-radius: 999px;
+            background: var(--preview-teal-soft);
+            color: var(--preview-teal-dark) !important;
+            font-size: 12px !important;
+            font-weight: 800;
+            line-height: 1.1 !important;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .preview-title {
+            max-width: 650px !important;
+            margin: 0;
+            color: var(--preview-ink) !important;
+            font-size: 68px !important;
+            font-weight: 900;
+            line-height: 1.04 !important;
+            letter-spacing: 0 !important;
+        }
+        .preview-title span { color: var(--preview-teal); }
+        .preview-intro-copy {
+            max-width: 620px;
+            margin: 28px 0 0;
+            color: var(--preview-copy) !important;
+            font-size: 19px !important;
+            font-weight: 500;
+            line-height: 1.6 !important;
+        }
+        .preview-benefits {
+            grid-area: benefits;
+            align-self: start;
+            display: grid;
+            gap: 18px;
+            max-width: 610px;
+        }
+        .preview-benefit {
+            display: grid;
+            grid-template-columns: 58px minmax(0, 1fr);
+            gap: 18px;
+            align-items: center;
+        }
+        .preview-benefit-icon {
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            border: 1px solid #d7eee9;
+            border-radius: 50%;
+            background: var(--preview-teal-soft);
+            color: #146b69;
+            font-size: 20px;
+        }
+        .preview-benefit strong {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--preview-ink);
+            font-size: 15px;
+            line-height: 1.25;
+        }
+        .preview-benefit span {
+            display: block;
+            color: var(--preview-copy);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.45;
+        }
+
+        .preview-action-card,
+        .final-form-card,
+        .selected-business-card,
+        .manual-context-card,
+        .success-card {
+            border: 1px solid rgba(215, 223, 229, 0.92);
+            border-radius: 8px;
+            background: var(--preview-white);
+            box-shadow: 0 22px 58px rgba(7, 20, 38, 0.12);
+        }
+        .preview-action-card {
+            grid-area: card;
+            align-self: center;
+            justify-self: end;
+            width: 100%;
+            max-width: 570px;
+            overflow: hidden;
+        }
+        .lead-panel,
+        .business-panel { padding: 48px; }
+        .business-panel { padding-top: 28px; }
+        .step-label {
+            min-height: 31px;
+            margin-bottom: 20px;
+            padding: 6px 14px;
+            font-size: 11px !important;
+        }
+        #preview-action-card h2,
+        .preview-request-page .final-form-card h3 {
+            margin: 0;
+            color: #050a12 !important;
+            font-size: 34px !important;
+            font-weight: 850;
+            line-height: 1.14 !important;
+            letter-spacing: 0 !important;
+        }
+        .card-copy {
+            margin: 16px 0 28px;
+            color: var(--preview-copy) !important;
+            font-size: 16px !important;
+            font-weight: 500;
+            line-height: 1.55 !important;
+        }
+        .form-label {
+            display: block;
+            margin: 0 0 10px;
+            color: #202b3a;
+            font-size: 14px;
+            font-weight: 750;
+            line-height: 1.3;
+        }
+        .preview-input,
+        .business-search-shell {
+            width: 100%;
+            min-height: 58px;
+            border: 1px solid #cfd7df;
+            border-radius: 6px;
+            background: var(--preview-white);
+            color: var(--preview-ink);
+            transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+        }
+        .preview-input {
+            display: block;
+            padding: 0 17px;
+            font-size: 16px;
+            font-weight: 600;
+            outline: none;
+        }
+        .preview-input::placeholder { color: #9aa4b1; font-weight: 500; }
+        .preview-input:focus,
+        .business-search-shell:focus-within {
+            border-color: var(--preview-teal-dark);
+            box-shadow: 0 0 0 4px rgba(8, 190, 162, 0.14);
+        }
+        .preview-primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 58px;
+            margin-top: 18px;
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--preview-teal);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 800;
+            box-shadow: 0 12px 26px rgba(8, 190, 162, 0.2);
+            transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+        }
+        .preview-primary-button:hover {
+            background: var(--preview-teal-dark);
+            box-shadow: 0 16px 30px rgba(8, 148, 127, 0.24);
+            transform: translateY(-1px);
+        }
+        .preview-primary-button:active { transform: translateY(0); }
+        .preview-primary-button:disabled { cursor: wait; opacity: 0.66; transform: none; }
+        .privacy-note,
+        .form-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            margin: 18px 0 0;
+            color: #697586 !important;
+            font-size: 12px !important;
+            font-weight: 550;
+            line-height: 1.45 !important;
+            text-align: center;
+        }
+        .privacy-note i,
+        .form-note i { color: var(--preview-teal-dark); }
+        .form-note.is-error,
+        .privacy-note.is-error { color: var(--preview-danger) !important; }
+
+        .lead-confirmation {
+            display: grid;
+            grid-template-columns: 36px minmax(0, 1fr);
+            gap: 13px;
+            align-items: center;
+            margin: 34px 48px 0;
+            padding: 15px 17px;
+            border: 1px solid #cbece5;
+            border-radius: 6px;
+            background: #f1fbf8;
+        }
+        .lead-confirmation-icon {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--preview-teal);
+            color: #ffffff;
+            font-size: 13px;
+        }
+        .lead-confirmation strong {
+            display: block;
+            color: var(--preview-ink);
+            font-size: 13px;
+        }
+        .lead-confirmation span {
+            display: block;
+            margin-top: 2px;
+            color: var(--preview-copy);
+            font-size: 11px;
+            font-weight: 550;
+            line-height: 1.35;
+        }
+        .business-search-shell {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            align-items: center;
+            overflow: hidden;
+        }
+        .business-search-shell > i {
+            justify-self: center;
+            color: #8d98a7;
+            font-size: 15px;
+        }
+        .business-search-shell input {
+            width: 100%;
+            min-width: 0;
+            min-height: 56px;
+            padding: 0 16px 0 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: var(--preview-ink);
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .business-search-shell input::placeholder { color: #9aa4b1; font-weight: 500; }
+        .business-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 17px;
+        }
+        .places-status {
+            margin: 0;
+            color: #788493 !important;
+            font-size: 11px !important;
+            font-weight: 600;
+            line-height: 1.35 !important;
+        }
+        .places-status i { margin-right: 5px; color: #4285f4; }
+        .preview-secondary-button,
+        .back-button,
+        .proof-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 0;
+            background: transparent;
+            color: var(--preview-ink);
+            font-size: 13px;
+            font-weight: 750;
+            text-decoration: none;
+            transition: color 160ms ease;
+        }
+        .preview-secondary-button { white-space: nowrap; }
+        .preview-secondary-button:hover,
+        .back-button:hover,
+        .proof-link:hover { color: var(--preview-teal-dark); }
+
         .pac-container {
-            border-radius: 16px !important;
-            border: 1px solid #e5e7eb !important;
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08) !important;
-            padding: 8px !important;
-            font-family: 'Inter', sans-serif !important;
             margin-top: 8px !important;
+            padding: 7px !important;
+            border: 1px solid var(--preview-line) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 18px 42px rgba(7, 20, 38, 0.14) !important;
+            font-family: 'Inter', sans-serif !important;
         }
         .pac-item {
-            padding: 10px !important;
-            border-top: none !important;
-            border-radius: 8px !important;
+            padding: 11px 12px !important;
+            border-top: 0 !important;
+            border-radius: 6px !important;
             cursor: pointer !important;
         }
-        .pac-item:hover { background-color: #f3f4f6 !important; }
-        .pac-item-query { font-size: 16px !important; font-weight: 700 !important; color: #0f172a !important; }
+        .pac-item:hover { background: #f1f7f6 !important; }
+        .pac-item-query {
+            color: var(--preview-ink) !important;
+            font-size: 14px !important;
+            font-weight: 750 !important;
+        }
 
-        .home-aligned main #lead-step h2,
-        .home-aligned main #business-step h2 {
-            font-size: 1.875rem !important;
-            line-height: 1.15 !important;
+        .recent-proof {
+            padding: 72px 24px 84px;
+            background: var(--preview-white);
+            border-bottom: 1px solid var(--preview-line);
         }
-        .home-aligned main #state-build > div:first-child h2 {
-            font-size: 2.25rem !important;
-            line-height: 1.12 !important;
+        .recent-proof-inner {
+            display: grid;
+            grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+            gap: 72px;
+            align-items: center;
+            width: min(100%, 1180px);
+            margin: 0 auto;
         }
-        .home-aligned main #brief-name {
-            font-size: 1.75rem !important;
-            line-height: 1.15 !important;
+        .proof-eyebrow {
+            min-height: 0;
+            margin-bottom: 19px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
         }
-        .home-aligned main #state-success h2 {
-            font-size: 3rem !important;
-            line-height: 1 !important;
+        #recent-preview-heading {
+            max-width: 440px;
+            margin: 0;
+            color: var(--preview-ink) !important;
+            font-size: 39px !important;
+            font-weight: 850;
+            line-height: 1.13 !important;
+            letter-spacing: 0 !important;
         }
-        @media (max-width: 767px) {
-            .home-aligned main #lead-step h2,
-            .home-aligned main #business-step h2 {
-                font-size: 1.625rem !important;
+        .proof-copy > p:not(.proof-eyebrow) {
+            max-width: 430px;
+            margin: 20px 0 26px;
+            color: var(--preview-copy) !important;
+            font-size: 16px !important;
+            font-weight: 500;
+            line-height: 1.65 !important;
+        }
+        .proof-link { font-size: 14px; }
+        .proof-figure { margin: 0; }
+        .proof-figure img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
+            border: 1px solid var(--preview-line);
+            border-radius: 8px;
+            box-shadow: 0 20px 48px rgba(7, 20, 38, 0.12);
+        }
+        .proof-figure figcaption {
+            margin-top: 12px;
+            color: #7c8796;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .preview-state-band {
+            min-height: calc(100svh - 64px);
+            padding: 70px 24px 88px;
+            background: var(--preview-surface);
+        }
+        .final-container { width: min(100%, 1120px); margin: 0 auto; }
+        .preview-state-heading {
+            max-width: 760px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+        .preview-state-heading .step-label { margin-bottom: 18px; }
+        .preview-request-page .preview-state-heading h2 {
+            margin: 0;
+            color: var(--preview-ink) !important;
+            font-size: 46px !important;
+            font-weight: 880;
+            line-height: 1.08 !important;
+            letter-spacing: 0 !important;
+        }
+        .preview-state-heading > p:not(.step-label) {
+            margin: 16px 0 0;
+            color: var(--preview-copy) !important;
+            font-size: 17px !important;
+            font-weight: 500;
+            line-height: 1.55 !important;
+        }
+        .back-button { margin-top: 18px; }
+        .final-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(460px, 1.18fr);
+            gap: 28px;
+            align-items: start;
+        }
+        .final-layout:has(#brief-header-block.hidden):has(#manual-context-block.hidden) {
+            grid-template-columns: minmax(0, 720px);
+            justify-content: center;
+        }
+        .selected-business-card,
+        .manual-context-card { overflow: hidden; }
+        .business-cover {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 220px;
+            background: var(--preview-teal-soft);
+            background-position: center;
+            background-size: cover;
+        }
+        .business-cover-mark {
+            display: grid;
+            place-items: center;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: var(--preview-white);
+            color: var(--preview-teal-dark);
+            font-size: 22px;
+            box-shadow: 0 10px 26px rgba(7, 20, 38, 0.12);
+        }
+        .business-cover.has-image .business-cover-mark { display: none; }
+        .business-summary { padding: 25px; }
+        .business-summary-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--preview-teal-dark);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .preview-request-page .business-summary h3 {
+            margin: 0;
+            color: var(--preview-ink) !important;
+            font-size: 24px !important;
+            font-weight: 830;
+            line-height: 1.2 !important;
+        }
+        .business-address {
+            margin: 8px 0 0;
+            color: var(--preview-copy) !important;
+            font-size: 13px !important;
+            font-weight: 550;
+            line-height: 1.5 !important;
+        }
+        .business-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 18px;
+            padding: 8px 11px;
+            border-radius: 6px;
+            background: #fff8e5;
+            color: #805a00;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        .business-rating i { color: #f4ad19; }
+        .manual-context-card { padding: 31px; }
+        .manual-context-icon {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 24px;
+            border-radius: 50%;
+            background: var(--preview-teal-soft);
+            color: var(--preview-teal-dark);
+            font-size: 18px;
+        }
+        .preview-request-page .manual-context-card h3 {
+            margin: 0;
+            color: var(--preview-ink) !important;
+            font-size: 25px !important;
+            font-weight: 830;
+            line-height: 1.2 !important;
+        }
+        .manual-context-card p {
+            margin: 12px 0 0;
+            color: var(--preview-copy) !important;
+            font-size: 14px !important;
+            font-weight: 500;
+            line-height: 1.6 !important;
+        }
+        .manual-context-list {
+            display: grid;
+            gap: 13px;
+            margin: 24px 0 0;
+            padding: 21px 0 0;
+            border-top: 1px solid var(--preview-line);
+        }
+        .manual-context-list span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #314052;
+            font-size: 13px;
+            font-weight: 650;
+        }
+        .manual-context-list i { color: var(--preview-teal-dark); }
+        .final-form-card { padding: 36px; }
+        .preview-request-page .final-form-card h3 { font-size: 28px !important; }
+        .final-form-card .card-copy { margin: 10px 0 26px; font-size: 14px !important; }
+        .form-stack { display: grid; gap: 18px; }
+        .manual-fields { display: grid; gap: 18px; }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .success-card {
+            width: min(100%, 720px);
+            margin: 0 auto;
+            padding: 52px;
+            text-align: center;
+        }
+        .success-icon {
+            display: grid;
+            place-items: center;
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            background: var(--preview-teal);
+            color: #ffffff;
+            font-size: 24px;
+        }
+        .success-card .step-label { margin-bottom: 18px; }
+        .preview-request-page .success-card h2 {
+            margin: 0;
+            color: var(--preview-ink) !important;
+            font-size: 48px !important;
+            font-weight: 880;
+            line-height: 1.05 !important;
+        }
+        .success-card > p:not(.step-label) {
+            max-width: 570px;
+            margin: 18px auto 28px;
+            color: var(--preview-copy) !important;
+            font-size: 17px !important;
+            font-weight: 500;
+            line-height: 1.6 !important;
+        }
+        .success-card .preview-primary-button { width: auto; min-width: 220px; }
+
+        @media (max-width: 1180px) {
+            .preview-container { padding-left: 42px; padding-right: 42px; }
+            .preview-search-layout {
+                grid-template-columns: minmax(0, 1fr) minmax(410px, 0.9fr);
+                column-gap: 48px;
             }
-            .home-aligned main #state-build > div:first-child h2 {
-                font-size: 2rem !important;
+            .preview-title { font-size: 56px !important; }
+        }
+        @media (max-width: 980px) {
+            .preview-hero { min-height: auto; }
+            .preview-hero::before { clip-path: polygon(0 0, 100% 0, 72% 56%, 0 84%); }
+            .preview-hero::after { display: none; }
+            .preview-container { padding-top: 54px; padding-bottom: 62px; }
+            .preview-search-layout {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-areas: "intro" "card" "benefits";
+                row-gap: 34px;
+                min-height: 0;
             }
-            .home-aligned main #brief-name {
-                font-size: 1.375rem !important;
+            .preview-intro { align-self: auto; max-width: 720px; }
+            .preview-title { max-width: 720px !important; }
+            .preview-action-card { justify-self: stretch; max-width: 720px; }
+            .preview-benefits {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                max-width: none;
+                gap: 20px;
             }
-            .home-aligned main #state-success h2 {
-                font-size: 2.5rem !important;
+            .preview-benefit {
+                grid-template-columns: 48px minmax(0, 1fr);
+                gap: 13px;
             }
+            .preview-benefit-icon { width: 48px; height: 48px; font-size: 17px; }
+            .recent-proof-inner { grid-template-columns: 1fr; gap: 38px; }
+            .proof-copy { max-width: 680px; }
+            .final-layout { grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+            .selected-business-card {
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+            }
+            .business-cover { height: 100%; min-height: 230px; }
+        }
+        @media (max-width: 640px) {
+            .preview-container { padding: 34px 20px 46px; }
+            .preview-search-layout { row-gap: 27px; }
+            .preview-eyebrow { min-height: 30px; margin-bottom: 18px; padding: 6px 12px; font-size: 10px !important; }
+            .preview-title { font-size: 40px !important; line-height: 1.06 !important; }
+            .preview-intro-copy { margin-top: 19px; font-size: 16px !important; line-height: 1.55 !important; }
+            .lead-panel,
+            .business-panel { padding: 27px 22px; }
+            .business-panel { padding-top: 21px; }
+            .lead-confirmation { margin: 22px 22px 0; padding: 13px; }
+            #preview-action-card h2 { font-size: 27px !important; }
+            .card-copy { margin: 12px 0 22px; font-size: 14px !important; }
+            .preview-input,
+            .business-search-shell { min-height: 54px; }
+            .preview-primary-button { min-height: 54px; }
+            .business-actions { align-items: flex-start; flex-direction: column; gap: 13px; }
+            .preview-secondary-button { min-height: 42px; padding: 0; }
+            .preview-benefits { grid-template-columns: 1fr; gap: 17px; padding: 4px 2px 0; }
+            .preview-benefit { grid-template-columns: 48px minmax(0, 1fr); }
+            .recent-proof { padding: 54px 20px 62px; }
+            #recent-preview-heading { font-size: 31px !important; }
+            .proof-copy > p:not(.proof-eyebrow) { font-size: 15px !important; }
+            .preview-state-band { padding: 44px 20px 64px; }
+            .preview-state-heading { margin-bottom: 28px; text-align: left; }
+            .preview-request-page .preview-state-heading h2 { font-size: 35px !important; }
+            .preview-state-heading > p:not(.step-label) { font-size: 15px !important; }
+            .selected-business-card { display: block; }
+            .business-cover { height: 180px; min-height: 0; }
+            .manual-context-card { padding: 25px; }
+            .final-form-card { padding: 27px 22px; }
+            .preview-request-page .final-form-card h3 { font-size: 25px !important; }
+            .field-row { grid-template-columns: 1fr; }
+            .success-card { padding: 38px 24px; }
+            .preview-request-page .success-card h2 { font-size: 39px !important; }
+            .success-card > p:not(.step-label) { font-size: 15px !important; }
+            .success-card .preview-primary-button { width: 100%; min-width: 0; }
         }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "G-HN0VXM5YSL");
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HN0VXM5YSL');
     </script>
 </head>
-<body class="bg-brand-gray text-slate-900 flex flex-col min-h-screen">
+<body class="preview-request-page flex min-h-screen flex-col">
 
     [[[INJECT_HEADER]]]
 
+    <main class="preview-main">
+        <div id="state-search" class="preview-enter">
+            <div class="preview-hero">
+                <div class="preview-container">
+                    <div class="preview-search-layout">
+                        <header class="preview-intro">
+                            <p id="get-started-eyebrow" class="preview-eyebrow">Free preview · no payment</p>
+                            <h1 id="get-started-heading" class="preview-title">Get your free <span>website preview.</span></h1>
+                            <p id="get-started-intro" class="preview-intro-copy">Tell us where to send it, then add your business. We will build the first version so you can see it in action.</p>
+                        </header>
 
-    <main class="flex-grow pt-24 md:pt-28 pb-16 md:pb-20 px-5 md:px-6 bg-brand-gray">
-        <div class="max-w-6xl mx-auto">
+                        <div class="preview-benefits" aria-label="Preview benefits">
+                            <div class="preview-benefit">
+                                <span class="preview-benefit-icon" aria-hidden="true"><i class="fa-regular fa-credit-card"></i></span>
+                                <div><strong>No payment</strong><span>No payment or sales call required.</span></div>
+                            </div>
+                            <div class="preview-benefit">
+                                <span class="preview-benefit-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span>
+                                <div><strong>Fast turnaround</strong><span>Most previews are sent within 24 hours.</span></div>
+                            </div>
+                            <div class="preview-benefit">
+                                <span class="preview-benefit-icon" aria-hidden="true"><i class="fa-solid fa-rocket"></i></span>
+                                <div><strong>Go live from £35/month</strong><span>Approve it first, then decide whether to launch.</span></div>
+                            </div>
+                        </div>
 
-            <div id="state-search" class="transition-opacity duration-500 animate-fade-in">
-                <header class="max-w-3xl mb-8 md:mb-10">
-                    <p id="get-started-eyebrow" class="text-xs font-bold text-teal-700 uppercase tracking-widest mb-3">
-                        Free preview · no payment
-                    </p>
-                    <h1 id="get-started-heading" class="text-4xl md:text-5xl font-black tracking-tight leading-[1.08] mb-4 text-slate-950">
-                        Get your free website preview.
-                    </h1>
-                    <p id="get-started-intro" class="text-base md:text-lg text-gray-600 font-medium leading-relaxed max-w-2xl">
-                        Tell us where to send it, then add your business. We will use the details to make the first version more useful.
-                    </p>
+                        <section id="preview-action-card" class="preview-action-card" aria-label="Free preview request">
+                            <div id="lead-step" class="lead-panel">
+                                <p class="step-label">Step 1 of 2</p>
+                                <h2>Where should we send it?</h2>
+                                <p class="card-copy">A mobile number or email address is enough.</p>
+
+                                <form id="get-started-quick-lead-form" name="Preview Quick Lead" method="POST" data-netlify="true">
+                                    <input type="hidden" name="form-name" value="Preview Quick Lead">
+                                    <input type="hidden" name="Source_Page" value="Get Started top capture">
+                                    <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
+                                    <label class="form-label" for="get-started-quick-contact">Mobile number or email</label>
+                                    <input id="get-started-quick-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="preview-input" placeholder="Mobile or email">
+                                    <button id="get-started-quick-submit" type="submit" data-track="get_started_quick_lead_submit" class="preview-primary-button">
+                                        <span>Continue</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                    </button>
+                                    <p id="get-started-quick-help" class="privacy-note" aria-live="polite">
+                                        <i class="fa-solid fa-lock" aria-hidden="true"></i><span>We only use this to contact you about the preview.</span>
+                                    </p>
+                                </form>
+                            </div>
+
+                            <div id="lead-confirmed" class="lead-confirmation hidden">
+                                <span class="lead-confirmation-icon" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                                <div><strong>Contact saved</strong><span>No payment has been taken and nothing has been agreed.</span></div>
+                            </div>
+
+                            <div id="business-step" class="business-panel hidden">
+                                <p class="step-label">Step 2 of 2</p>
+                                <h2>Find your business</h2>
+                                <p class="card-copy">Search by business name and town, then choose the correct Google listing.</p>
+
+                                <label class="form-label" for="business-search">Business name and town</label>
+                                <div class="business-search-shell">
+                                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                    <input id="business-search" type="text" placeholder="e.g. MadeReal Colne" autocomplete="off">
+                                </div>
+                                <div class="business-actions">
+                                    <p id="places-status" class="places-status"><i class="fa-brands fa-google" aria-hidden="true"></i>Google listing search</p>
+                                    <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="preview-secondary-button">Enter manually <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <section class="recent-proof" aria-labelledby="recent-preview-heading">
+                <div class="recent-proof-inner">
+                    <div class="proof-copy">
+                        <p class="proof-eyebrow">Recent preview</p>
+                        <h2 id="recent-preview-heading">A proper website for a real local business.</h2>
+                        <p>TC Joiner Builder needed a clear, professional site that made the work easy to understand and the next step obvious. This is the standard we build towards.</p>
+                        <a href="/case-studies.html" class="proof-link">See our recent work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <figure class="proof-figure">
+                        <img src="/assets/work/tc-joiner-builder.jpg" width="1280" height="720" alt="TC Joiner Builder website designed by MadeReal">
+                        <figcaption>TC Joiner Builder · Website designed by MadeReal</figcaption>
+                    </figure>
+                </div>
+            </section>
+        </div>
+
+        <div id="state-build" class="preview-state-band preview-enter hidden">
+            <div class="final-container">
+                <header class="preview-state-heading">
+                    <p class="step-label">Final details</p>
+                    <h2>Finish your preview request.</h2>
+                    <p>Check the business, add your name and we will take it from here.</p>
+                    <button type="button" id="back-to-search" class="back-button"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Choose a different business</button>
                 </header>
 
-                <div class="grid lg:grid-cols-[1fr_0.82fr] gap-8 lg:gap-14 items-start">
-                    <section class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
-                        <div id="lead-step" class="p-5 md:p-8">
-                            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Step 1 of 2</p>
-                            <h2 class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mb-2">Where should we send it?</h2>
-                            <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed mb-6">A mobile number or email address is enough. No payment and no sales call required.</p>
-
-                            <form id="get-started-quick-lead-form" name="Preview Quick Lead" method="POST" data-netlify="true">
-                                <input type="hidden" name="form-name" value="Preview Quick Lead">
-                                <input type="hidden" name="Source_Page" value="Get Started top capture">
-                                <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
-                                <label class="block text-sm font-bold text-slate-800 mb-2" for="get-started-quick-contact">Mobile number or email</label>
-                                <div class="grid sm:grid-cols-[1fr_auto] gap-3">
-                                    <input id="get-started-quick-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[52px] min-w-0 rounded-lg bg-brand-gray px-4 text-base font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none border border-gray-200 transition-all duration-300 input-glow-focus" placeholder="Mobile or email">
-                                    <button id="get-started-quick-submit" type="submit" data-track="get_started_quick_lead_submit" class="min-h-[52px] rounded-full bg-blue-600 px-7 text-white font-bold text-base hover:bg-blue-700 transition-all active:scale-[0.98]">
-                                        Continue
-                                    </button>
-                                </div>
-                                <p id="get-started-quick-help" class="text-sm text-gray-500 font-medium mt-3" aria-live="polite">
-                                    We only use this to contact you about the preview.
-                                </p>
-                            </form>
+                <div class="final-layout">
+                    <section id="brief-header-block" class="selected-business-card hidden" aria-label="Selected Google listing">
+                        <div id="brief-cover" class="business-cover">
+                            <span class="business-cover-mark" aria-hidden="true"><i class="fa-solid fa-store"></i></span>
                         </div>
-
-                        <div id="lead-confirmed" class="hidden p-5 md:p-7 bg-teal-50 border-b border-teal-100">
-                            <div class="flex items-start gap-3">
-                                <div class="w-9 h-9 rounded-full bg-brand-teal text-slate-950 flex items-center justify-center flex-none" aria-hidden="true">
-                                    <i class="fas fa-check text-sm"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-black text-slate-950">Contact received</p>
-                                    <p class="text-sm text-gray-600 font-medium mt-1">We have where to send the preview. Nothing else has been agreed or charged.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="business-step" class="hidden p-5 md:p-8">
-                            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Step 2 of 2</p>
-                            <h2 class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mb-2">Find your business</h2>
-                            <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed mb-6">Start typing the business name and town, then choose the correct Google listing. We only use its public details.</p>
-
-                            <label class="block text-sm font-bold text-slate-800 mb-2" for="business-search">Business name and town</label>
-                            <div class="relative w-full bg-brand-gray border border-gray-200 rounded-lg focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-600/15 transition-all flex items-center overflow-hidden min-h-[52px]">
-                                <i class="fas fa-search text-gray-400 ml-4 text-base" aria-hidden="true"></i>
-                                <input id="business-search" type="text" class="w-full bg-transparent border-none p-3 pl-3 text-base font-semibold focus:outline-none text-slate-950 placeholder-gray-400" placeholder="e.g. MadeReal Colne" autocomplete="off">
-                            </div>
-                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
-                                <p id="places-status" class="text-xs text-gray-500 font-medium">
-                                    <i class="fab fa-google text-blue-500 mr-1" aria-hidden="true"></i> Google listing search
-                                </p>
-                                <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="inline-flex items-center justify-center min-h-[44px] rounded-full border border-gray-300 bg-white px-5 text-sm text-slate-800 font-bold hover:border-slate-900 transition-colors">Enter details manually</button>
+                        <div class="business-summary">
+                            <span class="business-summary-label">Selected Google listing</span>
+                            <h3 id="brief-name"></h3>
+                            <p id="brief-address" class="business-address"></p>
+                            <div id="brief-rating-box" class="business-rating hidden">
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <span id="brief-rating"></span>
+                                <span>·</span>
+                                <span><span id="brief-reviews-count"></span> reviews</span>
                             </div>
                         </div>
                     </section>
 
-                    <aside class="lg:pt-1">
-                        <figure>
-                            <img src="/assets/work/tc-joiner-builder.jpg" width="1280" height="720" alt="TC Joiner Builder website designed by MadeReal" class="w-full aspect-[16/10] object-cover object-top rounded-lg border border-gray-200 shadow-sm">
-                            <figcaption class="text-sm text-gray-500 font-medium mt-3">A recent MadeReal website for a local trade business.</figcaption>
-                        </figure>
-                        <div class="mt-6 border-y border-gray-200 divide-y divide-gray-200">
-                            <div class="flex gap-3 py-4">
-                                <i class="fas fa-check text-brand-teal mt-1" aria-hidden="true"></i>
-                                <p class="text-sm text-gray-700 font-semibold">No payment to see the first preview.</p>
-                            </div>
-                            <div class="flex gap-3 py-4">
-                                <i class="fas fa-check text-brand-teal mt-1" aria-hidden="true"></i>
-                                <p class="text-sm text-gray-700 font-semibold">Most previews are sent within 24 hours.</p>
-                            </div>
-                            <div class="flex gap-3 py-4">
-                                <i class="fas fa-check text-brand-teal mt-1" aria-hidden="true"></i>
-                                <p class="text-sm text-gray-700 font-semibold">£35/month only if you approve it and go live.</p>
-                            </div>
+                    <aside id="manual-context-block" class="manual-context-card hidden">
+                        <span class="manual-context-icon" aria-hidden="true"><i class="fa-solid fa-pen-ruler"></i></span>
+                        <h3>No Google listing? No problem.</h3>
+                        <p>Give us three short details and we can still make a useful first version for you.</p>
+                        <div class="manual-context-list">
+                            <span><i class="fa-solid fa-check" aria-hidden="true"></i>Built around your service and town</span>
+                            <span><i class="fa-solid fa-check" aria-hidden="true"></i>Reviewed by a real designer</span>
+                            <span><i class="fa-solid fa-check" aria-hidden="true"></i>No payment before you see it</span>
                         </div>
                     </aside>
-                </div>
-            </div>
 
-            <div id="state-build" class="hidden transition-opacity duration-500 animate-fade-in max-w-4xl mx-auto">
-                
-                <div class="mb-7">
-                    <p class="text-xs font-bold text-teal-700 mb-2 uppercase tracking-widest">Final details</p>
-                    <h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-[1.1]">Finish your preview request.</h2>
-                    <p class="text-base md:text-lg text-gray-600 font-medium mt-3">Check the business, add your name and we will take it from here.</p>
-                    <button type="button" id="back-to-search" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 mt-4">
-                        <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i> Choose a different business
-                    </button>
-                </div>
+                    <section id="form-wrapper" class="final-form-card">
+                        <h3 id="form-heading">Send your preview request</h3>
+                        <p id="form-subheading" class="card-copy">Add your name below. Your contact detail has already been carried through.</p>
 
-                <div class="space-y-6">
-                    
-                    <div id="brief-header-block" class="hidden">
-                        <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
-                            <div id="brief-cover" class="w-full h-36 md:h-48 bg-gray-100 bg-cover bg-center"></div>
-                            <div class="p-5 md:p-7 text-left flex flex-col md:flex-row justify-between md:items-start gap-4">
+                        <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="form-stack">
+                            <input type="hidden" name="form-name" value="Website Request">
+                            <input type="hidden" name="Source_Page" value="Get Started onboarding">
+                            <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
+                            <input type="hidden" name="Initial_Lead" id="initial-lead">
+                            <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
+                            <input type="hidden" name="Google_Address" id="hidden-biz-address">
+                            <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
+                            <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
+                            <input type="hidden" name="Google_Website" id="hidden-biz-website">
+
+                            <div id="manual-fields-container" class="manual-fields hidden">
                                 <div>
-                                    <span class="text-xs font-bold text-teal-700 uppercase tracking-widest mb-1 block">Selected Google listing</span>
-                                    <h2 id="brief-name" class="text-xl md:text-2xl font-black text-slate-950 tracking-tight leading-tight mb-1"></h2>
-                                    <p id="brief-address" class="text-sm text-gray-600 font-medium"></p>
+                                    <label class="form-label" for="manual-biz-name">Business name</label>
+                                    <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="preview-input" placeholder="e.g. Dave's Garage">
                                 </div>
-                                <div id="brief-rating-box" class="bg-blue-50 border border-blue-100 text-blue-600 px-4 py-2 rounded-lg text-center flex-shrink-0 hidden">
-                                    <div class="flex items-center justify-center gap-1 mb-0.5">
-                                        <i class="fas fa-star text-amber-400 text-xs"></i>
-                                        <div class="font-black text-xl md:text-2xl leading-none tracking-tighter" id="brief-rating"></div>
-                                    </div>
-                                    <div class="text-[9px] font-bold uppercase tracking-widest text-slate-500"><span id="brief-reviews-count"></span> Reviews</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="form-wrapper" class="w-full">
-                        <div class="bg-white p-5 md:p-8 rounded-lg border border-gray-200 shadow-sm text-slate-900">
-                            <h3 id="form-heading" class="text-2xl font-black mb-2 tracking-tight text-slate-950">Send your preview request</h3>
-                            <p id="form-subheading" class="text-gray-600 font-medium mb-6 text-sm leading-relaxed">Add your name below. Your contact detail has already been carried through.</p>
-
-                            <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-4 text-left">
-                                <input type="hidden" name="form-name" value="Website Request">
-                                <input type="hidden" name="Source_Page" value="Get Started onboarding">
-                                <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
-                                <input type="hidden" name="Initial_Lead" id="initial-lead">
-                                
-                                <input type="hidden" name="Google_Business_Name" id="hidden-biz-name">
-                                <input type="hidden" name="Google_Address" id="hidden-biz-address">
-                                <input type="hidden" name="Google_Rating" id="hidden-biz-rating">
-                                <input type="hidden" name="Google_Phone" id="hidden-biz-phone">
-                                <input type="hidden" name="Google_Website" id="hidden-biz-website">
-                                
-                                <div id="manual-fields-container" class="hidden space-y-4">
+                                <div class="field-row">
                                     <div>
-                                        <label class="block text-sm font-bold text-slate-800 mb-2">Business name</label>
-                                        <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
+                                        <label class="form-label" for="manual-trade">Main trade or service</label>
+                                        <input type="text" name="Manual_Trade" id="manual-trade" class="preview-input" placeholder="e.g. Plumber">
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-bold text-slate-800 mb-2">Main trade or service</label>
-                                        <input type="text" name="Manual_Trade" id="manual-trade" class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Plumber, accountant">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-bold text-slate-800 mb-2">Town or service area</label>
-                                        <input type="text" name="Manual_Location" id="manual-location" class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Burnley">
+                                        <label class="form-label" for="manual-location">Town or service area</label>
+                                        <input type="text" name="Manual_Location" id="manual-location" class="preview-input" placeholder="e.g. Burnley">
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="field-row">
                                 <div>
-                                    <label class="block text-sm font-bold text-slate-800 mb-2">Your name</label>
-                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                                    <label class="form-label" for="client-name">Your name</label>
+                                    <input type="text" name="Client_Name" id="client-name" required class="preview-input" placeholder="e.g. Dave">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-bold text-slate-800 mb-2">Best contact</label>
-                                    <input type="text" name="Client_Contact" id="client-contact" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Mobile or email">
-                                </div>
-                                
-                                <button type="submit" id="submit-btn" data-track="submit_preview_request" class="w-full bg-blue-600 text-white font-bold text-base px-6 py-3.5 rounded-full hover:bg-blue-700 active:scale-[0.98] transition-all mt-4 shadow-soft flex justify-center items-center">
-                                    <span>Send preview request</span>
-                                </button>
-                                <p id="form-message" class="text-center text-xs text-gray-500 font-medium mt-3" aria-live="polite">
-                                    <i class="fas fa-lock text-brand-teal mr-1" aria-hidden="true"></i> A real person reviews every request.
-                                </p>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div id="brief-strategy-block" class="hidden">
-                         <div class="bg-white rounded-[24px] p-5 md:p-8 shadow-sm border border-gray-200 text-center md:text-left">
-                            <h3 class="text-[10px] md:text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Project Strategy</h3>
-                            <p class="text-sm text-gray-600 font-medium leading-relaxed">
-                                We will use your services, location, public photos and reviews to shape a clear mobile-first preview for local customers.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div id="google-data-remainder" class="space-y-6 hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                            <div class="bg-white p-5 md:p-6 rounded-[24px] shadow-sm border border-gray-200 text-center md:text-left">
-                                <h3 class="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-4">Contact & Links</h3>
-                                <div class="space-y-3">
-                                    <div id="brief-phone-container" class="flex flex-col md:flex-row items-center gap-3 hidden">
-                                        <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 text-base"><i class="fas fa-phone"></i></div>
-                                        <div class="text-sm font-semibold text-slate-950" id="brief-phone"></div>
-                                    </div>
-                                    <div id="brief-website-container" class="flex flex-col md:flex-row items-center gap-3 hidden">
-                                        <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 text-base"><i class="fas fa-globe"></i></div>
-                                        <div class="text-sm font-semibold text-slate-950 truncate" id="brief-website"></div>
-                                    </div>
+                                    <label class="form-label" for="client-contact">Best contact</label>
+                                    <input type="text" name="Client_Contact" id="client-contact" required class="preview-input" placeholder="Mobile or email">
                                 </div>
                             </div>
 
-                            <div id="brief-hours-container" class="bg-white p-5 md:p-6 rounded-[24px] shadow-sm border border-gray-200 text-center md:text-left hidden">
-                                <h3 class="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-4">Operating Hours</h3>
-                                <ul id="brief-hours" class="space-y-1.5">
-                                </ul>
+                            <div>
+                                <label class="form-label" for="existing-link">Website or Facebook page <span style="font-weight: 500; color: #7c8796;">(optional)</span></label>
+                                <input type="text" inputmode="url" name="Existing_Website_Or_Social" id="existing-link" class="preview-input" placeholder="Website or Facebook link">
                             </div>
-                        </div>
 
-                        <div id="brief-gallery-container" class="bg-white p-5 md:p-6 rounded-[24px] shadow-sm border border-gray-200 hidden">
-                            <h3 class="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-4 text-center md:text-left">Location Media</h3>
-                            <div id="brief-gallery" class="grid grid-cols-2 gap-3">
-                            </div>
-                        </div>
-
-                        <div id="brief-reviews-container" class="bg-white p-5 md:p-6 rounded-[24px] shadow-sm border border-gray-200 hidden">
-                            <h3 class="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-4 text-center md:text-left">Trust & Social Proof</h3>
-                            <div id="brief-reviews" class="space-y-3">
-                            </div>
-                        </div>
-                    </div>
+                            <button type="submit" id="submit-btn" data-track="submit_preview_request" class="preview-primary-button">
+                                <span>Send preview request</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                            <p id="form-message" class="form-note" aria-live="polite"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>A real person reviews every request.</span></p>
+                        </form>
+                    </section>
                 </div>
             </div>
+        </div>
 
-            <div id="state-success" class="hidden w-full animate-fade-in mt-10">
-                <div class="max-w-3xl mx-auto text-center">
-                    <div class="rounded-lg p-8 md:p-12 bg-blue-50 border border-blue-100 shadow-sm">
-                        <span class="text-xs font-bold text-blue-600 mb-3 uppercase tracking-widest block"><i class="fas fa-check-circle mr-1" aria-hidden="true"></i> Request received</span>
-                        <h2 class="text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-[1] mb-4 relative z-10">
-                            We're on it.
-                        </h2>
-                        <p class="text-base md:text-lg text-gray-600 font-medium mb-8 max-w-xl mx-auto leading-relaxed relative z-10">
-                            We have the details for <strong id="success-biz-name" class="text-slate-950 font-black"></strong>. A real person will review them and send your preview within 24 hours.
-                        </p>
-                        <div class="flex justify-center relative z-10">
-                            <a href="/" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold text-base hover:bg-blue-700 active:scale-[0.98] transition-all shadow-soft">
-                                &larr; Return to Homepage
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div id="state-success" class="preview-state-band preview-enter hidden">
+            <div class="success-card">
+                <span class="success-icon" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                <p class="step-label">Request received</p>
+                <h2>We're on it.</h2>
+                <p>We have the details for <strong id="success-biz-name" style="color: #071426;"></strong>. A real person will review them and send your preview within 24 hours.</p>
+                <a href="/" class="preview-primary-button">Return to homepage <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
-
-            <div id="preview-reassurance" class="border-t border-gray-200 pt-6 mt-12 flex flex-col md:flex-row md:items-start gap-2 md:gap-8">
-                <p class="text-xs font-bold text-teal-700 uppercase tracking-widest flex-none">What happens next</p>
-                <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed max-w-3xl">We review the business, build the first version and send it to you within 24 hours. You decide whether it is good enough to launch on Website Care.</p>
-            </div>
-
         </div>
     </main>
 
     [[[INJECT_FOOTER]]]
 
-
     <script>
         const params = new URLSearchParams(window.location.search);
         const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
         const initialLead = (params.get('lead') || hashParams.get('lead') || '').trim();
+
+        function scrollPageToTop() {
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+        }
 
         function showBusinessStep(lead, focusSearch = false) {
             const initialLeadInput = document.getElementById('initial-lead');
@@ -377,7 +979,6 @@
             const businessStep = document.getElementById('business-step');
             const businessSearch = document.getElementById('business-search');
             const eyebrow = document.getElementById('get-started-eyebrow');
-            const heading = document.getElementById('get-started-heading');
             const intro = document.getElementById('get-started-intro');
 
             if (initialLeadInput) initialLeadInput.value = lead;
@@ -386,9 +987,8 @@
             if (leadStep) leadStep.classList.add('hidden');
             if (leadConfirmed) leadConfirmed.classList.remove('hidden');
             if (businessStep) businessStep.classList.remove('hidden');
-            if (eyebrow) eyebrow.textContent = 'Contact received';
-            if (heading) heading.textContent = 'Tell us about your business.';
-            if (intro) intro.textContent = 'Your contact is saved. Find the business below or enter its details manually so we can make the first preview more useful.';
+            if (eyebrow) eyebrow.textContent = 'Contact received · no payment';
+            if (intro) intro.textContent = 'Your contact is saved. Find your business below and we will use its public details to make the first version more useful.';
             if (focusSearch && businessSearch) businessSearch.focus();
         }
 
@@ -403,8 +1003,8 @@
 
         const quickLeadForm = document.getElementById('get-started-quick-lead-form');
         if (quickLeadForm) {
-            quickLeadForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+            quickLeadForm.addEventListener('submit', function(event) {
+                event.preventDefault();
 
                 const quickContactInput = document.getElementById('get-started-quick-contact');
                 const submit = document.getElementById('get-started-quick-submit');
@@ -414,8 +1014,11 @@
                 if (!lead) return;
 
                 submit.disabled = true;
-                submit.textContent = 'Saving...';
-                if (help) help.textContent = 'Saving your contact detail...';
+                submit.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i><span>Saving...</span>';
+                if (help) {
+                    help.classList.remove('is-error');
+                    help.innerHTML = '<i class="fa-solid fa-lock" aria-hidden="true"></i><span>Saving your contact detail...</span>';
+                }
 
                 const formData = new FormData(quickLeadForm);
                 fetch('/', {
@@ -429,144 +1032,87 @@
                 })
                 .catch(() => {
                     submit.disabled = false;
-                    submit.textContent = 'Continue';
-                    if (help) help.textContent = 'That did not save. Please try again or contact MadeReal directly.';
+                    submit.innerHTML = '<span>Continue</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+                    if (help) {
+                        help.classList.add('is-error');
+                        help.innerHTML = '<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>That did not save. Please try again or contact MadeReal directly.</span>';
+                    }
                 });
             });
         }
 
-        // Google Maps API
-        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-            key: "AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU",
-            v: "weekly" 
+        (g=>{var h,a,k,p='The Google Maps JavaScript API',c='google',l='importLibrary',q='__ib__',m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement('script'));e.set('libraries',[...r]+'');for(k in g)e.set(k.replace(/[A-Z]/g,t=>'_'+t[0].toLowerCase()),g[k]);e.set('callback',c+'.maps.'+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+' could not load.'));a.nonce=m.querySelector('script[nonce]')?.nonce||'';m.head.append(a)}));d[l]?console.warn(p+' only loads once. Ignoring:',g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+            key: 'AIzaSyAMwgU5erVQuesFCLlubxYCi2GvqHwGgoU',
+            v: 'weekly'
         });
 
-        async function initPlacesSearch() {
-            const { Autocomplete } = await google.maps.importLibrary("places");
-            const input = document.getElementById('business-search');
-            
-            const options = {
-                componentRestrictions: { country: 'gb' },
-                types: ['establishment'], 
-                fields: ['name', 'formatted_address', 'rating', 'user_ratings_total', 'photos', 'formatted_phone_number', 'website', 'reviews', 'opening_hours']
-            };
+        function setManualRequirements(required) {
+            ['manual-biz-name', 'manual-trade', 'manual-location'].forEach(id => {
+                const field = document.getElementById(id);
+                if (!field) return;
+                if (required) field.setAttribute('required', 'true');
+                else field.removeAttribute('required');
+            });
+        }
 
-            const autocomplete = new Autocomplete(input, options);
+        function showFinalState() {
+            document.getElementById('state-search').classList.add('hidden');
+            document.getElementById('state-success').classList.add('hidden');
+            document.getElementById('state-build').classList.remove('hidden');
+            scrollPageToTop();
+        }
+
+        async function initPlacesSearch() {
+            const { Autocomplete } = await google.maps.importLibrary('places');
+            const input = document.getElementById('business-search');
+            const autocomplete = new Autocomplete(input, {
+                componentRestrictions: { country: 'gb' },
+                types: ['establishment'],
+                fields: ['name', 'formatted_address', 'rating', 'user_ratings_total', 'photos', 'formatted_phone_number', 'website']
+            });
 
             autocomplete.addListener('place_changed', () => {
                 const place = autocomplete.getPlace();
                 if (!place.name) return;
 
-                // 1. Core Info
                 document.getElementById('brief-name').textContent = place.name;
                 document.getElementById('brief-address').textContent = place.formatted_address || '';
-                
-                // Set the success screen name in advance
                 document.getElementById('success-biz-name').textContent = place.name;
 
-                // 2. Rating
+                const ratingBox = document.getElementById('brief-rating-box');
                 if (place.rating && place.user_ratings_total) {
-                    document.getElementById('brief-rating-box').classList.remove('hidden');
+                    ratingBox.classList.remove('hidden');
                     document.getElementById('brief-rating').textContent = place.rating;
                     document.getElementById('brief-reviews-count').textContent = place.user_ratings_total;
-                    
-                    document.getElementById('hidden-biz-rating').value = place.rating;
+                } else {
+                    ratingBox.classList.add('hidden');
                 }
 
-                // 3. Contact Info
-                if (place.formatted_phone_number) {
-                    document.getElementById('brief-phone-container').classList.remove('hidden');
-                    document.getElementById('brief-phone').textContent = place.formatted_phone_number;
-                    document.getElementById('hidden-biz-phone').value = place.formatted_phone_number;
-                }
-                if (place.website) {
-                    document.getElementById('brief-website-container').classList.remove('hidden');
-                    document.getElementById('brief-website').textContent = place.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
-                    document.getElementById('hidden-biz-website').value = place.website;
-                }
-
-                // 4. Photos (Cover + Gallery)
+                const cover = document.getElementById('brief-cover');
+                cover.style.backgroundImage = '';
+                cover.classList.remove('has-image');
                 if (place.photos && place.photos.length > 0) {
-                    const coverUrl = place.photos[0].getUrl({maxWidth: 1200});
-                    document.getElementById('brief-cover').style.backgroundImage = `url('${coverUrl}')`;
-                    
-                    if (place.photos.length > 1) {
-                        const galleryContainer = document.getElementById('brief-gallery');
-                        galleryContainer.innerHTML = '';
-                        const maxGallery = Math.min(place.photos.length, 5);
-                        
-                        for(let i=1; i < maxGallery; i++) {
-                            const imgUrl = place.photos[i].getUrl({maxWidth: 400});
-                            const div = document.createElement('div');
-                            div.className = "aspect-square rounded-2xl bg-gray-100 bg-cover bg-center shadow-sm border border-gray-200";
-                            div.style.backgroundImage = `url('${imgUrl}')`;
-                            galleryContainer.appendChild(div);
-                        }
-                        document.getElementById('brief-gallery-container').classList.remove('hidden');
-                    }
+                    cover.style.backgroundImage = `url('${place.photos[0].getUrl({ maxWidth: 900 })}')`;
+                    cover.classList.add('has-image');
                 }
 
-                // 5. Opening Hours
-                if (place.opening_hours && place.opening_hours.weekday_text) {
-                    const hoursList = document.getElementById('brief-hours');
-                    hoursList.innerHTML = '';
-                    place.opening_hours.weekday_text.forEach(dayText => {
-                        const li = document.createElement('li');
-                        li.className = "text-[10px] md:text-xs text-gray-600 font-medium py-2 border-b border-gray-100 last:border-0";
-                        li.textContent = dayText;
-                        hoursList.appendChild(li);
-                    });
-                    document.getElementById('brief-hours-container').classList.remove('hidden');
-                }
+                document.getElementById('hidden-biz-name').value = place.name || '';
+                document.getElementById('hidden-biz-address').value = place.formatted_address || '';
+                document.getElementById('hidden-biz-rating').value = place.rating || '';
+                document.getElementById('hidden-biz-phone').value = place.formatted_phone_number || '';
+                document.getElementById('hidden-biz-website').value = place.website || '';
 
-                // 6. Reviews
-                if (place.reviews && place.reviews.length > 0) {
-                    const reviewsList = document.getElementById('brief-reviews');
-                    reviewsList.innerHTML = '';
-                    const maxReviews = Math.min(place.reviews.length, 3);
-                    
-                    for(let i=0; i < maxReviews; i++) {
-                        const rev = place.reviews[i];
-                        const div = document.createElement('div');
-                        div.className = "bg-brand-gray p-4 rounded-xl border border-gray-200 text-left";
-                        
-                        let starsHtml = '<div class="text-amber-400 text-xs mb-2 flex gap-1">';
-                        for(let s=0; s < rev.rating; s++) { starsHtml += '<i class="fas fa-star"></i>'; }
-                        starsHtml += '</div>';
-
-                        div.innerHTML = `
-                            ${starsHtml}
-                            <p class="text-xs text-gray-700 font-medium mb-2 italic">"${rev.text.substring(0, 150)}${rev.text.length > 150 ? '...' : ''}"</p>
-                            <p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest">${rev.author_name}</p>
-                        `;
-                        reviewsList.appendChild(div);
-                    }
-                    document.getElementById('brief-reviews-container').classList.remove('hidden');
-                }
-
-                // Populate Hidden Data
-                document.getElementById('hidden-biz-name').value = place.name || 'N/A';
-                document.getElementById('hidden-biz-address').value = place.formatted_address || 'N/A';
-                const formBizName = document.getElementById('manual-biz-name');
-                if (formBizName) formBizName.value = place.name || '';
-
-                document.getElementById('form-heading').textContent = 'Send your preview request';
-                document.getElementById('form-subheading').textContent = 'Add your name below. Your contact detail has already been carried through.';
-
-                document.getElementById('brief-header-block').classList.remove('hidden');
-                document.getElementById('brief-strategy-block').classList.add('hidden');
-                document.getElementById('google-data-remainder').classList.add('hidden');
+                ['manual-biz-name', 'manual-trade', 'manual-location'].forEach(id => {
+                    document.getElementById(id).value = '';
+                });
 
                 document.getElementById('manual-fields-container').classList.add('hidden');
-                document.getElementById('manual-biz-name').removeAttribute('required');
-                document.getElementById('manual-trade').removeAttribute('required');
-                document.getElementById('manual-location').removeAttribute('required');
-
-                document.getElementById('state-search').classList.add('hidden');
-                document.getElementById('state-build').classList.remove('hidden');
-                document.getElementById('preview-reassurance').classList.add('hidden');
-                
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.getElementById('manual-context-block').classList.add('hidden');
+                document.getElementById('brief-header-block').classList.remove('hidden');
+                setManualRequirements(false);
+                document.getElementById('form-heading').textContent = 'Send your preview request';
+                document.getElementById('form-subheading').textContent = 'Add your name below. Your contact detail has already been carried through.';
+                showFinalState();
             });
         }
 
@@ -575,29 +1121,20 @@
             if (placesStatus) placesStatus.textContent = 'Google search is unavailable right now. Manual entry still works.';
         });
 
-        // Manual Entry Logic
         const manualBtn = document.getElementById('manual-entry-btn');
-        if(manualBtn) {
+        if (manualBtn) {
             manualBtn.addEventListener('click', () => {
+                ['hidden-biz-name', 'hidden-biz-address', 'hidden-biz-rating', 'hidden-biz-phone', 'hidden-biz-website'].forEach(id => {
+                    document.getElementById(id).value = '';
+                });
+                document.getElementById('brief-header-block').classList.add('hidden');
+                document.getElementById('manual-context-block').classList.remove('hidden');
+                document.getElementById('manual-fields-container').classList.remove('hidden');
+                document.getElementById('success-biz-name').textContent = 'your business';
                 document.getElementById('form-heading').textContent = 'Add your business details';
                 document.getElementById('form-subheading').textContent = 'Three short details are enough for us to prepare the right first version.';
-                document.getElementById('success-biz-name').textContent = "your business";
-                
-                // Hide specific blocks
-                document.getElementById('brief-header-block').classList.add('hidden');
-                document.getElementById('brief-strategy-block').classList.add('hidden');
-                document.getElementById('google-data-remainder').classList.add('hidden');
-                
-                // Show Manual Fields & Set Required
-                document.getElementById('manual-fields-container').classList.remove('hidden');
-                document.getElementById('manual-biz-name').setAttribute('required', 'true');
-                document.getElementById('manual-trade').setAttribute('required', 'true');
-                document.getElementById('manual-location').setAttribute('required', 'true');
-
-                document.getElementById('state-search').classList.add('hidden');
-                document.getElementById('state-build').classList.remove('hidden');
-                document.getElementById('preview-reassurance').classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setManualRequirements(true);
+                showFinalState();
             });
         }
 
@@ -606,48 +1143,46 @@
             backToSearch.addEventListener('click', () => {
                 document.getElementById('state-build').classList.add('hidden');
                 document.getElementById('state-search').classList.remove('hidden');
-                document.getElementById('preview-reassurance').classList.remove('hidden');
-                document.getElementById('business-search').focus();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                scrollPageToTop();
+                window.setTimeout(() => document.getElementById('business-search').focus(), 250);
             });
         }
 
-        // Netlify AJAX Form Submission
         const form = document.getElementById('onboarding-form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submit-btn');
-            const formMessage = document.getElementById('form-message');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-            submitBtn.disabled = true;
-            if (formMessage) {
-                formMessage.classList.remove('text-red-600');
-                formMessage.textContent = 'Sending your preview request...';
-            }
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            const formData = new FormData(form);
+                const manualBusiness = document.getElementById('manual-biz-name').value.trim();
+                if (manualBusiness) document.getElementById('success-biz-name').textContent = manualBusiness;
 
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Unable to submit request');
-                document.getElementById('state-build').classList.add('hidden');
-                document.getElementById('state-success').classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            })
-            .catch(() => {
-                submitBtn.innerHTML = '<span>Send preview request</span>';
-                submitBtn.disabled = false;
-                if (formMessage) {
-                    formMessage.classList.add('text-red-600');
-                    formMessage.textContent = 'That did not send. Please try again or contact MadeReal directly.';
-                }
+                const submitBtn = document.getElementById('submit-btn');
+                const formMessage = document.getElementById('form-message');
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i><span>Sending...</span>';
+                submitBtn.disabled = true;
+                formMessage.classList.remove('is-error');
+                formMessage.innerHTML = '<i class="fa-solid fa-lock" aria-hidden="true"></i><span>Sending your preview request...</span>';
+
+                const formData = new FormData(form);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Unable to submit request');
+                    document.getElementById('state-build').classList.add('hidden');
+                    document.getElementById('state-success').classList.remove('hidden');
+                    scrollPageToTop();
+                })
+                .catch(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Send preview request</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+                    formMessage.classList.add('is-error');
+                    formMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>That did not send. Please try again or contact MadeReal directly.</span>';
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
