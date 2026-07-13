@@ -86,6 +86,24 @@ function jsonLdCount(content) {
     return countMatches(content, /<script type=["']application\/ld\+json["']>/gi);
 }
 
+function substantiveWords(content) {
+    const main = content.match(/<main\b[\s\S]*?<\/main>/i)?.[0] || content;
+    const stopWords = new Set(['and', 'are', 'for', 'from', 'that', 'the', 'this', 'with', 'you', 'your']);
+
+    return new Set(
+        stripHtml(main)
+            .toLowerCase()
+            .match(/[a-z]{3,}/g)
+            ?.filter(word => !stopWords.has(word)) || [],
+    );
+}
+
+function jaccardSimilarity(first, second) {
+    const intersection = [...first].filter(word => second.has(word)).length;
+    const union = new Set([...first, ...second]).size;
+    return union ? intersection / union : 0;
+}
+
 const sitemapPath = path.join(distDir, 'sitemap.xml');
 const sitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
 const files = findHtmlFiles(distDir);
@@ -177,6 +195,25 @@ files.forEach(file => {
         seenH1s.set(h1s[0], urlPath);
     }
 });
+
+const locationPages = files
+    .filter(file => /^web-design-[a-z-]+\.html$/.test(file))
+    .map(file => ({
+        file,
+        words: substantiveWords(fs.readFileSync(path.join(distDir, file), 'utf8')),
+    }));
+
+for (let index = 0; index < locationPages.length; index += 1) {
+    for (let comparison = index + 1; comparison < locationPages.length; comparison += 1) {
+        const first = locationPages[index];
+        const second = locationPages[comparison];
+        const similarity = jaccardSimilarity(first.words, second.words);
+
+        if (similarity >= 0.8) {
+            errors.push(`/${first.file} and /${second.file}: location content is ${(similarity * 100).toFixed(1)}% similar; keep it below 80%`);
+        }
+    }
+}
 
 if (errors.length) {
     console.error('Indexable page quality audit failed:');

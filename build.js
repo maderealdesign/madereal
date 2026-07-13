@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const matter = require('gray-matter');
 
 const srcDir = __dirname;
@@ -61,14 +62,86 @@ const trackedServicePages = [
 ];
 
 const trackedLocationPages = [
-    { town: 'Colne', path: '/web-design-colne.html', nearby: ['Trawden', 'Foulridge', 'Barrowford'] },
-    { town: 'Burnley', path: '/web-design-burnley.html', nearby: ['Padiham', 'Brierfield', 'Hapton'] },
-    { town: 'Nelson', path: '/web-design-nelson.html', nearby: ['Brierfield', 'Barrowford', 'Pendle'] },
-    { town: 'Pendle', path: '/web-design-pendle.html', nearby: ['Barrowford', 'Earby', 'Trawden', 'Foulridge'] },
-    { town: 'Skipton', path: '/web-design-skipton.html', nearby: ['Craven', 'Embsay', 'Carleton'] },
-    { town: 'Barnoldswick', path: '/web-design-barnoldswick.html', nearby: ['West Craven', 'Earby', 'Salterforth'] },
-    { town: 'Blackburn', path: '/web-design-blackburn.html', nearby: ['Darwen', 'Rishton', 'Accrington'] },
-    { town: 'Clitheroe', path: '/web-design-clitheroe.html', nearby: ['Ribble Valley', 'Whalley', 'Chatburn'] },
+    {
+        town: 'Colne', path: '/web-design-colne.html', nearby: ['Trawden', 'Foulridge', 'Barrowford'],
+        marketHeading: 'Built nearby, for the way Colne customers search.',
+        marketIntro: 'MadeReal is based in Colne, so this is our home market rather than a town name added to a national template. We can shape a site around the jobs, bookings or enquiries a local business actually wants, then connect those pages to a clear Google Business Profile.',
+        priorities: [
+            ['Show the real business', 'Use your own work, service area and proof so people comparing Colne businesses can make a confident choice.'],
+            ['Cover nearby demand', 'Build useful service-area routes for Trawden, Foulridge and Barrowford when the business genuinely serves them.'],
+            ['Make contact simple', 'Put calls, quote requests or bookings within easy reach on mobile, where most urgent local searches happen.'],
+        ],
+    },
+    {
+        town: 'Burnley', path: '/web-design-burnley.html', nearby: ['Padiham', 'Brierfield', 'Hapton'],
+        marketHeading: 'A Burnley website should turn service searches into enquiries.',
+        marketIntro: 'Burnley businesses often compete across the whole borough, not only the town centre. The useful approach is to organise the website around the services people search for, support them with real photos and reviews, and make the next step obvious before a visitor returns to Google.',
+        priorities: [
+            ['Lead with services', 'Give each important trade, treatment or professional service enough detail to answer the first buying questions.'],
+            ['Prove coverage', 'Explain where you work across Burnley, Padiham, Brierfield and Hapton without publishing thin pages for every postcode.'],
+            ['Earn the call', 'Pair clear pricing guidance or process information with genuine reviews, accreditations and recent work.'],
+        ],
+    },
+    {
+        town: 'Nelson', path: '/web-design-nelson.html', nearby: ['Brierfield', 'Barrowford', 'Pendle'],
+        marketHeading: 'Help Nelson customers understand the offer quickly.',
+        marketIntro: 'A local customer may be comparing businesses in Nelson, Brierfield and Barrowford on the same search. A strong site makes the difference clear: what you provide, who it is for, where you travel and how somebody can get a useful answer without filling in a long form.',
+        priorities: [
+            ['Clarify the offer', 'Separate core services so Google and prospective customers do not have to interpret one crowded page.'],
+            ['Join up local signals', 'Keep the website, Google Business Profile, opening details and contact information consistent across the web.'],
+            ['Answer real objections', 'Use concise FAQs for turnaround, coverage, availability and the details people normally ask before enquiring.'],
+        ],
+    },
+    {
+        town: 'Pendle', path: '/web-design-pendle.html', nearby: ['Barrowford', 'Earby', 'Trawden', 'Foulridge'],
+        marketHeading: 'One clear website for a business serving across Pendle.',
+        marketIntro: 'Pendle searches are spread across connected towns and villages. Instead of repeating the same paragraph for every place, we create a useful central service structure and add location detail only where the customer experience, examples or coverage genuinely differ.',
+        priorities: [
+            ['Organise the service area', 'Explain coverage across Barrowford, Earby, Trawden and Foulridge in a way that is useful rather than repetitive.'],
+            ['Keep one strong message', 'Make the main offer consistent while giving each important service its own evidence and call to action.'],
+            ['Build local authority', 'Publish helpful answers and completed-work stories that demonstrate knowledge of the work, not just the place names.'],
+        ],
+    },
+    {
+        town: 'Skipton', path: '/web-design-skipton.html', nearby: ['Craven', 'Embsay', 'Carleton'],
+        marketHeading: 'Make it easy for residents and visitors to choose you.',
+        marketIntro: 'Skipton businesses can serve a mixture of local residents, surrounding villages and visitors. The website needs to match that reality, whether the conversion is a table booking, an accommodation enquiry, a professional appointment or a quote for work across Craven.',
+        priorities: [
+            ['Design around the booking', 'Menus, availability, opening details and booking routes should be effortless to use from a phone.'],
+            ['Reach beyond the town', 'Describe genuine coverage of Embsay, Carleton and wider Craven without turning every village into copied content.'],
+            ['Stay current', 'Make seasonal details, services and key customer information easy to update as the business changes.'],
+        ],
+    },
+    {
+        town: 'Barnoldswick', path: '/web-design-barnoldswick.html', nearby: ['West Craven', 'Earby', 'Salterforth'],
+        marketHeading: 'Give West Craven customers a reason to choose local.',
+        marketIntro: 'A Barnoldswick business website should do more than mention BB18. It should show the work, explain the service area and remove uncertainty for customers comparing options in Barnoldswick, Earby, Salterforth and further across West Craven.',
+        priorities: [
+            ['Use specific proof', 'Feature genuine projects, products or customer feedback instead of broad claims that could belong to any company.'],
+            ['Explain travel and access', 'Set clear expectations about call-out areas, collection, delivery, appointments or visiting the premises.'],
+            ['Support repeat enquiries', 'Keep contact details, hours and the most requested services prominent for returning local customers.'],
+        ],
+    },
+    {
+        town: 'Blackburn', path: '/web-design-blackburn.html', nearby: ['Darwen', 'Rishton', 'Accrington'],
+        marketHeading: 'Compete on relevance, not empty marketing language.',
+        marketIntro: 'Blackburn has a wider and more competitive search market than a small town. The site therefore needs focused service pages, credible proof and a clear geographic offer so customers can quickly see whether the business is right for their job, appointment or organisation.',
+        priorities: [
+            ['Target valuable work', 'Structure pages around the enquiries the business most wants rather than trying to rank one homepage for everything.'],
+            ['Demonstrate credibility', 'Use case studies, qualifications, team information and specific outcomes wherever they are available.'],
+            ['Connect the wider area', 'Explain genuine coverage of Darwen, Rishton and Accrington while keeping Blackburn as the primary page focus.'],
+        ],
+    },
+    {
+        town: 'Clitheroe', path: '/web-design-clitheroe.html', nearby: ['Ribble Valley', 'Whalley', 'Chatburn'],
+        marketHeading: 'A considered website for Ribble Valley customers.',
+        marketIntro: 'Clitheroe and Ribble Valley businesses often depend on trust, presentation and reputation. The website should feel polished without hiding the practical details: what is offered, where it is available, what makes the business credible and how somebody can enquire.',
+        priorities: [
+            ['Balance image and detail', 'Use strong photography alongside useful service, booking or product information rather than relying on atmosphere alone.'],
+            ['Build around reputation', 'Bring genuine reviews, experience and recognisable work into the buying journey at the point they matter.'],
+            ['Serve the valley clearly', 'Describe relevant coverage of Whalley, Chatburn and the wider Ribble Valley without duplicate doorway pages.'],
+        ],
+    },
 ];
 
 const headerCode = fs.readFileSync(path.join(srcDir, 'header_template.html'), 'utf8');
@@ -757,6 +830,39 @@ function getTrackedLocationByFile(file) {
     return trackedLocationPages.find(location => location.path === urlPath);
 }
 
+function renderLocationMarketSection(location) {
+    const priorities = location.priorities.map(([heading, copy]) => `
+                    <article class="border-t-2 border-slate-900 pt-6">
+                        <h3 class="text-xl font-black text-slate-950 mb-3">${escapeHtml(heading)}</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed">${escapeHtml(copy)}</p>
+                    </article>`).join('');
+
+    return `
+        <section class="py-20 md:py-28 px-6 bg-white border-b-4 border-slate-900" aria-labelledby="local-market-${slugify(location.town)}">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20">
+                <div class="lg:col-span-5">
+                    <p class="text-xs font-black uppercase tracking-widest text-brand-teal mb-5">Web design for ${escapeHtml(location.town)}</p>
+                    <h2 id="local-market-${slugify(location.town)}" class="text-4xl md:text-5xl font-black tracking-tight leading-tight text-slate-950 mb-6">${escapeHtml(location.marketHeading)}</h2>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">${escapeHtml(location.marketIntro)}</p>
+                </div>
+                <div class="lg:col-span-7 grid sm:grid-cols-3 gap-8">
+                    ${priorities}
+                </div>
+            </div>
+        </section>
+`;
+}
+
+function injectLocationMarketSection(content, file) {
+    const location = getTrackedLocationByFile(file);
+    if (!location || content.includes(`id="local-market-${slugify(location.town)}"`)) return content;
+
+    return content.replace(
+        '<section id="problem"',
+        `${renderLocationMarketSection(location)}\n        <section id="problem"`,
+    );
+}
+
 function renderLocationQuickLead(location) {
     const town = escapeHtml(location.town);
     const nearby = location.nearby.slice(0, 2).join(' and ');
@@ -994,9 +1100,69 @@ function injectHomeAlignmentStyles(content, file) {
     return content;
 }
 
+const fileDateCache = new Map();
+
+function getSourceDate(relativeFile) {
+    if (fileDateCache.has(relativeFile)) return fileDateCache.get(relativeFile);
+
+    let date = '';
+    try {
+        const dirty = execFileSync('git', ['status', '--porcelain', '--', relativeFile], {
+            cwd: srcDir,
+            encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'ignore'],
+        }).trim();
+
+        if (dirty) {
+            date = new Date().toISOString().slice(0, 10);
+        } else {
+            date = execFileSync('git', ['log', '-1', '--format=%cs', '--', relativeFile], {
+                cwd: srcDir,
+                encoding: 'utf8',
+                stdio: ['ignore', 'pipe', 'ignore'],
+            }).trim();
+        }
+    } catch (error) {
+        // Netlify normally builds from Git. Filesystem time is a fallback for
+        // local archives or environments without repository history.
+    }
+
+    if (!date) {
+        const absolute = path.join(srcDir, relativeFile);
+        if (fs.existsSync(absolute)) {
+            date = fs.statSync(absolute).mtime.toISOString().slice(0, 10);
+        }
+    }
+
+    fileDateCache.set(relativeFile, date);
+    return date;
+}
+
+function latestDate(dates) {
+    return dates.filter(Boolean).sort().at(-1) || new Date().toISOString().slice(0, 10);
+}
+
+function getPageLastModified(file, postMap) {
+    const normalised = file.split(path.sep).join('/');
+    const sharedSources = ['header_template.html', 'footer_template.html'];
+    const post = postMap.get(normalised);
+
+    if (post) {
+        return latestDate([
+            post.dateIso,
+            getSourceDate(`content/posts/${post.sourceFile}`),
+            getSourceDate('blog_post_template.html'),
+            ...sharedSources.map(getSourceDate),
+        ]);
+    }
+
+    const sources = [normalised, ...sharedSources];
+    if (/^web-design-[a-z-]+\.html$/.test(normalised)) sources.push('build.js');
+    return latestDate(sources.map(getSourceDate));
+}
+
 function buildSitemap(posts) {
-    const postDateMap = new Map(posts.map(post => [`blog/${post.slug}.html`, post.dateIso]));
-    const today = new Date().toISOString().slice(0, 10);
+    const postMap = new Map(posts.map(post => [`blog/${post.slug}.html`, post]));
     const urls = findBuiltHtmlFiles(distDir)
         .filter(file => {
             const content = fs.readFileSync(path.join(distDir, file), 'utf8');
@@ -1005,7 +1171,7 @@ function buildSitemap(posts) {
         .sort()
         .map(file => {
             const loc = getCanonicalUrl(file);
-            const lastmod = postDateMap.get(file.split(path.sep).join('/')) || today;
+            const lastmod = getPageLastModified(file, postMap);
             const priority = file === 'index.html' ? '1.0' : file.startsWith(`blog${path.sep}`) ? '0.7' : '0.8';
 
             return `  <url>
@@ -1211,6 +1377,7 @@ async function main() {
 
         content = replaceGlobalPartials(content);
         content = injectLocationLeadCapture(content, file);
+        content = injectLocationMarketSection(content, file);
         content = injectServiceLeadCapture(content, file);
         content = injectCanonical(content, file);
         content = injectHomeAlignmentStyles(content, file);

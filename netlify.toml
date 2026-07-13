@@ -5,6 +5,11 @@
   # This tells Netlify to publish the compiled files from the 'dist' folder
   publish = "dist"
 
+[build.processing.html]
+  # Canonicals and the sitemap use .html URLs. Keep Netlify from rewriting
+  # internal links to redirecting extensionless variants.
+  pretty_urls = false
+
 [[redirects]]
   from = "https://www.madereal.uk/*"
   to = "https://madereal.uk/:splat"
