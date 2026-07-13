@@ -60,6 +60,39 @@
         }
         .pac-item:hover { background-color: #f3f4f6 !important; }
         .pac-item-query { font-size: 16px !important; font-weight: 700 !important; color: #0f172a !important; }
+
+        .home-aligned main #lead-step h2,
+        .home-aligned main #business-step h2 {
+            font-size: 1.875rem !important;
+            line-height: 1.15 !important;
+        }
+        .home-aligned main #state-build > div:first-child h2 {
+            font-size: 2.25rem !important;
+            line-height: 1.12 !important;
+        }
+        .home-aligned main #brief-name {
+            font-size: 1.75rem !important;
+            line-height: 1.15 !important;
+        }
+        .home-aligned main #state-success h2 {
+            font-size: 3rem !important;
+            line-height: 1 !important;
+        }
+        @media (max-width: 767px) {
+            .home-aligned main #lead-step h2,
+            .home-aligned main #business-step h2 {
+                font-size: 1.625rem !important;
+            }
+            .home-aligned main #state-build > div:first-child h2 {
+                font-size: 2rem !important;
+            }
+            .home-aligned main #brief-name {
+                font-size: 1.375rem !important;
+            }
+            .home-aligned main #state-success h2 {
+                font-size: 2.5rem !important;
+            }
+        }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN0VXM5YSL"></script>
@@ -75,113 +108,123 @@
     [[[INJECT_HEADER]]]
 
 
-    <main class="flex-grow pt-24 md:pt-32 pb-16 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            
-            <div id="state-search" class="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center mb-16 transition-opacity duration-500 animate-fade-in">
-                
-                <div class="order-1 lg:order-1 text-center lg:text-left">
-                    <span id="get-started-eyebrow" class="inline-flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1.5 text-[10px] md:text-xs font-bold text-teal-700 uppercase tracking-widest mb-4 border border-teal-100">
-                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-teal animate-pulse"></span>
-                        No-call preview request
-                    </span>
-                    <h1 id="get-started-heading" class="text-4xl md:text-6xl font-black tracking-tight leading-[1.1] mb-4 text-slate-950">
-                        Start with your mobile or email.
-                    </h1>
-                    <p id="get-started-intro" class="text-base md:text-xl text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-                        We can text or email your free website preview. The Google search is optional and just helps us pull your public business details into the brief.
+    <main class="flex-grow pt-24 md:pt-28 pb-16 md:pb-20 px-5 md:px-6 bg-brand-gray">
+        <div class="max-w-6xl mx-auto">
+
+            <div id="state-search" class="transition-opacity duration-500 animate-fade-in">
+                <header class="max-w-3xl mb-8 md:mb-10">
+                    <p id="get-started-eyebrow" class="text-xs font-bold text-teal-700 uppercase tracking-widest mb-3">
+                        Free preview · no payment
                     </p>
+                    <h1 id="get-started-heading" class="text-4xl md:text-5xl font-black tracking-tight leading-[1.08] mb-4 text-slate-950">
+                        Get your free website preview.
+                    </h1>
+                    <p id="get-started-intro" class="text-base md:text-lg text-gray-600 font-medium leading-relaxed max-w-2xl">
+                        Tell us where to send it, then add your business. We will use the details to make the first version more useful.
+                    </p>
+                </header>
 
-                    <form id="get-started-quick-lead-form" name="Preview Quick Lead" method="POST" data-netlify="true" class="max-w-xl mx-auto lg:mx-0 mb-8">
-                        <input type="hidden" name="form-name" value="Preview Quick Lead">
-                        <input type="hidden" name="Source_Page" value="Get Started top capture">
-                        <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
-                        <div class="rounded-[24px] bg-white border border-gray-200 p-2 shadow-sm">
-                            <div class="flex flex-col sm:flex-row gap-2">
-                                <label class="sr-only" for="get-started-quick-contact">Mobile number or email address</label>
-                                <input id="get-started-quick-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[50px] flex-1 rounded-full bg-brand-gray px-5 text-base font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none border border-transparent transition-all duration-300 input-glow-focus" placeholder="Mobile or email">
-                                <button id="get-started-quick-submit" type="submit" data-track="get_started_quick_lead_submit" class="min-h-[50px] rounded-full bg-blue-600 px-6 text-white font-bold text-base hover:bg-blue-700 transition-all active:scale-[0.98]">
-                                    Save my contact
-                                </button>
+                <div class="grid lg:grid-cols-[1fr_0.82fr] gap-8 lg:gap-14 items-start">
+                    <section class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                        <div id="lead-step" class="p-5 md:p-8">
+                            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Step 1 of 2</p>
+                            <h2 class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mb-2">Where should we send it?</h2>
+                            <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed mb-6">A mobile number or email address is enough. No payment and no sales call required.</p>
+
+                            <form id="get-started-quick-lead-form" name="Preview Quick Lead" method="POST" data-netlify="true">
+                                <input type="hidden" name="form-name" value="Preview Quick Lead">
+                                <input type="hidden" name="Source_Page" value="Get Started top capture">
+                                <input type="hidden" name="Plan" value="Website Care 35 GBP per month">
+                                <label class="block text-sm font-bold text-slate-800 mb-2" for="get-started-quick-contact">Mobile number or email</label>
+                                <div class="grid sm:grid-cols-[1fr_auto] gap-3">
+                                    <input id="get-started-quick-contact" name="Contact_Detail" type="text" required inputmode="text" autocomplete="email" class="min-h-[52px] min-w-0 rounded-lg bg-brand-gray px-4 text-base font-semibold text-slate-950 placeholder:text-gray-400 focus:outline-none border border-gray-200 transition-all duration-300 input-glow-focus" placeholder="Mobile or email">
+                                    <button id="get-started-quick-submit" type="submit" data-track="get_started_quick_lead_submit" class="min-h-[52px] rounded-full bg-blue-600 px-7 text-white font-bold text-base hover:bg-blue-700 transition-all active:scale-[0.98]">
+                                        Continue
+                                    </button>
+                                </div>
+                                <p id="get-started-quick-help" class="text-sm text-gray-500 font-medium mt-3" aria-live="polite">
+                                    We only use this to contact you about the preview.
+                                </p>
+                            </form>
+                        </div>
+
+                        <div id="lead-confirmed" class="hidden p-5 md:p-7 bg-teal-50 border-b border-teal-100">
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-full bg-brand-teal text-slate-950 flex items-center justify-center flex-none" aria-hidden="true">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-black text-slate-950">Contact received</p>
+                                    <p class="text-sm text-gray-600 font-medium mt-1">We have where to send the preview. Nothing else has been agreed or charged.</p>
+                                </div>
                             </div>
                         </div>
-                        <p id="get-started-quick-help" class="text-xs text-gray-500 font-bold mt-3 uppercase tracking-wider">
-                            You can stop here, or add the business below for a sharper preview.
-                        </p>
-                    </form>
-                    
-                    <div class="hidden lg:grid grid-cols-3 gap-2 md:gap-4 max-w-lg mx-auto lg:mx-0 text-left">
-                        <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
-                            <div class="text-lg md:text-2xl font-black text-blue-600">24h</div>
-                            <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Preview aim</div>
-                        </div>
-                        <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
-                            <div class="text-lg md:text-2xl font-black text-blue-600">£35</div>
-                            <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Monthly if live</div>
-                        </div>
-                        <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
-                            <div class="text-lg md:text-2xl font-black text-blue-600">£0</div>
-                            <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Upfront build</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="order-2 lg:order-2 w-full max-w-xl mx-auto lg:mx-0">
-                    <div class="bg-white p-5 md:p-8 rounded-[24px] shadow-soft border border-gray-200 relative">
-                        <h2 class="text-2xl font-black text-slate-950 mb-2 tracking-tight">Find your business.</h2>
-                        <p class="text-sm text-gray-500 font-medium mb-6">Optional: choose your public Google listing to reduce the boring admin.</p>
-                        
-                        <div class="mb-2">
-                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name + Town</label>
-                            <div class="relative w-full bg-brand-gray border border-transparent rounded-full focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-600/15 transition-all flex items-center overflow-hidden min-h-[50px]">
-                                <i class="fas fa-search text-gray-400 ml-4 text-base"></i>
-                                <input id="business-search" type="text" class="w-full bg-transparent border-none p-3 pl-3 text-base font-semibold focus:outline-none text-slate-950 placeholder-gray-400" placeholder="e.g. Dave's Garage Burnley" autocomplete="off">
+                        <div id="business-step" class="hidden p-5 md:p-8">
+                            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Step 2 of 2</p>
+                            <h2 class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mb-2">Find your business</h2>
+                            <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed mb-6">Start typing the business name and town, then choose the correct Google listing. We only use its public details.</p>
+
+                            <label class="block text-sm font-bold text-slate-800 mb-2" for="business-search">Business name and town</label>
+                            <div class="relative w-full bg-brand-gray border border-gray-200 rounded-lg focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-600/15 transition-all flex items-center overflow-hidden min-h-[52px]">
+                                <i class="fas fa-search text-gray-400 ml-4 text-base" aria-hidden="true"></i>
+                                <input id="business-search" type="text" class="w-full bg-transparent border-none p-3 pl-3 text-base font-semibold focus:outline-none text-slate-950 placeholder-gray-400" placeholder="e.g. MadeReal Colne" autocomplete="off">
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
+                                <p id="places-status" class="text-xs text-gray-500 font-medium">
+                                    <i class="fab fa-google text-blue-500 mr-1" aria-hidden="true"></i> Google listing search
+                                </p>
+                                <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="inline-flex items-center justify-center min-h-[44px] rounded-full border border-gray-300 bg-white px-5 text-sm text-slate-800 font-bold hover:border-slate-900 transition-colors">Enter details manually</button>
                             </div>
                         </div>
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center justify-center md:justify-start gap-1 mt-4">
-                            <i class="fab fa-google text-blue-500"></i> Powered by Google Places
-                        </p>
-                        <button type="button" id="manual-entry-btn" data-track="manual_business_entry" class="text-xs text-blue-600 font-bold hover:text-blue-700 block w-full text-center md:text-left mt-6 transition-colors">Cannot find your business? Enter it manually &rarr;</button>
-                    </div>
-                </div>
+                    </section>
 
-                <div class="grid lg:hidden order-3 grid-cols-3 gap-2 md:gap-4 w-full max-w-xl mx-auto text-left">
-                    <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
-                        <div class="text-lg md:text-2xl font-black text-blue-600">24h</div>
-                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Preview aim</div>
-                    </div>
-                    <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
-                        <div class="text-lg md:text-2xl font-black text-blue-600">£35</div>
-                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Monthly if live</div>
-                    </div>
-                    <div class="rounded-2xl bg-blue-50 p-3 md:p-4 border border-blue-100 flex flex-col justify-center">
-                        <div class="text-lg md:text-2xl font-black text-blue-600">£0</div>
-                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Upfront build</div>
-                    </div>
+                    <aside class="lg:pt-1">
+                        <figure>
+                            <img src="/assets/work/tc-joiner-builder.jpg" width="1280" height="720" alt="TC Joiner Builder website designed by MadeReal" class="w-full aspect-[16/10] object-cover object-top rounded-lg border border-gray-200 shadow-sm">
+                            <figcaption class="text-sm text-gray-500 font-medium mt-3">A recent MadeReal website for a local trade business.</figcaption>
+                        </figure>
+                        <div class="mt-6 border-y border-gray-200 divide-y divide-gray-200">
+                            <div class="flex gap-3 py-4">
+                                <i class="fas fa-check text-brand-teal mt-1" aria-hidden="true"></i>
+                                <p class="text-sm text-gray-700 font-semibold">No payment to see the first preview.</p>
+                            </div>
+                            <div class="flex gap-3 py-4">
+                                <i class="fas fa-check text-brand-teal mt-1" aria-hidden="true"></i>
+                                <p class="text-sm text-gray-700 font-semibold">Most previews are sent within 24 hours.</p>
+                            </div>
+                            <div class="flex gap-3 py-4">
+                                <i class="fas fa-check text-brand-teal mt-1" aria-hidden="true"></i>
+                                <p class="text-sm text-gray-700 font-semibold">£35/month only if you approve it and go live.</p>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
-
             </div>
 
-            <div id="state-build" class="hidden transition-opacity duration-500 animate-fade-in max-w-3xl mx-auto">
+            <div id="state-build" class="hidden transition-opacity duration-500 animate-fade-in max-w-4xl mx-auto">
                 
-                <div class="mb-8 text-center">
-                    <span class="text-xs font-bold text-brand-teal mb-2 uppercase tracking-widest block">Step 2 of 2</span>
-                    <h2 class="text-3xl md:text-5xl font-black tracking-tight text-slate-950 leading-[1.1]">Here's what we'll build you.</h2>
-                    <p class="text-base md:text-lg text-gray-600 font-medium mt-3">We've pulled everything we need. Drop your details to get your preview.</p>
+                <div class="mb-7">
+                    <p class="text-xs font-bold text-teal-700 mb-2 uppercase tracking-widest">Final details</p>
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 leading-[1.1]">Finish your preview request.</h2>
+                    <p class="text-base md:text-lg text-gray-600 font-medium mt-3">Check the business, add your name and we will take it from here.</p>
+                    <button type="button" id="back-to-search" class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 mt-4">
+                        <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i> Choose a different business
+                    </button>
                 </div>
 
                 <div class="space-y-6">
                     
                     <div id="brief-header-block" class="hidden">
-                        <div class="bg-white rounded-[24px] overflow-hidden shadow-sm border border-gray-200">
-                            <div id="brief-cover" class="w-full h-40 md:h-56 bg-gray-100 bg-cover bg-center"></div>
-                            <div class="p-5 md:p-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
+                            <div id="brief-cover" class="w-full h-36 md:h-48 bg-gray-100 bg-cover bg-center"></div>
+                            <div class="p-5 md:p-7 text-left flex flex-col md:flex-row justify-between md:items-start gap-4">
                                 <div>
-                                    <span class="text-[10px] font-bold text-brand-teal uppercase tracking-widest mb-1 block"><i class="fas fa-magic mr-1"></i> Auto-Drafted Brief</span>
-                                    <h2 id="brief-name" class="text-xl md:text-3xl font-black text-slate-950 tracking-tight leading-tight mb-1"></h2>
-                                    <p id="brief-address" class="text-xs md:text-sm text-gray-600 font-medium"></p>
+                                    <span class="text-xs font-bold text-teal-700 uppercase tracking-widest mb-1 block">Selected Google listing</span>
+                                    <h2 id="brief-name" class="text-xl md:text-2xl font-black text-slate-950 tracking-tight leading-tight mb-1"></h2>
+                                    <p id="brief-address" class="text-sm text-gray-600 font-medium"></p>
                                 </div>
-                                <div id="brief-rating-box" class="bg-blue-50 border border-blue-100 text-blue-600 px-4 md:px-5 py-2 md:py-3 rounded-2xl text-center flex-shrink-0 shadow-sm hidden">
+                                <div id="brief-rating-box" class="bg-blue-50 border border-blue-100 text-blue-600 px-4 py-2 rounded-lg text-center flex-shrink-0 hidden">
                                     <div class="flex items-center justify-center gap-1 mb-0.5">
                                         <i class="fas fa-star text-amber-400 text-xs"></i>
                                         <div class="font-black text-xl md:text-2xl leading-none tracking-tighter" id="brief-rating"></div>
@@ -193,9 +236,9 @@
                     </div>
 
                     <div id="form-wrapper" class="w-full">
-                        <div class="bg-white p-5 md:p-8 rounded-[24px] border border-gray-200 shadow-sm text-slate-900 text-center md:text-left">
-                            <h3 id="form-heading" class="text-xl font-black mb-2 tracking-tight text-slate-950">That's Me — Build It.</h3>
-                            <p id="form-subheading" class="text-gray-500 font-medium mb-6 text-sm leading-relaxed">Drop your details below. We'll text your preview link within 24 hours.</p>
+                        <div class="bg-white p-5 md:p-8 rounded-lg border border-gray-200 shadow-sm text-slate-900">
+                            <h3 id="form-heading" class="text-2xl font-black mb-2 tracking-tight text-slate-950">Send your preview request</h3>
+                            <p id="form-subheading" class="text-gray-600 font-medium mb-6 text-sm leading-relaxed">Add your name below. Your contact detail has already been carried through.</p>
 
                             <form id="onboarding-form" name="Website Request" method="POST" data-netlify="true" class="space-y-4 text-left">
                                 <input type="hidden" name="form-name" value="Website Request">
@@ -211,33 +254,33 @@
                                 
                                 <div id="manual-fields-container" class="hidden space-y-4">
                                     <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Business Name</label>
-                                        <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-xl px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
+                                        <label class="block text-sm font-bold text-slate-800 mb-2">Business name</label>
+                                        <input type="text" name="Manual_Business_Name" id="manual-biz-name" class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave's Garage">
                                     </div>
                                     <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Primary Trade / Service</label>
-                                        <input type="text" name="Manual_Trade" id="manual-trade" class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-xl px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Plumber, Accountant">
+                                        <label class="block text-sm font-bold text-slate-800 mb-2">Main trade or service</label>
+                                        <input type="text" name="Manual_Trade" id="manual-trade" class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Plumber, accountant">
                                     </div>
                                     <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Town / Location</label>
-                                        <input type="text" name="Manual_Location" id="manual-location" class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-xl px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Burnley">
+                                        <label class="block text-sm font-bold text-slate-800 mb-2">Town or service area</label>
+                                        <input type="text" name="Manual_Location" id="manual-location" class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Burnley">
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Your Name</label>
-                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-xl px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave">
+                                    <label class="block text-sm font-bold text-slate-800 mb-2">Your name</label>
+                                    <input type="text" name="Client_Name" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="e.g. Dave">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">Best Contact</label>
-                                    <input type="text" name="Client_Contact" id="client-contact" required class="w-full bg-brand-gray border border-transparent text-slate-900 rounded-xl px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Mobile or email">
+                                    <label class="block text-sm font-bold text-slate-800 mb-2">Best contact</label>
+                                    <input type="text" name="Client_Contact" id="client-contact" required class="w-full bg-brand-gray border border-gray-200 text-slate-900 rounded-lg px-4 min-h-[50px] text-sm font-semibold focus:outline-none input-glow-focus transition-all placeholder-gray-400" placeholder="Mobile or email">
                                 </div>
                                 
                                 <button type="submit" id="submit-btn" data-track="submit_preview_request" class="w-full bg-blue-600 text-white font-bold text-base px-6 py-3.5 rounded-full hover:bg-blue-700 active:scale-[0.98] transition-all mt-4 shadow-soft flex justify-center items-center">
-                                    <span>Get My Preview &rarr;</span>
+                                    <span>Send preview request</span>
                                 </button>
-                                <p class="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-3">
-                                    <i class="fas fa-lock text-brand-teal mr-1"></i> A real person reviews your request.
+                                <p id="form-message" class="text-center text-xs text-gray-500 font-medium mt-3" aria-live="polite">
+                                    <i class="fas fa-lock text-brand-teal mr-1" aria-hidden="true"></i> A real person reviews every request.
                                 </p>
                             </form>
                         </div>
@@ -247,7 +290,7 @@
                          <div class="bg-white rounded-[24px] p-5 md:p-8 shadow-sm border border-gray-200 text-center md:text-left">
                             <h3 class="text-[10px] md:text-xs font-bold text-slate-900 uppercase tracking-widest mb-2">Project Strategy</h3>
                             <p class="text-sm text-gray-600 font-medium leading-relaxed">
-                                We will build a high-converting, mobile-first landing page utilizing your existing Google reviews and imagery to establish immediate trust. The layout will be optimized for local SEO, driving direct phone calls and inquiries from customers in your area.
+                                We will use your services, location, public photos and reviews to shape a clear mobile-first preview for local customers.
                             </p>
                         </div>
                     </div>
@@ -292,16 +335,13 @@
 
             <div id="state-success" class="hidden w-full animate-fade-in mt-10">
                 <div class="max-w-3xl mx-auto text-center">
-                    <div class="rounded-[32px] p-8 md:p-12 bg-blue-50 border border-blue-100 shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 p-6 opacity-10 pointer-events-none">
-                            <i class="fas fa-check-circle text-8xl text-blue-600"></i>
-                        </div>
-                        <span class="text-[10px] md:text-xs font-bold text-blue-600 mb-3 uppercase tracking-widest block relative z-10"><i class="fas fa-check-circle mr-1"></i> Request Received</span>
+                    <div class="rounded-lg p-8 md:p-12 bg-blue-50 border border-blue-100 shadow-sm">
+                        <span class="text-xs font-bold text-blue-600 mb-3 uppercase tracking-widest block"><i class="fas fa-check-circle mr-1" aria-hidden="true"></i> Request received</span>
                         <h2 class="text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-[1] mb-4 relative z-10">
                             We're on it.
                         </h2>
                         <p class="text-base md:text-lg text-gray-600 font-medium mb-8 max-w-xl mx-auto leading-relaxed relative z-10">
-                            Site preview initiated for <strong id="success-biz-name" class="text-slate-950 font-black"></strong>. A real person will review your details within the hour. Your draft site lands by tomorrow.
+                            We have the details for <strong id="success-biz-name" class="text-slate-950 font-black"></strong>. A real person will review them and send your preview within 24 hours.
                         </p>
                         <div class="flex justify-center relative z-10">
                             <a href="/" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold text-base hover:bg-blue-700 active:scale-[0.98] transition-all shadow-soft">
@@ -312,26 +352,9 @@
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-16 mt-20">
-                <p class="text-xs font-bold text-brand-teal mb-3 uppercase tracking-widest text-center md:text-left">What happens next</p>
-                <h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-950 mb-8 text-center md:text-left">Simple, calm, no sales trap.</h2>
-                <div class="grid md:grid-cols-3 gap-5">
-                    <div class="bg-white p-6 rounded-[24px] border border-gray-200 shadow-sm text-center md:text-left flex flex-col items-center md:items-start">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-xl font-black text-blue-600 mb-4">1</div>
-                        <h3 class="text-xl font-black text-slate-950 mb-2 tracking-tight">Leave your contact.</h3>
-                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Your mobile or email is enough for us to follow up without needing a live call.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-[24px] border border-gray-200 shadow-sm text-center md:text-left flex flex-col items-center md:items-start">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-xl font-black text-blue-600 mb-4">2</div>
-                        <h3 class="text-xl font-black text-slate-950 mb-2 tracking-tight">Add the business.</h3>
-                        <p class="text-sm text-gray-600 font-medium leading-relaxed">Search Google or enter the details manually if you want a more accurate first draft.</p>
-                    </div>
-                    <div class="bg-slate-950 p-6 rounded-[24px] shadow-sm text-white border border-slate-800 text-center md:text-left flex flex-col items-center md:items-start">
-                        <div class="w-12 h-12 rounded-xl bg-brand-teal/20 flex items-center justify-center text-xl font-black text-brand-teal mb-4">3</div>
-                        <h3 class="text-xl font-black mb-2 tracking-tight">Review the preview.</h3>
-                        <p class="text-sm text-slate-400 font-medium leading-relaxed">If you like it, we launch it on the £35/month Website Care plan, with optional Google Business Profile and local SEO support.</p>
-                    </div>
-                </div>
+            <div id="preview-reassurance" class="border-t border-gray-200 pt-6 mt-12 flex flex-col md:flex-row md:items-start gap-2 md:gap-8">
+                <p class="text-xs font-bold text-teal-700 uppercase tracking-widest flex-none">What happens next</p>
+                <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed max-w-3xl">We review the business, build the first version and send it to you within 24 hours. You decide whether it is good enough to launch on Website Care.</p>
             </div>
 
         </div>
@@ -344,20 +367,38 @@
         const params = new URLSearchParams(window.location.search);
         const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
         const initialLead = (params.get('lead') || hashParams.get('lead') || '').trim();
-        if (initialLead) {
+
+        function showBusinessStep(lead, focusSearch = false) {
             const initialLeadInput = document.getElementById('initial-lead');
             const contactInput = document.getElementById('client-contact');
             const quickContactInput = document.getElementById('get-started-quick-contact');
+            const leadStep = document.getElementById('lead-step');
+            const leadConfirmed = document.getElementById('lead-confirmed');
+            const businessStep = document.getElementById('business-step');
+            const businessSearch = document.getElementById('business-search');
             const eyebrow = document.getElementById('get-started-eyebrow');
             const heading = document.getElementById('get-started-heading');
             const intro = document.getElementById('get-started-intro');
 
-            if (initialLeadInput) initialLeadInput.value = initialLead;
-            if (contactInput) contactInput.value = initialLead;
-            if (quickContactInput) quickContactInput.value = initialLead;
-            if (eyebrow) eyebrow.innerHTML = '<span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-teal animate-pulse"></span> Got it. This next bit is optional.';
-            if (heading) heading.textContent = 'Want a better preview?';
-            if (intro) intro.textContent = 'Search your Google Business Profile, or enter the business manually. This helps us build something closer to what you actually need.';
+            if (initialLeadInput) initialLeadInput.value = lead;
+            if (contactInput) contactInput.value = lead;
+            if (quickContactInput) quickContactInput.value = lead;
+            if (leadStep) leadStep.classList.add('hidden');
+            if (leadConfirmed) leadConfirmed.classList.remove('hidden');
+            if (businessStep) businessStep.classList.remove('hidden');
+            if (eyebrow) eyebrow.textContent = 'Contact received';
+            if (heading) heading.textContent = 'Tell us about your business.';
+            if (intro) intro.textContent = 'Your contact is saved. Find the business below or enter its details manually so we can make the first preview more useful.';
+            if (focusSearch && businessSearch) businessSearch.focus();
+        }
+
+        if (initialLead) {
+            showBusinessStep(initialLead);
+
+            const cleanParams = new URLSearchParams(window.location.search);
+            cleanParams.delete('lead');
+            const cleanQuery = cleanParams.toString();
+            window.history.replaceState(null, document.title, `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ''}`);
         }
 
         const quickLeadForm = document.getElementById('get-started-quick-lead-form');
@@ -373,30 +414,23 @@
                 if (!lead) return;
 
                 submit.disabled = true;
-                submit.textContent = 'Saved';
-
-                const initialLeadInput = document.getElementById('initial-lead');
-                const contactInput = document.getElementById('client-contact');
-                const eyebrow = document.getElementById('get-started-eyebrow');
-                const heading = document.getElementById('get-started-heading');
-                const intro = document.getElementById('get-started-intro');
-
-                if (initialLeadInput) initialLeadInput.value = lead;
-                if (contactInput) contactInput.value = lead;
-                if (eyebrow) eyebrow.innerHTML = '<span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-teal animate-pulse"></span> Contact saved. No phone call needed.';
-                if (heading) heading.textContent = 'We can start from here.';
-                if (intro) intro.textContent = 'Your contact detail is saved. Search your Google Business Profile or enter the business manually if you want a more accurate preview.';
-                if (help) help.textContent = 'Saved. You can stop here, or add your business below so we can send a sharper preview.';
+                submit.textContent = 'Saving...';
+                if (help) help.textContent = 'Saving your contact detail...';
 
                 const formData = new FormData(quickLeadForm);
                 fetch('/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams(formData).toString()
-                }).catch(() => {
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Unable to save contact');
+                    showBusinessStep(lead, true);
+                })
+                .catch(() => {
                     submit.disabled = false;
-                    submit.textContent = 'Save my contact';
-                    if (help) help.textContent = 'That did not save. Please try again or use WhatsApp.';
+                    submit.textContent = 'Continue';
+                    if (help) help.textContent = 'That did not save. Please try again or contact MadeReal directly.';
                 });
             });
         }
@@ -516,16 +550,13 @@
                 const formBizName = document.getElementById('manual-biz-name');
                 if (formBizName) formBizName.value = place.name || '';
 
-                // UI Transitions
-                document.getElementById('form-heading').textContent = "That's Me — Build It.";
-                document.getElementById('form-subheading').textContent = "Drop your details below. We'll text your preview link within 24 hours.";
-                
-                // Show specific blocks
+                document.getElementById('form-heading').textContent = 'Send your preview request';
+                document.getElementById('form-subheading').textContent = 'Add your name below. Your contact detail has already been carried through.';
+
                 document.getElementById('brief-header-block').classList.remove('hidden');
-                document.getElementById('brief-strategy-block').classList.remove('hidden');
-                document.getElementById('google-data-remainder').classList.remove('hidden');
-                
-                // Hide manual fields
+                document.getElementById('brief-strategy-block').classList.add('hidden');
+                document.getElementById('google-data-remainder').classList.add('hidden');
+
                 document.getElementById('manual-fields-container').classList.add('hidden');
                 document.getElementById('manual-biz-name').removeAttribute('required');
                 document.getElementById('manual-trade').removeAttribute('required');
@@ -533,19 +564,23 @@
 
                 document.getElementById('state-search').classList.add('hidden');
                 document.getElementById('state-build').classList.remove('hidden');
+                document.getElementById('preview-reassurance').classList.add('hidden');
                 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
 
-        initPlacesSearch();
+        initPlacesSearch().catch(() => {
+            const placesStatus = document.getElementById('places-status');
+            if (placesStatus) placesStatus.textContent = 'Google search is unavailable right now. Manual entry still works.';
+        });
 
         // Manual Entry Logic
         const manualBtn = document.getElementById('manual-entry-btn');
         if(manualBtn) {
             manualBtn.addEventListener('click', () => {
-                document.getElementById('form-heading').textContent = "Tell us about your business.";
-                document.getElementById('form-subheading').textContent = "We couldn't find you on Google, but we can still build your preview. Drop your details below.";
+                document.getElementById('form-heading').textContent = 'Add your business details';
+                document.getElementById('form-subheading').textContent = 'Three short details are enough for us to prepare the right first version.';
                 document.getElementById('success-biz-name').textContent = "your business";
                 
                 // Hide specific blocks
@@ -561,6 +596,18 @@
 
                 document.getElementById('state-search').classList.add('hidden');
                 document.getElementById('state-build').classList.remove('hidden');
+                document.getElementById('preview-reassurance').classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        const backToSearch = document.getElementById('back-to-search');
+        if (backToSearch) {
+            backToSearch.addEventListener('click', () => {
+                document.getElementById('state-build').classList.add('hidden');
+                document.getElementById('state-search').classList.remove('hidden');
+                document.getElementById('preview-reassurance').classList.remove('hidden');
+                document.getElementById('business-search').focus();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
@@ -571,8 +618,13 @@
             e.preventDefault();
             
             const submitBtn = document.getElementById('submit-btn');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> SENDING...';
+            const formMessage = document.getElementById('form-message');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
             submitBtn.disabled = true;
+            if (formMessage) {
+                formMessage.classList.remove('text-red-600');
+                formMessage.textContent = 'Sending your preview request...';
+            }
 
             const formData = new FormData(form);
 
@@ -581,15 +633,19 @@
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData).toString()
             })
-            .then(() => {
+            .then(response => {
+                if (!response.ok) throw new Error('Unable to submit request');
                 document.getElementById('state-build').classList.add('hidden');
                 document.getElementById('state-success').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             })
-            .catch((error) => {
-                alert("Something went wrong. Please try again.");
-                submitBtn.innerHTML = '<span>Get My Preview &rarr;</span>';
+            .catch(() => {
+                submitBtn.innerHTML = '<span>Send preview request</span>';
                 submitBtn.disabled = false;
+                if (formMessage) {
+                    formMessage.classList.add('text-red-600');
+                    formMessage.textContent = 'That did not send. Please try again or contact MadeReal directly.';
+                }
             });
         });
     </script>
