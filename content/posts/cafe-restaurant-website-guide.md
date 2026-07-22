@@ -53,4 +53,4 @@ Mention your town, cuisine, venue type, and nearby area naturally. If you operat
 
 ## Keep the site simple and useful
 
-MadeReal builds [hospitality websites](/services/hospitality-websites.html) for a [free website build](/free-website-build.html) and £35/month Website Care. The goal is simple: make people hungry, remove doubt, and make the next step easy.
+MadeReal builds [hospitality websites](/services/hospitality-websites.html) for a flat [£197 one-off fee](/get-started.html). The goal is simple: make people hungry, remove doubt, and make the next step easy.

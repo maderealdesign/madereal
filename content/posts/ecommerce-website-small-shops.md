@@ -50,4 +50,4 @@ Many people will arrive from Instagram, Google, QR codes, or word of mouth. Your
 
 Blog posts, product guides, and local pages can support search. Link from helpful articles to product categories, service pages, and [your free website preview](/get-started.html) where relevant.
 
-MadeReal builds product-led [e-commerce websites](/services/ecommerce-websites.html) from £35/month for small businesses that want a sharper starting point.
+MadeReal builds product-led [e-commerce websites](/services/ecommerce-websites.html) from £197 for small businesses that want a sharper starting point.

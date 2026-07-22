@@ -48,4 +48,4 @@ Social media can create awareness. Your site should convert that attention with:
 
 ## Own the important page
 
-MadeReal builds websites for a [free website build](/free-website-build.html) and £35/month Website Care, so small businesses do not have to rely only on social media or expensive monthly website packages.
+MadeReal builds websites for a flat [£197 one-off fee](/get-started.html), so small businesses do not have to rely only on social media or expensive monthly website packages.

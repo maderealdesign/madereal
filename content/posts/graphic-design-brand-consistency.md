@@ -42,7 +42,7 @@ Your website is often the most complete version of your brand. Once the site is 
 - Price lists
 - Appointment cards
 
-That is why pairing [graphic design](/graphic-design.html) with a [managed website](/pay-monthly-websites.html) can make a small business look much more established.
+That is why pairing [graphic design](/graphic-design.html) with a [£197 website](/get-started.html) can make a small business look much more established.
 
 ## Print and web should work together
 

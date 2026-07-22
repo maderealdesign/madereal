@@ -54,4 +54,4 @@ List the towns you serve. This can support pages like [web design Burnley](/web-
 
 Decide what you want visitors to do: call, enquire, book, order, or [request a free website preview](/get-started.html).
 
-MadeReal can pull a lot of this from your Google listing, then turn it into a professional website with a free website build and £35/month Website Care.
+MadeReal can pull a lot of this from your Google listing, then turn it into a professional website for a flat £197 one-off fee.

@@ -51,6 +51,6 @@ Mention the towns you actually cover. If you work across Lancashire, link natura
 
 ## Keep the offer simple
 
-MadeReal builds roofing websites for a [free website build](/free-website-build.html) and £35/month Website Care. Hosting and support included. Free preview first.
+MadeReal builds roofing websites for a flat [£197 one-off fee](/get-started.html). No monthly website rent. Free preview first.
 
 If your roofing business is still relying only on Facebook or word of mouth, a proper site gives customers a stronger reason to trust you before they call.

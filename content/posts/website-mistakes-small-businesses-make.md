@@ -48,6 +48,6 @@ If your site does not mention your services and locations clearly, Google has le
 
 ## Paying too much too early
 
-Some businesses spend thousands before they know what actually converts. MadeReal keeps the first step lean: a professional [managed website](/pay-monthly-websites.html) with clear cancellation terms.
+Some businesses spend thousands before they know what actually converts. MadeReal keeps the first step lean: a professional [£197 website](/get-started.html) with no MadeReal monthly retainer.
 
 Fix the basics first. Then improve from real enquiries.

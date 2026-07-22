@@ -1,20 +1,20 @@
 ---
-title: "Managed Website Fee vs Monthly Retainer for Small Businesses"
-meta_description: "Compare managed website fees and monthly website retainers so your small business can avoid overpaying for a simple professional website."
+title: "One-Off Website Fee vs Monthly Retainer for Small Businesses"
+meta_description: "Compare one-off website fees and monthly website retainers so your small business can avoid overpaying for a simple professional website."
 date: "2026-05-13"
-slug: "managed-website-fee-vs-monthly-retainer"
+slug: "one-off-website-fee-vs-monthly-retainer"
 author: "MadeReal"
 keywords:
-  - managed website fee
+  - one-off website fee
   - monthly website retainer
   - website ownership
   - affordable web design
-excerpt: "Monthly website deals can look cheap at first. Here is how to decide whether a managed website fee or retainer is right for you."
+excerpt: "Monthly website deals can look cheap at first. Here is how to decide whether a one-off website fee or retainer is right for you."
 ---
 
-# Managed Website Fee vs Monthly Retainer
+# One-Off Website Fee vs Monthly Retainer
 
-A vague monthly website retainer can sound harmless. £50 here, £75 there. The sales pitch is usually simple: “we build it cheap and you just pay monthly.”
+A monthly website retainer can sound harmless. £50 here, £75 there. The sales pitch is usually simple: “we build it cheap and you just pay monthly.”
 
 The problem is ownership.
 
@@ -32,17 +32,17 @@ Monthly support is not always bad. It can make sense if you need:
 
 But many local businesses do not need that on day one. A roofer, electrician, cafe, salon, consultant, or local shop usually needs a clear, fast, professional website first.
 
-## The danger of unclear monthly work
+## The danger of website rent
 
-If you pay £60 per month for two years, that is £1,440. If you also paid a setup fee, the real cost is even higher, so the ongoing work should be obvious.
+If you pay £60 per month for two years, that is £1,440. If you also paid a setup fee, the real cost is even higher.
 
 For a simple brochure website, that can be overkill.
 
-MadeReal’s core offer is different: [free website build and £35/month Website Care](/pay-monthly-websites.html). Clear cancellation and transfer terms.
+MadeReal’s core offer is different: [£197 one-off for a professional website](/get-started.html). No MadeReal monthly website retainer. No site held hostage.
 
-## What a managed website should still include
+## What a one-off website should still include
 
-Cheap should not mean weak. A proper managed website should still include:
+Cheap should not mean weak. A proper one-off website should still include:
 
 - Mobile-first design
 - Clear calls to action

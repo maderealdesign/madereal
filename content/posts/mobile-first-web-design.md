@@ -55,4 +55,4 @@ Open your current website on your phone and ask:
 
 If not, it may be time for a rebuild.
 
-MadeReal builds mobile-first [small business websites](/services/small-business-websites.html) for a [free website build](/free-website-build.html) and £35/month Website Care.
+MadeReal builds mobile-first [small business websites](/services/small-business-websites.html) for a flat [£197 one-off fee](/get-started.html).

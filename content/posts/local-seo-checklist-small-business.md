@@ -44,4 +44,4 @@ Every important page should connect to related pages. Blog posts should link to 
 
 Most local searches happen on phones. If your site is slow, cluttered, or hard to tap, you lose enquiries.
 
-MadeReal builds Google-ready websites for a [free website build](/free-website-build.html) and £35/month Website Care, with local SEO foundations included from the start.
+MadeReal builds Google-ready websites for a flat [£197 one-off fee](/get-started.html), with local SEO foundations included from the start.

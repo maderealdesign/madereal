@@ -43,4 +43,4 @@ Businesses around Colne may also serve Nelson, Pendle, Barnoldswick, Burnley, an
 
 ## Keep the price sensible
 
-MadeReal builds professional local websites for a [free website build](/free-website-build.html) and £35/month Website Care. Free preview first, clear cancellation terms.
+MadeReal builds professional local websites for a flat [£197 one-off fee](/get-started.html). Free preview first, no MadeReal monthly retainer.

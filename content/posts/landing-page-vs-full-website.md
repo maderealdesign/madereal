@@ -29,7 +29,7 @@ A landing page is a focused page built around one main goal. That goal might be:
 - Show a menu
 - Capture local enquiries
 
-MadeReal’s [managed website offer](/get-started.html) is designed around this kind of focused, practical start.
+MadeReal’s [£197 website offer](/get-started.html) is designed around this kind of focused, practical start.
 
 ## When a landing page is enough
 

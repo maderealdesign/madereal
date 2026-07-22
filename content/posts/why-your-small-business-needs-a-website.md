@@ -1,6 +1,6 @@
 ---
 title: "Why Your Small Business Needs a Website in 2026"
-meta_description: "Discover why every small business needs a fast, professional website in 2026, and how MadeReal builds high-quality sites for a free build and £35/month Website Care."
+meta_description: "Discover why every small business needs a fast, professional website in 2026, and how MadeReal builds high-quality sites for a flat £197."
 date: "2026-05-15"
 slug: "why-your-small-business-needs-a-website"
 author: "MadeReal"
@@ -8,13 +8,13 @@ keywords:
   - small business website
   - affordable web design
   - Lancashire web design
-  - managed website
+  - £197 website
 excerpt: "A practical guide for local businesses that still rely on Facebook pages, word of mouth, or outdated websites."
 ---
 
 # Why Your Small Business Needs a Website in 2026
 
-If your business is still relying on Facebook, Instagram, word of mouth, or an old website that no longer reflects the quality of your work, you are making customers work too hard. If you want the short route, MadeReal builds [small business websites](/services/small-business-websites.html) for a [free website build](/free-website-build.html) and £35/month Website Care.
+If your business is still relying on Facebook, Instagram, word of mouth, or an old website that no longer reflects the quality of your work, you are making customers work too hard. If you want the short route, MadeReal builds [small business websites](/services/small-business-websites.html) for a flat [£197 one-off fee](/get-started.html).
 
 People do not just search for businesses anymore. They compare them. They check reviews, opening hours, photos, prices, services, location, and whether the business feels professional enough to trust.
 
@@ -63,13 +63,13 @@ Clear pages help both customers and search engines.
 
 You can also support local rankings with focused location pages, like [web design in Burnley](/web-design-burnley.html), [web design in Colne](/web-design-colne.html), and [web design in Pendle](/web-design-pendle.html).
 
-## The mistake: accepting an unclear website plan
+## The mistake: paying monthly rent for a simple website
 
-Many small businesses are quoted a high setup fee, then pushed into a monthly package where the ongoing work is not explained clearly.
+Many small businesses are quoted a high setup fee, then locked into monthly website retainers they do not really need.
 
-That is why MadeReal keeps the core offer simple: a professional, mobile-ready website with a clear **£35/month Website Care plan**. Hosting, support and clear cancellation terms included.
+That is why MadeReal keeps the core offer simple: a professional, mobile-ready website for a flat **£197 one-off fee**. No MadeReal monthly retainer. No website held hostage.
 
-You get a free preview first. If you like it, the site goes live on Website Care from £35/month.
+You get a free preview first. If you like it, we finish the site and hand it over.
 
 ## What a small business website should include
 

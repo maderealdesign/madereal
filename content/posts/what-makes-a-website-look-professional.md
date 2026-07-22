@@ -48,4 +48,4 @@ The visitor should always know what to do next. Call, book, enquire, order, visi
 
 ## Fast, focused, useful
 
-MadeReal builds professional [small business websites](/services/small-business-websites.html) with a free website build and £35/month Website Care. The point is not to overcomplicate the site. The point is to make the business look real, trusted, and easy to contact.
+MadeReal builds professional [small business websites](/services/small-business-websites.html) for a flat £197 one-off fee. The point is not to overcomplicate the site. The point is to make the business look real, trusted, and easy to contact.

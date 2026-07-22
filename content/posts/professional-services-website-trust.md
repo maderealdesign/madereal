@@ -50,4 +50,4 @@ Many professional firms still win work locally. If you serve Lancashire, locatio
 
 Decision-makers still check you on their phones. Your site should feel calm, fast, and professional at every screen size.
 
-MadeReal builds [professional services websites](/services/professional-services.html) for a [free website build](/free-website-build.html) and £35/month Website Care, with a free preview first.
+MadeReal builds [professional services websites](/services/professional-services.html) for a flat [£197 one-off fee](/get-started.html), with a free preview first.

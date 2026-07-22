@@ -97,7 +97,6 @@ export default async (req: Request) => {
                     business_town: businessTown,
                     client_phone: clean(payload.Client_Phone || payload.client_phone),
                     existing_link: clean(payload.Existing_Link || payload.existing_link),
-                    plan: clean(payload.Plan || payload.plan, "Website Care 35 GBP per month"),
                     source_page: clean(payload.Source_Page || "Pay Monthly Checkout"),
                 },
                 ...(Number.isFinite(trialDays) && trialDays > 0 ? { trial_period_days: trialDays } : {}),

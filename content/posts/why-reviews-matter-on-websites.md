@@ -46,4 +46,4 @@ Your Google Business Profile reviews support local trust. Your website can refer
 
 After a good job, ask. Make it easy. The more real reviews you collect, the stronger your website and local presence become.
 
-MadeReal can build reviews into your [free website preview](/get-started.html), using your existing Google listing as a starting point.
+MadeReal can build reviews into your [£197 website preview](/get-started.html), using your existing Google listing as a starting point.
