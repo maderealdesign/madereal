@@ -1,2 +1,16 @@
 # Keep one canonical URL for Google.
 /index.html / 301
+
+# Retire old URLs without wasting their existing Google signals.
+/print-and-signage /printing.html 301
+/websites-for-plumbers /services/tradesman-websites.html 301
+/portfolio /case-studies.html 301
+/websites /services/small-business-websites.html 301
+/websites-for-electricians /services/tradesman-electricians.html 301
+/stoke-on-trent.html /services/small-business-websites.html 301
+/websites-for-landscapers.html /services/tradesman-websites.html 301
+/logo-design.html /graphic-design.html 301
+/websites-for-salons.html /services/small-business-websites.html 301
+/telford.html /services/small-business-websites.html 301
+/warrington.html /services/small-business-websites.html 301
+/bolton.html /services/small-business-websites.html 301
