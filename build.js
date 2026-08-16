@@ -47,6 +47,7 @@ const trackedServicePages = [
     { name: 'Electrician Websites', path: '/services/tradesman-electricians.html', description: 'Websites for electricians and electrical contractors.' },
     { name: 'Electrician Websites Burnley', path: '/services/electrician-websites-burnley.html', description: 'Electrician websites for Burnley electricians, electrical contractors, EICR, rewiring and emergency callout businesses.' },
     { name: 'Hospitality Websites', path: '/services/hospitality-websites.html', description: 'Websites for cafes, restaurants, pubs, bars and takeaways.' },
+    { name: 'Online Restaurant Menu System', path: '/services/restaurant-menu-system.html', description: 'A bespoke mobile restaurant menu with a staff editor, live publishing, managed hosting and MadeReal support for 197 GBP setup and 35 GBP per month.' },
     { name: 'Cafe Websites Colne', path: '/services/cafe-websites-colne.html', description: 'Cafe websites for Colne cafes, coffee shops, brunch spots, takeaway counters and local hospitality businesses.' },
     { name: 'Restaurant Websites Skipton', path: '/services/restaurant-websites-skipton.html', description: 'Restaurant websites for Skipton and Craven venues, including menus, bookings, events, local SEO and Google Business Profile traffic.' },
     { name: 'Professional Services Websites', path: '/services/professional-services.html', description: 'Websites for consultants, accountants, clinics, advisors and local firms.' },
@@ -1084,6 +1085,8 @@ function buildLlmsTxt(posts) {
     const llms = `# MadeReal
 
 MadeReal Design Ltd is a Colne, Lancashire web design business. MadeReal builds simple, mobile-first websites for UK local businesses for a flat one-off fee of 197 GBP, with a free preview before payment and no MadeReal monthly retainer.
+
+MadeReal also offers a separate managed restaurant menu system for 197 GBP setup and 35 GBP per month. Its monthly fee covers the live staff editor, database, hosting, platform maintenance, updates and support.
 
 ## Core Offer
 
