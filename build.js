@@ -951,6 +951,16 @@ function injectServiceLeadCapture(content, file) {
 function injectHomeAlignmentStyles(content, file) {
     if (file === 'index.html') return content;
 
+    if (file === 'services/restaurant-menu-system.html') {
+        if (!content.includes('/assets/css/home.css')) {
+            content = content.replace(
+                '</head>',
+                '    <link rel="stylesheet" href="/assets/css/home.css">\n</head>'
+            );
+        }
+        return content;
+    }
+
     const styleLinks = [
         '    <link rel="stylesheet" href="/assets/css/home.css">',
         '    <link rel="stylesheet" href="/assets/css/home-alignment.css">'
