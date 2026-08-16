@@ -4,7 +4,7 @@
 
 This document maps all pages on the MadeReal website. The site uses a static HTML build system where source files are in the root directory and built output goes to `dist/`.
 
-**Current indexed build target:** 63 indexable pages according to `npm run seo:monitor` on June 30, 2026.
+**Current indexed build target:** 70 indexable pages according to `npm run seo:audit-pages` on August 16, 2026.
 
 This document is a working map. The authoritative crawl list is generated at build time in `dist/sitemap.xml`, and the current quality snapshot lives in `seo/dashboard.md`.
 
@@ -24,7 +24,7 @@ These are the main navigation pages located directly in the project root:
 
 ---
 
-## Service Pages (16 indexable service/offer pages)
+## Service Pages (17 indexable service/offer pages)
 
 ### Top-Level Services (2 pages)
 
@@ -35,7 +35,7 @@ Located in root directory:
 | `graphic-design.html` | `/graphic-design` | Graphic design services overview |
 | `printing.html` | `/printing` | Printing services overview |
 
-### Subdirectory Services (14 pages)
+### Subdirectory Services (15 pages)
 
 Located in `services/` subfolder:
 
@@ -46,6 +46,7 @@ Located in `services/` subfolder:
 | `services/tradesman-electricians.html` | `/services/tradesman-electricians` | Electrician website packages |
 | `services/small-business-websites.html` | `/services/small-business-websites` | Small business website packages |
 | `services/hospitality-websites.html` | `/services/hospitality-websites` | Hospitality/restaurant website packages |
+| `services/restaurant-menu-system.html` | `/services/restaurant-menu-system` | Managed branded restaurant menus with a staff editor and live publishing |
 | `services/professional-services.html` | `/services/professional-services` | Professional services (lawyers, consultants) websites |
 | `services/accountant-websites-lancashire.html` | `/services/accountant-websites-lancashire` | Accountant, bookkeeper, payroll and tax advisor websites |
 | `services/tradesman-websites-burnley.html` | `/services/tradesman-websites-burnley` | Burnley tradesman website page |
@@ -75,7 +76,7 @@ These are dedicated local SEO pages for each target town. Each targets "web desi
 
 ---
 
-## Blog System (dynamic - 30 built posts)
+## Blog System (dynamic - 35 built posts)
 
 Blog posts are written in Markdown and auto-generated during build:
 
@@ -191,6 +192,7 @@ dist/
    - Business Websites
      - Small Business
      - Hospitality
+     - Live Restaurant Menus
      - Professional Services
      - Accountants
      - E-commerce
@@ -261,5 +263,5 @@ Before deploying changes:
 
 ---
 
-*Last updated: June 30, 2026*
+*Last updated: August 16, 2026*
 *Sitemap automatically generated from source files*
