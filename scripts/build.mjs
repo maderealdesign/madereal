@@ -11,7 +11,9 @@ const hash=createHash('sha256').update(css+js).digest('hex').slice(0,12);
 fs.writeFileSync(path.join(output,`styles.${hash}.css`),css);fs.writeFileSync(path.join(output,`app.${hash}.js`),js);
 const indexable=[];
 for(const [route,original]of Object.entries(pages)){
-const html=original.replace('href="/styles.css"',`href="/styles.${hash}.css"`).replace('src="/app.js"',`src="/app.${hash}.js"`);
+let html=original.replace('href="/styles.css"',`href="/styles.${hash}.css"`).replace('src="/app.js"',`src="/app.${hash}.js"`);
+// The private design copy is static; enquiries belong to the live Netlify form.
+if(process.env.HOSTING_TARGET==='sites')html=html.replace(/<form\b[^>]*data-lead-form[\s\S]*?<\/form>/,`<section class="preview-form"><p class="eyebrow">PRIVATE DESIGN PREVIEW</p><h2>Your business could be next.</h2><p>This is a private copy of the MadeReal website. Use our live enquiry form to send your details securely.</p><a class="button" href="https://madereal.uk/free-preview/">Open the live preview form <span aria-hidden="true">↗</span></a><p class="fine">No card or deposit. Your homepage preview is free.</p></section>`);
 const file=path.join(output,route==='/'?'index.html':route.replace(/^\//,'')+'index.html');fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html);
 if(route==='/404/')fs.writeFileSync(path.join(output,'404.html'),html);
 if(!['/404/','/checkout/','/payment-return/','/preview-received/'].includes(route))indexable.push(route);

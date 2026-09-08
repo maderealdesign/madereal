@@ -57,7 +57,7 @@ Free homepage preview, then £35/month if approved. Cancel anytime; the website 
 
 ## Publishing
 
-Netlify site ID: `406c26ef-c9cf-473c-a530-74b346695cd4` (`madereal`). Publish `dist`, build `npm run build`. Preview builds use `PREVIEW=1`; production must not.
+Netlify site ID: `406c26ef-c9cf-473c-a530-74b346695cd4` (`madereal`). The rebuild source branch is `codex/showcase-rebuild`. Publish `dist`, build `npm run build`. Preview builds use `PREVIEW=1`; production must not.
 
 ```sh
 PREVIEW=1 npm run build
@@ -65,6 +65,8 @@ npx netlify deploy --site 406c26ef-c9cf-473c-a530-74b346695cd4 --dir dist --func
 ```
 
 Run desktop/mobile crawl, accessibility and performance tests against that draft. Deploy production only after review. Preserve the previous production deploy ID for rollback. The rebuild must be committed to the deployment branch so future Git builds cannot restore the old marketing website.
+
+For the separate owner-private Sites copy, build with `PREVIEW=1 HOSTING_TARGET=sites npm run build`. That static copy links to the live Netlify enquiry form instead of pretending to process submissions itself. Do not set `HOSTING_TARGET=sites` on Netlify.
 
 ## Measurement
 
