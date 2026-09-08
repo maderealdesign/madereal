@@ -1,0 +1,1 @@
+{"name":"madereal-showcase-rebuild","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","dev":"node scripts/server.mjs","verify":"node scripts/verify.mjs"},"dependencies":{"gray-matter":"4.0.3","marked":"18.0.3","stripe":"22.3.0"},"engines":{"node":">=22"}}
