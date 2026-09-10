@@ -19,11 +19,13 @@ Local preview: http://127.0.0.1:4321/ . Forms intentionally return an error loca
 
 - `content/site.json`: business identity and offer facts.
 - `content/projects.json`: ordered real portfolio records, screenshots and descriptions.
+- `content/hospitality.json`: five real online-menu projects, separate from the main 11-project hero order. Public menus and screenshots checked on 10 September 2026; owner menu editing is confirmed by Dom, not by accessing client logins.
 - `content/posts/*.md`: Markdown articles with YAML metadata; `draft: true` excludes a draft.
 - `content/redirects.json`: explicit old-to-new URL migration map.
 - `src/components.mjs`: shared semantic layout and UI components.
 - `src/pages.mjs`, `src/services.mjs`, `src/information.mjs`: page composition.
 - `public/styles.css`: responsive brand system; `public/app.js`: progressive enhancement.
+- `src/home-motion.mjs` and `public/light-field.js`: one persistent particle field and clearly labelled form/area-page demonstrations. Demo fields are not submitted or stored. Real client enquiries still use the normal preview form.
 
 This content layer can be connected to a Git-based CMS or replaced with a build-time content export from a headless CMS. No CMS account, OAuth app or editorial login has been silently provisioned. The existing `/admin` remains the separate Firebase client-preview manager, not an editor for this marketing website.
 
