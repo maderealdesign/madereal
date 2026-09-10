@@ -70,6 +70,9 @@
 .preview-window{display:block;width:100%;overflow:hidden;background:#fff;border:1px solid #dce2d8;border-radius:8px}
 .preview-window .browser-bar{height:27px;font-size:10px;border-radius:0;gap:12px}
 .preview-window .browser-bar>span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser-bar .browser-dots{display:block;flex:none;width:3px;height:3px;margin-right:12px;border-radius:50%;background:#829077;box-shadow:5px 0 #829077,10px 0 #829077}
+.browser-bar .browser-open{display:grid;place-items:center;flex:none}
+.browser-bar .browser-open svg{width:12px;height:12px;transform:rotate(-45deg)}
 .project-image{padding:14px;border-radius:12px;overflow:visible}
 .project-image:hover .project-picture img{transform:none}
 .project-image:hover .preview-window{border-color:#93a384}
