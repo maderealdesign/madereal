@@ -49,4 +49,4 @@ Use clearly named tracking links where suitable, record actual form delivery and
 - Are missed-call alternatives easy to find?
 - Which enquiries were relevant, rather than just numerous?
 
-MadeReal can help with [Google Business Profile care](/google-business-profile/) as a separately scoped service. If the destination website needs attention, see [our real website projects](/work/) or [request a free homepage preview](/free-preview/).
+Basic setup and accuracy checks for an eligible Google Business Profile are included with MadeReal’s £35 website plan. You stay in control of your profile. More involved or ongoing [Google Business Profile care](/google-business-profile/) is agreed separately. If the destination website needs attention, see [our real website projects](/work/) or [request a free homepage preview](/free-preview/).

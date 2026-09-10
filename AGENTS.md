@@ -5,6 +5,8 @@ This is the independent replacement website selected by Dom. Its instructions su
 - Primary offer: free homepage preview, then £35/month if approved.
 - Cancel anytime; website goes offline when the plan ends.
 - Keep the £197 one-off build as a separate secondary choice.
+- The £35 plan starts with eight local area pages; more can be added on request for genuine service areas. Contact form and tap-to-call included.
+- Basic eligible Google Business Profile setup/accuracy help is included; broader ongoing profile management is agreed separately. Do not promise rankings or enquiries.
 - Do not invent domain/email inclusions, unlimited support, rankings, reviews or client outcomes.
 - Confirmed business location: 9 Market Street, Colne, Lancashire, BB8 0HY.
 - Maintain the exact order in `content/projects.json`. Exclude Chameleon.

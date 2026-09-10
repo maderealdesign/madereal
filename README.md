@@ -47,6 +47,8 @@ Start article headings at H2: the layout supplies its H1. Link to genuinely rela
 
 Free homepage preview, then £35/month if approved. Cancel anytime; the website goes offline when the plan ends. A £197 one-off build remains a separate alternative. Domain, mailbox and specialist system costs must be agreed before purchase; the site does not claim they are automatically included. No guaranteed rankings or enquiry volumes.
 
+The monthly plan starts with eight useful pages for genuine service areas, with more available on request, plus a contact form and tap-to-call number. Basic eligible Google Business Profile setup and accuracy help is included; larger or ongoing profile management is discussed separately.
+
 ## Operations preserved
 
 - Netlify form: `Quick Preview Lead`, retaining the established lead-form identity.
