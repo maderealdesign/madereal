@@ -6,12 +6,12 @@ const output=path.resolve('dist');
 if(path.basename(output)!=='dist'||fs.existsSync(output)&&fs.lstatSync(output).isSymbolicLink())throw new Error('Unsafe output directory');
 fs.rmSync(output,{recursive:true,force:true});fs.mkdirSync(output,{recursive:true});
 fs.cpSync('public',output,{recursive:true,filter:source=>!['base.css','seamless-initial.jpg'].includes(path.basename(source))});
-const css=fs.readFileSync('public/styles.css','utf8'),js=fs.readFileSync('public/app.js','utf8');
-const hash=createHash('sha256').update(css+js).digest('hex').slice(0,12);
-fs.writeFileSync(path.join(output,`styles.${hash}.css`),css);fs.writeFileSync(path.join(output,`app.${hash}.js`),js);
+const css=fs.readFileSync('public/styles.css','utf8'),js=fs.readFileSync('public/app.js','utf8'),motion=fs.readFileSync('public/light-field.js','utf8');
+const hash=createHash('sha256').update(css+js+motion).digest('hex').slice(0,12);
+fs.writeFileSync(path.join(output,`styles.${hash}.css`),css);fs.writeFileSync(path.join(output,`app.${hash}.js`),js);fs.writeFileSync(path.join(output,`light-field.${hash}.js`),motion);
 const indexable=[];
 for(const [route,original]of Object.entries(pages)){
-let html=original.replace('href="/styles.css"',`href="/styles.${hash}.css"`).replace('src="/app.js"',`src="/app.${hash}.js"`);
+let html=original.replace('href="/styles.css"',`href="/styles.${hash}.css"`).replace('src="/app.js"',`src="/app.${hash}.js"`).replace('src="/light-field.js"',`src="/light-field.${hash}.js"`);
 // The private design copy is static; enquiries belong to the live Netlify form.
 if(process.env.HOSTING_TARGET==='sites')html=html.replace(/<form\b[^>]*data-lead-form[\s\S]*?<\/form>/,`<section class="preview-form"><p class="eyebrow">PRIVATE DESIGN PREVIEW</p><h2>Your business could be next.</h2><p>This is a private copy of the MadeReal website. Use our live enquiry form to send your details securely.</p><a class="button" href="https://madereal.uk/free-preview/">Open the live preview form <span aria-hidden="true">↗</span></a><p class="fine">No card or deposit. Your homepage preview is free.</p></section>`);
 const file=path.join(output,route==='/'?'index.html':route.replace(/^\//,'')+'index.html');fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html);

@@ -1,0 +1,2 @@
+export const lightField=()=>`<div class="light-field" aria-hidden="true"><canvas></canvas></div><button class="motion-toggle" type="button" data-motion-toggle hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 4v8M11 4v8"/></svg><span>Pause motion</span></button>`;
+export const lightBreak=(name,eyebrow,heading,copy)=>`<section class="light-break" data-light-scene="${name}">${lightField()}<div class="light-break-copy wrap"><p class="eyebrow">${eyebrow}</p><h2>${heading}</h2><p>${copy}</p></div></section>`;
