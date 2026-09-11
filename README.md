@@ -61,7 +61,7 @@ The monthly plan starts with eight useful pages for genuine service areas, with 
 
 ## Publishing
 
-Netlify site ID: `406c26ef-c9cf-473c-a530-74b346695cd4` (`madereal`). The rebuild source branch is `codex/showcase-rebuild`. Publish `dist`, build `npm run build`. Preview builds use `PREVIEW=1`; production must not.
+Netlify site ID: `406c26ef-c9cf-473c-a530-74b346695cd4` (`madereal`). The production deployment branch is `codex/showcase-rebuild`. Publish `dist`. Preview builds use `PREVIEW=1`; production must not. Netlify production explicitly sets `PREVIEW=0` and `HOSTING_TARGET=netlify`, then runs both the build and production release gate.
 
 ```sh
 PREVIEW=1 npm run build
@@ -69,6 +69,16 @@ npx netlify deploy --site 406c26ef-c9cf-473c-a530-74b346695cd4 --dir dist --func
 ```
 
 Run desktop/mobile crawl, accessibility and performance tests against that draft. Deploy production only after review. Preserve the previous production deploy ID for rollback. The rebuild must be committed to the deployment branch so future Git builds cannot restore the old marketing website.
+
+Before committing a release, run:
+
+```sh
+PREVIEW=0 HOSTING_TARGET=netlify npm run build
+npm run verify -- --production
+git diff --check
+```
+
+The production gate rejects blocked crawler access, accidental preview content, missing lead forms and invalid sitemap targets. After publishing, recheck the actual live HTTP responses: `/robots.txt` must allow crawling and declare `https://madereal.uk/sitemap.xml`; every sitemap URL must return an indexable, canonical 200 page. Submit that sitemap URL in the verified Google Search Console property. A successful submission requests discovery; it does not guarantee indexing or rankings.
 
 For the separate owner-private Sites copy, build with `PREVIEW=1 HOSTING_TARGET=sites npm run build`. That static copy links to the live Netlify enquiry form instead of pretending to process submissions itself. Do not set `HOSTING_TARGET=sites` on Netlify.
 
