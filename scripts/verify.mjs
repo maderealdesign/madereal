@@ -25,6 +25,9 @@ if(production){
  if(preview)errors.push('Production release blocked: robots disallows crawling');
  if(/\/\*\s*\n\s+X-Robots-Tag:\s*noindex/i.test(headers))errors.push('Production release blocked: global noindex header');
  const lead=fs.readFileSync(path.join(root,'free-preview/index.html'),'utf8');
+ const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ if(!home.includes('id="start-preview"')||!/<form[^>]*name="Quick Preview Lead"[^>]*data-lead-form/.test(home))errors.push('Homepage preview form is missing');
+ for(const name of ['Business_Name','Contact_Detail','Phone_Number'])if(!home.includes(`name="${name}"`)||!lead.includes(`name="${name}"`))errors.push('Lead forms disagree on field '+name);
  if(!/<form[^>]*name="Quick Preview Lead"[^>]*method="POST"[^>]*data-netlify="true"[^>]*data-lead-form/.test(lead)||!lead.includes('name="form-name" value="Quick Preview Lead"')||!lead.includes('name="Contact_Detail"'))errors.push('Production lead form is missing or not registered');
  for(const f of htmlFiles)if(/PRIVATE DESIGN PREVIEW|This is a private copy|domalog\.chatgpt\.site|127\.0\.0\.1/.test(fs.readFileSync(f,'utf8')))errors.push(path.relative(root,f)+' leaks private-preview content');
 }

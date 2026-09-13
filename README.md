@@ -25,7 +25,7 @@ Local preview: http://127.0.0.1:4321/ . Forms intentionally return an error loca
 - `src/components.mjs`: shared semantic layout and UI components.
 - `src/pages.mjs`, `src/services.mjs`, `src/information.mjs`: page composition.
 - `public/styles.css`: responsive brand system; `public/app.js`: progressive enhancement.
-- `src/home-motion.mjs` and `public/light-field.js`: six plain-language benefit sections, with one persistent particle field forming rotating 3D UI icons. Inset white panels reveal the ambient stars along both sides. Icons are decorative; headings and offer details remain real HTML. Motion can be paused and respects reduced-motion preferences. Real client enquiries use the normal preview form.
+- `src/home-motion.mjs` and `public/light-field.js`: six plain-language benefit sections, with one persistent particle field flowing around stationary, flat UI icons with an expanded starfield between them. Inset white panels reveal the ambient stars along both sides. Icons are decorative; headings and offer details remain real HTML. Motion can be paused and respects reduced-motion preferences. Real client enquiries use the normal preview form.
 
 This content layer can be connected to a Git-based CMS or replaced with a build-time content export from a headless CMS. No CMS account, OAuth app or editorial login has been silently provisioned. The existing `/admin` remains the separate Firebase client-preview manager, not an editor for this marketing website.
 
@@ -54,6 +54,7 @@ The monthly plan starts with eight useful pages for genuine service areas, with 
 ## Operations preserved
 
 - Netlify form: `Quick Preview Lead`, retaining the established lead-form identity.
+- A lightweight homepage form sits directly after the hero: business name, email and optional phone number. It uses the existing enquiry handler and form identity; the standalone preview form retains the same registered field set. The larger pricing panel remains on the pricing page, not the homepage.
 - Firebase `/admin` and dynamic `/:slug` client preview function.
 - Existing Stripe checkout function is retained, without advertising its unverified legacy price or generating new payment links. Confirm the actual £35 Stripe price before adding a direct checkout journey.
 - Legacy payment return URLs lead to a neutral payment-status explanation, not an unverified success claim.

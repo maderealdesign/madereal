@@ -19,14 +19,30 @@
 .home-experience{--star-gutter:clamp(14px,3.6vw,72px);position:relative;isolation:isolate;padding-bottom:var(--star-gutter);background:#070c09}
 .home-content{position:relative;z-index:1;background:#fff;display:flow-root;width:calc(100% - var(--star-gutter)*2);margin-inline:auto;border-radius:28px;box-shadow:0 28px 80px #0005;overflow:clip}
 .home-content .proof-ribbon{border-radius:28px 28px 0 0}
+.home-preview{padding-block:64px;scroll-margin-top:24px}
+.home-preview-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:32px}
+.home-preview-heading h2{font-size:42px;line-height:1.1;margin:0}
+.home-preview-heading p{font-size:17px;color:var(--muted);max-width:300px;margin:0}
+.home-preview-fields{display:grid;grid-template-columns:1.1fr 1.2fr 1fr auto;gap:16px;align-items:end}
+.home-preview-fields .field{margin:0;min-width:0}
+.home-preview-fields .field label{font-size:14px;margin-bottom:9px}
+.home-preview-fields .field label span{font-size:12px;font-weight:400;color:var(--muted)}
+.home-preview-fields .field input{padding:14px 15px;background:#f6f7f4;font-size:16px;min-height:54px}
+.home-preview-fields .button{min-height:54px;padding:14px 20px;font-size:14px;gap:15px}
+.home-preview-note{font-size:14px;color:var(--muted);margin:18px 0 0}
+.home-preview-note a{text-decoration:underline;text-underline-offset:3px}
+.home-preview-form .form-status:empty{display:none}
+.home-content .home-preview+.proof-ribbon{border-radius:0}
+@media(max-width:1100px){.home-preview-fields{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.home-preview{padding-block:38px}.home-preview-heading{display:block;margin-bottom:24px}.home-preview-heading h2{font-size:32px}.home-preview-heading p{font-size:16px;margin-top:14px}.home-preview-fields{grid-template-columns:1fr;gap:16px}.home-preview-fields .button{width:100%;margin-top:4px}.home-preview-note{font-size:13px;line-height:1.6}}
 @media(max-width:700px){.home-content{border-radius:19px}.home-content .wrap{width:calc(100% - 36px)}.home-content .section{padding-block:68px}.home-content .proof-ribbon{border-radius:19px 19px 0 0}}
 .site-footer{position:relative;z-index:1}
 [data-light-scene]{position:relative;z-index:1;isolation:isolate;overflow:hidden}
 .showcase-hero[data-light-scene]{padding-bottom:86px;background:transparent}
 .showcase-hero[data-light-scene]::before{display:none}
-.light-field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:strict;background:radial-gradient(ellipse at 50% 45%,#121916,#060a09 72%)}
-.light-field canvas{width:100%;height:100%;display:block;opacity:.95}
-.light-field::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 42%,#090c0b55,transparent 66%)}
+.light-field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:strict;background:radial-gradient(ellipse at 50% 45%,#0d1720,#04090e 72%)}
+.light-field canvas{width:100%;height:100%;display:block}
+.light-field::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 42%,#060b111f,transparent 66%)}
 .particle-shapes{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
 .particle-benefit{color:#fff;padding:64px 0 76px;min-height:540px;display:grid;align-items:center}
 .particle-benefit-layout{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center;max-width:1180px}
@@ -156,6 +172,12 @@
  .reel-controls button{width:46px;height:46px}
 }
 @media(prefers-reduced-motion:reduce){.reel-slide{transition:none}}
+
+/* Compact desktop screenshots in the homepage work grid, including on phones. */
+.home-experience #work .project-picture,.home-experience #work .project-picture img{aspect-ratio:1440/900}
+.home-experience #work .project-image{padding:12px}
+.home-experience #work .preview-window{max-width:none;border:1px solid #dce2d8;border-radius:8px}
+.home-experience #work .browser-bar{height:24px}
 
 /* Opaque preview surfaces: particles stay behind the websites, never inside them. */
 .reel-slide{background:#0c110f}
