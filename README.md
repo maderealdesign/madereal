@@ -25,7 +25,7 @@ Local preview: http://127.0.0.1:4321/ . Forms intentionally return an error loca
 - `src/components.mjs`: shared semantic layout and UI components.
 - `src/pages.mjs`, `src/services.mjs`, `src/information.mjs`: page composition.
 - `public/styles.css`: responsive brand system; `public/app.js`: progressive enhancement.
-- `src/home-motion.mjs` and `public/light-field.js`: one persistent particle field and clearly labelled form/area-page demonstrations. Demo fields are not submitted or stored. Real client enquiries still use the normal preview form.
+- `src/home-motion.mjs` and `public/light-field.js`: six plain-language benefit sections, with one persistent particle field forming rotating 3D UI icons. Inset white panels reveal the ambient stars along both sides. Icons are decorative; headings and offer details remain real HTML. Motion can be paused and respects reduced-motion preferences. Real client enquiries use the normal preview form.
 
 This content layer can be connected to a Git-based CMS or replaced with a build-time content export from a headless CMS. No CMS account, OAuth app or editorial login has been silently provisioned. The existing `/admin` remains the separate Firebase client-preview manager, not an editor for this marketing website.
 
