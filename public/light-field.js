@@ -10,14 +10,28 @@ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=v=>{v=clamp(v);return v*
 let seed=719;const random=()=>{seed|=0;seed=seed+0x6D2B79F5|0;let n=Math.imul(seed^seed>>>15,1|seed);n=n+Math.imul(n^n>>>7,61|n)^n;return((n^n>>>14)>>>0)/4294967296;};
 const sprite=colour=>{const c=document.createElement('canvas');c.width=c.height=48;const x=c.getContext('2d'),g=x.createRadialGradient(24,24,0,24,24,24);g.addColorStop(0,'rgba(255,255,248,1)');g.addColorStop(.12,'rgba(255,255,248,.98)');g.addColorStop(.26,colour.replace('A','.68'));g.addColorStop(.56,colour.replace('A','.16'));g.addColorStop(1,colour.replace('A','0'));x.fillStyle=g;x.fillRect(0,0,48,48);return c;};
 const lights=[sprite('rgba(211,246,105,A)'),sprite('rgba(218,241,250,A)'),sprite('rgba(176,215,125,A)')];
-// Geometry and sprite work happens once, never in the animation loop.
-const shapes={};
-for(const group of field.querySelectorAll('[data-particle-shape]')){
- const paths=[...group.children].map(el=>({el,length:el.getTotalLength()})),total=paths.reduce((n,p)=>n+p.length,0);
- shapes[group.dataset.particleShape]=Array.from({length:1000},(_,i)=>{
-  let distance=i/1000*total,path=paths[0];for(const candidate of paths){path=candidate;if(distance<=path.length)break;distance-=path.length;}
-  const q=path.el.getPointAtLength(distance);return{x:(q.x-12)/12,y:(q.y-12)/12};
- });
+// Sample the exact same outlines in small idle-time batches. Do not make the
+// homepage wait for thousands of SVG geometry calls before its first paint.
+const shapes={},shapeJobs=[...field.querySelectorAll('[data-particle-shape]')].map(group=>{
+ const paths=[...group.children].map(el=>({el,length:el.getTotalLength()}));
+ return{name:group.dataset.particleShape,paths,total:paths.reduce((n,p)=>n+p.length,0),points:[]};
+});
+function scheduleShapes(){
+ if('requestIdleCallback'in window)requestIdleCallback(prepareShapes,{timeout:600});
+ else setTimeout(prepareShapes,16);
+}
+function prepareShapes(){
+ if(!shapeJobs.length)return;
+ const active=sceneNow().name,priority=shapeJobs.findIndex(job=>job.name===active);
+ if(priority>0)shapeJobs.unshift(shapeJobs.splice(priority,1)[0]);
+ const job=shapeJobs[0],started=performance.now();let batch=0;
+ while(job.points.length<1000&&batch<128&&performance.now()-started<4){
+  let distance=job.points.length/1000*job.total,path=job.paths[0];
+  for(const candidate of job.paths){path=candidate;if(distance<=path.length)break;distance-=path.length;}
+  const q=path.el.getPointAtLength(distance);job.points.push({x:(q.x-12)/12,y:(q.y-12)/12});batch++;
+ }
+ if(job.points.length===1000){shapes[job.name]=job.points;shapeJobs.shift();field.dataset.shapesReady=String(Object.keys(shapes).length);dirty=true;request();}
+ if(shapeJobs.length)scheduleShapes();
 }
 const particles=Array.from({length:960},()=>{
  const layer=random();return{t:random(),arm:Math.floor(random()*3),scatter:random()-.5,z:random(),size:random(),phase:random()*Math.PI*2,speed:.65+random()*.7,u:random(),depth:layer<.36?-.14:layer<.72?.14:(random()-.5)*.28,x:0,y:0,ready:false};
@@ -114,5 +128,5 @@ let resizeFrame=0;addEventListener('resize',()=>{cancelAnimationFrame(resizeFram
 document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else{last=performance.now();dirty=true;request();}});
 reduced.addEventListener('change',()=>{pointer.x=pointer.y=camera.x=camera.y=0;for(const p of particles)p.ready=false;controlsUpdate();});
 if('ResizeObserver'in window)new ResizeObserver(measure).observe(host);
-document.fonts?.ready.then(measure);measure();controlsUpdate();
+document.fonts?.ready.then(measure);measure();controlsUpdate();scheduleShapes();
 })();
