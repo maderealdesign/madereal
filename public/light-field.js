@@ -38,7 +38,7 @@ const particles=Array.from({length:960},()=>{
  const tint=random();return{t:random(),arm:Math.floor(random()*3),colour:tint<.68?0:tint<.92?1:2,scatter:random()-.5,z:random(),size:random(),phase:random()*Math.PI*2,speed:.65+random()*.7,u:random(),x:0,y:0,ready:false};
 });
 const stars=Array.from({length:150},()=>({x:random(),y:random(),size:random(),phase:random()*6.28}));
-let w=0,h=0,hostTop=0,hostBottom=0,frame=0,last=0,time=0,paused=false,dirty=true,clearing=0,pointer={x:0,y:0},camera={x:0,y:0};
+let w=0,h=0,hostTop=0,hostBottom=0,frame=0,last=0,time=0,paused=false,dirty=true,clearing=0,textAreas=[],pointer={x:0,y:0},camera={x:0,y:0};
 let scrollSpeed=0,scrollTime=performance.now(),scrollPosition=scrollY;
 function measure(){
  w=innerWidth;h=innerHeight;const dpr=Math.min(devicePixelRatio||1,1.5);
@@ -47,6 +47,11 @@ function measure(){
  for(const s of scenes){const r=s.el.getBoundingClientRect();s.top=r.top+scrollY;s.height=r.height;const anchor=s.el.querySelector('[data-particle-anchor]');
   if(anchor){const b=anchor.getBoundingClientRect();s.anchor={x:b.left+b.width/2,y:b.top+scrollY+b.height/2,size:Math.min(b.width,b.height)*.45};}
  }
+ // Cache the actual lines, not a shaded rectangle around the whole copy block.
+ textAreas=[...host.querySelectorAll('.particle-benefit-copy>p,.particle-benefit-copy>h2')].flatMap(el=>{
+  const range=document.createRange();range.selectNodeContents(el);
+  return[...range.getClientRects()].filter(r=>r.width&&r.height).map(r=>({left:r.left-6,right:r.right+6,top:r.top+scrollY-5,bottom:r.bottom+scrollY+5}));
+ });
  dirty=true;request();
 }
 function sceneNow(){
@@ -70,10 +75,16 @@ function draw(s,still,delta){
  if(!still){camera.x=mix(camera.x,pointer.x,.06);camera.y=mix(camera.y,pointer.y,.06);}
  const form=icon?s.strength:0;
  field.dataset.motionState=hero?(clearing>.35?'clearing':'orbit'):s.name;field.dataset.iconRotation=icon?'0':'';field.dataset.iconFormation=form.toFixed(3);
+ const clearAreas=textAreas.filter(r=>r.bottom>scrollY-48&&r.top<scrollY+h+48).map(r=>({...r,top:r.top-scrollY,bottom:r.bottom-scrollY}));
+ const textVisibility=(x,y)=>{let visibility=1;for(const r of clearAreas){
+  const dx=Math.max(r.left-x,0,x-r.right),dy=Math.max(r.top-y,0,y-r.bottom);
+  if(dx>40||dy>40)continue;
+  visibility=Math.min(visibility,.035+.965*ease(Math.hypot(dx,dy)/40));
+ }return visibility;};
  ctx.clearRect(0,0,w,h);ctx.globalCompositeOperation='lighter';
  for(const p of stars){
   const size=2+p.size*6,x=p.x*w,y=wrap(p.y*(h+40)-scrollY*(.055+p.size*.14)+motion*.0015*(.3+p.size),h+40)-20;
-  ctx.globalAlpha=(.2+p.size*.4)*(reduced.matches?1:.85+Math.sin(motion*.0007+p.phase)*.15);ctx.drawImage(lights[p.size>.94?2:p.size>.7?1:0],x-size/2,y-size/2,size,size);
+  ctx.globalAlpha=(.2+p.size*.4)*(reduced.matches?1:.85+Math.sin(motion*.0007+p.phase)*.15)*textVisibility(x,y);ctx.drawImage(lights[p.size>.94?2:p.size>.7?1:0],x-size/2,y-size/2,size,size);
  }
  const trailStrength=still?0:clamp((Math.abs(scrollSpeed)-.35)/1.8);let trailCount=0;
  const count=mobile?520:960,base=Math.min(w*(mobile?.87:.47),h*.82),ox=camera.x*(mobile?0:26),oy=camera.y*18;
@@ -100,13 +111,16 @@ function draw(s,still,delta){
   if(!p.ready||still){p.x=x;p.y=y;p.ready=true;}else{p.x=mix(p.x,x,.16);p.y=mix(p.y,y,.16);}
   const inIcon=icon&&i<count*.84,shimmer=reduced.matches?1:.85+Math.sin(motion*.0011*p.speed+p.phase)*.15;
   const size=(inIcon?(p.size>.965?26:p.size>.86?12:3+p.size*6):(p.size>.98?34:p.size>.87?16:3+p.size*7))*(mobile?.85:1);
-  ctx.globalAlpha=clamp((inIcon?(.62+p.z*.38)*(0.65+form*.35):hero?(.5+p.z*.5)*(1-clearing*.4):.27+p.z*.38)*shimmer);
+  ctx.globalAlpha=clamp((inIcon?(.62+p.z*.38)*(0.65+form*.35):hero?(.5+p.z*.5)*(1-clearing*.4):.27+p.z*.38)*shimmer)*textVisibility(p.x,p.y);
   // Layered luminous tails on fast scroll, with no persistent canvas smearing.
   if(trailStrength>0&&wasReady&&i%2===0){
    const dx=p.x-previousX,dy=p.y-previousY,distance=Math.hypot(dx,dy);
    if(distance>.4&&distance<260){
     const length=Math.min(mobile?76:136,distance*7)*trailStrength,tx=p.x-dx/distance*length,ty=p.y-dy/distance*length;
+    const crossesText=clearAreas.some(r=>Math.min(tx,p.x)<r.right+8&&Math.max(tx,p.x)>r.left-8&&Math.min(ty,p.y)<r.bottom+8&&Math.max(ty,p.y)>r.top-8);
+    const trailAlpha=ctx.globalAlpha;if(crossesText)ctx.globalAlpha*=.035;
     const g=ctx.createLinearGradient(tx,ty,p.x,p.y);g.addColorStop(0,colours[p.colour].replace('A','0'));g.addColorStop(.55,colours[p.colour].replace('A','.32'));g.addColorStop(1,'rgba(240,248,255,.94)');ctx.strokeStyle=g;ctx.lineWidth=1+p.size*1.7;ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(p.x,p.y);ctx.stroke();const alpha=ctx.globalAlpha;ctx.globalAlpha=alpha*.16;ctx.lineWidth=5+p.size*5;ctx.stroke();ctx.globalAlpha=alpha;trailCount++;
+    ctx.globalAlpha=trailAlpha;
    }
   }
   ctx.drawImage(lights[p.colour],p.x-size/2,p.y-size/2,size,size);
