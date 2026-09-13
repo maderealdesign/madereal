@@ -47,8 +47,12 @@ function measure(){
  for(const s of scenes){const r=s.el.getBoundingClientRect();s.top=r.top+scrollY;s.height=r.height;const anchor=s.el.querySelector('[data-particle-anchor]');
   if(anchor){const b=anchor.getBoundingClientRect();s.anchor={x:b.left+b.width/2,y:b.top+scrollY+b.height/2,size:Math.min(b.width,b.height)*.45};}
  }
- // Cache the actual lines, not a shaded rectangle around the whole copy block.
- textAreas=[...host.querySelectorAll('.particle-benefit-copy>p,.particle-benefit-copy>h2')].flatMap(el=>{
+ measureText();
+}
+function measureText(){
+ // Keep bright stars clear of actual text lines throughout the starfield,
+ // without painting any dark panels, gradients or shadows behind the copy.
+ textAreas=[...host.querySelectorAll('.hero-copy>h1,.hero-copy>p,.particle-benefit-copy>p,.particle-benefit-copy>h2,.light-break-copy>h2,.light-break-copy>p,.reel-caption>*,.reel-controls')].flatMap(el=>{
   const range=document.createRange();range.selectNodeContents(el);
   return[...range.getClientRects()].filter(r=>r.width&&r.height).map(r=>({left:r.left-6,right:r.right+6,top:r.top+scrollY-5,bottom:r.bottom+scrollY+5}));
  });
@@ -144,5 +148,8 @@ let resizeFrame=0;addEventListener('resize',()=>{cancelAnimationFrame(resizeFram
 document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else{last=performance.now();dirty=true;request();}});
 reduced.addEventListener('change',()=>{pointer.x=pointer.y=camera.x=camera.y=0;for(const p of particles)p.ready=false;controlsUpdate();});
 if('ResizeObserver'in window)new ResizeObserver(measure).observe(host);
+// Project names and the slide count change without necessarily resizing the page.
+const reelFooter=host.querySelector('.reel-footer');
+if(reelFooter)new MutationObserver(measureText).observe(reelFooter,{childList:true,subtree:true,characterData:true});
 document.fonts?.ready.then(measure);measure();controlsUpdate();scheduleShapes();
 })();
