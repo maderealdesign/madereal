@@ -6,7 +6,7 @@ for(const [from,to]of Object.entries(JSON.parse(fs.readFileSync('content/redirec
 // Release gate: canonical sitemap entries, crawler access and real lead capture must agree.
 const robots=fs.readFileSync(path.join(root,'robots.txt'),'utf8'),headers=fs.readFileSync(path.join(root,'_headers'),'utf8');
 const preview=/^Disallow:\s*\/\s*$/m.test(robots),production=process.argv.includes('--production');
-const utility=new Set(['/404/','/checkout/','/payment-return/','/preview-received/']);
+const utility=new Set(['/404/','/checkout/','/payment-return/','/preview-received/']),hidden=new Set(['/197/']);
 const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
 if(!xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>')||!xml.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'))errors.push('Invalid sitemap XML declaration or namespace');
 const sitemapUrls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]),sitemapRoutes=new Set();
@@ -16,8 +16,9 @@ for(const url of sitemapUrls){
 }
 for(const f of htmlFiles){
  const route='/'+path.relative(root,f).replace(/index\.html$/,''),html=fs.readFileSync(f,'utf8'),noindex=/<meta name="robots" content="[^"]*noindex/i.test(html);
- if(noindex!==(preview||utility.has(route)))errors.push(route+' robots meta disagrees with build mode');
- if(!utility.has(route)&&!sitemapRoutes.has(route))errors.push(route+' missing from sitemap');
+ if(noindex!==(preview||utility.has(route)||hidden.has(route)))errors.push(route+' robots meta disagrees with build mode');
+ if(!utility.has(route)&&!hidden.has(route)&&!sitemapRoutes.has(route))errors.push(route+' missing from sitemap');
+ if(hidden.has(route)&&sitemapRoutes.has(route))errors.push(route+' hidden route appears in sitemap');
  for(const m of html.matchAll(/<source[^>]*(?:srcset|data-srcset)="(\/[^"]+)"/g))if(!fs.existsSync(path.join(root,m[1])))errors.push(route+' missing responsive image '+m[1]);
 }
 if(!preview&&!robots.includes('Sitemap: https://madereal.uk/sitemap.xml'))errors.push('Production robots missing sitemap declaration');
