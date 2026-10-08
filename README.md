@@ -18,13 +18,14 @@ Local preview: http://127.0.0.1:4321/ . Forms intentionally return an error loca
 ## Content and CMS integration
 
 - `content/site.json`: business identity and offer facts.
-- `content/projects.json`: ordered real portfolio records, screenshots and descriptions.
+- `content/projects.json`: ordered real portfolio records, screenshots and descriptions. The original 11 remain in order, followed by the latest live full websites: 1664 Gas Services, Matt’s Travel, Vertex Roofing and Complete Roofing (checked 8 October 2026). Carousel and portfolio counts derive from this list.
 - `content/hospitality.json`: five real online-menu projects, separate from the main 11-project hero order. Public menus and screenshots checked on 10 September 2026; owner menu editing is confirmed by Dom, not by accessing client logins.
 - `content/posts/*.md`: Markdown articles with YAML metadata; `draft: true` excludes a draft.
 - `content/redirects.json`: explicit old-to-new URL migration map.
 - `src/components.mjs`: shared semantic layout and UI components.
 - `src/pages.mjs`, `src/services.mjs`, `src/information.mjs`: page composition.
 - `public/styles.css`: responsive brand system; `public/app.js`: progressive enhancement.
+- The homepage carousel follows horizontal pointer drags, coasts after a flick and stops on touch. Vertical gestures remain page scrolls. Previous/next buttons and arrow keys work without a swipe; reduced-motion mode disables automatic playback and coasting. New projects need both `-desktop.webp` (1440 × 900) and `-mobile.webp` (390 × 844) captures.
 - `src/home-motion.mjs` and `public/light-field.js`: six plain-language benefit sections, with one persistent particle field flowing around stationary, flat UI icons with an expanded starfield between them. Inset white panels reveal the ambient stars along both sides. Icons are decorative; headings and offer details remain real HTML. Motion can be paused and respects reduced-motion preferences. Real client enquiries use the normal preview form.
 
 This content layer can be connected to a Git-based CMS or replaced with a build-time content export from a headless CMS. No CMS account, OAuth app or editorial login has been silently provisioned. The existing `/admin` remains the separate Firebase client-preview manager, not an editor for this marketing website.

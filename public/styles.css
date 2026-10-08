@@ -183,6 +183,15 @@
 .reel-slide[data-slot="-1"]::after,.reel-slide[data-slot="1"]::after{opacity:.3}
 .reel-slide[data-slot="-2"]::after,.reel-slide[data-slot="2"]::after{opacity:.66}
 
+/* JavaScript positions the reel directly so every drag frame follows the finger. */
+.reel-stage.is-interactive{touch-action:pan-y pinch-zoom;cursor:grab;user-select:none;-webkit-user-select:none}
+.reel-stage.is-interactive.is-dragging{cursor:grabbing}
+.reel-stage.is-interactive .reel-slide{transition:none;will-change:transform}
+.reel-stage.is-interactive .reel-slide::after{opacity:var(--shade,0);transition:none}
+.reel-stage.is-interactive img,.reel-stage.is-interactive a{-webkit-user-drag:none;-webkit-touch-callout:none}
+.reel-hint{position:relative;margin:15px 20px 0;text-align:center;color:#bac3b5;font-size:12px;line-height:1.5}
+@media(max-width:600px){.reel-hint{margin-top:18px;font-size:13px}}
+
 /* Real, lightweight examples gather out of the same particle field. */
 .feature-break{padding:90px 0 105px}
 .feature-break-layout{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center;max-width:1180px}
