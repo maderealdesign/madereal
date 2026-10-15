@@ -1,0 +1,59 @@
+/* Editable, clearly disclosed sample conversations styled like iOS Messages. */
+.menus-page .home-experience .im-section{padding-top:62px;padding-bottom:102px}
+.menus-page .home-experience .im-section .section-intro{margin-bottom:48px}
+.menus-page .home-experience .im-section .section-intro .im-disclosure{margin-top:23px;font-size:11px;letter-spacing:.025em;color:#788474}
+.menus-page .home-experience .im-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:24px}
+.menus-page .home-experience .im-preview{margin:0;min-width:0;width:100%;max-width:375px;justify-self:center}
+.menus-page .home-experience .im-preview:nth-child(2){margin-top:30px}
+.menus-page .home-experience .im-screen{position:relative;display:flex;flex-direction:column;min-height:582px;background:#fff;border:1px solid #e5e6e2;border-radius:25px;box-shadow:0 15px 45px #253c3210,0 2px 4px #253c3204;overflow:hidden;color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;line-height:1.3;letter-spacing:-.025em;-webkit-font-smoothing:antialiased}
+.menus-page .home-experience .im-status{height:49px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:4px 23px 0 30px;position:relative;background:#fafafa}
+.menus-page .home-experience .im-clock{font-size:14px;font-weight:650;letter-spacing:-.035em}
+.menus-page .home-experience .im-status-icons{display:flex;align-items:center;gap:5px;color:#000}
+.menus-page .home-experience .im-status-icons svg{display:block;fill:currentColor}
+.menus-page .home-experience .im-signal{width:16px;height:11px}
+.menus-page .home-experience .im-wifi{width:17px;height:13px}
+.menus-page .home-experience .im-battery{width:25px;height:12px}
+.menus-page .home-experience .im-contact-bar{height:100px;position:relative;background:#fafafa;border-bottom:.5px solid #d8d8dc;flex:none;display:flex;align-items:flex-start;justify-content:center;padding-top:6px}
+.menus-page .home-experience .im-contact{display:flex;flex-direction:column;align-items:center;gap:6px}
+.menus-page .home-experience .im-contact-avatar{display:block;width:49px;height:49px;background:linear-gradient(#b7bac2,#8e919c);border-radius:50%;overflow:hidden}
+.menus-page .home-experience .im-contact-avatar svg{display:block;width:100%;height:100%;fill:#fff}
+.menus-page .home-experience .im-contact-name{display:flex;align-items:center;gap:5px;color:#050505;font-size:12px;font-weight:400;letter-spacing:-.01em}
+.menus-page .home-experience .im-contact-name svg{width:4px;height:7px;fill:none;stroke:#a2a2a7;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.menus-page .home-experience .im-back{position:absolute;top:27px;left:14px;display:flex;align-items:center;gap:4px;color:#007aff;font-size:16px;font-weight:400;letter-spacing:-.02em}
+.menus-page .home-experience .im-back svg{width:10px;height:20px;fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.menus-page .home-experience .im-video{position:absolute;top:29px;right:18px;color:#007aff;display:block}
+.menus-page .home-experience .im-video svg{width:25px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
+.menus-page .home-experience .im-conversation{flex:1;display:flex;flex-direction:column;padding:16px 15px 22px;align-items:flex-start;gap:13px;min-height:344px;background:#fff}
+.menus-page .home-experience .im-timestamp{align-self:center;margin:0 0 4px;color:#8e8e93;font-size:10px;line-height:1.3;letter-spacing:0}
+.menus-page .home-experience .im-timestamp strong{font-weight:600}
+.menus-page .home-experience .im-bubble{position:relative;z-index:0;width:fit-content;max-width:87%;margin:0;padding:9px 13px 10px;font-size:15px;line-height:1.32;border-radius:19px;letter-spacing:-.02em;overflow-wrap:break-word;isolation:isolate}
+.menus-page .home-experience .im-incoming{align-self:flex-start;background:#e9e9eb;color:#000}
+.menus-page .home-experience .im-outgoing{align-self:flex-end;background:#007aff;color:#fff}
+.menus-page .home-experience .im-bubble:before,.menus-page .home-experience .im-bubble:after{content:'';position:absolute;z-index:-1;bottom:0;height:20px;pointer-events:none}
+.menus-page .home-experience .im-incoming:before{left:-7px;width:20px;background:#e9e9eb;border-bottom-right-radius:16px}
+.menus-page .home-experience .im-incoming:after{left:-10px;width:10px;background:#fff;border-bottom-right-radius:10px}
+.menus-page .home-experience .im-outgoing:before{right:-7px;width:20px;background:#007aff;border-bottom-left-radius:16px}
+.menus-page .home-experience .im-outgoing:after{right:-10px;width:10px;background:#fff;border-bottom-left-radius:10px}
+.menus-page .home-experience .im-bubble.im-grouped{margin-bottom:-7px}
+.menus-page .home-experience .im-grouped:before,.menus-page .home-experience .im-grouped:after{display:none}
+.menus-page .home-experience .im-delivered{align-self:flex-end;font-size:10px;font-weight:500;line-height:1;color:#8e8e93;margin:-6px 2px 0;letter-spacing:-.005em}
+.menus-page .home-experience .im-compose{display:flex;align-items:center;gap:10px;flex:none;padding:8px 12px 4px;background:#fff}
+.menus-page .home-experience .im-plus{width:31px;height:31px;flex:none;background:#ececef;border-radius:50%;display:grid;place-items:center;color:#777780}
+.menus-page .home-experience .im-plus svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.65;stroke-linecap:round}
+.menus-page .home-experience .im-compose-field{height:33px;border:1px solid #c8c8cd;border-radius:20px;color:#8e8e93;flex:1;min-width:0;display:flex;justify-content:space-between;align-items:center;padding:0 10px 0 13px;font-size:14px;letter-spacing:-.01em}
+.menus-page .home-experience .im-compose-field svg{width:13px;height:19px;fill:none;stroke:#8e8e93;stroke-width:1.45;stroke-linecap:round}
+.menus-page .home-experience .im-home{height:27px;flex:none;position:relative}
+.menus-page .home-experience .im-home:after{content:'';position:absolute;bottom:7px;left:50%;transform:translateX(-50%);height:4px;width:104px;background:#000;border-radius:9px}
+.menus-page .home-experience .im-caption{text-align:center;font-size:11px;line-height:1.6;color:#788474;margin:20px 0 0;letter-spacing:.005em;font-family:var(--sans,'DM Sans',Arial,sans-serif)}
+html.has-motion .menus-page .home-experience .im-preview:nth-child(2){transition-delay:.08s}
+html.has-motion .menus-page .home-experience .im-preview:nth-child(3){transition-delay:.16s}
+html.has-motion .menus-page .home-experience .im-preview:not(.is-visible) .im-bubble,html.has-motion .menus-page .home-experience .im-preview:not(.is-visible) .im-delivered{opacity:0;transform:translateY(8px)}
+.menus-page .home-experience .im-bubble,.menus-page .home-experience .im-delivered{transition:opacity .35s ease,transform .4s ease;transition-delay:.25s}
+.menus-page .home-experience .im-conversation .im-bubble:nth-of-type(3){transition-delay:.42s}
+.menus-page .home-experience .im-conversation .im-bubble:nth-of-type(4){transition-delay:.59s}
+.menus-page .home-experience .im-conversation .im-bubble:nth-of-type(5){transition-delay:.76s}
+.menus-page .home-experience .im-delivered{transition-delay:.94s}
+@media(max-width:1000px) and (min-width:701px){.menus-page .home-experience .im-grid{gap:15px}.menus-page .home-experience .im-screen{min-height:553px;border-radius:21px}.menus-page .home-experience .im-status{padding-left:24px;padding-right:17px}.menus-page .home-experience .im-status-icons{gap:4px}.menus-page .home-experience .im-contact-bar{height:93px}.menus-page .home-experience .im-bubble{font-size:13px;padding:9px 11px;max-width:91%}.menus-page .home-experience .im-conversation{padding-left:12px;padding-right:12px;gap:12px;min-height:328px}.menus-page .home-experience .im-back{left:12px}.menus-page .home-experience .im-video{right:13px}.menus-page .home-experience .im-contact-avatar{width:46px;height:46px}.menus-page .home-experience .im-caption{font-size:10px}}
+@media(max-width:700px){.menus-page .home-experience .im-section{padding-top:49px;padding-bottom:67px}.menus-page .home-experience .im-section .section-intro{margin-bottom:34px}.menus-page .home-experience .im-section .section-intro .im-disclosure{font-size:10px;margin-top:20px}.menus-page .home-experience .im-grid{grid-template-columns:1fr;gap:38px;max-width:375px;margin:auto}.menus-page .home-experience .im-preview:nth-child(2){margin-top:0}.menus-page .home-experience .im-screen{min-height:585px}.menus-page .home-experience .im-bubble{font-size:16px}.menus-page .home-experience .im-conversation{min-height:349px;padding-left:16px;padding-right:16px}.menus-page .home-experience .im-caption{font-size:11px;margin-top:16px}html.has-motion .menus-page .home-experience .im-preview:nth-child(2),html.has-motion .menus-page .home-experience .im-preview:nth-child(3){transition-delay:0s}}
+@media(max-width:360px){.menus-page .home-experience .im-bubble{font-size:15px}.menus-page .home-experience .im-conversation{padding-left:13px;padding-right:13px}.menus-page .home-experience .im-status{padding-left:24px;padding-right:20px}.menus-page .home-experience .im-caption{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.menus-page .home-experience .im-bubble,.menus-page .home-experience .im-delivered{transition:none!important;opacity:1!important;transform:none!important}html.has-motion .menus-page .home-experience .im-preview{transition-delay:0s}}

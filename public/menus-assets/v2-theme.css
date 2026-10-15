@@ -1,0 +1,635 @@
+/* MadeReal V2 — MadeReal's type, colour, surfaces and scroll-driven star field. */
+/* Space and DM use the shared MadeReal font faces, preloaded by layout(). */
+.menus-page .home-experience{--ink:#101612;--muted:#59635b;--paper:#fff;--soft:#f2f4ef;--lime:#d3f669;--green:#293a22;--line:#dce2d9;--accent:#d3f669;--dark:#090c0b;--heading:Space,Arial,sans-serif;--sans:DM,'DM Sans',Arial,sans-serif;--mr-gutter:clamp(20px,3.6vw,72px)}
+html:has(body.menus-page){scroll-padding-top:112px}
+.menus-page .home-experience{background:#04090e;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:clip}
+.menus-page .home-experience ::selection{background:var(--lime);color:var(--ink)}
+.menus-page .home-experience :focus-visible{outline-color:#6b930b}
+.menus-page .home-experience .mr-light-field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:strict;background:radial-gradient(ellipse at 50% 45%,#0d1720,#04090e 72%)}
+.menus-page .home-experience .mr-light-field canvas{width:100%;height:100%;display:block}
+.menus-page .home-experience .mr-particle-shapes{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.menus-page .home-experience{position:relative;z-index:1;isolation:isolate;background:transparent;color:#fff;padding-bottom:var(--mr-gutter)}
+.menus-page .home-experience>section{position:relative;z-index:1}
+.menus-page .home-experience h1,.menus-page .home-experience h2,.menus-page .home-experience .workflow-step h3,.menus-page .home-experience .workflow-screen h3,.menus-page .home-experience .venue-detail h3{font-family:var(--heading);font-weight:500;letter-spacing:-.055em;line-height:1.08}
+.menus-page .home-experience h1 em,.menus-page .home-experience h2 em{font-family:inherit;font-weight:inherit;font-style:normal;color:var(--lime)}
+.menus-page .home-experience h2{font-size:clamp(40px,4.7vw,62px)}
+.menus-page .home-experience .eyebrow{font-size:11px;letter-spacing:.13em;font-weight:650;color:#bccbb2}
+.menus-page .home-experience .section-shell{max-width:1240px;padding-left:44px;padding-right:44px}
+.menus-page .home-experience .section-intro>p:last-child:not(.eyebrow){font-size:16px;line-height:1.7;color:#c1ccc0}
+.menus-page .home-experience .mr-surface{background:#fff;color:var(--ink);border:1px solid #e2e7dd;border-radius:28px;box-shadow:0 22px 65px #00000021}
+.menus-page .home-experience .mr-surface h2 em,.menus-page .home-experience .im-section h2 em,.menus-page .home-experience .faq-section h2 em{color:#597918}
+.menus-page .home-experience .mr-surface .eyebrow,.menus-page .home-experience .im-section .eyebrow,.menus-page .home-experience .faq-section .eyebrow{color:#61704e}
+.menus-page .home-experience .mr-surface .section-intro>p:last-child:not(.eyebrow){color:var(--muted)}
+.menus-page .home-experience .button{background:var(--lime);border-color:var(--lime);color:var(--ink);font-size:14px;font-weight:700;border-radius:8px;padding:16px 23px;min-height:54px;gap:26px}
+.menus-page .home-experience .button:hover{background:#bee646;border-color:#bee646;box-shadow:0 7px 22px #00000016;transform:translateY(-2px)}
+.menus-page .home-experience .button-outline{background:transparent;border-color:#839076;color:#e9f4dd}
+.menus-page .home-experience .button-outline:hover{color:var(--ink);border-color:var(--lime)}
+.menus-page .home-experience .text-link{min-height:44px;font-size:14px;border-bottom-color:#7b8b6a;font-weight:600}
+.menus-page .home-experience .text-link:hover{color:var(--lime)}
+.menus-page .home-experience .mr-surface .text-link:hover,.menus-page .home-experience .faq-section .text-link:hover,.menus-page .home-experience .im-section .text-link:hover{color:#526f14}
+.menus-page .home-experience .skip-link{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+
+/* A quiet, dark header makes the MadeReal name part of the MadeReal family. */
+.menus-page .home-experience .site-header{background:#090c0bf0;color:#fff;border-bottom:1px solid #2b3529;backdrop-filter:blur(18px)}
+.menus-page .home-experience .nav-wrap{height:91px;padding:0 44px;max-width:1440px;gap:25px}
+.menus-page .home-experience .brand{font-family:var(--heading);font-size:30px;font-weight:600;letter-spacing:-1.6px;line-height:1;gap:10px}
+.menus-page .home-experience .brand img{width:34px;height:34px}
+.menus-page .home-experience .brand .mr-brand-accent{color:var(--lime)}
+.menus-page .home-experience .nav-wrap nav{gap:26px;margin-left:0}
+.menus-page .home-experience .nav-wrap nav a{font-size:12px;color:#c2ccbd;padding:12px 0}
+.menus-page .home-experience .nav-wrap nav a:hover,.menus-page .home-experience .login-link:hover{color:var(--lime)}
+.menus-page .home-experience .login-link{font-size:12px;color:#e1e8db}
+.menus-page .home-experience .nav-actions{gap:22px}
+.menus-page .home-experience .nav-actions .button-small{min-height:45px;padding:12px 17px;font-size:12px;gap:19px}
+.menus-page .home-experience .mobile-nav-toggle span{background:#fff}
+.menus-page .home-experience .mobile-nav{border-color:#2b3529;background:#090c0b}
+.menus-page .home-experience .mobile-nav a{font-size:15px;color:#eef3e8;min-height:44px}
+.menus-page .home-experience .site-header :focus-visible,.menus-page .home-experience :not(.mr-surface)>.text-link:focus-visible,.menus-page .home-experience .site-footer :focus-visible{outline-color:var(--lime)}
+
+/* Keep the live menu preview and mini editor intact; change the world around them. */
+.menus-page .home-experience .hero{min-height:760px;padding-top:57px;padding-bottom:77px;gap:52px;grid-template-columns:1.1fr 1fr}
+.menus-page .home-experience .hero-copy{padding-bottom:8px;min-width:0}
+.menus-page .home-experience .hero-copy .eyebrow{font-size:11px;letter-spacing:.12em;margin-bottom:28px;color:#c6d5b6}
+.menus-page .home-experience .tiny-leaf{height:7px;width:7px;background:var(--lime);border-radius:50%;transform:none;box-shadow:0 0 13px #d3f66970}
+.menus-page .home-experience .hero h1{font-size:clamp(64px,7.15vw,96px);line-height:1.015;letter-spacing:-.065em;margin-bottom:29px;font-weight:500}
+.menus-page .home-experience .hero-description{max-width:410px;font-size:16px;line-height:1.75;color:#c5cfc1}
+.menus-page .home-experience .hero-ctas{gap:28px;margin-top:32px}
+.menus-page .home-experience .hero-ctas .text-link{font-size:13px;color:#e5efdc;border-color:#8d9b7c;gap:13px}
+.menus-page .home-experience .hero-ctas .text-link:hover{color:var(--lime)}
+.menus-page .home-experience .hero-footnote{font-size:11px;color:#b2c0a8;margin-top:19px}
+.menus-page .home-experience .hero-footnote .small-tick{color:var(--lime)}
+.menus-page .home-experience .audience-line{font-size:12px;letter-spacing:0;color:#a9b89f;margin-top:37px;gap:15px}
+.menus-page .home-experience .audience-line i{background:#637254}
+.menus-page .home-experience .hero-visual{height:628px;color:#233c32}
+.menus-page .home-experience .hero-visual:before{inset:35px -24px 0 -24px;background:radial-gradient(ellipse at 50% 49%,#91b24a22,transparent 68%)}
+.menus-page .home-experience .visual-orbit{border-color:#b5d88314}
+.menus-page .home-experience .orbit-one{width:500px;height:500px}
+.menus-page .home-experience .orbit-two{width:560px;height:390px}
+.menus-page .home-experience .floating-label{background:#111c14f2;border-color:#5e754442;color:#e5f1da;padding:10px 17px;font-size:11px;box-shadow:0 8px 25px #0003;top:1px}
+.menus-page .home-experience .floating-label .live-dot{background:var(--lime);box-shadow:0 0 10px #d3f66955}
+.menus-page .home-experience .hero-phone{border-color:#29352d;box-shadow:18px 30px 75px #0008,0 0 0 1px #d3e2bd30;transform:rotate(3deg)}
+.menus-page .home-experience .hero-phone h2{font-family:var(--serif);font-weight:400;letter-spacing:-.045em;line-height:1}
+.menus-page .home-experience .hero-phone h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:#58764d}
+.menus-page .home-experience .mini-editor{left:-5px;bottom:67px;border-color:#dce4d3;box-shadow:0 18px 48px #0005}
+.menus-page .home-experience .mini-editor label{color:#233c32}
+.menus-page .home-experience .mini-price-row input{color:#233c32}
+.menus-page .home-experience .mini-price-row button{background:var(--lime);color:#16210c}
+.menus-page .home-experience .editor-symbol{background:#eaf3d1;color:#374e1a}
+.menus-page .home-experience .demo-caption{color:#9baa91;right:14px;font-size:9px}
+.menus-page .home-experience .promise-strip{position:relative;z-index:1;background:var(--lime);color:var(--ink);border:0;border-radius:0 0 28px 28px;min-height:97px;font-family:var(--heading);font-weight:500;font-size:24px;letter-spacing:-.035em;gap:30px}
+.menus-page .home-experience .strip-line{background:#879b4c;width:45px}
+
+/* A star formation sits beside each section introduction, then gives way to a solid workspace. */
+.menus-page .home-experience .how-section{padding-top:60px;padding-bottom:75px}
+.menus-page .home-experience .mr-stellar-heading{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;min-height:350px;margin-bottom:48px;position:relative}
+.menus-page .home-experience .mr-stellar-heading .section-intro{text-align:left;margin:0;position:relative;z-index:1}
+.menus-page .home-experience .mr-stellar-heading .section-intro .eyebrow{margin-bottom:24px}
+.menus-page .home-experience .mr-stellar-heading .section-intro>p:last-child:not(.eyebrow){margin-top:24px;max-width:420px}
+.menus-page .home-experience .mr-constellation-anchor{height:300px;width:100%;min-width:0;position:relative;pointer-events:none}
+.menus-page .home-experience .how-layout{max-width:none;margin:0;padding:48px 50px;gap:66px;grid-template-columns:1fr 1fr;align-items:start}
+.menus-page .home-experience .workflow-list{padding-top:2px}
+.menus-page .home-experience .workflow-step{gap:23px;min-height:215px;padding:20px 0}
+.menus-page .home-experience .workflow-step:last-child{min-height:180px}
+.menus-page .home-experience .workflow-step:before{background:#dce3d4}
+.menus-page .home-experience .animated-check{background:#f5f7ef;border-color:#d0d8c3}
+.menus-page .home-experience .is-visible .animated-check{background:var(--lime);border-color:var(--lime)}
+.menus-page .home-experience .animated-check path{stroke:#223014}
+.menus-page .home-experience .step-number{font-size:10px;color:#657943}
+.menus-page .home-experience .workflow-step h3{font-size:23px;letter-spacing:-.04em;line-height:1.15;margin:10px 0 13px;font-weight:500}
+.menus-page .home-experience .workflow-step p{font-size:14px;color:var(--muted);line-height:1.75;max-width:300px}
+.menus-page .home-experience .workflow-preview{position:sticky;top:127px;background:#f7f8f4;border-color:#dce4d2;box-shadow:0 16px 30px #233c3208;min-height:452px;margin-top:24px;border-radius:17px}
+.menus-page .home-experience .preview-topbar{height:56px;font-size:12px;background:#fff;border-color:#dde4d5;padding-inline:22px}
+.menus-page .home-experience .preview-topbar .tiny-leaf{height:6px;width:6px;box-shadow:none;background:#719546}
+.menus-page .home-experience .preview-badge{color:#5b7145;border-color:#d7e1cb;font-size:9px}
+.menus-page .home-experience .workflow-screen{padding:29px 29px 30px;color:var(--ink)}
+.menus-page .home-experience .screen-overline{color:#6b7d53;font-size:9px}
+.menus-page .home-experience .workflow-screen h3{font-size:39px;line-height:1.08;letter-spacing:-.055em;margin:16px 0 24px}
+.menus-page .home-experience .mock-field{background:#fff;border-color:#dce3d4;padding:10px 12px}
+.menus-page .home-experience .mock-field span{color:#728166;font-size:9px}
+.menus-page .home-experience .mock-field strong{font-size:12px}
+.menus-page .home-experience .workflow-screen .button{font-size:12px;min-height:44px}
+.menus-page .home-experience .preview-note{font-size:9px;line-height:1.6;color:#7a886e}
+.menus-page .home-experience .reorder-row{background:#fff;border-color:#dee5d6;padding:16px 10px}
+.menus-page .home-experience .reorder-row strong{font-size:12px}
+.menus-page .home-experience .reorder-row>span:last-child{font-size:8px}
+.menus-page .home-experience .reorder-row.animated-row{background:#eaf3d4;border-color:#c8dda1}
+.menus-page .home-experience .publish-list{font-size:13px}
+.menus-page .home-experience .publish-list span,.menus-page .home-experience .preview-success span{background:var(--lime);color:#273512}
+.menus-page .home-experience .preview-success{color:#5d763d;font-size:10px}
+.menus-page .home-experience .publish-stamp{background:#ebf3d8;border-color:#d2e4b2;color:#344b1e;font-size:12px}
+.menus-page .home-experience .publish-stamp .live-dot{background:#6f8f39}
+
+.menus-page .home-experience .guest-story{padding-top:42px;padding-bottom:95px;gap:100px}
+.menus-page .home-experience .story-photo{max-width:450px}
+.menus-page .home-experience .food-portrait{height:505px;border-radius:22px;box-shadow:0 22px 60px #0004}
+.menus-page .home-experience .dietary-floating{color:#172410;background:#f8fbee;border-color:#d8e4bf;border-radius:12px;box-shadow:0 12px 35px #0003;padding:18px 22px;right:-28px}
+.menus-page .home-experience .dietary-floating .small-tick{background:var(--lime);color:#253d10}
+.menus-page .home-experience .dietary-floating strong{font-family:var(--heading);font-size:15px;font-weight:500}
+.menus-page .home-experience .photo-note{background:#0c190de6;font-size:10px;border-radius:6px;padding:10px 13px;left:18px;bottom:18px}
+.menus-page .home-experience .story-copy h2{font-size:clamp(40px,4.25vw,58px)}
+.menus-page .home-experience .story-copy .eyebrow{margin-bottom:24px}
+.menus-page .home-experience .story-copy>p:not(.eyebrow):not(.dietary-note){font-size:16px;line-height:1.75;color:#c3cebd;max-width:410px;margin-top:26px}
+.menus-page .home-experience .plain-benefits{font-size:13px;line-height:1.5;gap:16px;margin:28px 0;color:#eef3e9}
+.menus-page .home-experience .plain-benefits span{color:var(--lime)}
+.menus-page .home-experience .dietary-note{font-size:11px;line-height:1.75;color:#a9b89f;max-width:410px;margin-top:24px}
+
+.menus-page .home-experience .venue-section{padding-top:25px;padding-bottom:55px;border:0}
+.menus-page .home-experience .venue-section .mr-stellar-heading{grid-template-columns:1.2fr 1fr;margin-bottom:46px;min-height:370px}
+.menus-page .home-experience .venue-section .section-intro{margin:0}
+.menus-page .home-experience .venue-section h2{font-size:clamp(37px,4.25vw,58px)}
+.menus-page .home-experience .venue-layout{padding:48px;max-width:none;grid-template-columns:minmax(0,1fr) 350px;gap:45px;align-items:center}
+.menus-page .home-experience .venue-overline{font-size:10px;color:#71815e;letter-spacing:.1em;margin-bottom:17px}
+.menus-page .home-experience .venue-buttons{gap:10px}
+.menus-page .home-experience .venue-button{min-height:73px;padding:13px 11px;border-color:#dde4d4;border-radius:9px;background:#fbfcf9;gap:10px}
+.menus-page .home-experience .venue-button:hover{border-color:#a5be77;background:#f2f7e8}
+.menus-page .home-experience .venue-button[aria-pressed=true]{background:#eaf3d2;border-color:#a5c45f;box-shadow:0 0 0 1px #a5c45f35}
+.menus-page .home-experience .venue-initials{font-family:var(--heading);font-weight:500;letter-spacing:-.04em;background:#eef2e5;color:#62764b;width:32px;height:35px;font-size:14px}
+.menus-page .home-experience .venue-button>span:nth-child(2){font-size:11px;line-height:1.35;font-weight:600}
+.menus-page .home-experience .venue-button small{font-size:9px;color:#77846c;line-height:1.3}
+.menus-page .home-experience .venue-arrow{color:#879576;font-size:16px}
+.menus-page .home-experience .venue-button[aria-pressed=true] .venue-arrow{color:#536f23}
+.menus-page .home-experience .venue-place{font-size:10px;color:#758563}
+.menus-page .home-experience .venue-detail h3{font-size:35px;line-height:1.13;font-weight:500;margin-bottom:13px}
+.menus-page .home-experience .venue-detail>p:not(.venue-place):not(.venue-features){font-size:13px;color:var(--muted);line-height:1.75;max-width:400px}
+.menus-page .home-experience .venue-features{font-size:10px;line-height:1.7;color:#5a752f;margin:14px 0 16px}
+.menus-page .home-experience .venue-detail .text-link{font-size:13px;color:#273b16;border-color:#a1b486}
+.menus-page .home-experience .venue-detail .text-link:hover{color:#668b18}
+.menus-page .home-experience .venue-disclosure{font-size:10px;line-height:1.75;color:#7c8871;max-width:400px;margin-top:20px}
+.menus-page .home-experience .venue-preview-label{font-size:10px;color:#6c8058;margin-bottom:16px}
+.menus-page .home-experience .venue-device{width:324px;height:638px;border-color:#25312a;box-shadow:10px 24px 45px #16271024}
+.menus-page .home-experience .venue-preview-note{font-size:10px;line-height:1.6;color:#77896a;max-width:320px;margin:17px auto 0}
+
+.menus-page .home-experience .playground-section{background:transparent;border:0;padding:40px 0 75px}
+.menus-page .home-experience .playground-section .section-shell{max-width:1152px;width:calc(100% - var(--mr-gutter)*2);padding:60px 42px 35px}
+.menus-page .home-experience .playground-section .section-intro{margin-bottom:45px}
+.menus-page .home-experience .playground-section .section-intro h2{font-size:clamp(40px,4.5vw,59px)}
+.menus-page .home-experience .playground-footnote{font-size:11px;line-height:1.7;color:#778469;margin-top:25px}
+.menus-page .home-experience .md-demo{--md-ink:#172014;--md-paper:#fff;--md-green:#344827;--md-muted:#68755b;--md-line:#dce4d2;--md-accent:var(--lime)}
+.menus-page .home-experience .md-demo-pill{background:#eaf3d5;color:#3d5424}
+.menus-page .home-experience .md-workspace-mark{background:var(--lime);color:#253c10}
+.menus-page .home-experience .md-workspace-heading h3{font-family:var(--heading);font-size:24px;line-height:1.08;font-weight:500;letter-spacing:-.05em}
+.menus-page .home-experience .md-workspace-heading{background:#f8faf3}
+.menus-page .home-experience .md-primary{background:var(--lime);border-color:var(--lime);color:#1b2a0d}
+.menus-page .home-experience .md-primary:hover{background:#c1e950;border-color:#c1e950}
+.menus-page .home-experience .md-tab.is-active{background:#e8f2d1;border-color:#d0e3ab;color:#435f22}
+.menus-page .home-experience .md-workspace-bottom{background:#f6f8f1}
+.menus-page .home-experience .md-workspace-actions .md-secondary{color:#3b512b}
+.menus-page .home-experience .md-switch.is-on i{background:#95b450}
+.menus-page .home-experience .md-category-heading{background:#f3f6ec}
+.menus-page .home-experience .md-staff{border-color:#dce4d2;box-shadow:0 16px 40px #263c320b}
+.menus-page .home-experience .md-phone{box-shadow:0 22px 35px #12200920}
+.menus-page .home-experience .md-dialog{--md-ink:#172014;--md-green:#344827;--md-muted:#68755b;--md-line:#dce4d2;color:#172014;background:#fff}
+.menus-page .home-experience .md-dialog h3{font-family:var(--heading);font-weight:500;letter-spacing:-.045em}
+.menus-page .home-experience .md-modal-backdrop{background:#04090ebb}
+/* The demo dialog lives inside the playground: lift its ancestor contexts while open. */
+body.menus-page.md-modal-open .home-experience{z-index:60}
+body.menus-page.md-modal-open .home-experience>.playground-section{z-index:1000}
+
+.menus-page .home-experience .print-section{padding-top:20px;padding-bottom:100px;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.menus-page .home-experience .print-copy h2{font-size:clamp(40px,4.5vw,60px)}
+.menus-page .home-experience .print-copy .eyebrow{margin-bottom:25px}
+.menus-page .home-experience .print-copy>p:not(.eyebrow):not(.small-note){font-size:16px;color:#c2cdba;line-height:1.75;max-width:410px}
+.menus-page .home-experience .print-points{font-size:13px;gap:17px;margin:29px 0 33px;color:#edf4e6}
+.menus-page .home-experience .print-points .animated-check{background:#18250f;border-color:#71834f}
+.menus-page .home-experience .print-points .is-visible .animated-check,.menus-page .home-experience .is-visible .print-points .animated-check{background:var(--lime);border-color:var(--lime)}
+.menus-page .home-experience .print-copy .small-note{font-size:10px;line-height:1.6;color:#a0b190;margin-top:14px}
+.menus-page .home-experience .mr-paper-scene{min-width:0;position:relative}
+.menus-page .home-experience .mr-print-anchor{height:220px;width:100%;pointer-events:none;position:relative;margin-bottom:30px}
+.menus-page .home-experience .paper-sheet{border-color:#dfe5d4;box-shadow:0 24px 55px #0005}
+.menus-page .home-experience .paper-back{background:#e8eddd}
+.menus-page .home-experience .paper-sheet h3{font-family:var(--serif);font-weight:400;line-height:1.2;letter-spacing:0}
+.menus-page .home-experience .a4-badge{background:var(--lime);color:#20300e;box-shadow:0 6px 20px #0003;font-weight:600;border-radius:8px;font-size:11px;padding:14px 18px}
+
+/* These remain native iMessage previews. Only their surrounding marketing panel changes. */
+.menus-page .home-experience .im-section{width:calc(100% - var(--mr-gutter)*2);max-width:1152px;background:#f2f4ef;color:var(--ink);border:1px solid #e0e6da;border-radius:28px;padding:70px 44px 58px;box-shadow:0 22px 60px #0002}
+.menus-page .home-experience .im-section .section-intro{margin-bottom:48px}
+.menus-page .home-experience .im-section .section-intro .im-disclosure{color:#79856f;font-size:11px}
+.menus-page .home-experience .im-grid{gap:24px}
+.menus-page .home-experience .im-screen{box-shadow:0 18px 36px #16250912,0 2px 4px #16250904}
+.menus-page .home-experience .im-caption{color:#738167;font-size:12px}
+
+.menus-page .home-experience .pricing-section{padding-top:105px;padding-bottom:100px;border:0;gap:100px}
+.menus-page .home-experience .pricing-intro .eyebrow{margin-bottom:25px}
+.menus-page .home-experience .pricing-intro>p:not(.eyebrow){font-size:16px;line-height:1.75;color:#c3cfbc;max-width:440px}
+.menus-page .home-experience .pricing-context{max-width:410px;font-size:12px!important;color:#a8b99c!important;margin-top:30px!important}
+.menus-page .home-experience .price-card{background:#fff;color:var(--ink);border-color:#dae6ca;border-radius:22px;max-width:445px;padding:35px;box-shadow:0 22px 55px #0003}
+.menus-page .home-experience .price-top{font-size:13px}
+.menus-page .home-experience .price-card .preview-badge{font-size:10px;background:#f2f7e9;color:#5e7447}
+.menus-page .home-experience .price{gap:11px;margin-top:25px}
+.menus-page .home-experience .price span:first-child{font-family:var(--heading);font-size:85px;font-weight:500;letter-spacing:-.075em;line-height:1.05}
+.menus-page .home-experience .price span:last-child{font-size:13px;color:#77846a}
+.menus-page .home-experience .price-card>p{font-size:12px;line-height:1.6;color:#79866e}
+.menus-page .home-experience .price-card ul{font-size:13px;gap:15px;padding:27px 0 28px;border-color:#e1e7d9}
+.menus-page .home-experience .price-card li span{color:#78983c;font-size:15px}
+.menus-page .home-experience .price-card .button{font-size:14px}
+.menus-page .home-experience .price-card>small{font-size:10px;line-height:1.7;color:#7a886c;margin-top:17px}
+.menus-page .home-experience .faq-section{background:#fff;color:var(--ink);max-width:1152px;width:calc(100% - var(--mr-gutter)*2);padding:65px 48px 62px;border-radius:28px;gap:65px;grid-template-columns:1fr 1.25fr;box-shadow:0 22px 60px #0002}
+.menus-page .home-experience .faq-title h2{font-size:clamp(38px,4.2vw,56px)}
+.menus-page .home-experience .faq-title .eyebrow{margin-bottom:24px}
+.menus-page .home-experience .faq-list summary{font-family:var(--heading);font-size:16px;font-weight:500;letter-spacing:-.025em;line-height:1.45;padding:21px 1px}
+.menus-page .home-experience .faq-list details>p{font-size:13px;line-height:1.8;color:var(--muted);padding-bottom:23px}
+.menus-page .home-experience .faq-list summary>span{color:#738854;font-size:23px}
+.menus-page .home-experience .faq-list details{border-color:#dce4d2}
+.menus-page .home-experience .faq-list details:first-child{border-color:#dce4d2}
+
+.menus-page .home-experience .get-started-section{padding:75px 0 55px;background:transparent;border:0}
+.menus-page .home-experience .get-started-grid{grid-template-columns:1.05fr 1fr;gap:100px;align-items:center}
+.menus-page .home-experience .mr-contact-copy{min-width:0}
+.menus-page .home-experience .mr-contact-anchor{height:170px;position:relative;pointer-events:none;margin-bottom:25px;max-width:400px}
+.menus-page .home-experience .get-started-grid h2{font-size:clamp(40px,4.5vw,60px)}
+.menus-page .home-experience .get-started-grid .eyebrow{margin-bottom:25px}
+.menus-page .home-experience .get-started-grid>div>p:not(.eyebrow){color:#c2cdb9;font-size:15px;line-height:1.75;max-width:400px;margin:27px 0 20px}
+.menus-page .home-experience .get-started-grid .text-link{color:var(--lime);font-size:13px}
+.menus-page .home-experience .lead-form{background:#fff;color:var(--ink);padding:32px;border-color:#dce6ce;border-radius:20px;box-shadow:0 20px 55px #0003}
+.menus-page .home-experience .lead-form label{font-size:12px;font-weight:500}
+.menus-page .home-experience .lead-form input,.menus-page .home-experience .lead-form textarea{font-size:14px;line-height:1.5;color:var(--ink);background:#f7f9f2;border-color:#d6e0c9;border-radius:7px;margin-top:9px;margin-bottom:19px;padding:12px 13px}
+.menus-page .home-experience .lead-form input::placeholder,.menus-page .home-experience .lead-form textarea::placeholder{color:#8a977d}
+.menus-page .home-experience .lead-form input:focus,.menus-page .home-experience .lead-form textarea:focus{border-color:#82a437}
+.menus-page .home-experience .lead-form textarea{min-height:95px}
+.menus-page .home-experience .lead-form .button{font-size:14px;min-height:49px;padding:14px 18px}
+.menus-page .home-experience .lead-form>p:not([hidden]){font-size:10px;line-height:1.7;color:#7a886c;margin-top:15px}
+.menus-page .home-experience .site-footer{position:relative;z-index:1;background:#090c0be6;color:#fff;max-width:none;padding:47px max(44px,calc((100% - 1152px)/2)) 28px;border-top:1px solid #293324}
+.menus-page .home-experience .site-footer .brand{font-size:29px}
+.menus-page .home-experience .site-footer>div>p{color:#a4b29b;font-size:12px;line-height:1.7}
+.menus-page .home-experience .footer-links{font-size:12px;gap:25px;color:#c2ccba}
+.menus-page .home-experience .footer-links a:hover{color:var(--lime)}
+.menus-page .home-experience .footer-bottom{font-size:10px;color:#92a187;border-color:#2a3524;padding-top:22px}
+.menus-page .home-experience .mr-motion-toggle{position:fixed;z-index:50;right:22px;bottom:20px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 14px;border:1px solid #677650;border-radius:99px;background:#090c0bf2;color:#e4eed9;font:500 12px/1.25 var(--sans);box-shadow:0 5px 25px #0002;backdrop-filter:blur(14px)}
+.menus-page .home-experience .mr-motion-toggle:hover{background:#1b2513;color:#fff;border-color:#a3bd79}
+.menus-page .home-experience .mr-motion-toggle:focus-visible{outline-color:var(--lime)}
+.menus-page .home-experience .mr-motion-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.menus-page .home-experience .simple-page{position:relative;z-index:1;color:#fff}
+.menus-page .home-experience .simple-page h1,.menus-page .home-experience .simple-page h2{font-family:var(--heading);font-weight:500;letter-spacing:-.05em}
+.menus-page .home-experience .simple-page p{color:#c3cdbd}
+
+@media(min-width:1450px){
+ .menus-page .home-experience .hero{min-height:810px;gap:65px;padding-top:70px;padding-bottom:80px}
+ .menus-page .home-experience .hero h1{font-size:103px}
+ .menus-page .home-experience .hero-visual{height:650px}
+ .menus-page .home-experience .hero-phone{width:299px;height:594px}
+ .menus-page .home-experience .hero-description{font-size:17px}
+ .menus-page .home-experience .mr-stellar-heading{min-height:390px}
+ .menus-page .home-experience .mr-constellation-anchor{height:330px}
+}
+@media(max-width:1100px){
+ .menus-page .home-experience .nav-wrap{padding-inline:30px;gap:20px}
+ .menus-page .home-experience .nav-wrap nav{gap:17px}
+ .menus-page .home-experience .nav-wrap nav a,.menus-page .home-experience .login-link{font-size:11px}
+ .menus-page .home-experience .nav-actions{gap:15px}
+ .menus-page .home-experience .brand{font-size:27px;gap:8px}
+ .menus-page .home-experience .nav-actions .button-small{font-size:11px;padding-inline:14px;gap:13px}
+ .menus-page .home-experience .section-shell{padding-inline:34px}
+ .menus-page .home-experience .hero{gap:25px;grid-template-columns:1.05fr 1fr}
+ .menus-page .home-experience .hero h1{font-size:clamp(63px,7.6vw,83px)}
+ .menus-page .home-experience .hero-description{font-size:15px;max-width:350px}
+ .menus-page .home-experience .hero-ctas{gap:18px}
+ .menus-page .home-experience .hero-ctas .button{font-size:12px;padding-inline:17px;gap:13px}
+ .menus-page .home-experience .hero-ctas .text-link{font-size:12px;gap:10px}
+ .menus-page .home-experience .mini-editor{left:-5px;bottom:67px}
+ .menus-page .home-experience .hero-visual{height:628px}
+ .menus-page .home-experience .how-layout{padding:40px 34px;gap:38px}
+ .menus-page .home-experience .workflow-step p{font-size:13px}
+ .menus-page .home-experience .workflow-step h3{font-size:22px}
+ .menus-page .home-experience .workflow-screen{padding:26px}
+ .menus-page .home-experience .workflow-screen h3{font-size:36px}
+ .menus-page .home-experience .guest-story,.menus-page .home-experience .print-section,.menus-page .home-experience .pricing-section,.menus-page .home-experience .get-started-grid{gap:60px}
+ .menus-page .home-experience .venue-layout{padding:38px 30px;gap:30px;grid-template-columns:minmax(0,1fr) 325px}
+ .menus-page .home-experience .venue-device{width:302px;height:629px}
+ .menus-page .home-experience .venue-button{padding:12px 9px;gap:8px}
+ .menus-page .home-experience .venue-button>span:nth-child(2){font-size:10px}
+ .menus-page .home-experience .venue-button small{font-size:8px}
+ .menus-page .home-experience .venue-initials{width:28px;height:31px;font-size:13px}
+ .menus-page .home-experience .venue-arrow{font-size:13px}
+ .menus-page .home-experience .playground-section .section-shell{padding:52px 30px 32px}
+ .menus-page .home-experience .md-split{gap:25px;grid-template-columns:minmax(0,1.2fr) minmax(310px,.9fr)}
+ .menus-page .home-experience .im-section{padding:62px 30px 48px}
+ .menus-page .home-experience .faq-section{padding:55px 35px;gap:40px}
+ .menus-page .home-experience .faq-list summary{font-size:15px}
+ .menus-page .home-experience .price-card{padding:30px}
+ .menus-page .home-experience .get-started-grid{gap:60px}
+ .menus-page .home-experience .lead-form{padding:27px}
+}
+@media(max-width:900px){
+ .menus-page .home-experience .nav-wrap{height:78px}
+ .menus-page .home-experience .nav-wrap>nav{display:none}
+ .menus-page .home-experience .mobile-nav-toggle{display:block}
+ .menus-page .home-experience .section-shell{padding-inline:28px}
+ .menus-page .home-experience .hero{min-height:720px;padding-top:48px;padding-bottom:60px;gap:18px}
+ .menus-page .home-experience .hero h1{font-size:70px}
+ .menus-page .home-experience .hero-description{font-size:14px}
+ .menus-page .home-experience .hero-ctas{gap:15px;flex-wrap:wrap}
+ .menus-page .home-experience .hero-footnote{font-size:10px}
+ .menus-page .home-experience .hero-visual{height:598px}
+ .menus-page .home-experience .mini-editor{left:0;width:170px}
+ .menus-page .home-experience .mini-editor-top strong{font-size:8px}
+ .menus-page .home-experience .mini-price-row input{width:77px}
+ .menus-page .home-experience .demo-caption{font-size:8px;right:4px;bottom:0}
+ .menus-page .home-experience .mr-stellar-heading{gap:25px;min-height:330px}
+ .menus-page .home-experience .mr-stellar-heading .section-intro>p:last-child:not(.eyebrow){font-size:14px}
+ .menus-page .home-experience h2{font-size:49px}
+ .menus-page .home-experience .mr-constellation-anchor{height:280px}
+ .menus-page .home-experience .how-layout{padding:35px 27px;gap:27px}
+ .menus-page .home-experience .workflow-step{gap:17px;min-height:205px}
+ .menus-page .home-experience .workflow-step h3{font-size:20px}
+ .menus-page .home-experience .workflow-step p{font-size:12px}
+ .menus-page .home-experience .workflow-screen{padding:24px 20px}
+ .menus-page .home-experience .workflow-screen h3{font-size:34px}
+ .menus-page .home-experience .preview-topbar{padding-inline:16px;font-size:11px}
+ .menus-page .home-experience .guest-story{gap:42px}
+ .menus-page .home-experience .story-copy h2{font-size:45px}
+ .menus-page .home-experience .story-copy>p:not(.eyebrow):not(.dietary-note){font-size:14px}
+ .menus-page .home-experience .plain-benefits{font-size:12px}
+ .menus-page .home-experience .dietary-note{font-size:10px}
+ .menus-page .home-experience .food-portrait{height:470px}
+ .menus-page .home-experience .dietary-floating{padding:14px 17px;right:-16px;font-size:9px}
+ .menus-page .home-experience .dietary-floating strong{font-size:13px}
+ .menus-page .home-experience .venue-layout{grid-template-columns:minmax(0,1fr) 285px;padding:32px 24px;gap:25px}
+ .menus-page .home-experience .venue-buttons{grid-template-columns:1fr}
+ .menus-page .home-experience .venue-button{min-height:54px;padding:9px 11px}
+ .menus-page .home-experience .venue-button small{display:inline;margin-left:7px}
+ .menus-page .home-experience .venue-device{width:282px;height:624px}
+ .menus-page .home-experience .venue-detail{margin-top:22px;padding-top:18px;min-height:0}
+ .menus-page .home-experience .venue-detail h3{font-size:29px}
+ .menus-page .home-experience .venue-detail>p:not(.venue-place):not(.venue-features){font-size:12px}
+ .menus-page .home-experience .venue-disclosure{font-size:9px}
+ .menus-page .home-experience .venue-preview-label{font-size:9px}
+ .menus-page .home-experience .venue-preview-note{font-size:9px}
+ .menus-page .home-experience .venue-section h2{font-size:45px}
+ .menus-page .home-experience .playground-section .section-shell{padding:48px 25px 30px}
+ .menus-page .home-experience .md-split{gap:25px;grid-template-columns:1fr}
+ .menus-page .home-experience .md-staff{max-width:600px;width:100%;margin-inline:auto}
+ .menus-page .home-experience .md-guest{max-width:500px;width:100%;margin-inline:auto;padding-top:10px}
+ .menus-page .home-experience .md-guest-label{max-width:340px}
+ .menus-page .home-experience .print-section{gap:45px}
+ .menus-page .home-experience .print-copy h2{font-size:47px}
+ .menus-page .home-experience .print-copy>p:not(.eyebrow):not(.small-note){font-size:14px}
+ .menus-page .home-experience .print-points{font-size:12px}
+ .menus-page .home-experience .paper-stack,.menus-page .home-experience .paper-sheet{width:282px;height:414px}
+ .menus-page .home-experience .paper-sheet{padding:27px}
+ .menus-page .home-experience .pricing-section{gap:45px}
+ .menus-page .home-experience .pricing-intro>p:not(.eyebrow){font-size:14px}
+ .menus-page .home-experience .price-card{padding:27px}
+ .menus-page .home-experience .price-card ul{font-size:12px}
+ .menus-page .home-experience .faq-section{gap:35px;padding-inline:29px;grid-template-columns:.9fr 1.2fr}
+ .menus-page .home-experience .faq-title h2{font-size:44px}
+ .menus-page .home-experience .faq-list summary{font-size:14px}
+ .menus-page .home-experience .faq-list details>p{font-size:12px}
+ .menus-page .home-experience .get-started-grid{gap:40px}
+ .menus-page .home-experience .get-started-grid h2{font-size:48px}
+ .menus-page .home-experience .get-started-grid>div>p:not(.eyebrow){font-size:14px}
+ .menus-page .home-experience .form-row{grid-template-columns:1fr 1.2fr;gap:12px}
+ .menus-page .home-experience .lead-form{padding:23px}
+ .menus-page .home-experience .lead-form label{font-size:11px}
+ .menus-page .home-experience .lead-form input,.menus-page .home-experience .lead-form textarea{font-size:13px}
+ .menus-page .home-experience .footer-links{font-size:11px;gap:17px}
+ .menus-page .home-experience .site-footer{padding-inline:30px}
+}
+@media(max-width:700px){
+ .menus-page .home-experience{--mr-gutter:16px}
+ html:has(body.menus-page){scroll-padding-top:87px}
+ .menus-page .home-experience .nav-wrap{height:74px;padding:0 20px;gap:14px}
+ .menus-page .home-experience .brand{font-size:26px;gap:8px;letter-spacing:-1.3px}
+ .menus-page .home-experience .brand img{width:29px;height:29px}
+ .menus-page .home-experience .nav-actions{margin-left:auto;gap:0}
+ .menus-page .home-experience .nav-actions .button-small{min-height:39px;padding:10px 11px;font-size:10px;gap:10px}
+ .menus-page .home-experience .mobile-nav-toggle{width:34px;height:40px;padding:7px}
+ .menus-page .home-experience .mobile-nav{padding:9px 23px 21px}
+ .menus-page .home-experience .section-shell{padding-left:24px;padding-right:24px}
+ .menus-page .home-experience .hero{display:flex;min-height:0;padding-top:55px;padding-bottom:45px;gap:16px}
+ .menus-page .home-experience .hero-copy{text-align:center;width:100%;padding-bottom:0}
+ .menus-page .home-experience .hero-copy .eyebrow{font-size:10px;letter-spacing:.095em;max-width:320px;margin:0 auto 27px}
+ .menus-page .home-experience .hero h1{font-size:clamp(52px,13.8vw,75px);line-height:1.035;letter-spacing:-.065em;margin-bottom:25px}
+ .menus-page .home-experience .hero-description{font-size:15px;line-height:1.7;max-width:345px}
+ .menus-page .home-experience .hero-ctas{gap:18px;margin-top:28px;flex-wrap:wrap}
+ .menus-page .home-experience .hero-ctas .button{font-size:13px;min-height:49px;padding:14px 18px}
+ .menus-page .home-experience .hero-ctas .text-link{font-size:12px;gap:10px}
+ .menus-page .home-experience .hero-footnote{font-size:10px;line-height:1.7;margin-top:17px}
+ .menus-page .home-experience .audience-line{font-size:10px;gap:14px;margin-top:25px}
+ .menus-page .home-experience .hero-visual{height:628px;margin-top:28px;width:100%;max-width:410px}
+ .menus-page .home-experience .hero-phone{width:282px;height:574px;flex:none}
+ .menus-page .home-experience .hero-phone h2{font-size:37px;line-height:1;letter-spacing:-.045em}
+ .menus-page .home-experience .floating-label{font-size:10px;top:-3px;left:calc(50% - 139px);padding:9px 15px}
+ .menus-page .home-experience .mini-editor{left:-2px;bottom:69px;width:177px;padding:13px}
+ .menus-page .home-experience .mini-price-row input{width:84px}
+ .menus-page .home-experience .mini-editor-top strong{font-size:8.5px}
+ .menus-page .home-experience .demo-caption{font-size:8px;right:12px;bottom:-2px}
+ .menus-page .home-experience .hero-visual:before{inset:20px -24px 10px}
+ .menus-page .home-experience .promise-strip{font-size:18px;gap:13px 14px;min-height:88px;padding:24px 17px;line-height:1.5;border-radius:0 0 22px 22px}
+ .menus-page .home-experience .strip-line{width:18px;background:#9aaa70}
+ .menus-page .home-experience .eyebrow{font-size:10px;letter-spacing:.11em}
+ .menus-page .home-experience h2{font-size:clamp(35px,10.2vw,48px);line-height:1.08;letter-spacing:-.055em}
+ .menus-page .home-experience .section-intro>p:last-child:not(.eyebrow){font-size:14px;line-height:1.7}
+ .menus-page .home-experience .how-section{padding-top:16px;padding-bottom:55px}
+ .menus-page .home-experience .mr-stellar-heading{display:flex;flex-direction:column-reverse;gap:22px;min-height:0;margin-bottom:34px}
+ .menus-page .home-experience .mr-stellar-heading .section-intro{text-align:center;width:100%}
+ .menus-page .home-experience .mr-stellar-heading .section-intro .eyebrow{margin-bottom:20px}
+ .menus-page .home-experience .mr-stellar-heading .section-intro>p:last-child:not(.eyebrow){font-size:14px;max-width:340px;margin:22px auto 0}
+ .menus-page .home-experience .mr-constellation-anchor{height:235px;width:100%;max-width:370px;margin-inline:auto}
+ .menus-page .home-experience .mr-surface{border-radius:21px}
+ .menus-page .home-experience .how-layout{padding:31px 23px 24px;grid-template-columns:1fr;gap:21px;border-radius:21px}
+ .menus-page .home-experience .workflow-list{padding-top:0}
+ .menus-page .home-experience .workflow-step{min-height:180px;padding:15px 0;gap:17px}
+ .menus-page .home-experience .workflow-step:last-child{min-height:160px}
+ .menus-page .home-experience .workflow-step:before{top:56px;bottom:-10px}
+ .menus-page .home-experience .animated-check{width:36px;height:36px}
+ .menus-page .home-experience .animated-check svg{padding:7px}
+ .menus-page .home-experience .workflow-step:before{left:17px}
+ .menus-page .home-experience .step-number{font-size:9px}
+ .menus-page .home-experience .workflow-step h3{font-size:22px;line-height:1.15;margin:10px 0 11px}
+ .menus-page .home-experience .workflow-step p{font-size:13px;line-height:1.75;max-width:none}
+ .menus-page .home-experience .workflow-preview{position:relative;top:auto;min-height:445px;margin-top:0;width:100%;border-radius:14px}
+ .menus-page .home-experience .preview-topbar{padding:0 18px;font-size:12px}
+ .menus-page .home-experience .workflow-screen{padding:28px 25px;color:var(--ink)}
+ .menus-page .home-experience .workflow-screen h3{font-size:36px;line-height:1.08;margin:16px 0 24px}
+ .menus-page .home-experience .mock-field strong{font-size:12px}
+ .menus-page .home-experience .mock-field span{font-size:9px}
+ .menus-page .home-experience .workflow-screen .button{font-size:12px;min-height:43px}
+ .menus-page .home-experience .preview-note{font-size:9px}
+ .menus-page .home-experience .reorder-row{padding:15px 9px}
+ .menus-page .home-experience .reorder-row strong{font-size:11px}
+ .menus-page .home-experience .reorder-row>span:last-child{font-size:7px}
+ .menus-page .home-experience .guest-story{grid-template-columns:1fr;gap:38px;padding-top:12px;padding-bottom:45px}
+ .menus-page .home-experience .story-photo{max-width:370px;width:calc(100% - 16px)}
+ .menus-page .home-experience .food-portrait{height:390px;border-radius:20px}
+ .menus-page .home-experience .dietary-floating{right:-13px;top:28px;padding:14px 16px;font-size:9px}
+ .menus-page .home-experience .dietary-floating strong{font-size:13px}
+ .menus-page .home-experience .photo-note{font-size:9px;bottom:16px;left:15px;right:15px;padding:9px 11px}
+ .menus-page .home-experience .story-copy{max-width:420px;width:100%}
+ .menus-page .home-experience .story-copy .eyebrow{margin-bottom:20px}
+ .menus-page .home-experience .story-copy h2{font-size:clamp(35px,10.5vw,47px)}
+ .menus-page .home-experience .story-copy>p:not(.eyebrow):not(.dietary-note){font-size:15px;line-height:1.75;max-width:none;margin-top:23px}
+ .menus-page .home-experience .plain-benefits{font-size:12px;gap:15px;margin:25px 0}
+ .menus-page .home-experience .dietary-note{font-size:10px;line-height:1.8;max-width:none}
+ .menus-page .home-experience .venue-section{padding-top:8px;padding-bottom:37px}
+ .menus-page .home-experience .venue-section .mr-stellar-heading{min-height:0;gap:23px;margin-bottom:33px}
+ .menus-page .home-experience .venue-section h2{font-size:clamp(34px,9.8vw,46px)}
+ .menus-page .home-experience .venue-layout{grid-template-columns:1fr;max-width:440px;margin:auto;padding:25px 20px 27px;gap:34px;border-radius:21px}
+ .menus-page .home-experience .venue-overline{font-size:9px;line-height:1.6;letter-spacing:.08em;margin-bottom:15px}
+ .menus-page .home-experience .venue-buttons{grid-template-columns:1fr 1fr;gap:8px}
+ .menus-page .home-experience .venue-button{min-height:66px;padding:11px 9px;gap:7px}
+ .menus-page .home-experience .venue-button>span:nth-child(2){font-size:9px;line-height:1.35}
+ .menus-page .home-experience .venue-button small{font-size:7px;display:block;margin:4px 0 0}
+ .menus-page .home-experience .venue-initials{width:25px;height:30px;font-size:12px}
+ .menus-page .home-experience .venue-arrow{font-size:11px}
+ .menus-page .home-experience .venue-detail h3{font-size:31px;margin-bottom:13px}
+ .menus-page .home-experience .venue-place{font-size:9px}
+ .menus-page .home-experience .venue-detail>p:not(.venue-place):not(.venue-features){font-size:13px;max-width:none;line-height:1.75}
+ .menus-page .home-experience .venue-features{font-size:10px;margin:14px 0 12px}
+ .menus-page .home-experience .venue-detail .text-link{font-size:13px;min-height:43px}
+ .menus-page .home-experience .venue-disclosure{font-size:9px;line-height:1.75;margin-top:18px;max-width:none}
+ .menus-page .home-experience .venue-preview-label{font-size:9px;line-height:1.6;max-width:275px;margin:0 auto 14px}
+ .menus-page .home-experience .venue-device{width:min(100%,318px);height:620px;border-width:5px;border-radius:31px}
+ .menus-page .home-experience .venue-device iframe{padding-top:17px}
+ .menus-page .home-experience .venue-preview-note{font-size:9px;line-height:1.7;max-width:260px;margin-top:16px}
+ .menus-page .home-experience .playground-section{padding-top:18px;padding-bottom:52px}
+ .menus-page .home-experience .playground-section .section-shell{padding:40px 15px 26px;width:calc(100% - 24px);border-radius:21px}
+ .menus-page .home-experience .playground-section .section-intro{margin-bottom:32px;padding-inline:7px}
+ .menus-page .home-experience .playground-section .section-intro h2{font-size:clamp(34px,9.8vw,46px)}
+ .menus-page .home-experience .playground-section .section-intro>p:last-child:not(.eyebrow){font-size:13px;max-width:310px;margin-inline:auto}
+ .menus-page .home-experience .md-demo{font-size:13px}
+ .menus-page .home-experience .md-topline{gap:12px;margin-bottom:20px;padding-inline:4px}
+ .menus-page .home-experience .md-topline-copy p{font-size:12px;line-height:1.6}
+ .menus-page .home-experience .md-demo-pill{font-size:9px;padding:7px 10px}
+ .menus-page .home-experience .md-reset{font-size:10px}
+ .menus-page .home-experience .md-split{gap:31px;grid-template-columns:minmax(0,1fr)}
+ .menus-page .home-experience .md-workspace-heading{padding:20px 17px;gap:10px}
+ .menus-page .home-experience .md-workspace-heading h3{font-size:22px;line-height:1.08}
+ .menus-page .home-experience .md-workspace-mark{width:34px;height:34px;border-radius:10px}
+ .menus-page .home-experience .md-workspace-role{font-size:8px;padding:4px 7px}
+ .menus-page .home-experience .md-staff-content{padding:18px 15px 21px}
+ .menus-page .home-experience .md-guest{padding-inline:4px}
+ .menus-page .home-experience .md-phone{max-width:330px;border-width:6px}
+ .menus-page .home-experience .md-guest-label{font-size:8px;max-width:330px;gap:6px}
+ .menus-page .home-experience .md-workspace-bottom{padding:13px 15px;font-size:8px}
+ .menus-page .home-experience .md-demo-disclosure{font-size:9px;line-height:1.7;padding-inline:8px}
+ .menus-page .home-experience .playground-footnote{font-size:9px;line-height:1.8;max-width:280px;margin-top:20px}
+ .menus-page .home-experience .md-dialog{padding:28px 24px}
+ .menus-page .home-experience .print-section{grid-template-columns:1fr;gap:0;padding-top:0;padding-bottom:64px}
+ .menus-page .home-experience .mr-paper-scene{display:flex;flex-direction:column;gap:0;margin-top:15px}
+ .menus-page .home-experience .mr-print-anchor{order:0;height:210px;margin-bottom:20px;max-width:370px;margin-inline:auto}
+ .menus-page .home-experience .paper-stack{order:1;margin-inline:auto}
+ .menus-page .home-experience .print-copy{max-width:420px;margin:auto;width:100%}
+ .menus-page .home-experience .print-copy .eyebrow{margin-bottom:20px}
+ .menus-page .home-experience .print-copy h2{font-size:clamp(35px,10.4vw,47px)}
+ .menus-page .home-experience .print-copy>p:not(.eyebrow):not(.small-note){font-size:15px;line-height:1.75;max-width:none;margin-top:23px}
+ .menus-page .home-experience .print-points{font-size:12px;gap:16px;margin:26px 0 29px}
+ .menus-page .home-experience .print-copy .button{font-size:13px;min-height:50px}
+ .menus-page .home-experience .print-copy .small-note{font-size:10px;line-height:1.8}
+ .menus-page .home-experience .paper-stack,.menus-page .home-experience .paper-sheet{width:285px;height:425px}
+ .menus-page .home-experience .paper-sheet{padding:28px}
+ .menus-page .home-experience .paper-item{margin:7px 0}
+ .menus-page .home-experience .paper-sheet h3{margin:12px 0 8px}
+ .menus-page .home-experience .a4-badge{font-size:10px;right:-8px;bottom:19px;padding:12px 15px}
+ .menus-page .home-experience .im-section{width:calc(100% - 32px);padding:43px 22px 36px;border-radius:21px}
+ .menus-page .home-experience .im-section .section-intro{margin-bottom:34px}
+ .menus-page .home-experience .im-section h2{font-size:clamp(33px,9.5vw,44px)}
+ .menus-page .home-experience .im-section .section-intro .im-disclosure{font-size:10px;line-height:1.7;max-width:280px;margin:20px auto 0}
+ .menus-page .home-experience .im-grid{grid-template-columns:1fr;gap:35px;max-width:375px;margin:auto}
+ .menus-page .home-experience .im-screen{border-radius:23px}
+ .menus-page .home-experience .im-caption{font-size:11px;line-height:1.6;margin-top:16px}
+ .menus-page .home-experience .pricing-section{grid-template-columns:1fr;text-align:center;gap:33px;padding-top:70px;padding-bottom:65px}
+ .menus-page .home-experience .pricing-intro .eyebrow{margin-bottom:20px}
+ .menus-page .home-experience .pricing-intro>p:not(.eyebrow){font-size:15px;line-height:1.75;margin:23px auto 0;max-width:350px}
+ .menus-page .home-experience .pricing-context{font-size:11px!important;line-height:1.8!important;max-width:320px!important;margin:25px auto 0!important}
+ .menus-page .home-experience .price-card{padding:29px 25px;max-width:420px;width:100%;border-radius:20px}
+ .menus-page .home-experience .price-top{font-size:12px}
+ .menus-page .home-experience .price{margin-top:24px;gap:10px}
+ .menus-page .home-experience .price span:first-child{font-size:83px}
+ .menus-page .home-experience .price-card ul{font-size:12px;gap:15px;padding:25px 0 26px}
+ .menus-page .home-experience .price-card>p{font-size:11px}
+ .menus-page .home-experience .price-card>small{font-size:9px;line-height:1.8;margin-top:15px}
+ .menus-page .home-experience .price-card .button{font-size:13px;min-height:49px}
+ .menus-page .home-experience .faq-section{width:calc(100% - 32px);grid-template-columns:1fr;padding:42px 24px 28px;gap:29px;border-radius:21px}
+ .menus-page .home-experience .faq-title{text-align:center}
+ .menus-page .home-experience .faq-title h2{font-size:clamp(34px,9.9vw,46px)}
+ .menus-page .home-experience .faq-title .eyebrow{margin-bottom:20px}
+ .menus-page .home-experience .faq-list summary{font-size:15px;padding:21px 0;gap:15px;line-height:1.4}
+ .menus-page .home-experience .faq-list summary>span{font-size:23px}
+ .menus-page .home-experience .faq-list details>p{font-size:12px;line-height:1.85;padding:0 10px 22px 0}
+ .menus-page .home-experience .get-started-section{padding:24px 0 50px}
+ .menus-page .home-experience .get-started-grid{grid-template-columns:1fr;gap:34px}
+ .menus-page .home-experience .mr-contact-copy{text-align:center}
+ .menus-page .home-experience .mr-contact-anchor{height:190px;max-width:350px;margin:0 auto 26px}
+ .menus-page .home-experience .get-started-grid h2{font-size:clamp(35px,10.5vw,47px)}
+ .menus-page .home-experience .get-started-grid .eyebrow{margin-bottom:20px}
+ .menus-page .home-experience .get-started-grid>div>p:not(.eyebrow){font-size:14px;line-height:1.8;max-width:335px;margin:24px auto 16px}
+ .menus-page .home-experience .get-started-grid .text-link{font-size:12px}
+ .menus-page .home-experience .lead-form{padding:26px 23px;max-width:420px;border-radius:18px}
+ .menus-page .home-experience .lead-form label{font-size:11px}
+ .menus-page .home-experience .lead-form input,.menus-page .home-experience .lead-form textarea{font-size:14px;padding:12px;margin-top:8px;margin-bottom:18px}
+ .menus-page .home-experience .lead-form textarea{min-height:95px}
+ .menus-page .home-experience .lead-form .button{font-size:13px;min-height:48px}
+ .menus-page .home-experience .lead-form>p:not([hidden]){font-size:9px;line-height:1.8;margin-top:14px}
+ .menus-page .home-experience .site-footer{padding:37px 24px 28px;grid-template-columns:1fr;gap:26px}
+ .menus-page .home-experience .site-footer .brand{font-size:28px}
+ .menus-page .home-experience .site-footer>div>p{font-size:11px;line-height:1.7}
+ .menus-page .home-experience .footer-links{font-size:11px;gap:21px;flex-wrap:wrap}
+ .menus-page .home-experience .footer-bottom{font-size:9px;line-height:1.7;gap:8px;padding-top:22px}
+ .menus-page .home-experience .mr-motion-toggle{right:13px;bottom:13px;min-height:44px;font-size:11px;padding:10px 12px;gap:7px}
+ .menus-page .home-experience .simple-page h1{font-size:52px}
+}
+@media(max-width:380px){
+ .menus-page .home-experience .nav-wrap{padding-inline:15px;gap:10px}
+ .menus-page .home-experience .brand{font-size:24px;gap:7px}
+ .menus-page .home-experience .brand img{width:27px;height:27px}
+ .menus-page .home-experience .nav-actions .button-small{font-size:9px;padding-inline:9px;gap:7px}
+ .menus-page .home-experience .mobile-nav-toggle{width:30px;padding-inline:5px}
+ .menus-page .home-experience .section-shell{padding-inline:20px}
+ .menus-page .home-experience .hero h1{font-size:clamp(49px,13.6vw,54px)}
+ .menus-page .home-experience .hero-description{font-size:14px}
+ .menus-page .home-experience .hero-visual{height:613px}
+ .menus-page .home-experience .hero-phone{width:272px;height:563px}
+ .menus-page .home-experience .mini-editor{width:164px;padding:10px;left:-4px}
+ .menus-page .home-experience .mini-price-row input{width:76px}
+ .menus-page .home-experience .mini-editor-top strong{font-size:7.5px}
+ .menus-page .home-experience .floating-label{font-size:9px;left:calc(50% - 128px)}
+ .menus-page .home-experience .promise-strip{font-size:16px;gap:10px 12px}
+ .menus-page .home-experience .strip-line{width:12px}
+ .menus-page .home-experience .how-layout{padding:26px 18px 21px}
+ .menus-page .home-experience .workflow-step{gap:13px;min-height:185px}
+ .menus-page .home-experience .workflow-step h3{font-size:20px}
+ .menus-page .home-experience .workflow-step p{font-size:12px}
+ .menus-page .home-experience .workflow-screen{padding:26px 21px}
+ .menus-page .home-experience .workflow-screen h3{font-size:33px}
+ .menus-page .home-experience .venue-layout{padding-inline:16px}
+ .menus-page .home-experience .venue-button{padding:10px 7px;gap:6px}
+ .menus-page .home-experience .venue-initials{width:23px;height:27px;font-size:11px}
+ .menus-page .home-experience .venue-button>span:nth-child(2){font-size:8px}
+ .menus-page .home-experience .venue-button small{font-size:6.5px}
+ .menus-page .home-experience .venue-arrow{display:none}
+ .menus-page .home-experience .venue-device{height:600px}
+ .menus-page .home-experience .playground-section .section-shell{padding-inline:12px}
+ .menus-page .home-experience .md-workspace-heading h3{font-size:20px}
+ .menus-page .home-experience .md-workspace-role{font-size:7px}
+ .menus-page .home-experience .md-small-label{font-size:8px}
+ .menus-page .home-experience .md-staff-content{padding-inline:12px}
+ .menus-page .home-experience .md-workspace-toolbar{gap:5px}
+ .menus-page .home-experience .md-tab{padding:8px;font-size:10px!important}
+ .menus-page .home-experience .im-section{padding-inline:18px}
+ .menus-page .home-experience .faq-section{padding-inline:20px}
+ .menus-page .home-experience .get-started-grid{gap:28px}
+ .menus-page .home-experience .lead-form{padding:24px 20px}
+ .menus-page .home-experience .form-row{grid-template-columns:1fr;gap:0}
+ .menus-page .home-experience .paper-stack,.menus-page .home-experience .paper-sheet{width:267px;height:414px}
+ .menus-page .home-experience .paper-sheet{padding:25px}
+ .menus-page .home-experience .paper-sheet h3{margin:11px 0 7px}
+ .menus-page .home-experience .paper-item{margin:6px 0}
+}
+@media(prefers-reduced-motion:reduce){
+ html:has(body.menus-page){scroll-behavior:auto}
+ .menus-page .home-experience .hero-copy,.menus-page .home-experience .hero-phone,.menus-page .home-experience .floating-label{animation:none}
+ .menus-page .home-experience .button:hover{transform:none}
+ .menus-page .home-experience .animated-check{background:var(--lime);border-color:var(--lime)}
+ .menus-page .home-experience .animated-check path{stroke:#223014}
+ .menus-page .home-experience .mr-light-field{background:radial-gradient(ellipse at 50% 45%,#0d1720,#04090e 72%)}
+}
+
+/* Native preview typography is independent of the marketing heading scale. */
+.menus-page .home-experience .hero-phone .guest-header h2{font-family:var(--serif);font-size:37px;font-weight:400;line-height:1;letter-spacing:-.045em;color:#233c32}
+.menus-page .home-experience .hero-phone .guest-header h2 em{font-family:var(--serif);font-weight:400;font-style:italic;color:#58764d}
+.menus-page .home-experience .md-guest .md-menu-header h3{font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:400;line-height:1.05;letter-spacing:-.04em}
+.menus-page .home-experience .md-guest .md-guest-category h4{font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:400;line-height:1.6;letter-spacing:-.025em}
+.menus-page .home-experience .md-guest .md-guest-dish-title h5{font-family:var(--sans);font-size:10px;font-weight:600;line-height:1.4;letter-spacing:0}
+.menus-page .home-experience .md-guest .md-no-results h4{font-family:Georgia,serif;font-size:20px;font-weight:400;line-height:1.6;letter-spacing:0}
+.menus-page .home-experience .paper-sheet h3{font-family:var(--serif);font-size:17px;font-weight:400;line-height:1.6;letter-spacing:0}
+@media(min-width:701px) and (max-width:900px){.menus-page .home-experience .hero-phone .guest-header h2{font-size:33px}}

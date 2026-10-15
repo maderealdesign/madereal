@@ -1,6 +1,7 @@
 {
   "/index.html": "/",
   "/index": "/",
+  "/menus.html": "/menus/",
   "/about.html": "/about/",
   "/about": "/about/",
   "/blog.html": "/blog/",

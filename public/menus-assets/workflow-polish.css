@@ -1,0 +1,257 @@
+/* Three separate, working examples. Each explanation stays with its own controls. */
+.menus-page .home-experience #how-it-works{padding-bottom:40px}
+.menus-page .home-experience #how-it-works .wf-sections{display:grid;gap:0}
+.menus-page .home-experience #how-it-works .wf-section{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:72px;align-items:center;padding:53px 0 63px;border-bottom:1px solid #4c603433;scroll-margin-top:115px}
+.menus-page .home-experience #how-it-works .wf-section:first-child{padding-top:0}
+.menus-page .home-experience #how-it-works .wf-section:last-child{padding-bottom:0;border-bottom:0}
+.menus-page .home-experience #how-it-works .wf-section-copy{min-width:0;max-width:435px}
+.menus-page .home-experience #how-it-works .wf-number{display:inline-flex;align-items:center;gap:11px;font:600 10px/1.5 var(--sans);letter-spacing:.13em;color:#a8bc96;margin-bottom:23px}
+.menus-page .home-experience #how-it-works .wf-number>span:first-child{display:grid;place-items:center;flex:none;width:31px;height:31px;border:1px solid #566d3c;border-radius:8px;background:#1b2814;color:#d3f669;font:500 11px/1 var(--heading);letter-spacing:0}
+.menus-page .home-experience #how-it-works .wf-section-copy h3{font-family:var(--heading);font-size:clamp(29px,3.2vw,43px);font-weight:500;line-height:1.12;letter-spacing:-.05em;color:#f1f6e9;margin:0 0 23px;max-width:420px}
+.menus-page .home-experience #how-it-works .wf-section-copy>p{font-size:16px;line-height:1.75;color:#b9c9ad;max-width:405px;margin:0}
+.menus-page .home-experience #how-it-works .wf-feature-chips{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:26px}
+.menus-page .home-experience #how-it-works .wf-feature-chips>span{font:400 10px/1.4 var(--sans);color:#b7cba3;border:1px solid #536b3d69;border-radius:5px;padding:7px 9px;background:#17230f55}
+.menus-page .home-experience #how-it-works .wf-demo{color:#25351b;background:#f9fbf4;border:1px solid #dce7cc;border-radius:20px;box-shadow:0 20px 55px #0003;overflow:hidden;min-width:0}
+.menus-page .home-experience #how-it-works .wf-demo-header{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:61px;padding:15px 23px;border-bottom:1px solid #e1e8d8;background:#f1f5e9;color:#334824}
+.menus-page .home-experience #how-it-works .wf-demo-brand{display:flex;align-items:center;gap:9px;font-family:var(--heading);font-size:15px;font-weight:500;letter-spacing:-.035em;line-height:1.3}
+.menus-page .home-experience #how-it-works .wf-demo-brand img{width:23px;height:23px;display:block;flex:none}
+.menus-page .home-experience #how-it-works .wf-demo-pill{display:inline-flex;align-items:center;gap:5px;flex:none;border:1px solid #d7e3c7;border-radius:20px;padding:5px 8px;font:500 8px/1.3 var(--sans);color:#7c8d68;background:#fff;white-space:nowrap}
+.menus-page .home-experience #how-it-works .wf-demo-pill .live-dot{width:5px;height:5px;margin:0;background:#86a34c}
+.menus-page .home-experience #how-it-works .wf-demo-body{padding:26px;min-width:0}
+.menus-page .home-experience #how-it-works .wf-demo-title{font-family:var(--heading);font-size:26px;font-weight:500;line-height:1.15;letter-spacing:-.045em;color:#283c1c;margin:0 0 9px}
+.menus-page .home-experience #how-it-works .wf-demo-subtitle{font:400 12px/1.65 var(--sans);color:#83926f;margin:0 0 23px;max-width:350px}
+.menus-page .home-experience #how-it-works .wf-demo-note{display:block;font-size:9px;line-height:1.7;text-align:center;color:#87977a;padding:12px 20px;background:#f2f6e9;border-top:1px solid #e1e9d7;margin:0}
+.menus-page .home-experience #how-it-works .wf-primary{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:44px;padding:12px 16px;border:1px solid #d3f669;border-radius:7px;background:#d3f669;color:#293d12;font:600 12px/1.3 var(--sans);transition:background .2s,border-color .2s,transform .2s;cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-primary:hover{background:#c1e853;border-color:#c1e853;transform:translateY(-1px)}
+.menus-page .home-experience #how-it-works .wf-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:10px 13px;border:1px solid #d6e2c7;border-radius:7px;background:#fff;color:#526b38;font:500 11px/1.3 var(--sans);transition:background .2s,border-color .2s;cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-secondary:hover{background:#eef5e2;border-color:#adc78e}
+.menus-page .home-experience #how-it-works .wf-text-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;background:none;padding:7px 1px;min-height:35px;color:#78915b;font:500 10px/1.3 var(--sans);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-text-button:hover{color:#415f22}
+.menus-page .home-experience #how-it-works .wf-demo button:focus-visible,.menus-page .home-experience #how-it-works .wf-demo a:focus-visible,.menus-page .home-experience #how-it-works .wf-demo input:focus-visible{outline:2px solid #78a32d;outline-offset:4px}
+.menus-page .home-experience #how-it-works .wf-demo button:focus:not(:focus-visible){outline:none}
+.menus-page .home-experience #how-it-works .wf-demo button:disabled{cursor:default;opacity:.3;transform:none}
+.menus-page .home-experience #how-it-works .wf-field{display:block;font:500 11px/1.5 var(--sans);color:#62774e;margin:0 0 16px}
+.menus-page .home-experience #how-it-works .wf-field input{display:block;width:100%;border:1px solid #dbe5cf;border-radius:7px;padding:12px;margin-top:7px;background:#fff;color:#3f5530;font:400 13px/1.4 var(--sans);min-height:43px}
+.menus-page .home-experience #how-it-works .wf-field input[readonly]{background:#fff;color:#81916f}
+.menus-page .home-experience #how-it-works .wf-login-form{max-width:360px;margin-inline:auto}
+.menus-page .home-experience #how-it-works .wf-login-form .wf-primary{width:100%;margin-top:4px;justify-content:space-between}
+.menus-page .home-experience #how-it-works .wf-login-stage{min-height:340px;display:grid;align-items:center}
+.menus-page .home-experience #how-it-works .wf-login-success{padding:15px 0 10px;min-height:298px;text-align:center}
+.menus-page .home-experience #how-it-works .wf-success-icon{display:grid;place-items:center;height:51px;width:51px;border-radius:14px;margin:0 auto 19px;color:#4d6926;background:#d3f669;font:500 25px/1 var(--heading);box-shadow:0 4px 13px #87a9451c}
+.menus-page .home-experience #how-it-works .wf-login-success .wf-demo-title{font-size:28px}
+.menus-page .home-experience #how-it-works .wf-login-success .wf-demo-subtitle{max-width:300px;margin:10px auto 19px}
+.menus-page .home-experience #how-it-works .wf-login-summary{display:flex;align-items:center;gap:10px;padding:13px;text-align:left;border:1px solid #dae6c9;border-radius:8px;background:#fff;max-width:330px;margin:0 auto 17px}
+.menus-page .home-experience #how-it-works .wf-login-summary>span:first-child{display:grid;place-items:center;flex:none;height:34px;width:34px;border-radius:8px;background:#edf4df;color:#708d4c;font:500 11px/1 var(--heading)}
+.menus-page .home-experience #how-it-works .wf-login-summary strong{display:block;font:500 12px/1.4 var(--sans);color:#536d38}
+.menus-page .home-experience #how-it-works .wf-login-summary small{display:block;font:400 9px/1.5 var(--sans);color:#9aa58c;margin-top:3px}
+.menus-page .home-experience #how-it-works .wf-login-actions{display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap}
+.menus-page .home-experience #how-it-works .wf-edit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.94fr);gap:18px;align-items:start}
+.menus-page .home-experience #how-it-works .wf-edit-controls{min-width:0}
+.menus-page .home-experience #how-it-works .wf-control-label{display:block;font:600 9px/1.5 var(--sans);letter-spacing:.09em;color:#81936a;margin:0 0 11px}
+.menus-page .home-experience #how-it-works .wf-category-list{display:grid;gap:7px;padding:0;margin:0;list-style:none}
+.menus-page .home-experience #how-it-works .wf-category-row{display:flex;align-items:center;gap:7px;min-height:48px;padding:10px 9px;border:1px solid #dbe6cd;border-radius:7px;background:#fff;transition:background .2s,border-color .2s,opacity .2s;min-width:0}
+.menus-page .home-experience #how-it-works .wf-category-row[draggable=true]{cursor:grab}
+.menus-page .home-experience #how-it-works .wf-category-row.is-dragging{opacity:.4}
+.menus-page .home-experience #how-it-works .wf-category-row.is-drop-target{background:#edf5da;border-color:#a4c872}
+.menus-page .home-experience #how-it-works .wf-grip{display:grid;place-items:center;font-size:16px;line-height:1;color:#adbca0;flex:none;width:27px;height:30px;padding:0;border:0;border-radius:4px;background:transparent;cursor:grab;touch-action:none}
+.menus-page .home-experience #how-it-works .wf-grip:hover{background:#edf4e0;color:#6b8a44}
+.menus-page .home-experience #how-it-works .wf-category-name{font:500 10px/1.3 var(--sans);color:#566e3d;flex:1;min-width:0}
+.menus-page .home-experience #how-it-works .wf-order-controls{display:flex;gap:1px;flex:none}
+.menus-page .home-experience #how-it-works .wf-order-controls button{display:grid;place-items:center;height:25px;width:22px;border:1px solid transparent;border-radius:4px;background:#f3f7eb;color:#8a9c78;padding:3px;font:500 12px/1 var(--sans);cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-order-controls button:hover:not(:disabled){background:#e5f2ca;color:#587a2c;border-color:#c0d59d}
+.menus-page .home-experience #how-it-works .wf-price-field{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:19px;padding-top:17px;border-top:1px solid #dce6d0;font:500 11px/1.4 var(--sans);color:#6f8557}
+.menus-page .home-experience #how-it-works .wf-price-input{display:flex;align-items:center;gap:4px;color:#59763c}
+.menus-page .home-experience #how-it-works .wf-price-input input{width:67px;border:1px solid #d4e1c5;border-radius:6px;background:#fff;color:#506e34;font:600 12px/1.3 var(--sans);padding:8px 7px;text-align:right;min-height:36px}
+.menus-page .home-experience #how-it-works .wf-stock-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:43px;margin:10px 0 0;padding:6px 0;border:0;background:none;color:#748c5b;font:400 10px/1.5 var(--sans);text-align:left;cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-switch{position:relative;display:block;flex:none;width:29px;height:17px;border-radius:20px;background:#cdd8c1;transition:background .2s}
+.menus-page .home-experience #how-it-works .wf-switch:after{content:'';position:absolute;left:3px;top:3px;height:11px;width:11px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #24381420;transition:transform .2s}
+.menus-page .home-experience #how-it-works .wf-stock-toggle[aria-pressed=true] .wf-switch{background:#93b746}
+.menus-page .home-experience #how-it-works .wf-stock-toggle[aria-pressed=true] .wf-switch:after{transform:translateX(12px)}
+.menus-page .home-experience #how-it-works .wf-availability{display:flex;align-items:center;gap:9px;min-height:44px;font:400 11px/1.5 var(--sans);color:#748c5b;margin:9px 0 0;cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-availability input{flex:none;width:17px;height:17px;margin:0;accent-color:#8eaf45;cursor:pointer}
+.menus-page .home-experience #how-it-works .wf-guest-preview{border:1px solid #dae5cb;border-radius:11px;background:#fff;box-shadow:0 6px 15px #2c43200a;min-width:0;overflow:hidden}
+.menus-page .home-experience #how-it-works .wf-guest-header{background:#ecf3e0;padding:15px 13px;border-bottom:1px solid #e2e9d9}
+.menus-page .home-experience #how-it-works .wf-guest-header strong{display:block;font:500 18px/1.1 var(--heading);letter-spacing:-.045em;color:#405b28}
+.menus-page .home-experience #how-it-works .wf-guest-header>span{display:flex;align-items:center;gap:5px;font:400 8px/1.4 var(--sans);color:#8fa275;margin-top:7px}
+.menus-page .home-experience #how-it-works .wf-guest-header .live-dot{height:4px;width:4px;margin:0;background:#90b450}
+.menus-page .home-experience #how-it-works .wf-guest-list{padding:13px}
+.menus-page .home-experience #how-it-works .wf-guest-category{margin:0 0 14px}
+.menus-page .home-experience #how-it-works .wf-guest-category:last-child{margin-bottom:0}
+.menus-page .home-experience #how-it-works .wf-guest-category h5{font:500 12px/1.2 var(--heading);letter-spacing:-.03em;color:#5d783d;border-bottom:1px solid #e8eddf;padding-bottom:7px;margin:0 0 8px}
+.menus-page .home-experience #how-it-works .wf-guest-dish{display:flex;align-items:start;justify-content:space-between;gap:7px;font:400 9px/1.4 var(--sans);color:#8c9d78;margin-bottom:7px}
+.menus-page .home-experience #how-it-works .wf-guest-dish strong{font:500 9px/1.4 var(--sans);color:#758e5b;white-space:nowrap}
+.menus-page .home-experience #how-it-works .wf-guest-dish>span{display:block;min-width:0}
+.menus-page .home-experience #how-it-works .wf-guest-dish>span>span{display:block}
+.menus-page .home-experience #how-it-works .wf-guest-dish small{display:block;font-size:7px;line-height:1.5;color:#acb79d;margin-top:3px}
+.menus-page .home-experience #how-it-works .wf-status{font:400 9px/1.65 var(--sans);color:#78955a;min-height:16px;margin-top:16px}
+.menus-page .home-experience #how-it-works .wf-demo-actions{display:flex;align-items:center;justify-content:space-between;gap:13px;margin-top:17px;padding-top:15px;border-top:1px solid #e0e8d5}
+.menus-page .home-experience #how-it-works .wf-demo-actions .wf-status{margin:0;flex:1}
+.menus-page .home-experience #how-it-works .wf-share-grid{display:grid;grid-template-columns:116px minmax(0,1fr);gap:22px;align-items:center}
+.menus-page .home-experience #how-it-works .wf-qr-tile{display:grid;place-items:center;padding:10px;background:#fff;border:1px solid #dde6d2;border-radius:10px;aspect-ratio:1}
+.menus-page .home-experience #how-it-works .wf-qr-tile svg{display:block;width:100%;height:auto;aspect-ratio:1;fill:#25371c;max-width:160px}
+.menus-page .home-experience #how-it-works .wf-qr-tile img{display:block;width:100%;height:auto;aspect-ratio:1;max-width:160px}
+.menus-page .home-experience #how-it-works .wf-share-label{display:flex;align-items:center;gap:7px;font:600 9px/1.4 var(--sans);letter-spacing:.08em;color:#81996a;margin-bottom:9px}
+.menus-page .home-experience #how-it-works .wf-share-label .live-dot{width:5px;height:5px;margin:0;background:#90b04f}
+.menus-page .home-experience #how-it-works .wf-share-url{display:block;width:100%;min-width:0;font:500 12px/1.6 var(--sans);color:#506c35;overflow-wrap:anywhere;word-break:break-word;padding:11px;border:1px solid #dce7cd;border-radius:6px;background:#fff;margin:0 0 10px}
+.menus-page .home-experience #how-it-works .wf-share-copy .wf-secondary{width:100%;min-height:37px;padding:9px 11px;font-size:10px}
+.menus-page .home-experience #how-it-works .wf-share-caption{font:400 9px/1.7 var(--sans);color:#92a27d;margin:8px 0 0}
+.menus-page .home-experience #how-it-works .wf-publish-menu{margin-top:23px}
+.menus-page .home-experience #how-it-works .wf-publish-preview{margin-top:23px;padding:16px;border:1px solid #dce7cd;border-radius:9px;background:#fff}
+.menus-page .home-experience #how-it-works .wf-publish-preview>div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.menus-page .home-experience #how-it-works .wf-publish-preview strong{font:500 12px/1.3 var(--sans);color:#6a864d}
+.menus-page .home-experience #how-it-works .wf-publish-preview span{font:400 9px/1.3 var(--sans);color:#a4b28f}
+.menus-page .home-experience #how-it-works .wf-publish-preview p{font:400 10px/1.7 var(--sans);color:#92a17e;margin:10px 0 0}
+.menus-page .home-experience #how-it-works .wf-share-actions{display:flex;gap:9px;margin-top:19px}
+.menus-page .home-experience #how-it-works .wf-share-actions .wf-primary,.menus-page .home-experience #how-it-works .wf-share-actions .wf-secondary{flex:1;min-width:0;font-size:11px}
+@media(max-width:1100px){.menus-page .home-experience #how-it-works .wf-section{gap:43px;padding-block:47px 56px}.menus-page .home-experience #how-it-works .wf-section-copy h3{font-size:35px}.menus-page .home-experience #how-it-works .wf-section-copy>p{font-size:15px}.menus-page .home-experience #how-it-works .wf-demo-header{padding-inline:20px}.menus-page .home-experience #how-it-works .wf-demo-body{padding:23px}.menus-page .home-experience #how-it-works .wf-edit-grid{gap:14px}.menus-page .home-experience #how-it-works .wf-category-row{padding:10px 8px;gap:5px}.menus-page .home-experience #how-it-works .wf-category-name{font-size:9px}.menus-page .home-experience #how-it-works .wf-order-controls button{width:20px}.menus-page .home-experience #how-it-works .wf-share-grid{grid-template-columns:106px minmax(0,1fr);gap:17px}}
+@media(min-width:701px) and (max-width:900px){.menus-page .home-experience #how-it-works .wf-section{gap:29px;grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr)}.menus-page .home-experience #how-it-works .wf-section-copy h3{font-size:30px}.menus-page .home-experience #how-it-works .wf-section-copy>p{font-size:14px}.menus-page .home-experience #how-it-works .wf-feature-chips{gap:6px;margin-top:23px}.menus-page .home-experience #how-it-works .wf-feature-chips>span{font-size:9px;padding:6px 8px}.menus-page .home-experience #how-it-works .wf-demo-body{padding:20px}.menus-page .home-experience #how-it-works .wf-demo-title{font-size:23px}.menus-page .home-experience #how-it-works .wf-demo-header{padding-inline:17px}.menus-page .home-experience #how-it-works .wf-demo-brand{font-size:13px}.menus-page .home-experience #how-it-works .wf-demo-pill{font-size:7px;padding:5px 7px}.menus-page .home-experience #how-it-works .wf-edit-grid{grid-template-columns:1fr;gap:18px}.menus-page .home-experience #how-it-works .wf-category-name{font-size:11px}.menus-page .home-experience #how-it-works .wf-order-controls button{width:27px;height:27px}.menus-page .home-experience #how-it-works .wf-guest-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.menus-page .home-experience #how-it-works .wf-guest-category{margin:0}.menus-page .home-experience #how-it-works .wf-guest-dish{flex-direction:column;gap:2px}.menus-page .home-experience #how-it-works .wf-guest-header strong{font-size:17px}.menus-page .home-experience #how-it-works .wf-share-grid{grid-template-columns:91px minmax(0,1fr);gap:13px}.menus-page .home-experience #how-it-works .wf-share-url{font-size:10px;padding:9px}.menus-page .home-experience #how-it-works .wf-share-actions{flex-wrap:wrap}.menus-page .home-experience #how-it-works .wf-share-actions .wf-primary,.menus-page .home-experience #how-it-works .wf-share-actions .wf-secondary{flex-basis:100%}}
+@media(max-width:700px){
+ .menus-page .home-experience #how-it-works{padding-bottom:28px}
+ .menus-page .home-experience #how-it-works .wf-section{grid-template-columns:1fr;gap:27px;align-items:start;padding:40px 0 46px;scroll-margin-top:93px}
+ .menus-page .home-experience #how-it-works .wf-section:first-child{padding-top:0}
+ .menus-page .home-experience #how-it-works .wf-section:last-child{padding-bottom:0}
+ .menus-page .home-experience #how-it-works .wf-section-copy{max-width:440px;margin:auto;width:100%}
+ .menus-page .home-experience #how-it-works .wf-number{font-size:9px;gap:10px;margin-bottom:18px;letter-spacing:.11em}
+ .menus-page .home-experience #how-it-works .wf-number>span:first-child{width:29px;height:29px;font-size:10px}
+ .menus-page .home-experience #how-it-works .wf-section-copy h3{font-size:32px;line-height:1.12;max-width:350px;margin-bottom:19px}
+ .menus-page .home-experience #how-it-works .wf-section-copy>p{font-size:14px;line-height:1.8;max-width:none}
+ .menus-page .home-experience #how-it-works .wf-feature-chips{margin-top:20px;gap:6px}
+ .menus-page .home-experience #how-it-works .wf-feature-chips>span{font-size:9px;padding:6px 8px;line-height:1.4}
+ .menus-page .home-experience #how-it-works .wf-demo{width:100%;max-width:440px;margin:auto;border-radius:17px}
+ .menus-page .home-experience #how-it-works .wf-demo-header{min-height:56px;padding:13px 18px;gap:10px}
+ .menus-page .home-experience #how-it-works .wf-demo-brand{font-size:14px;gap:8px}
+ .menus-page .home-experience #how-it-works .wf-demo-brand img{height:21px;width:21px}
+ .menus-page .home-experience #how-it-works .wf-demo-pill{font-size:7px;line-height:1.4;padding:5px 7px}
+ .menus-page .home-experience #how-it-works .wf-demo-body{padding:23px 21px}
+ .menus-page .home-experience #how-it-works .wf-demo-title{font-size:25px;line-height:1.15}
+ .menus-page .home-experience #how-it-works .wf-demo-subtitle{font-size:11px;line-height:1.7;margin-bottom:21px}
+ .menus-page .home-experience #how-it-works .wf-demo-note{font-size:8px;line-height:1.8;padding:11px 16px}
+ .menus-page .home-experience #how-it-works .wf-login-stage{min-height:333px}
+ .menus-page .home-experience #how-it-works .wf-login-success{min-height:290px;padding-top:13px}
+ .menus-page .home-experience #how-it-works .wf-login-success .wf-demo-title{font-size:26px}
+ .menus-page .home-experience #how-it-works .wf-login-summary{max-width:300px}
+ .menus-page .home-experience #how-it-works .wf-login-summary strong{font-size:11px}
+ .menus-page .home-experience #how-it-works .wf-login-summary small{font-size:8px}
+ .menus-page .home-experience #how-it-works .wf-login-actions{gap:13px}
+ .menus-page .home-experience #how-it-works .wf-primary{min-height:44px;font-size:12px}
+ .menus-page .home-experience #how-it-works .wf-secondary{font-size:11px;min-height:40px}
+ .menus-page .home-experience #how-it-works .wf-field{font-size:10px;margin-bottom:15px}
+ .menus-page .home-experience #how-it-works .wf-field input{font-size:13px;min-height:43px;padding:12px}
+ .menus-page .home-experience #how-it-works .wf-edit-grid{grid-template-columns:1fr;gap:22px}
+ .menus-page .home-experience #how-it-works .wf-category-row{padding:11px 10px;min-height:48px}
+ .menus-page .home-experience #how-it-works .wf-category-name{font-size:12px}
+ .menus-page .home-experience #how-it-works .wf-grip{font-size:18px}
+ .menus-page .home-experience #how-it-works .wf-order-controls{gap:4px}
+ .menus-page .home-experience #how-it-works .wf-order-controls button{height:29px;width:28px;font-size:14px}
+ .menus-page .home-experience #how-it-works .wf-control-label{font-size:9px}
+ .menus-page .home-experience #how-it-works .wf-price-field{margin-top:17px;padding-top:16px;font-size:12px}
+ .menus-page .home-experience #how-it-works .wf-price-input input{width:76px;font-size:13px;min-height:39px}
+ .menus-page .home-experience #how-it-works .wf-stock-toggle{font-size:11px;min-height:44px;margin-top:9px}
+ .menus-page .home-experience #how-it-works .wf-switch{height:18px;width:31px}
+ .menus-page .home-experience #how-it-works .wf-switch:after{height:12px;width:12px;top:3px;left:3px}
+ .menus-page .home-experience #how-it-works .wf-stock-toggle[aria-pressed=true] .wf-switch:after{transform:translateX(13px)}
+ .menus-page .home-experience #how-it-works .wf-guest-header{padding:15px}
+ .menus-page .home-experience #how-it-works .wf-guest-header strong{font-size:20px}
+ .menus-page .home-experience #how-it-works .wf-guest-header>span{font-size:8px;gap:5px}
+ .menus-page .home-experience #how-it-works .wf-guest-list{padding:16px;display:grid;grid-template-columns:1fr;gap:0}
+ .menus-page .home-experience #how-it-works .wf-guest-category{margin:0 0 15px}
+ .menus-page .home-experience #how-it-works .wf-guest-category h5{font-size:14px;padding-bottom:8px;margin-bottom:9px}
+ .menus-page .home-experience #how-it-works .wf-guest-dish{font-size:11px;line-height:1.5;margin-bottom:8px;gap:10px}
+ .menus-page .home-experience #how-it-works .wf-guest-dish strong{font-size:11px;line-height:1.5}
+ .menus-page .home-experience #how-it-works .wf-guest-dish small{font-size:9px;line-height:1.5;margin-top:3px}
+ .menus-page .home-experience #how-it-works .wf-status{font-size:9px;line-height:1.7;margin-top:14px}
+ .menus-page .home-experience #how-it-works .wf-demo-actions{margin-top:18px;padding-top:15px}
+ .menus-page .home-experience #how-it-works .wf-text-button{font-size:10px;min-height:35px}
+ .menus-page .home-experience #how-it-works .wf-share-grid{grid-template-columns:100px minmax(0,1fr);gap:16px}
+ .menus-page .home-experience #how-it-works .wf-qr-tile{padding:8px;border-radius:8px}
+ .menus-page .home-experience #how-it-works .wf-share-label{font-size:8px;letter-spacing:.06em;margin-bottom:8px}
+ .menus-page .home-experience #how-it-works .wf-share-url{font-size:10px;line-height:1.6;padding:9px;margin-bottom:9px}
+ .menus-page .home-experience #how-it-works .wf-share-copy .wf-secondary{min-height:36px;padding:9px 10px;font-size:10px}
+ .menus-page .home-experience #how-it-works .wf-publish-preview{margin-top:21px;padding:14px}
+ .menus-page .home-experience #how-it-works .wf-publish-preview strong{font-size:11px}
+ .menus-page .home-experience #how-it-works .wf-publish-preview span{font-size:8px}
+ .menus-page .home-experience #how-it-works .wf-publish-preview p{font-size:10px;line-height:1.7}
+ .menus-page .home-experience #how-it-works .wf-share-actions{gap:8px;margin-top:17px}
+ .menus-page .home-experience #how-it-works .wf-share-actions .wf-primary,.menus-page .home-experience #how-it-works .wf-share-actions .wf-secondary{font-size:10px;padding-inline:10px;gap:8px}
+}
+@media(max-width:380px){.menus-page .home-experience #how-it-works .wf-section{gap:24px;padding-block:35px 41px}.menus-page .home-experience #how-it-works .wf-section-copy h3{font-size:29px}.menus-page .home-experience #how-it-works .wf-section-copy>p{font-size:13px}.menus-page .home-experience #how-it-works .wf-demo-header{padding-inline:15px}.menus-page .home-experience #how-it-works .wf-demo-body{padding:22px 17px}.menus-page .home-experience #how-it-works .wf-demo-brand{font-size:13px}.menus-page .home-experience #how-it-works .wf-demo-pill{font-size:6.5px;padding-inline:6px}.menus-page .home-experience #how-it-works .wf-demo-title{font-size:23px}.menus-page .home-experience #how-it-works .wf-category-name{font-size:11px}.menus-page .home-experience #how-it-works .wf-order-controls button{height:28px;width:26px}.menus-page .home-experience #how-it-works .wf-share-grid{grid-template-columns:88px minmax(0,1fr);gap:12px}.menus-page .home-experience #how-it-works .wf-share-url{font-size:9px}.menus-page .home-experience #how-it-works .wf-share-actions{flex-wrap:wrap}.menus-page .home-experience #how-it-works .wf-share-actions .wf-primary,.menus-page .home-experience #how-it-works .wf-share-actions .wf-secondary{flex-basis:100%;font-size:11px}}
+@media(min-width:701px){.menus-page .home-experience #how-it-works .wf-publish-menu .wf-guest-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.menus-page .home-experience #how-it-works .wf-publish-menu .wf-guest-category{margin:0}.menus-page .home-experience #how-it-works .wf-publish-menu .wf-guest-dish{flex-direction:column;gap:4px}}
+@media(pointer:coarse){.menus-page .home-experience #how-it-works .wf-category-row{padding:4px 6px}.menus-page .home-experience #how-it-works .wf-grip{width:44px;height:44px}.menus-page .home-experience #how-it-works .wf-order-controls button{height:32px;width:29px}}
+@media(prefers-reduced-motion:reduce){.menus-page .home-experience #how-it-works .wf-primary,.menus-page .home-experience #how-it-works .wf-secondary,.menus-page .home-experience #how-it-works .wf-category-row,.menus-page .home-experience #how-it-works .wf-switch,.menus-page .home-experience #how-it-works .wf-switch:after{transition:none}.menus-page .home-experience #how-it-works .wf-primary:hover{transform:none}}
+
+/* Read the working menu at its actual size, with calm, compact spacing. */
+.menus-page .home-experience #how-it-works .wf-demo-subtitle{font-size:12px;line-height:1.6;color:#6b7c59;margin-bottom:18px}
+.menus-page .home-experience #how-it-works .wf-demo-note{font-size:10px;line-height:1.6;color:#738563;padding-block:10px}
+.menus-page .home-experience #how-it-works .wf-demo-pill{font-size:9px;color:#6c8056}
+.menus-page .home-experience #how-it-works .wf-control-label{font-size:10px;color:#708753;margin-bottom:9px}
+.menus-page .home-experience #how-it-works .wf-category-name{font-size:12px;line-height:1.3;color:#496332}
+.menus-page .home-experience #how-it-works .wf-category-row{padding-block:7px}
+.menus-page .home-experience #how-it-works .wf-status{font-size:10px;line-height:1.6;color:#638149;min-height:16px}
+.menus-page .home-experience #how-it-works .wf-text-button{font-size:11px;color:#648042}
+.menus-page .home-experience #how-it-works .wf-field{font-size:12px;color:#61764d}
+.menus-page .home-experience #how-it-works .wf-field input[readonly]{color:#6c7f59}
+.menus-page .home-experience #how-it-works .wf-login-summary strong{font-size:12px;color:#546e39}
+.menus-page .home-experience #how-it-works .wf-login-summary small{font-size:10px;line-height:1.4;color:#7e906b}
+.menus-page .home-experience #how-it-works .wf-guest-header{padding-block:13px}
+.menus-page .home-experience #how-it-works .wf-guest-header>span{font-size:10px;color:#708a52}
+.menus-page .home-experience #how-it-works .wf-guest-list{padding:12px}
+.menus-page .home-experience #how-it-works .wf-guest-category{margin-bottom:11px}
+.menus-page .home-experience #how-it-works .wf-guest-category:last-child{margin-bottom:0}
+.menus-page .home-experience #how-it-works .wf-guest-category h5{font-size:14px;line-height:1.2;color:#48672e;padding-bottom:6px;margin-bottom:7px}
+.menus-page .home-experience #how-it-works .wf-guest-dish{font-size:12px;line-height:1.35;color:#54713b;margin-bottom:5px}
+.menus-page .home-experience #how-it-works .wf-guest-dish strong{font-size:12px;line-height:1.35;color:#4c6a34}
+.menus-page .home-experience #how-it-works .wf-guest-dish small{font-size:10px;line-height:1.4;color:#7d8e68;margin-top:3px}
+.menus-page .home-experience #how-it-works .wf-share-label{font-size:10px;color:#728957}
+.menus-page .home-experience #how-it-works .wf-share-caption{font-size:10px;line-height:1.6;color:#7b8f63}
+.menus-page .home-experience #how-it-works .wf-price-field{color:#637f45}
+.menus-page .home-experience #how-it-works .wf-availability{font-size:12px;color:#68844b}
+@media(min-width:701px){.menus-page .home-experience #how-it-works .wf-demo-body{padding-top:22px;padding-bottom:22px}}
+@media(max-width:700px){.menus-page .home-experience #how-it-works .wf-demo-body{padding-block:22px}.menus-page .home-experience #how-it-works .wf-guest-list{padding:14px}.menus-page .home-experience #how-it-works .wf-guest-category h5{font-size:15px}.menus-page .home-experience #how-it-works .wf-guest-dish,.menus-page .home-experience #how-it-works .wf-guest-dish strong{font-size:12px}.menus-page .home-experience #how-it-works .wf-guest-dish small{font-size:10px}.menus-page .home-experience #how-it-works .wf-demo-pill{font-size:8px}.menus-page .home-experience #how-it-works .wf-category-row{padding-block:7px}}
+@media(pointer:coarse){.menus-page .home-experience #how-it-works .wf-category-row{padding-block:4px}}
+
+/* On phones, keep the editing controls and their result in the same viewport. */
+@media(max-width:470px){
+ .menus-page .home-experience #how-it-works .wf-demo-header{min-height:48px;padding:10px 16px;gap:9px}
+ .menus-page .home-experience #how-it-works .wf-demo-brand{font-size:13px}
+ .menus-page .home-experience #how-it-works .wf-demo-brand img{width:20px;height:20px}
+ .menus-page .home-experience #how-it-works .wf-demo-pill{font-size:8px;padding:4px 6px}
+ .menus-page .home-experience #how-it-works .wf-demo-body{padding:18px 17px}
+ .menus-page .home-experience #how-it-works .wf-demo-title{font-size:23px;line-height:1.12;margin-bottom:7px}
+ .menus-page .home-experience #how-it-works .wf-demo-subtitle{font-size:11px;line-height:1.5;margin-bottom:14px}
+ .menus-page .home-experience #how-it-works .wf-demo-note{font-size:9.5px;line-height:1.5;padding:9px 13px}
+ .menus-page .home-experience #how-it-works .wf-edit-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:12px;align-items:start}
+ .menus-page .home-experience #how-it-works .wf-edit-controls{display:contents}
+ .menus-page .home-experience #how-it-works .wf-control-label{grid-column:1/-1;grid-row:1;font-size:9px;margin:0;line-height:1.4}
+ .menus-page .home-experience #how-it-works .wf-category-list{grid-column:1/-1;grid-row:2}
+ .menus-page .home-experience #how-it-works .wf-category-list{gap:5px}
+ .menus-page .home-experience #how-it-works .wf-category-row{padding:0 6px;min-height:46px;gap:5px}
+ .menus-page .home-experience #how-it-works .wf-grip{height:44px;width:44px;font-size:17px}
+ .menus-page .home-experience #how-it-works .wf-category-name{font-size:12px}
+ .menus-page .home-experience #how-it-works .wf-order-controls{gap:4px}
+ .menus-page .home-experience #how-it-works .wf-order-controls button{height:29px;width:28px;font-size:13px}
+ .menus-page .home-experience #how-it-works .wf-price-field{display:flex;grid-column:1;grid-row:3;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:5px;min-width:0;font-size:10px;line-height:1.4;margin:0;padding:0;border:0}
+ .menus-page .home-experience #how-it-works .wf-price-input{gap:5px;font-size:12px}
+ .menus-page .home-experience #how-it-works .wf-price-input input{min-height:38px;width:74px;padding:8px;font-size:13px}
+ .menus-page .home-experience #how-it-works .wf-availability{grid-column:1;grid-row:4;align-self:start;align-items:center;min-height:44px;gap:7px;font-size:10px;line-height:1.45;margin:0;padding:0;border:0}
+ .menus-page .home-experience #how-it-works .wf-availability input{width:17px;height:17px}
+ .menus-page .home-experience #how-it-works .wf-edit-grid>.wf-guest-preview{grid-column:2;grid-row:3/span 2;align-self:stretch}
+ .menus-page .home-experience #how-it-works .wf-guest-header{padding:9px 12px}
+ .menus-page .home-experience #how-it-works .wf-guest-header strong{font-size:17px;line-height:1.1}
+ .menus-page .home-experience #how-it-works .wf-guest-header>span{font-size:10px;line-height:1.2;margin-top:4px}
+ .menus-page .home-experience #how-it-works .wf-guest-list{padding:10px 12px}
+ .menus-page .home-experience #how-it-works .wf-guest-category{margin-bottom:6px}
+ .menus-page .home-experience #how-it-works .wf-guest-category:last-child{margin-bottom:0}
+ .menus-page .home-experience #how-it-works .wf-guest-category h5{font-size:12px;line-height:1.2;margin-bottom:4px;padding-bottom:0;border-bottom:0}
+ .menus-page .home-experience #how-it-works .wf-guest-dish{font-size:11.5px;line-height:1.35;gap:6px;margin-bottom:0}
+ .menus-page .home-experience #how-it-works .wf-guest-dish strong{font-size:12px;line-height:1.35}
+ .menus-page .home-experience #how-it-works .wf-guest-dish small{display:none}
+ .menus-page .home-experience #how-it-works .wf-demo-actions{margin-top:12px;padding-top:11px;gap:11px;align-items:center}
+ .menus-page .home-experience #how-it-works .wf-demo-actions .wf-status{font-size:10px;line-height:1.4;min-height:28px;margin:0}
+ .menus-page .home-experience #how-it-works .wf-demo-actions .wf-text-button{font-size:10px;min-height:32px;white-space:nowrap}
+ .menus-page .home-experience #how-it-works .wf-share-grid{gap:13px;grid-template-columns:96px minmax(0,1fr)}
+ .menus-page .home-experience #how-it-works .wf-share-caption{font-size:9.5px;line-height:1.5;margin-top:6px}
+ .menus-page .home-experience #how-it-works .wf-publish-menu{margin-top:17px}
+ .menus-page .home-experience #how-it-works .wf-share-actions{margin-top:15px}
+ .menus-page .home-experience #how-it-works .wf-share-actions .wf-primary,.menus-page .home-experience #how-it-works .wf-share-actions .wf-secondary{min-height:40px}
+ .menus-page .home-experience #how-it-works .wf-share-actions~.wf-status{font-size:10px;line-height:1.5;margin-top:11px}
+}

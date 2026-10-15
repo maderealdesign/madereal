@@ -5,7 +5,7 @@ declare const Netlify: {
 };
 
 const RESERVED_SLUGS = new Set([
-    "websites", "work", "pricing", "one-off-websites", "google-business-profile",
+    "websites", "menus", "work", "pricing", "one-off-websites", "google-business-profile",
     "free-preview", "preview-received", "locations", "checkout", "payment-return", "404",
     "admin",
     "about",
@@ -135,7 +135,7 @@ export const config = {
     path: "/:slug",
     preferStatic: true,
     excludedPath: [
-        "/websites", "/work", "/pricing", "/one-off-websites", "/google-business-profile",
+        "/websites", "/menus", "/menus/", "/menus.html", "/work", "/pricing", "/one-off-websites", "/google-business-profile",
         "/free-preview", "/preview-received", "/locations", "/checkout", "/payment-return", "/404",
         "/admin",
         "/admin.html",

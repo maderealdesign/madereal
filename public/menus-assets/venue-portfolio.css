@@ -1,0 +1,115 @@
+/* Genuine menu websites, shown as clickable, image-led project cards. */
+.menus-page .home-experience .venue-section{padding-bottom:58px}
+.menus-page .home-experience .venue-portfolio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 27px;align-items:start;isolation:isolate}
+.menus-page .home-experience .venue-portfolio-card{min-width:0}
+.menus-page .home-experience .venue-portfolio-link{display:block;color:#edf4e6;border-radius:20px;outline-offset:8px}
+.menus-page .home-experience .venue-portfolio-link:focus-visible{outline:2px solid #d3f669}
+.menus-page .home-experience .venue-portfolio-link:focus:not(:focus-visible){outline:none}
+.menus-page .home-experience .venue-card-art{position:relative;width:100%;aspect-ratio:1.16;min-width:0;border-radius:20px;background:#e7ecdf;box-shadow:0 18px 45px #0003;border:1px solid #70845a70;isolation:isolate;transition:box-shadow .35s,border-color .35s}
+.menus-page .home-experience .venue-card-art:before{content:'';position:absolute;inset:0;border-radius:inherit;z-index:-1;background:radial-gradient(ellipse at 80% 20%,#d7e5c3,#e9ede3 65%)}
+.menus-page .home-experience .venue-portfolio-card:nth-child(2n) .venue-card-art:before{background:radial-gradient(ellipse at 80% 20%,#e7ddc9,#f1eee5 65%)}
+.menus-page .home-experience .venue-portfolio-card:nth-child(3n) .venue-card-art:before{background:radial-gradient(ellipse at 80% 20%,#dbe5cf,#e9f0e3 65%)}
+.menus-page .home-experience .venue-card-window{position:absolute;left:16px;right:40px;top:23px;z-index:1;overflow:hidden;border:1px solid #d0d8c4;border-radius:9px;box-shadow:0 10px 21px #21371621;background:#fff;transform:rotate(-2deg);transform-origin:50% 70%;transition:transform .5s cubic-bezier(.22,.68,.22,1)}
+.menus-page .home-experience .venue-card-window img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:top;max-width:none}
+.menus-page .home-experience .venue-card-window-bar{height:18px;background:#f7f9f3;border-bottom:1px solid #e0e5d8;color:#78866a;display:flex;align-items:center;gap:10px;padding:0 8px}
+.menus-page .home-experience .venue-card-window-bar>span{width:3px;height:3px;background:#a4b295;border-radius:50%;box-shadow:5px 0 #a4b295,10px 0 #a4b295;margin-right:10px;flex:none}
+.menus-page .home-experience .venue-card-window-bar small{font:400 5.5px/1 var(--sans);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.menus-page .home-experience .venue-card-phone{position:absolute;z-index:2;right:15px;bottom:49px;width:27%;max-width:115px;overflow:hidden;border:3px solid #35452c;border-radius:14px;box-shadow:0 9px 20px #12220b38;background:#fff;transform:rotate(4deg);transform-origin:50% 80%;transition:transform .5s cubic-bezier(.22,.68,.22,1)}
+.menus-page .home-experience .venue-card-phone:before{content:'';position:absolute;z-index:1;left:50%;top:3px;transform:translateX(-50%);width:24%;height:3px;background:#35452c;border-radius:4px}
+.menus-page .home-experience .venue-card-phone img{display:block;max-width:none;width:100%;height:auto;aspect-ratio:1/2;object-fit:cover;object-position:top}
+.menus-page .home-experience .venue-card-badge{position:absolute;z-index:4;right:-8px;top:17px;display:flex;align-items:center;gap:8px;max-width:196px;padding:12px 13px;border-radius:9px;background:#fffef5;border:1px solid #e2e7d3;box-shadow:0 9px 24px #21331320;color:#304b1b;transform:rotate(3deg);transform-origin:30% 70%;transition:transform .5s cubic-bezier(.22,.68,.22,1)}
+.menus-page .home-experience .venue-card-check{display:grid;place-items:center;flex:none;width:23px;height:23px;border-radius:50%;background:#d3f669;color:#344e12;font-size:11px;line-height:1;font-weight:700}
+.menus-page .home-experience .venue-card-badge strong{display:block;font-family:var(--heading);font-size:12px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.menus-page .home-experience .venue-card-badge small{display:block;font-family:var(--sans);font-size:8px;font-weight:400;line-height:1.5;color:#82936c;margin-top:4px}
+.menus-page .home-experience .venue-card-caption{position:absolute;z-index:5;left:12px;right:12px;bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:70px;padding:13px 13px;background:#14220ef0;border:1px solid #72895a45;border-radius:10px;color:#edf6e4;box-shadow:0 3px 10px #0f1c0b15;backdrop-filter:blur(10px)}
+.menus-page .home-experience .venue-card-caption>div{min-width:0}
+.menus-page .home-experience .venue-card-caption h3{font-family:var(--heading);font-size:19px;font-weight:500;line-height:1.12;letter-spacing:-.04em;color:#f0f7e8;margin:0 0 5px}
+.menus-page .home-experience .venue-card-caption p{font:400 8px/1.5 var(--sans);color:#a9bc99;letter-spacing:0;margin:0}
+.menus-page .home-experience .venue-card-arrow{display:grid;place-items:center;flex:none;height:31px;width:31px;border-radius:50%;background:#d3f669;color:#20350e;font-size:17px;line-height:1;transition:transform .3s,background .3s}
+.menus-page .home-experience .venue-card-description{font-size:12px;line-height:1.8;color:#b2c3a7;margin:20px 3px 0;min-height:65px;max-width:350px}
+.menus-page .home-experience .venue-portfolio-disclosure{max-width:650px;margin:29px auto 0;text-align:center;font-size:10px;line-height:1.8;color:#8fa17e}
+.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-art{border-color:#b5d875;box-shadow:0 20px 50px #0004}
+.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-arrow{background:#e3ff9a;transform:translate(1px,-1px)}
+.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-window{transform:translateY(-3px) rotate(-1deg)}
+.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-phone{transform:translateY(-4px) rotate(2deg)}
+@media(hover:hover) and (pointer:fine){
+ .menus-page .home-experience .venue-portfolio-link:hover .venue-card-art{border-color:#b5d875;box-shadow:0 22px 55px #0004}
+ .menus-page .home-experience .venue-portfolio-link:hover .venue-card-window{transform:translateY(-3px) rotate(-1deg)}
+ .menus-page .home-experience .venue-portfolio-link:hover .venue-card-phone{animation:venue-card-float 6s ease-in-out infinite}
+ .menus-page .home-experience .venue-portfolio-link:hover .venue-card-badge{transform:translateY(-2px) rotate(1deg)}
+ .menus-page .home-experience .venue-portfolio-link:hover .venue-card-arrow{background:#e3ff9a;transform:translate(1px,-1px)}
+}
+@keyframes venue-card-float{0%,100%{transform:translateY(-2px) rotate(3deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
+@media(min-width:1101px){.menus-page .home-experience .venue-portfolio-card:last-child{grid-column:2}}
+@media(max-width:1100px){
+ .menus-page .home-experience .venue-portfolio{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 29px}
+ .menus-page .home-experience .venue-card-art{aspect-ratio:1.22}
+ .menus-page .home-experience .venue-card-window{left:20px;right:46px;top:25px}
+ .menus-page .home-experience .venue-card-window-bar{height:21px}
+ .menus-page .home-experience .venue-card-window-bar small{font-size:6px}
+ .menus-page .home-experience .venue-card-phone{right:17px;bottom:51px;width:26%;max-width:124px;border-radius:15px}
+ .menus-page .home-experience .venue-card-badge{top:21px;right:-7px;max-width:190px;padding:14px 15px;gap:9px}
+ .menus-page .home-experience .venue-card-check{width:26px;height:26px;font-size:12px}
+ .menus-page .home-experience .venue-card-badge strong{font-size:12px}
+ .menus-page .home-experience .venue-card-badge small{font-size:8px}
+ .menus-page .home-experience .venue-card-caption{min-height:75px;left:14px;right:14px;bottom:14px;padding:14px 15px}
+ .menus-page .home-experience .venue-card-caption h3{font-size:22px}
+ .menus-page .home-experience .venue-card-caption p{font-size:9px}
+ .menus-page .home-experience .venue-card-arrow{height:34px;width:34px;font-size:19px}
+ .menus-page .home-experience .venue-card-description{font-size:13px;line-height:1.75;margin-top:20px;min-height:70px;max-width:none}
+ .menus-page .home-experience .venue-portfolio-disclosure{font-size:11px;margin-top:28px;max-width:650px}
+}
+@media(min-width:701px) and (max-width:850px){
+ .menus-page .home-experience .venue-portfolio{gap:34px 23px}
+ .menus-page .home-experience .venue-card-art{aspect-ratio:1.13;border-radius:18px}
+ .menus-page .home-experience .venue-card-window{left:15px;right:34px;top:24px}
+ .menus-page .home-experience .venue-card-window-bar{height:18px}
+ .menus-page .home-experience .venue-card-window-bar small{font-size:5.5px}
+ .menus-page .home-experience .venue-card-phone{right:12px;bottom:51px;border-radius:13px;border-width:3px}
+ .menus-page .home-experience .venue-card-badge{right:-6px;top:18px;padding:11px 12px;gap:7px;max-width:182px}
+ .menus-page .home-experience .venue-card-check{width:22px;height:22px;font-size:10px}
+ .menus-page .home-experience .venue-card-badge strong{font-size:11px}
+ .menus-page .home-experience .venue-card-badge small{font-size:7.5px}
+ .menus-page .home-experience .venue-card-caption{left:11px;right:11px;bottom:11px;padding:12px;min-height:74px;gap:9px}
+ .menus-page .home-experience .venue-card-caption h3{font-size:19px}
+ .menus-page .home-experience .venue-card-caption p{font-size:8px}
+ .menus-page .home-experience .venue-card-arrow{height:29px;width:29px;font-size:17px}
+ .menus-page .home-experience .venue-card-description{font-size:12px;min-height:83px}
+}
+@media(max-width:700px){
+ .menus-page .home-experience .venue-section{padding-bottom:45px}
+ .menus-page .home-experience .venue-portfolio{grid-template-columns:1fr;gap:31px;max-width:440px;margin-inline:auto}
+ .menus-page .home-experience .venue-card-art{aspect-ratio:1.16;border-radius:20px}
+ .menus-page .home-experience .venue-card-window{left:18px;right:39px;top:25px;border-radius:9px}
+ .menus-page .home-experience .venue-card-window-bar{height:19px}
+ .menus-page .home-experience .venue-card-window-bar small{font-size:6px}
+ .menus-page .home-experience .venue-card-phone{right:15px;bottom:49px;width:27%;max-width:116px;border-radius:14px;border-width:3px}
+ .menus-page .home-experience .venue-card-badge{top:18px;right:-7px;padding:12px 13px;border-radius:9px;gap:8px;max-width:196px}
+ .menus-page .home-experience .venue-card-check{width:24px;height:24px;font-size:11px}
+ .menus-page .home-experience .venue-card-badge strong{font-size:12px}
+ .menus-page .home-experience .venue-card-badge small{font-size:8px}
+ .menus-page .home-experience .venue-card-caption{left:12px;right:12px;bottom:12px;padding:14px;min-height:74px;gap:11px}
+ .menus-page .home-experience .venue-card-caption h3{font-size:21px;line-height:1.12}
+ .menus-page .home-experience .venue-card-caption p{font-size:9px;line-height:1.5}
+ .menus-page .home-experience .venue-card-arrow{width:32px;height:32px;font-size:18px}
+ .menus-page .home-experience .venue-card-description{font-size:13px;line-height:1.75;margin:18px 3px 0;min-height:0}
+ .menus-page .home-experience .venue-portfolio-disclosure{font-size:10px;line-height:1.8;margin-top:31px;max-width:340px}
+}
+@media(max-width:380px){
+ .menus-page .home-experience .venue-portfolio{gap:29px}
+ .menus-page .home-experience .venue-card-art{border-radius:17px;aspect-ratio:1.12}
+ .menus-page .home-experience .venue-card-window{left:15px;right:33px;top:23px;border-radius:8px}
+ .menus-page .home-experience .venue-card-window-bar{height:17px}
+ .menus-page .home-experience .venue-card-window-bar small{font-size:5.5px}
+ .menus-page .home-experience .venue-card-phone{right:12px;bottom:48px;border-radius:12px}
+ .menus-page .home-experience .venue-card-badge{padding:11px;gap:7px;right:-5px;top:17px;max-width:183px}
+ .menus-page .home-experience .venue-card-check{height:22px;width:22px;font-size:10px}
+ .menus-page .home-experience .venue-card-badge strong{font-size:11px}
+ .menus-page .home-experience .venue-card-badge small{font-size:7.5px}
+ .menus-page .home-experience .venue-card-caption{left:10px;right:10px;bottom:10px;padding:12px;min-height:72px;gap:8px}
+ .menus-page .home-experience .venue-card-caption h3{font-size:19px}
+ .menus-page .home-experience .venue-card-caption p{font-size:8px}
+ .menus-page .home-experience .venue-card-arrow{height:29px;width:29px;font-size:17px}
+ .menus-page .home-experience .venue-card-description{font-size:12px;margin-top:17px}
+}
+@media(prefers-reduced-motion:reduce){.menus-page .home-experience .venue-card-art,.menus-page .home-experience .venue-card-window,.menus-page .home-experience .venue-card-phone,.menus-page .home-experience .venue-card-badge,.menus-page .home-experience .venue-card-arrow{animation:none!important;transition:none!important}.menus-page .home-experience .venue-portfolio-link:hover .venue-card-window,.menus-page .home-experience .venue-portfolio-link:hover .venue-card-phone,.menus-page .home-experience .venue-portfolio-link:hover .venue-card-badge,.menus-page .home-experience .venue-portfolio-link:hover .venue-card-arrow,.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-window,.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-phone,.menus-page .home-experience .venue-portfolio-link:focus-visible .venue-card-arrow{transform:none}}

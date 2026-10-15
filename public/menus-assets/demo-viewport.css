@@ -1,0 +1,216 @@
+/* Keep the working editor and its live result together in a desktop viewport. */
+.menus-page .home-experience #playground{ scroll-margin-top:0; }
+.menus-page .home-experience #playground .md-categories,.menus-page .home-experience #playground .md-guest-content{overscroll-behavior:contain}
+
+@media (min-width:1000px) and (min-height:640px) {
+  .menus-page .home-experience #playground{ padding-top:16px; padding-bottom:46px; }
+  .menus-page .home-experience #playground > .section-shell{
+    width:calc(100% - var(--mr-gutter)*2);
+    max-width:1280px;
+    height:calc(100dvh - 146px);
+    max-height:880px;
+    min-height:490px;
+    padding:20px 28px 14px;
+    display:flex;
+    flex-direction:column;
+  }
+  .menus-page .home-experience #playground .section-intro{
+    display:grid;
+    grid-template-columns:minmax(0,1.25fr) minmax(240px,.8fr);
+    column-gap:32px;
+    row-gap:6px;
+    align-items:center;
+    text-align:left;
+    flex:none;
+    margin:0 0 14px;
+  }
+  .menus-page .home-experience #playground .section-intro .eyebrow{
+    grid-column:1 / -1;
+    margin:0;
+    font-size:10px;
+    letter-spacing:.1em;
+  }
+  .menus-page .home-experience #playground .section-intro h2{
+    font-size:clamp(28px,2.25vw,38px);
+    line-height:1.06;
+    letter-spacing:-.05em;
+    margin:0;
+  }
+  .menus-page .home-experience #playground .section-intro > p:last-child:not(.eyebrow){
+    font-size:14px;
+    line-height:1.55;
+    margin:0;
+    max-width:380px;
+    justify-self:end;
+  }
+  .menus-page .home-experience #playground #menu-demo{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    min-height:0;
+  }
+  .menus-page .home-experience #playground .md-topline{ flex:none; margin:0 0 10px; gap:18px; }
+  .menus-page .home-experience #playground .md-topline-copy{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .menus-page .home-experience #playground .md-demo-pill{ font-size:10px; line-height:1.4; padding:6px 10px; }
+  .menus-page .home-experience #playground .md-topline-copy p{ margin:0; font-size:12px; line-height:1.45; }
+  .menus-page .home-experience #playground .md-reset{ font-size:12px; padding:6px 0; }
+  .menus-page .home-experience #playground .md-split{
+    flex:1;
+    min-height:0;
+    grid-template-columns:minmax(0,1fr) minmax(300px,340px);
+    gap:24px;
+    align-items:stretch;
+  }
+  .menus-page .home-experience #playground .md-staff{
+    min-height:0;
+    max-width:none;
+    display:flex;
+    flex-direction:column;
+    border-radius:16px;
+  }
+  .menus-page .home-experience #playground .md-workspace-heading{ flex:none; padding:13px 17px; gap:11px; }
+  .menus-page .home-experience #playground .md-workspace-heading h3{ font-size:21px; line-height:1.12; }
+  .menus-page .home-experience #playground .md-small-label{ font-size:9px; margin-bottom:4px; }
+  .menus-page .home-experience #playground .md-workspace-mark{ width:34px; height:34px; border-radius:10px; }
+  .menus-page .home-experience #playground .md-workspace-role{ font-size:10px; padding:4px 8px; }
+  .menus-page .home-experience #playground .md-staff-content{
+    flex:1;
+    min-height:0;
+    padding:13px 16px;
+    overflow:auto;
+    scrollbar-width:thin;
+    scrollbar-color:#b9c7ac transparent;
+  }
+  .menus-page .home-experience #playground .md-staff-content:has(.md-categories){
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .menus-page .home-experience #playground .md-login-illustration{ margin:3px auto 14px; gap:13px; }
+  .menus-page .home-experience #playground .md-login-illustration > svg{ width:40px; height:40px; border-radius:12px; padding:10px; }
+  .menus-page .home-experience #playground .md-mini-note{ font-size:13px; line-height:1.45; }
+  .menus-page .home-experience #playground .md-login-form{ max-width:390px; }
+  .menus-page .home-experience #playground .md-demo-account{ margin-top:0; padding:11px 14px; }
+  .menus-page .home-experience #playground .md-demo-account strong{ font-size:13px; }
+  .menus-page .home-experience #playground .md-demo-account div > span{ font-size:11px; }
+  .menus-page .home-experience #playground .md-login-form .md-primary{ margin-top:12px; min-height:42px; }
+  .menus-page .home-experience #playground .md-form-note{ font-size:11px; line-height:1.5; margin-top:8px!important; }
+  .menus-page .home-experience #playground .md-login-benefits{ margin:12px auto 0; padding:10px 0 0; gap:6px; max-width:390px; }
+  .menus-page .home-experience #playground .md-login-benefits span{ font-size:11px; }
+  .menus-page .home-experience #playground .md-workspace-toolbar{ flex:none; gap:10px; }
+  .menus-page .home-experience #playground .md-tab{ font-size:12px!important; padding:7px 10px; }
+  .menus-page .home-experience #playground .md-workspace-intro{ flex:none; margin:9px 0; }
+  .menus-page .home-experience #playground .md-workspace-intro p,.menus-page .home-experience #playground .md-text-button{ font-size:11px!important; }
+  .menus-page .home-experience #playground .md-categories{
+    flex:1;
+    min-height:0;
+    max-height:none;
+    overflow:auto;
+    scrollbar-color:#aebd9e transparent;
+    padding:0 6px 0 0;
+  }
+  .menus-page .home-experience #playground .md-category{ margin-bottom:10px; }
+  .menus-page .home-experience #playground .md-category-name{ font-size:12px!important; }
+  .menus-page .home-experience #playground .md-item-name{ font-size:12px!important; }
+  .menus-page .home-experience #playground .md-item-name-wrap > span{ font-size:10px; }
+  .menus-page .home-experience #playground .md-price,.menus-page .home-experience #playground .md-price input{ font-size:12px; }
+  .menus-page .home-experience #playground .md-price input{ width:57px; padding:6px; }
+  .menus-page .home-experience #playground .md-switch,.menus-page .home-experience #playground .md-special,.menus-page .home-experience #playground .md-edit-button{ font-size:11px!important; min-height:26px; }
+  .menus-page .home-experience #playground .md-item-switches{ gap:12px; }
+  .menus-page .home-experience #playground .md-order-buttons button{ min-width:24px; min-height:24px; }
+  .menus-page .home-experience #playground .md-workspace-actions{ flex:none; margin-top:10px; gap:9px; }
+  .menus-page .home-experience #playground .md-workspace-actions button{ min-height:39px; padding:9px 14px; font-size:12px!important; }
+  .menus-page .home-experience #playground .md-keyboard-note{ flex:none; font-size:10px; line-height:1.4; margin-top:7px!important; }
+  .menus-page .home-experience #playground .md-workspace-bottom{ flex:none; padding:9px 16px; font-size:10px; }
+  .menus-page .home-experience #playground .md-guest{ min-height:0; padding:0; display:flex; flex-direction:column; }
+  .menus-page .home-experience #playground .md-guest-label{ flex:none; width:100%; max-width:340px; margin:0 auto 8px; font-size:9px; }
+  .menus-page .home-experience #playground .md-phone{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+    width:100%;
+    max-width:340px;
+    margin:0 auto;
+    padding-top:15px;
+    border-width:6px;
+    border-radius:29px;
+  }
+  .menus-page .home-experience #playground .md-phone-speaker{ top:7px; }
+  .menus-page .home-experience #playground .md-guest-content{
+    flex:1;
+    min-height:0;
+    height:auto;
+    border-radius:0 0 21px 21px;
+    scrollbar-width:thin;
+    scrollbar-color:#bcc8b4 transparent;
+  }
+  .menus-page .home-experience #playground .md-guest-content::-webkit-scrollbar{ display:block; width:5px; }
+  .menus-page .home-experience #playground .md-guest-content::-webkit-scrollbar-thumb{ background:#bcc8b4; border-radius:4px; }
+  .menus-page .home-experience #playground .md-menu-header{ padding:13px 14px 14px; }
+  .menus-page .home-experience #playground .md-venue-symbol{ width:24px; height:24px; margin-bottom:5px; }
+  .menus-page .home-experience #playground .md-venue-symbol svg{ width:14px; height:14px; }
+  .menus-page .home-experience #playground .md-menu-header > p{ margin-bottom:5px; }
+  .menus-page .home-experience #playground .md-guest .md-menu-header h3{ max-width:none; font-size:22px; line-height:1.1; margin-bottom:4px; }
+  .menus-page .home-experience #playground .md-menu-header > span{ font-size:11px; }
+  .menus-page .home-experience #playground .md-guest-controls{ padding:12px 13px 0; }
+  .menus-page .home-experience #playground .md-guest-menu-tabs{ margin-bottom:10px; }
+  .menus-page .home-experience #playground .md-guest-menu-tabs button{ font-size:10px!important; padding:3px 7px 8px; }
+  .menus-page .home-experience #playground .md-search input{ font-size:11px!important; }
+  .menus-page .home-experience #playground .md-filter-label{ margin:11px 0 7px; font-size:8px; }
+  .menus-page .home-experience #playground .md-filter{ min-height:27px; padding:5px 6px; font-size:10px!important; }
+  .menus-page .home-experience #playground .md-dietary-note{ font-size:9px; line-height:1.45; margin-top:8px!important; }
+  .menus-page .home-experience #playground .md-guest-dishes{ padding:5px 13px 0; }
+  .menus-page .home-experience #playground .md-guest-category{ margin-top:10px; }
+  .menus-page .home-experience #playground .md-guest .md-guest-dish-title h5{ font-size:12px; max-width:none; }
+  .menus-page .home-experience #playground .md-guest-dish-title > span{ font-size:11px; }
+  .menus-page .home-experience #playground .md-guest-dish-copy > p{ font-size:10px; line-height:1.5; }
+  .menus-page .home-experience #playground .md-tag-list > span{ font-size:8px; }
+  .menus-page .home-experience #playground .md-demo-disclosure{ flex:none; font-size:10px; line-height:1.35; max-width:none; margin:8px 0 0!important; }
+  .menus-page .home-experience #playground .playground-footnote{ flex:none; font-size:10px; line-height:1.35; max-width:none; margin:4px 0 0; }
+  .menus-page .home-experience #playground .md-announcement{ bottom:51px; }
+}
+
+/* Small laptop displays still show both complete panes, with readable controls. */
+@media (min-width:1000px) and (min-height:640px) and (max-height:800px) {
+  .menus-page .home-experience #playground > .section-shell{ padding-top:16px; padding-bottom:11px; }
+  .menus-page .home-experience #playground .section-intro{ margin-bottom:10px; row-gap:4px; }
+  .menus-page .home-experience #playground .section-intro h2{ font-size:28px; }
+  .menus-page .home-experience #playground .section-intro .eyebrow{ font-size:9px; }
+  .menus-page .home-experience #playground .md-topline{ margin-bottom:8px; }
+  .menus-page .home-experience #playground .md-workspace-heading{ padding-top:11px; padding-bottom:11px; }
+  .menus-page .home-experience #playground .md-workspace-heading h3{ font-size:20px; }
+  .menus-page .home-experience #playground .md-staff-content{ padding-top:10px; padding-bottom:9px; }
+  .menus-page .home-experience #playground .md-keyboard-note{ margin-top:5px!important; }
+  .menus-page .home-experience #playground .md-login-benefits{ gap:4px; margin-top:9px; }
+  .menus-page .home-experience #playground .md-split{ grid-template-columns:minmax(0,1fr) minmax(320px,360px); }
+  .menus-page .home-experience #playground .md-phone,.menus-page .home-experience #playground .md-guest-label{ max-width:360px; }
+  .menus-page .home-experience #playground .md-menu-header{ padding:9px 12px 10px; }
+  .menus-page .home-experience #playground .md-venue-symbol{ display:none; }
+  .menus-page .home-experience #playground .md-menu-header > p{ font-size:7px; line-height:1.3; margin-bottom:3px; }
+  .menus-page .home-experience #playground .md-guest .md-menu-header h3{ font-size:20px; line-height:1.05; margin-bottom:2px; }
+  .menus-page .home-experience #playground .md-menu-header > span{ display:block; font-size:10px; line-height:1.25; }
+  .menus-page .home-experience #playground .md-guest-controls{ padding:8px 12px 0; }
+  .menus-page .home-experience #playground .md-guest-menu-tabs{ margin-bottom:7px; }
+  .menus-page .home-experience #playground .md-guest-menu-tabs button{ line-height:1.3; padding-top:2px; padding-bottom:6px; }
+  .menus-page .home-experience #playground .md-search{ padding:7px 9px; }
+  .menus-page .home-experience #playground .md-filter-label{ margin:8px 0 6px; line-height:1.2; }
+  .menus-page .home-experience #playground .md-dietary-filters{ gap:4px; }
+  .menus-page .home-experience #playground .md-filter{ min-height:24px; padding:4px 6px; }
+  .menus-page .home-experience #playground .md-dietary-note{ font-size:9px; line-height:1.3; margin-top:6px!important; }
+  .menus-page .home-experience #playground .md-guest-dishes{ padding:3px 12px 0; }
+  .menus-page .home-experience #playground .md-guest-category{ margin-top:7px; }
+  .menus-page .home-experience #playground .md-guest .md-guest-category h4{ font-size:18px; line-height:1.2; margin-bottom:9px; padding-bottom:6px; }
+}
+
+/* Let narrow screens flow naturally rather than squeezing both sides. */
+@media (max-width:999px), (max-height:639px) {
+  .menus-page .home-experience #playground > .section-shell{ padding-top:30px; }
+  .menus-page .home-experience #playground .section-intro{ margin-bottom:24px; }
+  .menus-page .home-experience #playground .section-intro h2{ font-size:clamp(30px,6.8vw,43px); }
+  .menus-page .home-experience #playground .md-staff-content{ min-height:0; }
+  .menus-page .home-experience #playground .md-categories{ max-height:min(440px,64svh); }
+  .menus-page .home-experience #playground .md-guest-content{ height:min(620px,78svh); min-height:420px; scrollbar-width:thin; }
+  .menus-page .home-experience #playground .md-guest-content::-webkit-scrollbar{ display:block; width:4px; }
+  .menus-page .home-experience #playground .md-guest-content::-webkit-scrollbar-thumb{ background:#bcc8b4; border-radius:4px; }
+}

@@ -52,6 +52,14 @@ Free homepage preview, then £35/month if approved. Cancel anytime; the website 
 
 The monthly plan starts with eight useful pages for genuine service areas, with more available on request, plus a contact form and tap-to-call number. Basic eligible Google Business Profile setup and accuracy help is included; larger or ongoing profile management is discussed separately.
 
+## Online menus
+
+`/menus/` is a native MadeReal service page, with content in `src/menus-body.html` and composition/metadata in `src/menus.mjs`. The normal build reads those files directly and includes the route in the production sitemap. Its CSS and scripts load only on that page from `public/menus-assets/`; the menu styles are scoped so the existing site navigation, footer and other pages retain their styling. Shared navigation/footer and the hospitality page link to the service. The dynamic client-preview function explicitly excludes this route.
+
+The real venue previews, seven linked menu captures, sample login, menu editor, dietary filters, QR sharing and A4 printing are local interactive demonstrations. Sample edits never change the public venue menus. The QR and share link open `https://madereal.uk/menus/#playground`. Menu enquiries use the existing `Quick Preview Lead` form and neutral enquiry acknowledgement. The £19 founding menu-only pilot and £35 managed website plan remain distinct.
+
+`scripts/prepare-menus.mjs` is a one-time migration utility for the earlier local prototype. It is not part of the production build; edit the native source and assets directly for future changes. Production emits the page title, description, canonical URL, MadeReal Organization/WebPage/Service and breadcrumb data as HTML. Preview builds remain noindex. Search Console discovery/indexing must be checked separately after publishing.
+
 ## Operations preserved
 
 - Netlify form: `Quick Preview Lead`, retaining the established lead-form identity.
