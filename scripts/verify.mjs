@@ -10,7 +10,7 @@ for(const [from,to]of Object.entries(JSON.parse(fs.readFileSync('content/redirec
 // Release gate: canonical sitemap entries, crawler access and real lead capture must agree.
 const robots=fs.readFileSync(path.join(root,'robots.txt'),'utf8'),headers=fs.readFileSync(path.join(root,'_headers'),'utf8');
 const preview=/^Disallow:\s*\/\s*$/m.test(robots),production=process.argv.includes('--production');
-const utility=new Set(['/404/','/checkout/','/payment-return/','/preview-received/']),hidden=new Set(['/197/']);
+const utility=new Set(['/404/','/checkout/','/payment-return/','/preview-received/','/menus/request-received/']),hidden=new Set(['/197/']);
 const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
 if(!xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>')||!xml.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'))errors.push('Invalid sitemap XML declaration or namespace');
 const sitemapUrls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]),sitemapRoutes=new Set();

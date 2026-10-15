@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {pages,posts} from '../src/pages.mjs';
+import {menuAudiencePages} from '../src/menu-audiences.mjs';
+Object.assign(pages,menuAudiencePages);
 if(process.env.CONTEXT==='production'&&(process.env.PREVIEW==='1'||process.env.HOSTING_TARGET==='sites'))throw new Error('Production cannot use private-preview indexing or form settings');
 const output=path.resolve('dist');
 if(path.basename(output)!=='dist'||fs.existsSync(output)&&fs.lstatSync(output).isSymbolicLink())throw new Error('Unsafe output directory');
@@ -16,9 +18,10 @@ for(const [route,original]of Object.entries(pages)){
 let html=original.replace('href="/styles.css"',`href="/styles.${hash}.css"`).replace('src="/app.js"',`src="/app.${hash}.js"`).replace('src="/light-field.js"',`src="/light-field.${hash}.js"`);
 // The private design copy is static; enquiries belong to the live Netlify form.
 if(process.env.HOSTING_TARGET==='sites')html=html.replace(/<form\b[^>]*data-lead-form[\s\S]*?<\/form>/,`<section class="preview-form"><p class="eyebrow">PRIVATE DESIGN PREVIEW</p><h2>Your business could be next.</h2><p>This is a private copy of the MadeReal website. Use our live enquiry form to send your details securely.</p><a class="button" href="https://madereal.uk/free-preview/">Open the live preview form <span aria-hidden="true">↗</span></a><p class="fine">No card or deposit. Your homepage preview is free.</p></section>`);
+if(process.env.HOSTING_TARGET==='sites')html=html.replace(/<form\b[^>]*data-menu-intake[\s\S]*?<\/form>/,`<section class="preview-form"><p class="eyebrow">PRIVATE DESIGN PREVIEW</p><h2>Start your online menu.</h2><p>Send your business details through the live MadeReal website.</p><a class="button" href="https://madereal.uk/menus/start/">Open the live menu form <span aria-hidden="true">↗</span></a></section>`);
 const file=path.join(output,route==='/'?'index.html':route.replace(/^\//,'')+'index.html');fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html);
 if(route==='/404/')fs.writeFileSync(path.join(output,'404.html'),html);
-if(!['/404/','/checkout/','/payment-return/','/preview-received/'].includes(route)&&!hiddenRoutes.has(route))indexable.push(route);
+if(!['/404/','/checkout/','/payment-return/','/preview-received/','/menus/request-received/'].includes(route)&&!hiddenRoutes.has(route))indexable.push(route);
 }
 const xmlEscape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;');
 fs.writeFileSync(path.join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+indexable.map(route=>`<url><loc>https://madereal.uk${xmlEscape(route)}</loc></url>`).join('')+'</urlset>\n');
