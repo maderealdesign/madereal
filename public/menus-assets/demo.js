@@ -401,6 +401,7 @@
   }
 
   function init() {
+    if (window.matchMedia('(max-width:700px)').matches) return;
     const mount = document.getElementById('menu-demo');
     if (!mount || mount.dataset.demoInitialized) return;
     root = mount; root.dataset.demoInitialized = 'true'; state = loadState();
