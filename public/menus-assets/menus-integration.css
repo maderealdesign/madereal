@@ -20,6 +20,11 @@ body.menus-page{background:#04090e}
 .menus-page .home-experience .menus-enquiry input,.menus-page .home-experience .menus-enquiry textarea{font-size:16px}
 .menus-page .home-experience .menus-enquiry>p:not(.honeypot){font-size:12px;line-height:1.7}
 .menus-page .home-experience .price-card>small a{text-decoration:underline;text-underline-offset:3px}
+/* The editable sample uses readable helper text on its white and pale green panels. */
+.menus-page .home-experience #playground #menu-demo :is(.md-login-description,.md-login-field,.md-login-field input,.md-form-note,.md-workspace-bottom,.md-status,.md-guest-label,.md-guest-label>span,.md-menu-header>p,.md-menu-header>span,.md-guest-menu-tabs button,.md-filter-label,.md-filter,.md-clear-filters,.md-dietary-note,.md-guest-dish-copy>p,.md-tag-list>span,.md-guest-special,.md-guest-footer,.md-guest-footer button,.md-no-results,.md-demo-disclosure,.md-small-label,.md-workspace-role,.md-tab,.md-icon-button,.md-workspace-intro p,.md-text-button,.md-field-label,.md-photo-caption,.md-category-title>span,.md-item-name-wrap>span,.md-price-value,.md-keyboard-note,.md-order-label,.md-editor-guide>span,.md-editor-guide p,.md-switch,.md-special,.md-edit-button){color:#536b40}
+.menus-page .home-experience #playground #menu-demo .md-search input::placeholder{color:#536b40;opacity:1}
+.menus-page .home-experience #playground #menu-demo .md-order-buttons button:not(:disabled){color:#536b40}
+.menus-page .home-experience #playground>.section-shell>.playground-footnote{color:#536b40}
 .menus-page>.site-footer{position:relative;z-index:2;background:#090c0b;color:#c6d3bc}
 @media(min-width:1000px) and (min-height:640px){.menus-page .home-experience #playground>.section-shell{height:calc(100dvh - 146px)}}
 @media(max-width:850px){.menus-page>.site-header .header-inner{height:85px}.menus-page .home-experience .menus-product-nav{width:calc(100% - 56px);gap:17px;font-size:11px}.menus-page .home-experience .hero-description{font-size:15px}}
