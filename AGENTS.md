@@ -3,6 +3,8 @@
 This is the independent replacement website selected by Dom. Its instructions supersede the old parent site's £197-first positioning within this folder.
 
 - Primary offer: free homepage preview, then £35/month if approved.
+- Online menus have a separate offer confirmed on 15 October 2026: £19 per venue/month, plus an optional £197 one-off full website build. Website hosting is included while the £19 menu subscription is active; domain registration/renewals and business email are separate. Keep this scoped menu package distinct from the general £35 website plan.
+- Menu setup requests use the dedicated `Menu Setup Request` Netlify form at /menus/start/. An enquiry is not proof of payment or a created staff account. Initial designs require Dom's review and customer approval before launch. Payment-triggered setup and the design approval queue are not implemented yet; do not advertise them as live.
 - Cancel anytime; website goes offline when the plan ends.
 - Keep the £197 one-off build as a separate secondary choice.
 - The £35 plan starts with eight local area pages; more can be added on request for genuine service areas. Contact form and tap-to-call included.
