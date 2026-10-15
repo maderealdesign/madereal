@@ -1,0 +1,197 @@
+/* Separate MadeReal Menus concept, inspired by Dom's rounded white/lime reference. */
+@font-face{font-family:MenuNunito;src:url('/menus-assets/assets/fonts/nunito-variable.ttf') format('truetype');font-style:normal;font-weight:200 1000;font-display:swap}
+body.menus-page.menus-cheerful{background:#050e14;font-family:MenuNunito,DM,Arial,sans-serif;color:#f8fafb}
+.menus-page.menus-cheerful .home-experience{--heading:MenuNunito,DM,Arial,sans-serif;--sans:MenuNunito,DM,Arial,sans-serif;--ink:#071016;--muted:#515b64;--paper:#fff;--soft:#f6f7f8;--lime:#d4ff58;--green:#26361a;--line:#e1e4e7;--accent:#d4ff58;--dark:#050e14;font-family:var(--sans);font-weight:500}
+.menus-cheerful .home-experience .mr-light-field{background:radial-gradient(ellipse at 50% 40%,#10202b,#050e14 74%)}
+.menus-cheerful>.site-header{background:#050e14ed;border-bottom-color:#ffffff19}
+.menus-cheerful>.site-header .brand,.menus-cheerful>.site-footer .brand{font-family:MenuNunito,Arial,sans-serif;font-weight:900;letter-spacing:-.055em}
+.menus-cheerful>.site-header .brand span,.menus-cheerful>.site-footer .brand span{color:#d4ff58}
+.menus-cheerful>.site-header .brand small,.menus-cheerful>.site-footer .brand small{font-weight:800;letter-spacing:.12em}
+.menus-cheerful>.site-header nav a{font-family:MenuNunito,Arial,sans-serif;font-weight:750;color:#e1e5e9}
+.menus-cheerful>.site-header .header-cta{font-family:MenuNunito,Arial,sans-serif;background:#d4ff58;color:#071016;border-radius:14px;font-weight:850}
+.menus-cheerful>.site-header .header-cta svg{stroke-width:2;width:25px;height:25px}
+.menus-cheerful>.breadcrumb{color:#aab4bf;font-family:MenuNunito,Arial,sans-serif}
+.menus-page.menus-cheerful .home-experience .menus-product-nav{border-color:#ffffff20;color:#d5dbe2;font-weight:750;font-size:13px}
+.menus-page.menus-cheerful .home-experience .menus-product-nav .menus-nav-cta{background:#d4ff58;color:#071016;border-radius:12px}
+.menus-cheerful .home-experience .hero{gap:64px;padding-top:56px;padding-bottom:72px;align-items:center}
+.menus-cheerful .home-experience .hero-copy{padding-top:10px;text-align:left}
+.menus-page.menus-cheerful .home-experience .hero h1{position:relative;font-family:var(--heading);font-size:clamp(52px,5vw,72px);font-weight:950;line-height:1.04;letter-spacing:-.045em;margin-bottom:30px;text-align:left}
+.menus-cheerful .home-experience .hero h1 em{position:relative;display:inline-block;color:var(--lime);font-style:normal;font-weight:950;padding-bottom:12px}
+.menus-cheerful .home-experience .hero h1 em:after{content:'';position:absolute;left:0;right:-7px;height:17px;bottom:-2px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 20' preserveAspectRatio='none'%3E%3Cpath d='M5 13C78-1 164 23 275 8' fill='none' stroke='%23d4ff58' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat;pointer-events:none}
+.menus-cheerful .home-experience .brand-heading-rays{position:absolute;width:50px;height:61px;left:-39px;top:-28px;color:var(--lime);pointer-events:none;overflow:visible}
+.menus-cheerful .home-experience .hero-copy .eyebrow{color:#d4dce6;font-weight:850;font-size:11px;letter-spacing:.12em;margin-bottom:24px}
+.menus-page.menus-cheerful .home-experience .hero-description{font-size:18px;line-height:1.65;color:#c9cfd8;font-weight:550;max-width:480px}
+.menus-cheerful .home-experience .hero-footnote,.menus-cheerful .home-experience .audience-line{color:#c0c8d2;font-size:13px;font-weight:650}
+.menus-cheerful .home-experience .audience-line i{background:#8c96a3}
+.menus-cheerful .home-experience .hero-ctas{gap:23px;margin-top:30px;justify-content:flex-start}
+.menus-cheerful .home-experience .button{border-radius:15px;background:var(--lime);border-color:var(--lime);color:var(--ink);font-family:var(--sans);font-weight:900;font-size:16px;min-height:54px;padding:15px 23px;gap:22px;box-shadow:none}
+.menus-cheerful .home-experience .button:hover{background:#c6f443;border-color:#c6f443;transform:translateY(-2px);box-shadow:0 8px 24px #d4ff5812}
+.menus-cheerful .home-experience .button-outline{background:transparent;border:1px solid #e5e9ee80;color:#fff}
+.menus-cheerful .home-experience .button-outline:hover{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.menus-cheerful .home-experience .brand-arrow{display:inline-block;flex:none;vertical-align:middle;width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.menus-cheerful .home-experience .text-link{font-weight:800;font-size:15px;border-bottom-color:#c4ccd36b}
+.menus-cheerful .home-experience .hero-ctas .text-link{font-size:15px;color:#eef1f5}
+.menus-cheerful .home-experience .hero-venue-switcher{background:#fff;border:0;border-radius:17px;padding:5px;gap:2px;box-shadow:0 12px 35px #0003}
+.menus-cheerful .home-experience .hero-venue-switcher button{font-family:var(--sans);font-weight:850;font-size:12px;min-height:43px;color:#17202a;padding:11px 15px;border-radius:12px;letter-spacing:-.025em}
+.menus-cheerful .home-experience .hero-venue-switcher button:hover{background:#f0f3f5;color:#071016}
+.menus-cheerful .home-experience .hero-venue-switcher button[aria-pressed=true]{background:var(--lime);color:#071016;border-color:var(--lime);box-shadow:none}
+/* Real venue logos, photographs, colours and type remain their own. */
+.menus-cheerful .home-experience .hero-real-phone{border-color:#172026;box-shadow:18px 30px 65px #0007,0 0 0 1px #ffffff25}
+.menus-cheerful .home-experience .mini-editor{background:#fff;color:#071016;border:1px solid #e3e6e8;border-radius:22px;transform:rotate(-3deg);padding:20px;box-shadow:0 20px 50px #0004}
+.menus-cheerful .home-experience .mini-editor-top{gap:12px;margin-bottom:17px}
+.menus-cheerful .home-experience .mini-editor-top strong{font-family:var(--heading);font-weight:900;letter-spacing:-.03em;font-size:16px;color:#071016;line-height:1.2}
+.menus-cheerful .home-experience .mini-editor-top div>span{font-size:11px;color:#64707a;font-weight:650}
+.menus-cheerful .home-experience .editor-symbol{background:var(--lime);color:#071016;border-radius:12px;font-weight:850}
+.menus-cheerful .home-experience .mini-editor label{color:#17202a;font-weight:800;font-size:12px;line-height:1.4;padding-right:24px}
+.menus-cheerful .home-experience .mini-price-row{position:relative}
+.menus-cheerful .home-experience .mini-price-row input{background:#f7ffe8;border:1px solid #c6ee63;color:#071016;font-weight:850;border-radius:11px;font-size:20px}
+.menus-cheerful .home-experience .mini-price-row button{background:var(--lime);color:#071016;font-weight:900;border-radius:11px}
+.menus-cheerful .home-experience .brand-price-arrow{position:absolute;right:1px;top:65px;width:46px;height:53px;color:#9bcf14;pointer-events:none;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transform:rotate(8deg)}
+.menus-cheerful .home-experience .mini-status{color:#52606a;font-size:11px;font-weight:650}
+.menus-cheerful .home-experience .demo-caption{color:#bdc7d2;font-size:11px;font-weight:650}
+.menus-cheerful .home-experience .demo-caption a{color:#e3e8ee}
+.menus-cheerful .home-experience .promise-strip{font-family:var(--heading);font-weight:850;letter-spacing:-.025em;color:#eaf0f5;border-color:#ffffff1a;font-size:20px}
+.menus-cheerful .home-experience .strip-line{background:var(--lime)}
+.menus-cheerful .home-experience .section-intro h2,.menus-cheerful .home-experience .story-copy h2,.menus-cheerful .home-experience .print-copy h2,.menus-cheerful .home-experience .pricing-intro h2,.menus-cheerful .home-experience .faq-title h2,.menus-cheerful .home-experience .get-started-grid h2{font-family:var(--heading);font-weight:950;line-height:1.06;letter-spacing:-.04em}
+.menus-cheerful .home-experience :is(.section-intro,.story-copy,.print-copy,.pricing-intro,.faq-title,.get-started-grid) h2 em{font-style:normal;font-weight:inherit}
+.menus-cheerful .home-experience .section-intro>p:last-child:not(.eyebrow),.menus-cheerful .home-experience .story-copy>p:not(.eyebrow):not(.dietary-note),.menus-cheerful .home-experience .print-copy>p:not(.eyebrow):not(.small-note),.menus-cheerful .home-experience .pricing-intro>p:not(.eyebrow),.menus-cheerful .home-experience .get-started-grid>div>p:not(.eyebrow){color:#c6ced7;font-size:17px;font-weight:550;line-height:1.7}
+.menus-cheerful .home-experience .eyebrow{color:#c6cfd9;font-weight:850;letter-spacing:.1em}
+.menus-cheerful .home-experience .mr-surface{border-color:#e4e7e9;border-radius:26px;color:#071016;background:#fff}
+.menus-cheerful .home-experience .mr-surface h2 em{color:#4f6b17}
+.menus-cheerful .home-experience .mr-surface .eyebrow,.menus-cheerful .home-experience .mr-surface .section-intro>p:last-child:not(.eyebrow){color:#515b64}
+/* The three-step story uses strong, familiar controls on clean white cards. */
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-section-copy h3{font-family:var(--heading);font-weight:950;letter-spacing:-.035em;line-height:1.12;color:#fff}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-section-copy>p{color:#c5cdd6;font-size:17px;line-height:1.65;font-weight:550}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-number{color:#c7d0db;font-weight:850;letter-spacing:.1em}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-number>span:first-child{background:var(--lime);border-color:var(--lime);color:#071016;border-radius:10px;font-family:var(--heading);font-weight:950;width:35px;height:35px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-feature-chips>span{border-color:#d4ff5840;background:#101c21;color:#e3e9ef;border-radius:9px;font-size:11px;font-weight:700}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo{background:#fff;color:#071016;border-color:#e3e7ea;border-radius:23px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-header{background:#fff;color:#071016;border-bottom-color:#e6e8eb}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-brand{font-size:16px;font-weight:900;color:#071016}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-pill{background:#f5f7f8;border-color:#e3e7ea;color:#56616c;font-size:10px;font-weight:750}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-title{font-family:var(--heading);font-weight:950;letter-spacing:-.035em;color:#071016;font-size:29px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-subtitle{color:#59646e;font-weight:550;font-size:13px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-note{background:#f5f7f8;border-color:#e5e8eb;color:#5f6b76;font-size:10px;font-weight:650}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-field{color:#25313a;font-weight:800;font-size:13px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-field input{background:#fff;color:#38444e;border-color:#d8dde2;border-radius:11px;font-family:var(--sans);font-size:15px;min-height:46px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-primary{background:var(--lime);border-color:var(--lime);color:#071016;border-radius:12px;font-family:var(--sans);font-size:14px;font-weight:900;min-height:47px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-secondary{background:#fff;border-color:#c6d3b5;color:#111c24;border-radius:11px;font-weight:850;min-height:44px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-control-label{color:#56616c;font-weight:850}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-category-row{background:#fff;border-color:#dfe3e7;border-radius:10px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-category-name{font-family:var(--heading);font-weight:850;color:#111c24;font-size:13px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-grip{color:#939ba3}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-order-controls button{background:#f3f5f6;color:#45515e;border-radius:6px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-price-field,.menus-page.menus-cheerful .home-experience #how-it-works .wf-availability{color:#25313a;font-weight:800}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-price-input input{color:#071016;border-color:#c9ec80;background:#f7ffe7;border-radius:10px;font-weight:850;font-family:var(--sans)}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-availability input{accent-color:#111c24}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-preview{background:#fff;border-color:#dce1e5;border-radius:13px}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-header{background:#f4f6f7;border-color:#e2e5e8}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-header strong{color:#071016;font-family:var(--heading);font-weight:950}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-header>span{color:#5f6b76;font-weight:650}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-category h5{color:#17242d;font-family:var(--heading);font-weight:900;border-color:#e3e7ea}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-dish,.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-dish strong{color:#25313a;font-weight:750}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-dish small{color:#66727c;font-weight:500}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-status,.menus-page.menus-cheerful .home-experience #how-it-works .wf-text-button{color:#4c5a66;font-weight:750}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-share-label,.menus-page.menus-cheerful .home-experience #how-it-works .wf-share-caption{color:#596670;font-weight:700}
+.menus-page.menus-cheerful .home-experience #how-it-works .wf-share-url{border-color:#dce1e5;color:#25313a;border-radius:10px}
+.menus-cheerful .home-experience .dietary-floating{background:#fff;border-color:#e4e7e9;color:#17242d;border-radius:18px}
+.menus-cheerful .home-experience .dietary-floating strong{font-family:var(--heading);font-weight:950;letter-spacing:-.025em}
+.menus-cheerful .home-experience .small-tick{background:var(--lime);color:#172014}
+.menus-cheerful .home-experience .plain-benefits{color:#d7dfe7;font-size:15px;font-weight:650}
+.menus-cheerful .home-experience .dietary-note{color:#b8c2cf;font-size:12px}
+.menus-cheerful .home-experience .photo-note{background:#071016ee;color:#fff;font-weight:750;border-radius:12px}
+/* Screenshot contents retain venue styling; their frame follows the new brand. */
+.menus-cheerful .home-experience .venue-card-art{border-color:#ffffff36;background:#fff;border-radius:23px}
+.menus-cheerful .home-experience .venue-card-art:before,.menus-cheerful .home-experience .venue-portfolio-card:nth-child(2n) .venue-card-art:before,.menus-cheerful .home-experience .venue-portfolio-card:nth-child(3n) .venue-card-art:before{background:#edf0f2}
+.menus-cheerful .home-experience .venue-card-badge{background:#fff;border-color:#e0e5e9;color:#071016;border-radius:14px}
+.menus-cheerful .home-experience .venue-card-badge strong{font-family:var(--heading);font-weight:950;color:#071016;font-size:13px}
+.menus-cheerful .home-experience .venue-card-badge small{color:#596670;font-weight:650}
+.menus-cheerful .home-experience .venue-card-check,.menus-cheerful .home-experience .venue-card-arrow{background:var(--lime);color:#071016;font-weight:900}
+.menus-cheerful .home-experience .venue-card-caption{background:#071016f2;border-color:#ffffff18;border-radius:14px;color:#fff}
+.menus-cheerful .home-experience .venue-card-caption h3{font-family:var(--heading);font-weight:900;color:#fff;letter-spacing:-.035em}
+.menus-cheerful .home-experience .venue-card-caption p,.menus-cheerful .home-experience .venue-card-description,.menus-cheerful .home-experience .venue-portfolio-disclosure{color:#bfc9d4}
+.menus-cheerful .home-experience .price-card{background:#fff;border-color:#e2e7ea;border-radius:25px;color:#071016;padding:36px}
+.menus-cheerful .home-experience .price-card h3{font-family:var(--heading);font-weight:950;letter-spacing:-.035em;color:#071016}
+.menus-cheerful .home-experience .price-value{font-family:var(--heading);font-weight:950;color:#071016;letter-spacing:-.055em}
+.menus-cheerful .home-experience .price-card li,.menus-cheerful .home-experience .price-card>p,.menus-cheerful .home-experience .price-card>small{color:#45535e;font-weight:650}
+.menus-cheerful .home-experience .price-card li>span{background:var(--lime);color:#071016}
+.menus-cheerful .home-experience .menus-website-addon{background:#f5f8f0;border-color:#d8e5c3;border-radius:17px}
+.menus-cheerful .home-experience .menus-website-addon h3{font-family:var(--heading);font-weight:950;color:#071016}
+.menus-cheerful .home-experience .menus-website-addon p,.menus-cheerful .home-experience .menus-website-addon .eyebrow{color:#4f5d47}
+.menus-cheerful .home-experience .menus-business-grid>a{background:#fff;color:#071016;border:1px solid #e3e7ea;border-radius:24px}
+.menus-cheerful .home-experience .menus-business-grid>a>span,.menus-cheerful .home-experience .menus-business-grid p{color:#56616c;font-weight:650}
+.menus-cheerful .home-experience .menus-business-grid h3{font-family:var(--heading);font-weight:950;color:#071016;letter-spacing:-.035em}
+.menus-cheerful .home-experience .menus-business-grid strong{color:#071016;font-weight:900;border-top:1px solid #e3e7ea;padding-top:18px}
+.menus-cheerful .home-experience .faq-list summary{font-weight:850;color:#101a22}
+.menus-cheerful .home-experience .faq-list details>p{color:#52606a}
+.menus-cheerful .home-experience .faq-title h2 em,.menus-cheerful .home-experience .im-section h2 em{color:#263e19}
+.menus-cheerful .home-experience .faq-section .eyebrow,.menus-cheerful .home-experience .im-section .eyebrow{color:#56616c}
+.menus-cheerful .home-experience .menus-enquiry{background:#fff;color:#071016;border:1px solid #e2e7ea;border-radius:25px}
+.menus-cheerful .home-experience .menus-enquiry label{font-weight:850;color:#1c2832;font-size:14px}
+.menus-cheerful .home-experience .menus-enquiry input,.menus-cheerful .home-experience .menus-enquiry textarea{background:#fff;border-color:#d5dce1;border-radius:11px;color:#17232e;font-family:var(--sans)}
+.menus-cheerful .home-experience .menus-enquiry>p:not(.honeypot),.menus-cheerful .home-experience .menus-enquiry .form-status{color:#596670}
+/* The optional desktop editor follows the same brand as the smaller examples. */
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-staff{background:#fff;border-color:#dce2e7;border-radius:20px}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-workspace-heading,.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-workspace-bottom{background:#f5f7f8;border-color:#e2e6e9}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo :is(.md-workspace-heading h3,.md-login-title,.md-editor-guide h4){font-family:var(--heading);font-weight:950;color:#071016;letter-spacing:-.035em}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo :is(.md-login-description,.md-login-field,.md-form-note,.md-workspace-bottom,.md-status,.md-small-label,.md-workspace-role,.md-workspace-intro p,.md-text-button,.md-item-name-wrap>span,.md-keyboard-note,.md-order-label,.md-editor-guide>span,.md-editor-guide p){color:#56616c}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-primary{background:var(--lime);border-color:var(--lime);color:#071016;border-radius:11px;font-family:var(--sans);font-weight:900}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-tab{background:#fff;border-color:#dce2e7;color:#25313a;border-radius:9px;font-family:var(--sans);font-weight:850}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-tab.is-active{background:var(--lime);border-color:var(--lime);color:#071016}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-category{background:#fff;border-color:#dde3e8;border-radius:13px}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-category-heading{background:#f5f7f8;border-color:#e2e6e9;border-radius:13px 13px 0 0}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo :is(.md-category-name,.md-item-name){font-family:var(--heading);font-weight:900!important;color:#071016}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo :is(.md-price,.md-price input,.md-switch,.md-special,.md-edit-button){color:#17242e;font-weight:750}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-price input{background:#f7ffe8;border-color:#c7e796;border-radius:9px}
+.menus-page.menus-cheerful .home-experience #playground #menu-demo .md-editor-guide{background:#f7ffe8;border-color:#d2e6ad;border-left-color:#a1cb39;border-radius:11px}
+.menus-cheerful>.site-footer{background:#050e14;color:#c7d0da;border-top:1px solid #ffffff1a;font-family:MenuNunito,Arial,sans-serif}
+.menus-cheerful>.site-footer h2{font-family:MenuNunito,Arial,sans-serif;font-weight:900;letter-spacing:-.02em}
+@media(max-width:1000px){
+ .menus-cheerful .home-experience .hero{gap:32px}
+ .menus-page.menus-cheerful .home-experience .hero h1{font-size:clamp(48px,6vw,68px)}
+ .menus-cheerful .home-experience .brand-heading-rays{width:38px;height:45px;left:-24px;top:-23px}
+ .menus-cheerful .home-experience .hero-description{font-size:16px}
+}
+@media(max-width:700px){
+ .menus-page.menus-cheerful .home-experience .hero{padding-top:44px;padding-bottom:55px;gap:42px}
+ .menus-page.menus-cheerful .home-experience .hero h1{font-size:clamp(43px,11.4vw,70px);line-height:1.06;letter-spacing:-.045em;max-width:460px;margin-bottom:22px}
+ .menus-cheerful .home-experience .hero h1 em{padding-bottom:11px}
+ .menus-cheerful .home-experience .hero h1 em:after{height:13px;bottom:0;right:-2px}
+ .menus-cheerful .home-experience .brand-heading-rays{width:31px;height:39px;left:-9px;top:-24px}
+ .menus-page.menus-cheerful .home-experience .hero-description{font-size:16px;line-height:1.65;max-width:360px}
+ .menus-cheerful .home-experience .hero-copy .eyebrow{font-size:10px;margin-bottom:28px}
+ .menus-cheerful .home-experience .hero-ctas{gap:19px;margin-top:25px}
+ .menus-cheerful .home-experience .hero-ctas .button{font-size:15px;min-height:51px;padding:14px 19px;gap:16px}
+ .menus-cheerful .home-experience .hero-ctas .text-link{font-size:13px}
+ .menus-cheerful .home-experience .hero-footnote{font-size:11px;line-height:1.6}
+ .menus-cheerful .home-experience .audience-line{font-size:11px;gap:11px;margin-top:27px}
+ .menus-cheerful .home-experience .hero-venue-switcher{border-radius:15px}
+ .menus-cheerful .home-experience .hero-venue-switcher button{font-size:11px;padding:10px 12px;min-height:40px;border-radius:10px}
+ .menus-cheerful .home-experience .mini-editor{padding:15px;border-radius:18px}
+ .menus-cheerful .home-experience .mini-editor-top{gap:9px;margin-bottom:13px}
+ .menus-cheerful .home-experience .mini-editor-top strong{font-size:13px}
+ .menus-cheerful .home-experience .mini-editor-top div>span{font-size:10px}
+ .menus-cheerful .home-experience .mini-editor label{font-size:11px;min-height:30px}
+ .menus-cheerful .home-experience .brand-price-arrow{width:36px;height:40px;right:2px;top:58px}
+ .menus-cheerful .home-experience .mini-price-row input{font-size:17px}
+ .menus-cheerful .home-experience .mini-status{font-size:10px}
+ .menus-cheerful .home-experience .promise-strip{font-size:14px;gap:12px}
+ .menus-cheerful .home-experience .section-intro h2,.menus-cheerful .home-experience .story-copy h2,.menus-cheerful .home-experience .print-copy h2,.menus-cheerful .home-experience .pricing-intro h2,.menus-cheerful .home-experience .faq-title h2,.menus-cheerful .home-experience .get-started-grid h2{font-size:clamp(36px,9.5vw,48px);line-height:1.08;letter-spacing:-.035em}
+ .menus-cheerful .home-experience .section-intro>p:last-child:not(.eyebrow),.menus-cheerful .home-experience .story-copy>p:not(.eyebrow):not(.dietary-note),.menus-cheerful .home-experience .print-copy>p:not(.eyebrow):not(.small-note),.menus-cheerful .home-experience .pricing-intro>p:not(.eyebrow),.menus-cheerful .home-experience .get-started-grid>div>p:not(.eyebrow){font-size:15px;line-height:1.65}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-section-copy h3{font-size:31px;line-height:1.12;letter-spacing:-.035em}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-section-copy>p{font-size:15px;line-height:1.65}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-title{font-size:25px}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-demo-subtitle{font-size:12px;line-height:1.55}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-header strong{font-size:18px}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-category-name{font-size:13px}
+ .menus-page.menus-cheerful .home-experience #how-it-works .wf-guest-category h5{font-size:12px}
+ .menus-page.menus-cheerful .home-experience #workflow-publish .wf-share-mobile{background:#fff;border-color:#e3e7ea;border-radius:23px}
+ .menus-cheerful .home-experience .wf-share-mobile h4{font-family:var(--heading);font-size:20px;font-weight:950;letter-spacing:-.03em;color:#071016}
+ .menus-cheerful .home-experience .wf-share-mobile p{font-size:14px;color:#56616c;font-weight:550}
+ .menus-cheerful .home-experience .wf-share-mobile li+li{border-color:#e2e7ea}
+ .menus-cheerful .home-experience .wf-share-icon{background:var(--lime);color:#071016}
+ .menus-cheerful .home-experience .price-card{padding:27px}
+ .menus-cheerful .home-experience .menus-business-grid h3{font-size:29px}
+ .menus-cheerful .home-experience .menus-business-grid p{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){.menus-cheerful .home-experience .button:hover{transform:none}}
