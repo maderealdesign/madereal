@@ -50,8 +50,9 @@ body.menus-page.menus-cheerful{background:#050e14;font-family:MenuNunito,DM,Aria
 .menus-cheerful .home-experience .mini-status{color:#52606a;font-size:11px;font-weight:650}
 .menus-cheerful .home-experience .demo-caption{color:#bdc7d2;font-size:11px;font-weight:650}
 .menus-cheerful .home-experience .demo-caption a{color:#e3e8ee}
-.menus-cheerful .home-experience .promise-strip{font-family:var(--heading);font-weight:850;letter-spacing:-.025em;color:#eaf0f5;border-color:#ffffff1a;font-size:20px}
-.menus-cheerful .home-experience .strip-line{background:var(--lime)}
+.menus-cheerful .home-experience .promise-strip{font-family:var(--heading);font-weight:850;letter-spacing:-.025em;background:var(--lime);color:#071016;border-color:#d4ff58;font-size:20px}
+.menus-cheerful .home-experience .strip-line{background:#071016;opacity:.3}
+.menus-cheerful .home-experience .hero-footnote .small-tick{display:inline-grid;place-items:center;width:17px;height:17px;vertical-align:middle;background:var(--lime);color:#071016;border-radius:50%;font-size:12px;line-height:1;margin-right:6px}
 .menus-cheerful .home-experience .section-intro h2,.menus-cheerful .home-experience .story-copy h2,.menus-cheerful .home-experience .print-copy h2,.menus-cheerful .home-experience .pricing-intro h2,.menus-cheerful .home-experience .faq-title h2,.menus-cheerful .home-experience .get-started-grid h2{font-family:var(--heading);font-weight:950;line-height:1.06;letter-spacing:-.04em}
 .menus-cheerful .home-experience :is(.section-intro,.story-copy,.print-copy,.pricing-intro,.faq-title,.get-started-grid) h2 em{font-style:normal;font-weight:inherit}
 .menus-cheerful .home-experience .section-intro>p:last-child:not(.eyebrow),.menus-cheerful .home-experience .story-copy>p:not(.eyebrow):not(.dietary-note),.menus-cheerful .home-experience .print-copy>p:not(.eyebrow):not(.small-note),.menus-cheerful .home-experience .pricing-intro>p:not(.eyebrow),.menus-cheerful .home-experience .get-started-grid>div>p:not(.eyebrow){color:#c6ced7;font-size:17px;font-weight:550;line-height:1.7}
