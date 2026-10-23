@@ -1,0 +1,19 @@
+/* Automatic demonstrations stay inside their cards, without moving page layout. */
+.menus-page .home-experience #how-it-works .wf-category-list{position:relative;isolation:isolate}
+.menus-page .home-experience #how-it-works .wf-category-row{position:relative}
+.menus-page .home-experience #how-it-works .wf-auto-drag-source{opacity:.18}
+.menus-page .home-experience #how-it-works .wf-auto-drag-ghost{position:absolute!important;z-index:4;margin:0!important;pointer-events:none;background:#efffc7;border-color:#a9d738;box-shadow:0 15px 25px #07101624;transform-origin:50% 50%;opacity:1}
+.menus-page .home-experience #how-it-works .wf-auto-drag-ghost button{pointer-events:none}
+.menus-page .home-experience #how-it-works .wf-auto-pointer{position:absolute;display:block;width:25px;height:31px;right:16px;bottom:-10px;z-index:6;pointer-events:none;filter:drop-shadow(0 2px 2px #07101622)}
+.menus-page .home-experience #how-it-works .wf-auto-pointer svg{display:block;width:100%;height:100%;overflow:visible}
+.menus-page .home-experience #how-it-works #wf-login-enter{position:relative}
+.menus-page .home-experience #how-it-works .wf-auto-highlight{outline:3px solid #b4e931!important;outline-offset:3px;background-color:#f5ffdf!important;box-shadow:0 0 0 7px #d4ff5824!important}
+.menus-page .home-experience #how-it-works .wf-primary.wf-auto-highlight{background-color:#d4ff58!important}
+.menus-page .home-experience #how-it-works .wf-auto-price-result{display:inline-block;background:#d4ff58;color:#071016!important;border-radius:5px;box-shadow:0 0 0 4px #d4ff58;transform-origin:50% 50%;font-variant-numeric:tabular-nums}
+.menus-page .home-experience #how-it-works .wf-guest-dish strong{font-variant-numeric:tabular-nums}
+.menus-page .home-experience #how-it-works .wf-auto-share-active .wf-share-icon{background:#d4ff58!important;color:#071016!important;box-shadow:0 0 0 5px #d4ff5826}
+.menus-page .home-experience #how-it-works .wf-share-grid.wf-auto-share-active,.menus-page .home-experience #how-it-works .wf-publish-menu.wf-auto-share-active,.menus-page .home-experience #how-it-works .wf-share-actions.wf-auto-share-active{outline:2px solid #b4e931;outline-offset:5px;border-radius:10px}
+.menus-page .home-experience #how-it-works #wf-update-status{min-height:3.2em}
+.menus-page .home-experience #how-it-works #wf-login-status{min-height:3.2em}
+@media(max-width:470px){.menus-page .home-experience #how-it-works .wf-auto-pointer{right:26px;bottom:-9px;width:24px;height:29px}.menus-page .home-experience #how-it-works #wf-update-status{min-height:4.2em}}
+@media(prefers-reduced-motion:reduce){.menus-page .home-experience #how-it-works .wf-auto-pointer{display:none}.menus-page .home-experience #how-it-works .wf-auto-highlight{outline:none!important;box-shadow:none!important}}
