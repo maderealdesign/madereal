@@ -3,6 +3,17 @@
   if (!document.body.classList.contains('menus-page')) return;
   window.HeroMenus?.init();
   window.MenuDemo?.init();
+  const phone = window.matchMedia('(max-width:700px)');
+  // Old campaign links still have #playground; send phones to the real menu examples.
+  const routePhoneDemo = () => {
+    if (!phone.matches || location.hash !== '#playground') return;
+    history.replaceState(null, '', location.pathname + location.search + '#real-menus');
+    document.getElementById('real-menus')?.scrollIntoView({ block: 'start' });
+  };
+  window.addEventListener('hashchange', routePhoneDemo);
+  if (document.readyState === 'complete') routePhoneDemo();
+  else window.addEventListener('load', routePhoneDemo, { once: true });
+  phone.addEventListener?.('change', () => { if (phone.matches) routePhoneDemo(); else window.MenuDemo?.init(); });
   document.querySelector('#print-demo-menu')?.addEventListener('click', () => window.MenuDemo?.print());
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const reveals = document.querySelectorAll('.home-experience .reveal');
