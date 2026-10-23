@@ -16,6 +16,7 @@ const indexable=[];
 const hiddenRoutes=new Set(['/197/']);
 for(const [route,original]of Object.entries(pages)){
 let html=original.replace('href="/styles.css"',`href="/styles.${hash}.css"`).replace('src="/app.js"',`src="/app.${hash}.js"`).replace('src="/light-field.js"',`src="/light-field.${hash}.js"`);
+if(route==='/')html=html.replace('</head>','<meta name="rotate-verification" content="70d535524d22c7d4dc66f845724c4be011f2a4e032d7a8d55c4ccda815b85fb5"></head>');
 // The private design copy is static; enquiries belong to the live Netlify form.
 if(process.env.HOSTING_TARGET==='sites')html=html.replace(/<form\b[^>]*data-lead-form[\s\S]*?<\/form>/,`<section class="preview-form"><p class="eyebrow">PRIVATE DESIGN PREVIEW</p><h2>Your business could be next.</h2><p>This is a private copy of the MadeReal website. Use our live enquiry form to send your details securely.</p><a class="button" href="https://madereal.uk/free-preview/">Open the live preview form <span aria-hidden="true">↗</span></a><p class="fine">No card or deposit. Your homepage preview is free.</p></section>`);
 if(process.env.HOSTING_TARGET==='sites')html=html.replace(/<form\b[^>]*data-menu-intake[\s\S]*?<\/form>/,`<section class="preview-form"><p class="eyebrow">PRIVATE DESIGN PREVIEW</p><h2>Start your online menu.</h2><p>Send your business details through the live MadeReal website.</p><a class="button" href="https://madereal.uk/menus/start/">Open the live menu form <span aria-hidden="true">↗</span></a></section>`);
