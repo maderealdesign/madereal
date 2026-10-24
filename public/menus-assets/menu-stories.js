@@ -64,7 +64,7 @@
     text(scene,'[data-ms-price-edit]',step >= 4 ? '9.00' : step === 3 ? '9' : '8.50');
     text(scene,'[data-ms-price-guest]',step >= 8 ? '9.00' : '8.50');
     text(scene,'[data-ms-publish-label]',step === 7 ? 'Publishing…' : step === 8 ? 'Published ✓' : 'Publish');
-    text(scene,'[data-ms-price-status]',step === 8 ? '✓ Published. Customers now see £9.00.' : 'Current published price');
+    text(scene,'[data-ms-price-status]',step === 8 ? '✓ Menu updated' : 'Live price');
     text(scene,'[data-ms-price-stage]',step >= 8 ? 'Customer menu updated' : step >= 5 ? 'Press Publish' : 'Edit the price');
     scene.dataset.pricePhase = step >= 8 ? 'result' : step >= 5 ? 'publish' : 'edit';
     flag(scene,'editing',step >= 2 && step <= 4);
@@ -146,85 +146,6 @@
   });
  },{threshold:.25});
  scenes.forEach(scene => { render(scene,reduced.matches ? durations[scene.dataset.msScene].length - 1 : 0); observer.observe(scene); });
- const carousel = document.querySelector('[data-ms-carousel]');
- let carouselSync = () => {};
- if (carousel) {
-  const track = carousel.querySelector('[data-ms-track]');
-  const slides = [...track.querySelectorAll('[data-ms-slide]')];
-  const dots = [...carousel.querySelectorAll('[data-ms-dot]')];
-  const previous = carousel.querySelector('[data-ms-prev]');
-  const next = carousel.querySelector('[data-ms-next]');
-  let current = 0, autoTimer = 0, inView = false, manual = false, hover = false, scrollFrame = 0, drag = null, suppressClick = false;
-  const nearest = () => {
-   const left = track.getBoundingClientRect().left;
-   let index = 0, distance = Infinity;
-   slides.forEach((slide,i) => { const gap = Math.abs(slide.getBoundingClientRect().left - left - 2); if (gap < distance) { distance = gap; index = i; } });
-   return index;
-  };
-  const update = () => {
-   current = nearest();
-   dots.forEach((dot,i) => { if (i === current) dot.setAttribute('aria-current','true'); else dot.removeAttribute('aria-current'); });
-   carousel.querySelector('[data-ms-count]').textContent = String(current + 1);
-   previous.disabled = track.scrollLeft <= 3;
-   next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 3;
-  };
-  const go = index => {
-   const target = slides[Math.max(0,Math.min(index,slides.length - 1))];
-   const delta = target.getBoundingClientRect().left - track.getBoundingClientRect().left - 2;
-   track.scrollTo({left:track.scrollLeft + delta,behavior:reduced.matches ? 'instant' : 'smooth'});
-  };
-  const stopAuto = () => { clearTimeout(autoTimer); autoTimer = 0; };
-  carouselSync = () => {
-   stopAuto();
-   if (paused || reduced.matches || document.hidden || !inView || manual || hover || carousel.contains(document.activeElement)) return;
-   autoTimer = setTimeout(() => { go(current >= slides.length - 1 || next.disabled ? 0 : current + 1); carouselSync(); },7500);
-  };
-  const interact = () => { manual = true; stopAuto(); };
-  previous.addEventListener('click',() => { interact(); go(current - 1); });
-  next.addEventListener('click',() => { interact(); go(current + 1); });
-  dots.forEach((dot,i) => dot.addEventListener('click',() => { interact(); go(i); }));
-  track.addEventListener('scroll',() => { cancelAnimationFrame(scrollFrame); scrollFrame = requestAnimationFrame(update); },{passive:true});
-  track.addEventListener('keydown',event => {
-   const index = nearest();
-   if (['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
-    event.preventDefault(); interact();
-    go(event.key === 'Home' ? 0 : event.key === 'End' ? slides.length - 1 : index + (event.key === 'ArrowRight' ? 1 : -1));
-   }
-  });
-  track.addEventListener('touchstart',interact,{passive:true});
-  track.addEventListener('wheel',event => { if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) interact(); },{passive:true});
-  track.addEventListener('pointerdown',event => {
-   interact(); suppressClick = false;
-   if (event.pointerType !== 'mouse' || event.button !== 0) return;
-   drag = {id:event.pointerId,x:event.clientX,y:event.clientY,left:track.scrollLeft,moved:false};
-  });
-  track.addEventListener('pointermove',event => {
-   if (!drag || event.pointerId !== drag.id) return;
-   const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
-   if (!drag.moved && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
-    drag.moved = true; track.classList.add('is-dragging'); track.setPointerCapture(event.pointerId);
-   }
-   if (drag.moved) { event.preventDefault(); track.scrollLeft = drag.left - dx; }
-  });
-  const endDrag = event => {
-   if (!drag || event.pointerId !== drag.id) return;
-   const moved = drag.moved; drag = null;
-   if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
-   track.classList.remove('is-dragging');
-   if (moved) { suppressClick = true; go(nearest()); }
-  };
-  track.addEventListener('pointerup',endDrag);
-  track.addEventListener('pointercancel',endDrag);
-  track.addEventListener('click',event => { if (suppressClick) { event.preventDefault(); event.stopPropagation(); suppressClick = false; } },true);
-  carousel.addEventListener('mouseenter',() => { hover = true; stopAuto(); });
-  carousel.addEventListener('mouseleave',() => { hover = false; carouselSync(); });
-  carousel.addEventListener('focusin',stopAuto);
-  carousel.addEventListener('focusout',() => setTimeout(carouselSync,0));
-  new IntersectionObserver(entries => { inView = entries[0].isIntersecting; carouselSync(); },{threshold:.3}).observe(carousel);
-  carousel.classList.add('is-ready');
-  new ResizeObserver(update).observe(track);
-  update();
- }
  const sync = () => {
   document.body.classList.toggle('ms-paused',paused || reduced.matches);
   pause.hidden = reduced.matches;
@@ -235,7 +156,7 @@
    if (reduced.matches) render(scene,durations[scene.dataset.msScene].length - 1);
    schedule(scene);
   });
-  carouselSync();
+  document.dispatchEvent(new CustomEvent('madereal:motion',{detail:{paused}}));
  };
  pause.addEventListener('click',() => { paused = !paused; sync(); });
  reduced.addEventListener('change',sync);

@@ -52,7 +52,7 @@ function measure(){
 function measureText(){
  // Keep bright stars clear of actual text lines throughout the starfield,
  // without painting any dark panels, gradients or shadows behind the copy.
- textAreas=[...host.querySelectorAll('.hero-copy>h1,.hero-copy>p,.particle-benefit-copy>p,.particle-benefit-copy>h2,.light-break-copy>h2,.light-break-copy>p,.reel-caption>*,.reel-controls')].flatMap(el=>{
+ textAreas=[...host.querySelectorAll('.hero-copy>h1,.hero-copy>p,.particle-benefit-copy>p,.particle-benefit-copy>h2,.light-break-copy>h2,.light-break-copy>p,.reel-caption>*,.reel-controls,.ms-copy>h2,.ms-copy>p,.ms-hero-copy>h1,.ms-hero-copy>p,.ms-floating-heading>h2,.ms-floating-heading>p,.ms-subnav,.ms-note,.ms-promise')].flatMap(el=>{
   const range=document.createRange();range.selectNodeContents(el);
   return[...range.getClientRects()].filter(r=>r.width&&r.height).map(r=>({left:r.left-6,right:r.right+6,top:r.top+scrollY-5,bottom:r.bottom+scrollY+5}));
  });
@@ -140,6 +140,7 @@ function tick(now){
 }
 function request(){if(!frame&&!document.hidden)frame=requestAnimationFrame(tick);}
 function controlsUpdate(){for(const b of controls){b.hidden=reduced.matches;b.setAttribute('aria-pressed',String(paused));b.querySelector('span').textContent=paused?'Play motion':'Pause motion';b.querySelector('path').setAttribute('d',paused?'M5 3l7 5-7 5Z':'M5 4v8M11 4v8');}dirty=true;request();}
+document.addEventListener('madereal:motion',event=>{paused=Boolean(event.detail.paused);controlsUpdate();});
 controls.forEach(b=>b.addEventListener('click',()=>{paused=!paused;controlsUpdate();}));
 host.addEventListener('pointermove',e=>{if(!finePointer.matches||paused||reduced.matches)return;pointer.x=e.clientX/w-.5;pointer.y=e.clientY/h-.5;},{passive:true});
 host.addEventListener('pointerleave',()=>{pointer.x=pointer.y=0;},{passive:true});
