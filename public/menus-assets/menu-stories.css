@@ -41,6 +41,63 @@ body.menus-story{--ms-dark:#07141b;--ms-ink:#102128;--ms-muted:#53636a;--ms-lime
 /* Keep the laptop base inside the preview at every screen size. */
 .menus-story .ms-macbook{left:5%;top:8%;width:74%}
 @media(max-width:760px){.menus-story .ms-macbook{left:3%;top:10%;width:77%}}
+/* Menu examples use the same floating reel and star field as the homepage. */
+.menus-story .ms-menu-stars{background:transparent;padding-bottom:0}
+.menus-story .ms-menu-stars>.ms-subnav,.menus-story .ms-menu-stars>section,.menus-story .ms-menu-stars>.ms-twin,.menus-story .ms-menu-stars>.ms-promise{position:relative;z-index:1}
+.menus-story .ms-floating-menus{padding:42px 0 38px;color:#fff;overflow:hidden}
+.menus-story .ms-floating-heading{margin-bottom:28px}
+.menus-story .ms-floating-heading h2{margin-bottom:13px}
+.menus-story .ms-floating-heading>p:last-child{max-width:650px;color:#c6d3d8;font-size:16px;margin-bottom:0}
+.menus-story .ms-showreel .reel-footer{padding-top:8px}
+.menus-story .ms-showreel .reel-caption .eyebrow{color:#bdc9c6;font-size:11px;letter-spacing:.06em;font-weight:650}
+.menus-story .ms-showreel .reel-caption a{font:750 22px/1.25 var(--ms-font);letter-spacing:-.02em;color:#fff;min-height:38px}
+.menus-story .ms-showreel .reel-controls{color:#d1dcd4}
+.menus-story .ms-showreel .reel-controls button{background:#08131a99;border-color:#6d806c;cursor:pointer}
+.menus-story .ms-showreel .reel-controls button:hover{background:var(--ms-lime);color:var(--ms-ink)}
+.menus-story .ms-showreel .reel-hint{font-size:11px;color:#bccbc7;margin-top:9px}
+.menus-story .ms-showreel .browser-bar{background:#edf0eb;color:#435042}
+.menus-story .ms-showreel .browser-dots{font-size:7px;letter-spacing:2px}
+.menus-story .ms-showreel .browser-open{font-size:14px}
+.menus-story .ms-showreel .reel-stage:focus-visible{outline-color:var(--ms-lime);outline-offset:-4px}
+
+/* A small editor card hands its change to a softer customer-menu card. */
+.menus-story .ms-price-scene{width:100%;max-width:420px;height:355px;margin-inline:auto}
+.menus-story .ms-price-editor{position:absolute;top:9px;left:0;width:86%;padding:17px 20px;border:2px solid #f8f5ff;border-radius:23px;background:#eee8f8;transform:rotate(-2deg);box-shadow:0 12px 26px #0002;z-index:2}
+.menus-story .ms-price-editor .ms-panel-heading{font-size:11px;color:#5c4e73}
+.menus-story .ms-price-editor .ms-edit-row{margin-block:13px;font-size:13px}
+.menus-story .ms-price-value{min-width:74px;padding:6px 9px;background:#fffafc;border-color:#cec2df;border-radius:10px}
+.menus-story .ms-price-editor .ms-publish{border-radius:11px;padding:9px 14px;font-size:11px}
+.menus-story .ms-price-guest{position:absolute;top:181px;right:0;width:82%;padding:17px 20px;background:#fffdf3;border:2px solid #fffef9;border-radius:23px;transform:rotate(2deg);box-shadow:0 14px 30px #0003;transition:transform .45s,box-shadow .45s}
+.menus-story .ms-price-guest .ms-panel-heading{font-size:11px;color:#58704e}
+.menus-story .ms-price-guest .ms-dish{font-size:13px;padding-block:11px;border-color:#dce5cf}
+.menus-story .ms-price-guest .ms-dish strong{font-size:19px;color:#345627}
+.menus-story .ms-price-guest .ms-status{font-size:10px;margin-top:9px;min-height:15px}
+.menus-story .ms-price-scene[data-updated="true"] .ms-price-guest{transform:rotate(2deg) translateY(-3px);box-shadow:0 0 0 3px #c6e9a6,0 14px 30px #0003}
+.menus-story .ms-price-scene .ms-connector{position:absolute;left:10px;top:163px;width:83px;height:72px;color:#badb9e}
+.menus-story .ms-price-scene .ms-connector svg{width:83px;height:72px;transform:none;overflow:visible}
+.menus-story .ms-price-scene>.ms-note{position:absolute;bottom:0;left:0;right:0;font-size:10px;color:#bfcfce;line-height:1.5}
+.menus-story .ms-price-scene .ms-burst{right:31px;top:56%}
+@media(max-width:760px){
+ .menus-story .ms-floating-menus{padding-block:28px 30px}
+ .menus-story .ms-floating-heading{margin-bottom:22px}
+ .menus-story .ms-floating-heading>p:last-child{font-size:14px}
+ .menus-story .ms-showreel .reel-caption a{font-size:21px}
+ .menus-story .ms-showreel .reel-footer{gap:11px}
+ .menus-story .ms-showreel .reel-controls{gap:15px}
+ .menus-story .ms-showreel .reel-hint{margin-top:12px}
+ .menus-story .ms-price-scene{height:345px;max-width:385px}
+ .menus-story .ms-price-editor{width:88%;padding:16px 18px}
+ .menus-story .ms-price-guest{top:174px;width:85%;padding:16px 18px}
+ .menus-story .ms-price-scene .ms-connector{top:156px;left:0}
+}
+@media(max-width:360px){
+ .menus-story .ms-price-editor{width:92%;padding:15px}
+ .menus-story .ms-price-guest{width:89%;padding:15px}
+ .menus-story .ms-price-editor .ms-edit-row,.menus-story .ms-price-guest .ms-dish{font-size:11px}
+ .menus-story .ms-price-value{min-width:67px}
+ .menus-story .ms-price-scene .ms-connector{width:65px;left:-5px}
+ .menus-story .ms-price-scene .ms-connector svg{width:65px}
+}
 /* Allow the final project to align with the start of the swipe area. */
 .menus-story .ms-carousel-track{--ms-slide-width:62%;--ms-slide-gap:24px}.menus-story .ms-slide{flex-basis:var(--ms-slide-width)}.menus-story .ms-carousel-track:after{content:'';flex:0 0 max(0px,calc(100% - var(--ms-slide-width) - var(--ms-slide-gap)))}
 @media(min-width:1600px){.menus-story .ms-carousel-track{--ms-slide-width:59%}}
