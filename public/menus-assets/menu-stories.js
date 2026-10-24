@@ -4,55 +4,242 @@
  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
  const pause = document.querySelector('[data-ms-pause]');
  const scenes = [...document.querySelectorAll('[data-ms-scene]')];
- let paused = false;
  const visible = new Set();
- const text = (scene, selector, value) => { const el = scene.querySelector(selector); if (el && el.textContent !== value) el.textContent = value; };
+ let paused = false;
+ const text = (scene, selector, value) => {
+  const el = scene.querySelector(selector);
+  if (el && el.textContent !== value) el.textContent = value;
+ };
+ const flag = (scene, name, value) => { scene.dataset[name] = String(Boolean(value)); };
+ // Each duration is a visible action or a hold. Pointer moves finish before a click.
+ const durations = {
+  price: [1700,1000,650,350,900,1000,650,650,3800],
+  print: [1700,1600,1000,850,3800],
+  sold: [1800,1000,750,2200,1000,700,2800],
+  special: [1700,800,1000,650,1100,3400],
+  qr: [1600,1000,1700,2200,1700,3200],
+  setup: [2200,2400,3300],
+  photo: [1600,1000,700,1400,3300],
+  collections: [2000,1000,2300,1000,2800],
+  filter: [1700,1000,700,1700,1000,650,3200],
+  team: [1700,1000,700,1500,1000,900,1000,650,3400],
+  pack: [1600,1000,1400,1000,1500,1000,3400],
+  analytics: [1600,1000,700,3600]
+ };
+ const pointers = {
+  price: [null,'.ms-price-value','.ms-price-value','.ms-price-value','.ms-price-value','.ms-publish','.ms-publish','.ms-publish',null],
+  print: [null,'.ms-print-online .ms-dish','.ms-print-button','.ms-print-button',null],
+  sold: [null,'.ms-toggle','.ms-toggle',null,'.ms-toggle','.ms-toggle',null],
+  special: [null,'.ms-add-special','.ms-order-special','.ms-order-special','.ms-order-special',null],
+  qr: [null,'.ms-social-link','.ms-social-link',null,null,null],
+  photo: [null,'.ms-photo-upload','.ms-photo-upload',null,null],
+  collections: [null,'.ms-example-tabs span:nth-child(2)','.ms-example-tabs span:nth-child(2)','.ms-example-tabs span:nth-child(3)','.ms-example-tabs span:nth-child(3)'],
+  filter: [null,'.ms-filter-pill','.ms-filter-pill',null,'.ms-search-box','.ms-search-box','.ms-search-box'],
+  team: [null,'.ms-login-button','.ms-login-button',null,'.ms-team-item .ms-toggle','.ms-team-item .ms-toggle','.ms-team-publish','.ms-team-publish',null],
+  pack: [null,'.ms-download-list>div:nth-child(1)','.ms-download-list>div:nth-child(1)','.ms-download-list>div:nth-child(2)','.ms-download-list>div:nth-child(2)','.ms-download-list>div:nth-child(3)','.ms-download-list>div:nth-child(3)'],
+  analytics: [null,'.ms-date-select','.ms-date-select',null]
+ };
+ const clicks = {
+  price:[2,6],print:[3],sold:[2,5],special:[1,3],qr:[2],photo:[2],
+  collections:[2,4],filter:[2,5],team:[2,5,7],pack:[2,4,6],analytics:[2]
+ };
+ const positionPointer = scene => {
+  const kind = scene.dataset.msScene, step = Number(scene.dataset.step || 0);
+  const selector = pointers[kind]?.[step];
+  const target = selector && scene.querySelector(selector);
+  flag(scene,'pointer',Boolean(target) && !reduced.matches);
+  if (!target) return;
+  const box = scene.getBoundingClientRect(), item = target.getBoundingClientRect();
+  // Aim at the real control, so the cursor also works when the layout changes size.
+  scene.style.setProperty('--mx',(item.left - box.left + item.width * .65 - 3)+'px');
+  scene.style.setProperty('--my',(item.top - box.top + item.height * .58 - 2)+'px');
+ };
  const render = (scene, step) => {
+  const kind = scene.dataset.msScene;
   scene.dataset.step = String(step);
-  switch (scene.dataset.msScene) {
+  flag(scene,'click',clicks[kind]?.includes(step));
+  flag(scene,'updated',(kind === 'price' && step === 8) || (kind === 'print' && step === 4) || (kind === 'qr' && step === 5));
+  switch (kind) {
    case 'price':
-    text(scene, '[data-ms-price-edit]', step >= 1 ? '8.00' : '7.50');
-    text(scene, '[data-ms-price-guest]', step >= 3 ? '8.00' : '7.50');
-    text(scene, '[data-ms-price-status]', step >= 3 ? '✓ Published. Customers see £8.00.' : 'Your current online menu');
+    text(scene,'[data-ms-price-edit]',step >= 4 ? '9.00' : step === 3 ? '9' : '8.50');
+    text(scene,'[data-ms-price-guest]',step >= 8 ? '9.00' : '8.50');
+    text(scene,'[data-ms-publish-label]',step === 7 ? 'Publishing…' : step === 8 ? 'Published ✓' : 'Publish');
+    text(scene,'[data-ms-price-status]',step === 8 ? '✓ Published. Customers now see £9.00.' : 'Current published price');
+    text(scene,'[data-ms-price-stage]',step >= 8 ? 'Customer menu updated' : step >= 5 ? 'Press Publish' : 'Edit the price');
+    scene.dataset.pricePhase = step >= 8 ? 'result' : step >= 5 ? 'publish' : 'edit';
+    flag(scene,'editing',step >= 2 && step <= 4);
+    flag(scene,'publishing',step === 6 || step === 7);
     break;
-   case 'sold': text(scene, '[data-ms-sold-label]', step === 2 ? 'Sold out. Hidden from the menu.' : step === 1 ? 'Switch availability off…' : 'Available on the menu'); break;
-   case 'qr': {
-    const examples = [['Today’s lunch','£9.50'],['New price','£10.00'],['Friday special','£12.50'],['Sunday lunch','£15.00']];
-    text(scene, '[data-ms-qr-title]', examples[step][0]); text(scene, '[data-ms-qr-price]', examples[step][1]); break;
-   }
-   case 'filter': text(scene, '[data-ms-filter-label]', step === 1 || step === 2 ? 'Vegetarian' : 'All dishes'); break;
+   case 'print':
+    text(scene,'[data-ms-print-online]',step >= 1 ? '9.00' : '8.50');
+    text(scene,'[data-ms-print-paper]',step >= 4 ? '9.00' : '8.50');
+    text(scene,'[data-ms-print-stage]',step >= 4 ? '✓ A4 menu generated' : step >= 1 ? '✓ Change published online' : 'Edit once');
+    break;
+   case 'sold':
+    flag(scene,'unavailable',step >= 2 && step <= 4);
+    flag(scene,'hiddenDish',step >= 3 && step <= 4);
+    text(scene,'[data-ms-sold-label]',step >= 3 && step <= 4 ? 'Sold out. Hidden from the customer menu.' : step === 2 ? 'Switching availability off…' : step === 6 ? 'Available again. Restored to the menu.' : 'Available on the menu');
+    break;
+   case 'special':
+    flag(scene,'hasSpecial',step >= 2);
+    flag(scene,'reordered',step >= 4);
+    text(scene,'[data-ms-order-status]',step >= 5 ? 'Customer menu: Today’s special · Breakfast · Lunch' : 'Customer menu: Breakfast · Lunch');
+    break;
+   case 'qr':
+    text(scene,'[data-ms-qr-price]',step >= 3 ? '9.00' : '8.50');
+    text(scene,'[data-ms-qr-status]',step === 2 ? 'Opened from Facebook' : step === 3 ? 'New price. Same menu address.' : step === 4 ? 'Scan the existing QR again…' : step === 5 ? '✓ Same QR. Updated menu.' : 'Opens from either link');
+    flag(scene,'scanning',step === 4);
+    break;
+   case 'photo':
+    flag(scene,'uploaded',step >= 3);
+    flag(scene,'photoVisible',step >= 4);
+    break;
    case 'collections': {
-    const examples = [['A good start.','Eggs on toast · £6.50'],['A lovely lunch.','Roast vegetable bowl · £11.50'],['Something to sip.','Flat white · £3.20']];
-    text(scene, '[data-ms-collection-title]', examples[step][0]); text(scene, '[data-ms-collection-dish]', examples[step][1]); break;
+    const index = step >= 4 ? 2 : step >= 2 ? 1 : 0;
+    const choices = [['Breakfast','Eggs on toast','£6.50'],['Main menu','Fish and chips','£17.50'],['Drinks','Flat white','£3.20']];
+    scene.dataset.collection = String(index);
+    text(scene,'[data-ms-collection-title]',choices[index][0]);
+    text(scene,'[data-ms-collection-dish]',choices[index][1]);
+    text(scene,'[data-ms-collection-price]',choices[index][2]);
+    break;
    }
+   case 'filter':
+    flag(scene,'filtered',step >= 3);
+    flag(scene,'searching',step >= 5);
+    flag(scene,'searched',step >= 6);
+    text(scene,'[data-ms-search-text]',step >= 6 ? 'mushroom' : 'Search dishes');
+    break;
+   case 'team':
+    flag(scene,'workspace',step >= 3);
+    flag(scene,'unavailable',step >= 5);
+    text(scene,'[data-ms-team-status]',step >= 8 ? '✓ Published. Sold-out cake is hidden.' : step >= 5 ? 'Draft: cake unavailable. Ready to publish.' : 'Make a change, then publish');
+    break;
+   case 'pack':
+    flag(scene,'guide',step >= 6);
+    text(scene,'[data-ms-download-status]',step >= 6 ? 'Editing guide opened' : step >= 4 ? '✓ Social image downloaded' : step >= 2 ? '✓ Table QR sign downloaded' : 'Everything in one private link');
+    break;
+   case 'analytics':
+    flag(scene,'report',step >= 3);
+    text(scene,'[data-ms-opens]',step >= 3 ? '186' : '—');
+    break;
+  }
+  // The row being dragged also moves; retarget after its transition completes.
+  positionPointer(scene);
+  if (kind === 'special' && step === 4) {
+   const box = scene.getBoundingClientRect(), row = scene.querySelector('.ms-order-list').getBoundingClientRect();
+   scene.style.setProperty('--mx',(row.left - box.left + 30)+'px');
+   scene.style.setProperty('--my',(row.top - box.top + 20)+'px');
   }
  };
  const stop = scene => { clearTimeout(scene._msTimer); scene._msTimer = 0; };
  const schedule = scene => {
   stop(scene);
   if (paused || reduced.matches || document.hidden || !visible.has(scene)) return;
+  const sequence = durations[scene.dataset.msScene];
   const step = Number(scene.dataset.step || 0);
-  const count = Number(scene.dataset.steps || 4);
-  // Hold the useful result before replaying. A single small change per beat.
-  scene._msTimer = setTimeout(() => { render(scene, (step + 1) % count); schedule(scene); }, step === count - 1 ? 3900 : 1900);
+  scene._msTimer = setTimeout(() => { render(scene,(step + 1) % sequence.length); schedule(scene); },sequence[step]);
  };
  const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-   if (entry.isIntersecting) { visible.add(entry.target); schedule(entry.target); }
+   if (entry.isIntersecting) { visible.add(entry.target); positionPointer(entry.target); schedule(entry.target); }
    else { visible.delete(entry.target); stop(entry.target); }
   });
- }, { threshold: 0.3 });
- scenes.forEach(scene => { render(scene, reduced.matches ? Number(scene.dataset.steps) - 1 : 0); observer.observe(scene); });
+ },{threshold:.25});
+ scenes.forEach(scene => { render(scene,reduced.matches ? durations[scene.dataset.msScene].length - 1 : 0); observer.observe(scene); });
+ const carousel = document.querySelector('[data-ms-carousel]');
+ let carouselSync = () => {};
+ if (carousel) {
+  const track = carousel.querySelector('[data-ms-track]');
+  const slides = [...track.querySelectorAll('[data-ms-slide]')];
+  const dots = [...carousel.querySelectorAll('[data-ms-dot]')];
+  const previous = carousel.querySelector('[data-ms-prev]');
+  const next = carousel.querySelector('[data-ms-next]');
+  let current = 0, autoTimer = 0, inView = false, manual = false, hover = false, scrollFrame = 0, drag = null, suppressClick = false;
+  const nearest = () => {
+   const left = track.getBoundingClientRect().left;
+   let index = 0, distance = Infinity;
+   slides.forEach((slide,i) => { const gap = Math.abs(slide.getBoundingClientRect().left - left - 2); if (gap < distance) { distance = gap; index = i; } });
+   return index;
+  };
+  const update = () => {
+   current = nearest();
+   dots.forEach((dot,i) => { if (i === current) dot.setAttribute('aria-current','true'); else dot.removeAttribute('aria-current'); });
+   carousel.querySelector('[data-ms-count]').textContent = String(current + 1);
+   previous.disabled = track.scrollLeft <= 3;
+   next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 3;
+  };
+  const go = index => {
+   const target = slides[Math.max(0,Math.min(index,slides.length - 1))];
+   const delta = target.getBoundingClientRect().left - track.getBoundingClientRect().left - 2;
+   track.scrollTo({left:track.scrollLeft + delta,behavior:reduced.matches ? 'instant' : 'smooth'});
+  };
+  const stopAuto = () => { clearTimeout(autoTimer); autoTimer = 0; };
+  carouselSync = () => {
+   stopAuto();
+   if (paused || reduced.matches || document.hidden || !inView || manual || hover || carousel.contains(document.activeElement)) return;
+   autoTimer = setTimeout(() => { go(current >= slides.length - 1 || next.disabled ? 0 : current + 1); carouselSync(); },7500);
+  };
+  const interact = () => { manual = true; stopAuto(); };
+  previous.addEventListener('click',() => { interact(); go(current - 1); });
+  next.addEventListener('click',() => { interact(); go(current + 1); });
+  dots.forEach((dot,i) => dot.addEventListener('click',() => { interact(); go(i); }));
+  track.addEventListener('scroll',() => { cancelAnimationFrame(scrollFrame); scrollFrame = requestAnimationFrame(update); },{passive:true});
+  track.addEventListener('keydown',event => {
+   const index = nearest();
+   if (['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) {
+    event.preventDefault(); interact();
+    go(event.key === 'Home' ? 0 : event.key === 'End' ? slides.length - 1 : index + (event.key === 'ArrowRight' ? 1 : -1));
+   }
+  });
+  track.addEventListener('touchstart',interact,{passive:true});
+  track.addEventListener('wheel',event => { if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) interact(); },{passive:true});
+  track.addEventListener('pointerdown',event => {
+   interact(); suppressClick = false;
+   if (event.pointerType !== 'mouse' || event.button !== 0) return;
+   drag = {id:event.pointerId,x:event.clientX,y:event.clientY,left:track.scrollLeft,moved:false};
+  });
+  track.addEventListener('pointermove',event => {
+   if (!drag || event.pointerId !== drag.id) return;
+   const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
+   if (!drag.moved && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+    drag.moved = true; track.classList.add('is-dragging'); track.setPointerCapture(event.pointerId);
+   }
+   if (drag.moved) { event.preventDefault(); track.scrollLeft = drag.left - dx; }
+  });
+  const endDrag = event => {
+   if (!drag || event.pointerId !== drag.id) return;
+   const moved = drag.moved; drag = null;
+   if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+   track.classList.remove('is-dragging');
+   if (moved) { suppressClick = true; go(nearest()); }
+  };
+  track.addEventListener('pointerup',endDrag);
+  track.addEventListener('pointercancel',endDrag);
+  track.addEventListener('click',event => { if (suppressClick) { event.preventDefault(); event.stopPropagation(); suppressClick = false; } },true);
+  carousel.addEventListener('mouseenter',() => { hover = true; stopAuto(); });
+  carousel.addEventListener('mouseleave',() => { hover = false; carouselSync(); });
+  carousel.addEventListener('focusin',stopAuto);
+  carousel.addEventListener('focusout',() => setTimeout(carouselSync,0));
+  new IntersectionObserver(entries => { inView = entries[0].isIntersecting; carouselSync(); },{threshold:.3}).observe(carousel);
+  carousel.classList.add('is-ready');
+  new ResizeObserver(update).observe(track);
+  update();
+ }
  const sync = () => {
-  document.body.classList.toggle('ms-paused', paused || reduced.matches);
+  document.body.classList.toggle('ms-paused',paused || reduced.matches);
   pause.hidden = reduced.matches;
-  pause.setAttribute('aria-pressed', String(paused));
+  pause.setAttribute('aria-pressed',String(paused));
   pause.querySelector('[data-ms-pause-label]').textContent = paused ? 'Play animations' : 'Pause animations';
   pause.firstElementChild.textContent = paused ? '▷' : 'Ⅱ';
-  scenes.forEach(scene => { if (reduced.matches) render(scene, Number(scene.dataset.steps) - 1); schedule(scene); });
+  scenes.forEach(scene => {
+   if (reduced.matches) render(scene,durations[scene.dataset.msScene].length - 1);
+   schedule(scene);
+  });
+  carouselSync();
  };
- pause.addEventListener('click', () => { paused = !paused; sync(); });
- reduced.addEventListener('change', sync);
- document.addEventListener('visibilitychange', () => scenes.forEach(schedule));
+ pause.addEventListener('click',() => { paused = !paused; sync(); });
+ reduced.addEventListener('change',sync);
+ document.addEventListener('visibilitychange',() => { scenes.forEach(schedule); carouselSync(); });
+ new ResizeObserver(() => visible.forEach(positionPointer)).observe(document.body);
  sync();
 })();
