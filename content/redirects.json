@@ -1,4 +1,6 @@
 {
+  "/menu": "/menus/",
+  "/menu.html": "/menus/",
   "/index.html": "/",
   "/index": "/",
   "/menus.html": "/menus/",
