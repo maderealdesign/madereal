@@ -29,7 +29,7 @@ body.menus-story{--ms-dark:#07141b;--ms-ink:#102128;--ms-muted:#53636a;--ms-lime
 .menus-story .ms-carousel-dots button{width:36px;height:44px;padding:14px}
 .menus-story .ms-demo-steps li:before{content:counter(step) / ''}
 @media(max-width:760px){.menus-story .ms-carousel-controls{display:grid;grid-template-columns:1fr auto;gap:6px 12px}.menus-story .ms-carousel-buttons button{width:44px;height:44px}.menus-story .ms-carousel-controls>p{grid-column:2;grid-row:1}.menus-story .ms-carousel-dots{grid-column:1/-1;grid-row:2;justify-content:center}.menus-story .ms-carousel-dots button{width:32px;height:44px;padding:13px}}
-.menus-story{--sans:var(--ms-font);--heading:var(--ms-font)}
+.menus-story{--body:var(--ms-font);--heading:var(--ms-font)}
 /* A4 proportions are retained rather than stretching the printable menu. */
 .menus-story .ms-print-sheet{width:37%;aspect-ratio:210/297;height:auto}
 @media(max-width:760px){.menus-story .ms-print-sheet{width:45%;padding:15px 12px}.menus-story .ms-print-sheet>strong{font-size:20px;margin:10px 0 7px}.menus-story .ms-print-sheet>p{font-size:7px;margin:5px 0}.menus-story .ms-paper-rule{margin:9px 0}.menus-story .ms-paper-category{font-size:13px}.menus-story .ms-print-sheet .ms-dish{font-size:7px;padding:7px 0}.menus-story .ms-paper-lines{display:none}.menus-story .ms-print-sheet small{bottom:12px;font-size:5px;left:12px}}
