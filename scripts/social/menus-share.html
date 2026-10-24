@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>MadeReal menu sharing artwork</title>
+  <script>document.documentElement.dataset.format=new URLSearchParams(location.search).get('format')==='square'?'square':'landscape';</script>
+  <style>
+    @font-face{font-family:Nunito;src:url('/public/menus-assets/assets/fonts/nunito-latin-variable.woff2') format('woff2');font-weight:200 1000}
+    *{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#07141b;color:#fff;font-family:Nunito,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    .artboard{position:relative;width:100%;height:100%;overflow:hidden;background:radial-gradient(ellipse at 88% 52%,#14302d66,transparent 54%),#07141b}
+    .stars{position:absolute;inset:0;opacity:.8}.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#b8dcf1;box-shadow:0 0 5px #c4e8ff}
+    .brand{position:absolute;left:60px;top:42px;font-size:35px;font-weight:950;letter-spacing:-2px;line-height:1.1}.brand span{color:#d4ff58}
+    .eyebrow{position:absolute;left:60px;top:112px;font-size:13px;letter-spacing:2px;font-weight:800;color:#c0d0d3;margin:0}
+    h1{position:absolute;left:56px;top:170px;margin:0;font-size:65px;line-height:1.09;letter-spacing:-2.7px;font-weight:900;z-index:2}
+    h1 span{display:block;white-space:nowrap}h1 em{font-style:normal;color:#d4ff58}
+    .benefits{position:absolute;left:60px;top:409px;margin:0;font-size:23px;color:#c2d0d3;font-weight:650}
+    .price{position:absolute;left:60px;top:478px;display:flex;gap:12px;align-items:baseline;margin:0}.price strong{font-size:48px;line-height:1.1;letter-spacing:-2px;font-weight:900;color:#d4ff58}.price span{font-size:19px;color:#dce4e5;font-weight:650}
+    .address{position:absolute;left:60px;bottom:35px;margin:0;color:#a8bec3;font-size:18px;font-weight:650}
+    .preview{position:absolute;border:1px solid #c4d6d44f;border-radius:12px;overflow:hidden;background:#f5f4e8;box-shadow:0 22px 55px #0006}.preview img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+    .desktop{left:735px;top:124px;width:520px;height:341px;transform:rotate(6deg);z-index:1}.browser-bar{height:22px;display:flex;align-items:center;gap:4px;padding:0 10px;background:#e7e9e2;color:#5c6861;font-size:7px}.browser-bar i{height:3px;width:3px;background:#8a9989;border-radius:50%}.browser-bar span{margin:auto;padding-right:15px}.desktop img{height:calc(100% - 22px)}
+    .mobile{left:756px;top:278px;width:174px;height:315px;border-radius:17px;transform:rotate(-7deg);z-index:3;border:5px solid #1d2a30;box-shadow:0 15px 45px #0009}.mobile img{width:calc(100% + 6px);max-width:none;object-fit:cover;object-position:top}
+    html[data-format="square"],html[data-format="square"] body{width:1080px;height:1080px}
+    [data-format="square"] .brand{left:65px;top:54px;font-size:43px}[data-format="square"] .eyebrow{left:65px;top:128px;font-size:15px}
+    [data-format="square"] h1{left:60px;top:184px;font-size:83px;line-height:1.05;letter-spacing:-3.6px}
+    [data-format="square"] .benefits{left:65px;top:481px;font-size:28px}
+    [data-format="square"] .desktop{left:133px;top:640px;width:740px;height:360px;transform:rotate(4deg)}[data-format="square"] .browser-bar{height:28px;font-size:10px}[data-format="square"] .desktop img{height:calc(100% - 28px)}
+    [data-format="square"] .mobile{left:749px;top:674px;width:190px;height:340px;transform:rotate(-8deg)}
+    [data-format="square"] .price{left:65px;top:534px;gap:14px}[data-format="square"] .price strong{font-size:45px}[data-format="square"] .price span{font-size:23px}
+    [data-format="square"] .address{left:65px;bottom:26px;font-size:20px}
+  </style>
+</head>
+<body>
+  <main class="artboard" aria-label="MadeReal online menu social image">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="brand">made<span>real</span></div>
+    <p class="eyebrow">ONLINE MENUS FOR CAFÉS, PUBS &amp; RESTAURANTS</p>
+    <h1><span>Your online menu.</span><span>Your branding.</span><span><em>Your team in control.</em></span></h1>
+    <p class="benefits">Edit it yourself. Print it anytime.</p>
+    <p class="price"><strong>£19</strong><span>per venue / month</span></p>
+    <p class="address">madereal.uk/menus</p>
+    <div class="preview desktop"><div class="browser-bar"><i></i><i></i><i></i><span>littleitaly.madereal.uk</span></div><img src="/public/menus-assets/assets/showcase/little-italy-desktop.webp" alt="Real Little Italy menu design"></div>
+    <div class="preview mobile"><img src="/public/menus-assets/assets/menus/alma-mobile.webp" alt="Real Alma Inn menu on a phone"></div>
+  </main>
+  <script>
+    // A fixed field makes exports repeatable; stars stay clear of the headline.
+    let seed=241026;const random=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);
+    const square=document.documentElement.dataset.format==='square',width=square?1080:1200,height=square?1080:630;
+    for(let i=0;i<115;i++){const x=random()*width,y=random()*height;if(x<700&&y>96&&y<555)continue;const star=document.createElement('i'),size=random()>0.9?3:1+random();star.className='star';star.style.cssText=`left:${x}px;top:${y}px;width:${size}px;height:${size}px;opacity:${.22+random()*.7}`;document.querySelector('.stars').append(star);}
+  </script>
+</body>
+</html>
