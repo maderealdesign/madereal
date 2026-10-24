@@ -35,6 +35,9 @@ body.menus-story{--ms-dark:#07141b;--ms-ink:#102128;--ms-muted:#53636a;--ms-lime
 @media(max-width:760px){.menus-story .ms-print-sheet{width:45%;padding:15px 12px}.menus-story .ms-print-sheet>strong{font-size:20px;margin:10px 0 7px}.menus-story .ms-print-sheet>p{font-size:7px;margin:5px 0}.menus-story .ms-paper-rule{margin:9px 0}.menus-story .ms-paper-category{font-size:13px}.menus-story .ms-print-sheet .ms-dish{font-size:7px;padding:7px 0}.menus-story .ms-paper-lines{display:none}.menus-story .ms-print-sheet small{bottom:12px;font-size:5px;left:12px}}
 @media(max-width:360px){.menus-story .ms-print-sheet{padding:12px 10px}.menus-story .ms-print-sheet>strong{font-size:17px}.menus-story .ms-print-sheet>span{font-size:6px}.menus-story .ms-print-sheet>p{font-size:6px}.menus-story .ms-print-sheet .ms-dish{font-size:6px;gap:3px}.menus-story .ms-print-sheet small{font-size:4px;left:10px;bottom:10px}}
 @media(max-width:760px){.menus-story .ms-print-scene{height:auto;aspect-ratio:1.3;max-width:450px}}
+/* Keep results close to their controls instead of leaving large empty panels. */
+.menus-story .ms-small-feature .ms-filter-scene{height:230px}.menus-story .ms-small-feature .ms-collections-scene{height:240px}.menus-story .ms-small-feature .ms-sold-scene{height:275px}.menus-story .ms-small-feature .ms-special-scene{height:280px!important}.menus-story .ms-team-scene{height:270px}.menus-story .ms-pack-scene{min-height:335px}
+@media(max-width:360px){.menus-story .ms-small-feature .ms-filter-scene{height:260px!important}}
 /* Keep the laptop base inside the preview at every screen size. */
 .menus-story .ms-macbook{left:5%;top:8%;width:74%}
 @media(max-width:760px){.menus-story .ms-macbook{left:3%;top:10%;width:77%}}
