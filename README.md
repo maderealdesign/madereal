@@ -19,6 +19,7 @@ Local preview: http://127.0.0.1:4321/ . Forms intentionally return an error loca
 
 - `content/site.json`: business identity and offer facts.
 - `content/projects.json`: ordered real portfolio records, screenshots and descriptions. The original 11 remain in order, followed by the latest live full websites: 1664 Gas Services, Matt’s Travel, Vertex Roofing and Complete Roofing (checked 8 October 2026). Carousel and portfolio counts derive from this list.
+- `content/portfolio-additions.json`: additional projects for `/work/` and their design walkthroughs. Checked 25 October 2026: six recent websites and nine public online menus. The public additions lead the work page, followed by the original 15 in their established order; the homepage carousel remains unchanged. Trawden Arms appears last and is explicitly labelled as a preview while its booking features are in testing. Only add owner-approved projects, and capture genuine desktop/mobile previews with `scripts/capture-portfolio.mjs` (requires Playwright and Sharp).
 - `content/hospitality.json`: five real online-menu projects, separate from the main 11-project hero order. Public menus and screenshots checked on 10 September 2026; owner menu editing is confirmed by Dom, not by accessing client logins.
 - `content/posts/*.md`: Markdown articles with YAML metadata; `draft: true` excludes a draft.
 - `content/redirects.json`: explicit old-to-new URL migration map.
