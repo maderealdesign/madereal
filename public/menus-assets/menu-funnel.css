@@ -1,0 +1,29 @@
+.mf-funnel{--mf-ink:#101612;--mf-line:#aab2a6;--mf-muted:#4d584e;--mf-accent:#d2ff5a;color:var(--mf-ink);min-width:0}
+.mf-form{display:grid;gap:22px;position:relative}
+.mf-honeypot{display:none}
+.mf-field{display:grid;gap:9px;min-width:0}
+.mf-field>label{font-weight:600;font-size:16px}
+.mf-field>input{font:inherit;color:inherit;width:100%;min-width:0;border:1px solid var(--mf-line);border-radius:8px;background:#fff;padding:16px 18px;line-height:1.4}
+.mf-field>input[type=file]{font-size:15px;padding:13px;cursor:pointer}
+.mf-field>input[type=file]::file-selector-button{font:inherit;font-weight:600;color:var(--mf-ink);border:0;border-radius:4px;background:#eef1e9;padding:9px 12px;margin-right:12px;cursor:pointer}
+.mf-field>input:focus-visible,.mf-selected button:focus-visible,.mf-contact a:focus-visible{outline:3px solid var(--mf-ink);outline-offset:4px}
+.mf-field>input[aria-invalid=true]{border-color:#ac2525}
+.mf-field>input:disabled{opacity:.65;cursor:wait}
+.mf-help,.mf-note{font-size:13px;line-height:1.6;color:var(--mf-muted);margin:0}
+.mf-note a{color:inherit;text-underline-offset:3px}
+.mf-selected{display:flex;align-items:center;gap:12px;min-width:0;padding:10px 0 0}
+.mf-selected[hidden],.mf-selected img[hidden],.mf-success[hidden],.mf-form[hidden]{display:none}
+.mf-selected img{width:56px;height:56px;object-fit:cover;flex:none;border-radius:4px}
+.mf-selected span{overflow-wrap:anywhere;font-size:14px;line-height:1.4}
+.mf-selected button{margin-left:auto;flex:none;font:inherit;font-size:13px;background:none;border:0;padding:8px 0 8px 8px;text-decoration:underline;text-underline-offset:3px;color:var(--mf-muted);cursor:pointer}
+.mf-submit{justify-content:space-between;min-height:60px;width:100%;background:var(--mf-accent);color:var(--mf-ink);border-color:var(--mf-accent)}
+.mf-submit:disabled{opacity:.65;cursor:wait}
+.mf-status{margin:0;font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.mf-status:empty{display:none}
+.mf-status[data-state=error]{color:#a22626}
+.mf-success h3{font-size:clamp(26px,3vw,40px);line-height:1.12;letter-spacing:-.035em;margin:0 0 18px;font-weight:600}
+.mf-success p{font-size:18px;line-height:1.65;margin:0;color:var(--mf-muted)}
+.mf-contact{margin:28px 0 0;font-size:15px;line-height:1.7;color:var(--mf-muted)}
+.mf-contact a{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--mf-ink);text-decoration:underline;text-underline-offset:4px}
+.mf-contact svg{width:18px;height:18px;flex:none}
+@media(max-width:480px){.mf-form{gap:18px}.mf-contact{font-size:14px}.mf-field>input{padding:14px}.mf-field>input[type=file]{padding:10px;font-size:13px}.mf-field>input[type=file]::file-selector-button{padding:8px;margin-right:8px}.mf-selected{gap:8px}}
