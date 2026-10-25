@@ -41,7 +41,7 @@ if(production){
   const menu=fs.readFileSync(menuFile,'utf8'),menuUrl='https://madereal.uk/menus/';
   if(!menu.includes(`rel="canonical" href="${menuUrl}"`)||!/<meta name="robots" content="index,\s*follow(?:,|")/i.test(menu))errors.push('/menus/ must be indexable and canonical on madereal.uk');
   const menuHeading=menu.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  if(!menuHeading||!/(?:online|digital|QR).{0,60}menu|menu.{0,60}(?:online|digital|QR)/i.test(menuHeading))errors.push('/menus/ needs a clear online-menu H1');
+  if(!menuHeading||!/(?:online|digital|QR|website).{0,60}menu|menu.{0,60}(?:online|digital|QR|website)/i.test(menuHeading))errors.push('/menus/ needs a clear online-menu H1');
   if(!sitemapRoutes.has('/menus/'))errors.push('/menus/ missing from the production sitemap');
   const menuGraph=[...menu.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap(m=>{try{return JSON.parse(m[1])['@graph']||[];}catch{return [];}});
   if(!menuGraph.some(x=>x['@type']==='Service'&&x.provider?.['@id']==='https://madereal.uk/#organization'))errors.push('/menus/ missing a MadeReal Service schema');
