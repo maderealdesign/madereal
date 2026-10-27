@@ -75,6 +75,14 @@ Netlify's existing all-form notifications deliver to the owner's configured busi
 
 ## Operations preserved
 
+### Public menu catalogue
+
+`/menus/browse/` is the customer-facing searchable directory. `src/menu-catalogue.mjs` supplies the branded shell; the pure renderer allows only public venue identity, canonical menu link, own-origin logo and verified location. `content/menu-catalogue.json` is the last verified build snapshot, excluding drafts, testing and intentionally noindex menus. The page has real server-rendered anchors and ItemList metadata; it links directly to each business's menu instead of duplicating dishes into competing pages.
+
+The `menu-catalogue` Netlify function refreshes the page's listings from `https://manage.madereal.uk/api/menu-catalogue`, with a five-minute CDN cache. The manager's dedicated public projection is registered during factory onboarding, so a new eligible menu appears without rebuilding this marketing site. A temporary feed outage uses the verified build snapshot. The function includes the built page template explicitly; test its live response as well as static build checks. Local search uses business/address words and the final part of a verified postal locality for the town filter. No visitor data, staff logins or credentials enter the feed, page or metadata. Public WhatsApp links open drafts for owners to request help; they do not grant access or send messages.
+
+Run `node --test scripts/test-menu-catalogue.mjs` for projection, escaping, server refresh and failure tests. Add pagination before exceeding the explicit 500-menu response boundary. This catalogue, Search Console clicks, restaurant-menu aggregate views and business enquiries remain different measurements.
+
 - Netlify form: `Quick Preview Lead`, retaining the established lead-form identity.
 - A lightweight homepage form sits directly after the hero: business name, email and optional phone number. It uses the existing enquiry handler and form identity; the standalone preview form retains the same registered field set. The larger pricing panel remains on the pricing page, not the homepage.
 - Firebase `/admin` and dynamic `/:slug` client preview function.

@@ -16,6 +16,9 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions."menu-catalogue"]
+  included_files = ["dist/menus/browse/index.html"]
+
 [context.deploy-preview.environment]
   PREVIEW = "1"
 

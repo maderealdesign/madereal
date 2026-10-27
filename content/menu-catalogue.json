@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "menus": [
+    {
+      "venueId": "alma-inn-laneshawbridge",
+      "name": "The Alma Inn",
+      "url": "https://alma.madereal.uk/",
+      "logo": "https://alma.madereal.uk/assets/alma-logo.webp",
+      "address": "Emmott Lane, Laneshawbridge, Colne, BB8 7EG",
+      "locality": "Laneshawbridge, Colne"
+    },
+    {
+      "venueId": "emmott-arms-laneshawbridge",
+      "name": "The Emmott Arms",
+      "url": "https://emmott.madereal.uk/",
+      "logo": "https://emmott.madereal.uk/assets/emmott-arms/logo.webp",
+      "address": "Keighley Road, Laneshaw Bridge, Colne, Lancashire, BB8 7HX",
+      "locality": "Laneshaw Bridge, Colne"
+    },
+    {
+      "venueId": "hare-and-hounds-foulridge",
+      "name": "Hare & Hounds Foulridge",
+      "url": "https://hareandhounds.madereal.uk/",
+      "logo": "https://hareandhounds.madereal.uk/assets/hare-hounds/logo.svg",
+      "address": "Skipton Old Rd, Foulridge, Colne, BB8 7PD",
+      "locality": "Foulridge, Colne"
+    },
+    {
+      "venueId": "little-italy-colne",
+      "name": "Little Italy",
+      "url": "https://littleitaly.madereal.uk/",
+      "logo": "https://littleitaly.madereal.uk/assets/little-italy/logo.webp",
+      "address": "74 Albert Road, Colne, BB8 0AG",
+      "locality": "Colne"
+    },
+    {
+      "venueId": "pendle-kitchen-colne",
+      "name": "Pendle Kitchen Cafe",
+      "url": "https://pendlekitchen.madereal.uk/",
+      "logo": "https://pendlekitchen.madereal.uk/venues/pendle-kitchen/logo.webp",
+      "address": "The Arcade, Market Street (next to the Tavern), Colne",
+      "locality": "Colne"
+    },
+    {
+      "venueId": "rising-sun-blacko",
+      "name": "The Rising Sun Blacko",
+      "url": "https://risingsun.madereal.uk/",
+      "logo": "https://risingsun.madereal.uk/venues/rising-sun/logo.webp",
+      "address": "330 Gisburn Road, Blacko, Lancashire, BB9 6LS",
+      "locality": "Blacko"
+    },
+    {
+      "venueId": "shooters-arms-nelson",
+      "name": "The Shooters Arms",
+      "url": "https://shooters.madereal.uk/",
+      "logo": "https://shooters.madereal.uk/assets/shooters-arms/logo.svg",
+      "address": "Southfield Lane, Southfield, Burnley, BB10 3RJ",
+      "locality": "Southfield, Burnley"
+    },
+    {
+      "venueId": "strangers-bar-colne",
+      "name": "Strangers Bar",
+      "url": "https://strangers.madereal.uk/",
+      "logo": "https://strangers.madereal.uk/venues/strangers/logo-dark.webp",
+      "address": "76 Albert Road, Colne, Lancashire, BB8 0AG",
+      "locality": "Colne"
+    },
+    {
+      "venueId": "tempest-arms-elslack",
+      "name": "The Tempest Arms",
+      "url": "https://tempest.madereal.uk/",
+      "logo": "https://tempest.madereal.uk/venues/tempest-arms/logo-card.webp",
+      "address": "Elslack Lane, Elslack, Skipton, North Yorkshire, BD23 3AY",
+      "locality": "Elslack, Skipton"
+    },
+    {
+      "venueId": "tubbs-colne",
+      "name": "Tubbs Restaurant & Bar",
+      "url": "https://tubbs.madereal.uk/",
+      "logo": "https://tubbs.madereal.uk/assets/tubbs/logo.webp",
+      "address": "82 Albert Road, Colne, Lancashire, BB8 0AG",
+      "locality": "Colne"
+    }
+  ],
+  "count": 10,
+  "hasMore": false
+}
