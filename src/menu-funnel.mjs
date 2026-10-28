@@ -11,11 +11,11 @@ const uploadFunnel=`<div class="mf-funnel" data-menu-funnel>
   <p class="mf-honeypot" aria-hidden="true"><label>Leave this empty<input name="website-url" tabindex="-1" autocomplete="off"></label></p>
   <div class="mf-field"><label for="mf-email">Your email</label><input id="mf-email" name="email" type="email" autocomplete="email" maxlength="180" required placeholder="you@yourbusiness.co.uk"></div>
   <div class="mf-field"><label for="mf-file">Your menu</label><input id="mf-file" name="menu_file" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,.heic,.heif,application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif" required aria-describedby="mf-file-help"><p class="mf-help" id="mf-file-help">Upload one photo or PDF, up to 6 MB.</p><div class="mf-selected" data-mf-selected hidden><img data-mf-preview alt="Selected menu photo preview" width="56" height="56" hidden><span data-mf-filename></span><button type="button" data-mf-remove>Remove<span class="sr-only"> selected menu file</span></button></div></div>
-  <button class="button mf-submit" type="submit">Send my menu ${arrow}</button>
-  <p class="mf-note">We’ll email you about the setup before you pay. <a href="/privacy/">Privacy</a>.</p>
+  <button class="button mf-submit" type="submit">Start my free month ${arrow}</button>
+  <p class="mf-note"><strong>Free for the first month from menu creation, then £19/month per venue to keep editing.</strong> No card upfront. No automatic charge. This form sends a setup request; your trial starts when your menu is created. <a href="/privacy/">Privacy</a>.</p>
   <p class="mf-status" role="status" aria-live="polite" tabindex="-1" data-mf-status></p>
  </form>
- <div class="mf-success" data-mf-success hidden><h3 tabindex="-1" data-mf-success-heading>Menu received. Thank you.</h3><p>We’ll review it and email you about the setup. You’ll approve your design before it goes live.</p></div>
+ <div class="mf-success" data-mf-success hidden><h3 tabindex="-1" data-mf-success-heading>Menu received. Thank you.</h3><p>We’ll prepare your menu and email your private welcome link with your login, QR sign and instructions. Your free month starts when your menu is created. After that, it’s £19/month per venue if you choose to keep editing. No card upfront or automatic charge.</p></div>
  <p class="mf-contact">Want to speak to us now? <a href="${menuWhatsApp}" target="_blank" rel="noopener noreferrer">WhatsApp Dom ${arrow}</a></p>
 </div>`;
 

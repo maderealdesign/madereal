@@ -14,8 +14,8 @@
   const summaryNote = form.querySelector('[data-mi-package-note]');
   const updatePackage = () => {
     const website = field('package').value === 'menu-and-website';
-    summaryTitle.textContent = website ? 'Online menu: £19/month. Website: £197 once.' : 'Online menu: £19/month.';
-    summaryNote.textContent = website ? 'Website hosting is included while your £19 menu plan stays active. Domains and business email are separate.' : 'You can add the £197 website when we discuss your setup.';
+    summaryTitle.textContent = website ? 'Menu: free first month, then £19/month per venue. Website: £197 once.' : 'Online menu: free first month, then £19/month per venue.';
+    summaryNote.textContent = website ? 'Website hosting is included while your £19 menu plan stays active. Domains and business email are separate.' : 'Your month starts when your menu is created. No card upfront or automatic charge. The £197 website is optional.';
   };
   form.querySelectorAll('[name="package"]').forEach(input => input.addEventListener('change', updatePackage));
   updatePackage();
